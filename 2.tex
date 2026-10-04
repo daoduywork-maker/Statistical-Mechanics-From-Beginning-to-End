@@ -1,0 +1,55 @@
+\section{The Microcanonical Ensemble}
+
+\paragraph{The Boltzmann constant in the entropy.}
+In thermodynamics, the Gibbs-Shannon entropy carries the Boltzmann constant
+$k_B$, which sets the units of entropy:
+\begin{equation}
+    \boxed{S(p) = -k_B\sum_{i=1}^{\Omega} p_i\ln p_i.}
+\end{equation}
+\textcolor{red}{For simplicity, we set $k_B=1$ during derivations and restore
+it when stating final results.}
+
+\paragraph{From normalization alone to Boltzmann's entropy.}
+We first consider the simplest case, in which the only constraint is
+normalization, $\sum_i p_i=1$. This case describes the
+\textcolor{blue}{microcanonical ensemble}: an isolated system with fixed
+energy and other fixed macroscopic constraints. The energy is not imposed
+through a Lagrange multiplier. Instead, it restricts the sample space to the
+microstates with energy $U$, in practice a thin shell $[U,U+\delta U]$.
+Setting the derivatives of the Lagrangian in Eq.~\eqref{eq:conditions} to
+zero gives
+\begin{align*}
+    \frac{\partial\mathcal{L}}{\partial p_i} = -\ln p_i-1-\alpha = 0,
+    \qquad
+    \frac{\partial\mathcal{L}}{\partial\alpha} = -\Big(\sum_i p_i-1\Big) = 0.
+\end{align*}
+The first condition gives $p_i=e^{-1-\alpha}$, which does not depend on $i$.
+Normalization then requires $\Omega\, e^{-1-\alpha}=1$, so
+\begin{equation}
+    \boxed{p_i = \frac{1}{\Omega}.}
+\end{equation}
+Maximizing the entropy under normalization alone therefore yields a uniform
+distribution: all accessible microstates are equally probable. The
+conventional approach postulates this property. Here, MaxEnt derives it, and
+it recovers Boltzmann's premise for the microcanonical ensemble. Substituting
+$p_i=1/\Omega$ into the entropy gives
+\begin{align*}
+    S = -\sum_{i=1}^{\Omega}\frac{1}{\Omega}\ln\frac{1}{\Omega} = \ln\Omega,
+\end{align*}
+and restoring $k_B$ yields Boltzmann's microcanonical entropy:
+\begin{equation}
+    \boxed{S = k_B\ln\Omega.}
+\end{equation}
+
+\paragraph{Dependence of the entropy on the macroscopic constraints.}
+The number of accessible microstates, $\Omega$, is also called the
+\textcolor{blue}{microcanonical partition function}. It depends on the
+system's Hamiltonian $\mathcal{H}$ and on the macroscopic constraints. In
+particular, the accessible microstates are set by the volume $V$, the
+particle number $N$, and the internal energy $U$, so the entropy is a
+function of these three variables:
+\begin{equation}
+    \boxed{S = S(N,V,U).}
+\end{equation}
+Specifying $N$, $V$, and $U$ therefore determines the equilibrium entropy
+uniquely.

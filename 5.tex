@@ -1,0 +1,575 @@
+\section{The Grand Canonical Ensemble}
+
+\paragraph{Adding a second constraint: particle exchange.}
+Likewise, the \textcolor{blue}{grand canonical ensemble} adds a second
+constrained average, the particle number, so the system exchanges both energy
+and particles with its surroundings.
+\textcolor{red}{Here, $\beta$ and $\gamma$ denote the multipliers of the
+constraints $\langle U\rangle=\bar U$ and $\langle N\rangle=\bar N$, and
+$U_i$ and $N_i$ denote the energy and particle number of microstate $i$.}
+The stationarity conditions of the Lagrangian are
+\begin{align*}
+    \frac{\partial\mathcal{L}}{\partial p_i}
+    &= -\ln p_i-1-\alpha-\beta U_i-\gamma N_i=0,
+    &\frac{\partial\mathcal{L}}{\partial\alpha}
+    &= -\Big(\sum_i p_i-1\Big)=0,\\
+    \frac{\partial\mathcal{L}}{\partial\beta}
+    &= -\Big(\sum_i U_i p_i-\bar U\Big)=0,
+    &\frac{\partial\mathcal{L}}{\partial\gamma}
+    &= -\Big(\sum_i N_i p_i-\bar N\Big)=0.
+\end{align*}
+
+\paragraph{The grand canonical distribution.}
+The first condition gives $p_i=e^{-1-\alpha-\beta U_i-\gamma N_i}$.
+Normalization fixes $\alpha$, and the remaining conditions fix the averages:
+\begin{align*}
+    e^{1+\alpha}=\sum_i e^{-\beta U_i-\gamma N_i},
+    \qquad
+    \bar U=\frac{\sum_i U_i\,e^{-\beta U_i-\gamma N_i}}{\sum_i e^{-\beta U_i-\gamma N_i}},
+    \qquad
+    \bar N=\frac{\sum_i N_i\,e^{-\beta U_i-\gamma N_i}}{\sum_i e^{-\beta U_i-\gamma N_i}}.
+\end{align*}
+As $\beta$ is the control parameter of the canonical ensemble, $\beta$ and
+$\gamma$ are the free parameters here, and $\alpha$ is a normalizing factor
+that depends on both. Defining the \textcolor{blue}{grand canonical partition
+function}
+\begin{equation}
+    \boxed{\Xi(\beta,\gamma)\equiv\sum_i e^{-\beta U_i-\gamma N_i},}
+\end{equation}
+the probability of a microstate with energy $U_i$ and $N_i$ particles is
+\begin{equation}
+    \boxed{p_i=\frac{e^{-\beta U_i-\gamma N_i}}{\Xi(\beta,\gamma)}.}
+\end{equation}
+
+\paragraph{Identifying $\gamma$ with the chemical potential.}
+The entropy of this distribution is
+\begin{align*}
+    \frac{S}{k_B}=-\sum_i p_i\ln p_i
+    =\beta\langle U\rangle+\gamma\langle N\rangle+\ln\Xi.
+\end{align*}
+Differentiating and using $\partial\ln\Xi/\partial\beta=-\langle U\rangle$ and
+$\partial\ln\Xi/\partial\gamma=-\langle N\rangle$, the terms from the implicit
+dependence cancel, as in the canonical case:
+\begin{align*}
+    dS=k_B\left(\beta\,d\langle U\rangle+\gamma\,d\langle N\rangle\right),
+    \qquad\text{so}\qquad
+    \gamma=\frac{1}{k_B}\frac{\partial S}{\partial\langle N\rangle}\bigg|_{\langle U\rangle,V}.
+\end{align*}
+The first law gives $\partial S/\partial N|_{U,V}=-\mu/T$, hence
+$\gamma=-\beta\mu$. Like $\beta=1/(k_BT)$, this is the correspondence with
+classical thermodynamics. \textcolor{red}{From here on, we use $(\beta,\mu)$ in
+place of $(\beta,\gamma)$.} The results become
+\begin{equation}
+    \boxed{\Xi(\beta,\mu)=\sum_i e^{-\beta(U_i-\mu N_i)},
+    \qquad
+    p_i=\frac{e^{-\beta(U_i-\mu N_i)}}{\Xi(\beta,\mu)},}
+\end{equation}
+and the entropy is
+\begin{equation}
+    \boxed{S=k_B\left[\beta\left(\langle U\rangle-\mu\langle N\rangle\right)+\ln\Xi\right].}
+\end{equation}
+
+\paragraph{Energy and particle number are correlated.}
+Exchanging particles also exchanges energy, as the zeroth-law discussion
+showed. We therefore expect $\langle U\rangle$ alone to be a poor function of
+$\beta$ at fixed $\mu$. To see this, we define the
+\textcolor{blue}{covariance} of two observables $X$ and $Y$,
+\begin{equation}
+    \boxed{\mathrm{Cov}(X,Y)\equiv\langle XY\rangle-\langle X\rangle\langle Y\rangle,
+    \qquad\mathrm{Var}(X)=\mathrm{Cov}(X,X).}
+\end{equation}
+Let $w_i=U_i-\mu N_i$. For any observable $X$, at fixed $V$ and $\mu$,
+\begin{align*}
+    \frac{\partial\langle X\rangle}{\partial\beta}\bigg|_{V,\mu}
+    &=\frac{\partial}{\partial\beta}\left(\frac{\sum_i X_i e^{-\beta w_i}}{\Xi}\right)\\
+    &=-\frac{\sum_i X_i w_i e^{-\beta w_i}}{\Xi}
+    +\frac{\left(\sum_i X_i e^{-\beta w_i}\right)\left(\sum_j w_j e^{-\beta w_j}\right)}{\Xi^2}\\
+    &=-\langle Xw\rangle+\langle X\rangle\langle w\rangle
+    =-\mathrm{Cov}(X,w).
+\end{align*}
+For $X=U$ and $X=w$, this gives
+\begin{equation}
+    \boxed{\frac{\partial\langle U\rangle}{\partial\beta}\bigg|_{V,\mu}
+    =-\mathrm{Var}(U)+\mu\,\mathrm{Cov}(U,N).}
+\end{equation}
+\begin{equation}
+    \boxed{\frac{\partial}{\partial\beta}\left(\langle U\rangle-\mu\langle N\rangle\right)\bigg|_{V,\mu}
+    =-\mathrm{Var}(U-\mu N).}
+\end{equation}
+The monotonicity of $\langle U\rangle(\beta)$ depends on the sign of
+$\mu\,\mathrm{Cov}(U,N)$. The combination $\langle U\rangle-\mu\langle N\rangle$
+always decreases with $\beta$, like $\langle U\rangle$ in the canonical
+ensemble. It follows from $\Xi$ in the same way:
+\begin{equation}
+    \boxed{\langle U\rangle-\mu\langle N\rangle
+    =-\frac{\partial\ln\Xi}{\partial\beta}\bigg|_{V,\mu}.}
+\end{equation}
+
+\paragraph{Uniqueness of the multipliers.}
+The multipliers $(\beta,\gamma)$ are determined uniquely by the constrained
+means $(\langle U\rangle,\langle N\rangle)$ whenever the map between them is
+injective. Since $\langle U\rangle=-\partial\ln\Xi/\partial\beta$ and
+$\langle N\rangle=-\partial\ln\Xi/\partial\gamma$, the Jacobian of this map is
+minus the Hessian of $\ln\Xi$. By the covariance formula above, that Hessian
+is the covariance matrix of $(U,N)$:
+\begin{equation}
+    \boxed{\nabla^2_{(\beta,\gamma)}\ln\Xi
+    =\begin{pmatrix}\mathrm{Var}(U)&\mathrm{Cov}(U,N)\\
+    \mathrm{Cov}(U,N)&\mathrm{Var}(N)\end{pmatrix}\equiv C.}
+\end{equation}
+A covariance matrix is positive semidefinite. It is positive definite unless
+some combination $aU_i+bN_i$ takes the same value in every accessible
+microstate. In the generic case, $\ln\Xi$ is strictly convex, so its gradient
+map is injective. Each interior pair $(\bar U,\bar N)$ therefore corresponds to
+exactly one pair $(\beta,\gamma)$. This extends the uniqueness argument of the
+canonical ensemble to two constraints.
+
+\subsection{Particle Number Fluctuation, Thermodynamic Limit, and Equivalence of Ensembles (again)}
+
+\paragraph{Particle number fluctuation.}
+The \textcolor{blue}{particle number fluctuation} is the variance of $N$. At
+fixed $\beta$ and $V$, the weights depend on $\mu$ through $e^{\beta\mu N_i}$,
+so differentiating the mean gives
+\begin{align*}
+    \frac{\partial\langle N\rangle}{\partial\mu}\bigg|_{T,V}
+    =\beta\left(\langle N^2\rangle-\langle N\rangle^2\right)
+    =\beta\,\mathrm{Var}(N).
+\end{align*}
+Hence
+\begin{equation}
+    \boxed{\mathrm{Var}(N)=k_BT\,\frac{\partial\langle N\rangle}{\partial\mu}\bigg|_{T,V}.}
+\end{equation}
+
+\paragraph{The thermodynamic limit.}
+The derivative of an extensive variable with respect to an intensive one is
+extensive, so $\mathrm{Var}(N)\sim N$ and
+\begin{equation}
+    \boxed{\frac{\sqrt{\mathrm{Var}(N)}}{\langle N\rangle}\sim\frac{1}{\sqrt{N}}.}
+\end{equation}
+As for the energy in the canonical ensemble, particle fluctuations are
+negligible because of the sheer size of $N$.
+\textcolor{red}{We therefore write $N$ in place of $\langle N\rangle$, and $U$
+in place of $\langle U\rangle$, from here on.}
+For a very large number of particles, the grand canonical ensemble converges
+to the microcanonical one. We can then use the microcanonical ensemble to
+solve idealized versions of realistic thermodynamic systems analytically.
+
+\subsection{$\mu VT$ Ensemble - Grand Potential}
+
+\paragraph{The grand potential.}
+The natural variables of the grand canonical ensemble are $(\mu,V,T)$, hence
+the label $\mu VT$ ensemble. As in the canonical ensemble, $T$ controls the
+internal energy, and the chemical potential $\mu$ likewise controls the
+particle number. The thermodynamic potential is the
+\textcolor{blue}{grand potential}, the partial Legendre transform of
+$U(S,V,N)$ in $S$ and $N$:
+\begin{equation*}
+    \Phi(\mu,V,T)=U-\frac{\partial U}{\partial S}\bigg|_{V,N}S
+    -\frac{\partial U}{\partial N}\bigg|_{S,V}N,
+\end{equation*}
+that is,
+\begin{equation}
+    \boxed{\Phi(\mu,V,T)=U-TS-\mu N=F-\mu N.}
+\end{equation}
+
+\paragraph{Conjugate variables of $\Phi$.}
+From $dU=T\,dS-P\,dV+\mu\,dN$,
+\begin{align*}
+    d\Phi=dU-T\,dS-S\,dT-\mu\,dN-N\,d\mu=-S\,dT-P\,dV-N\,d\mu,
+\end{align*}
+so
+\begin{equation}
+    \boxed{\frac{\partial\Phi}{\partial T}\bigg|_{V,\mu}=-S,\qquad
+    \frac{\partial\Phi}{\partial V}\bigg|_{T,\mu}=-P,\qquad
+    \frac{\partial\Phi}{\partial\mu}\bigg|_{T,V}=-N.}
+\end{equation}
+
+\paragraph{Minimization of $\Phi$ at fixed $(\mu,V,T)$.}
+At fixed $V$ we have $\delta W=0$, so the first law gives
+$\delta Q=dU-\mu\,dN$. The Clausius inequality, $\delta Q\leq T\,dS$, then
+gives $dU-\mu\,dN\leq T\,dS$, and at fixed $\mu$ and $T$
+\begin{equation}
+    \boxed{d\Phi=dU-\mu\,dN-T\,dS\leq0.}
+\end{equation}
+Any spontaneous process at fixed $(\mu,V,T)$ therefore proceeds toward lower
+$\Phi$ and halts when $\Phi$ reaches its minimum.
+
+\paragraph{Grand potential and the partition function.}
+Using $S=k_B[\beta(U-\mu N)+\ln\Xi]$ and $\beta=1/(k_BT)$,
+\begin{align*}
+    \Phi=U-\mu N-TS
+    =(U-\mu N)-\frac{1}{k_B\beta}\,k_B\left[\beta(U-\mu N)+\ln\Xi\right]
+    =-\frac{\ln\Xi}{\beta},
+\end{align*}
+so
+\begin{equation}
+    \boxed{\Phi=-k_BT\ln\Xi.}
+\end{equation}
+
+\subsection{$NPT$ Ensemble - Gibbs Free Energy}
+
+\paragraph{The Gibbs free energy.}
+The $NPT$ ensemble, conventionally the \textcolor{blue}{isothermal-isobaric
+ensemble}, is the one most used in experiments: the particle number $N$, the
+pressure $P$, and the temperature $T$ are controlled, and the system exchanges
+both energy and volume with its surroundings. Like the $\mu VT$ ensemble, it
+has two intensive natural variables, here $P$ and $T$. Its thermodynamic
+potential is the \textcolor{blue}{Gibbs free energy}, the partial Legendre
+transform of $U(S,V,N)$ in $S$ and $V$:
+\begin{equation*}
+    G(T,P,N)=U-\frac{\partial U}{\partial S}\bigg|_{V,N}S
+    -\frac{\partial U}{\partial V}\bigg|_{S,N}V,
+\end{equation*}
+that is,
+\begin{equation}
+    \boxed{G(T,P,N)=U-TS+PV=F+PV=H-TS.}
+\end{equation}
+
+\paragraph{Conjugate variables of $G$.}
+From $dG=-S\,dT+V\,dP+\mu\,dN$,
+\begin{equation}
+    \boxed{\frac{\partial G}{\partial T}\bigg|_{P,N}=-S,\qquad
+    \frac{\partial G}{\partial P}\bigg|_{T,N}=V,\qquad
+    \frac{\partial G}{\partial N}\bigg|_{T,P}=\mu.}
+\end{equation}
+
+\paragraph{Minimization of $G$ at fixed $(N,P,T)$.}
+At fixed $N$, the first law gives $\delta Q=dU+P\,dV$, and the Clausius
+inequality gives $dU+P\,dV\leq T\,dS$. At fixed $P$ and $T$,
+\begin{equation}
+    \boxed{dG=dU-T\,dS+P\,dV\leq0.}
+\end{equation}
+Any spontaneous process at fixed $(N,P,T)$ therefore proceeds toward lower
+$G$ and halts when $G$ reaches its minimum.
+
+\paragraph{The $NPT$ ensemble from MaxEnt.}
+The $NPT$ ensemble arises from the same principle as the others. Constrain
+the average volume, $\langle V\rangle=\bar V$, with a multiplier $\beta_V$, and
+let the microstates include the volume, with a sum over $V$ replaced by an
+integral if $V$ is continuous. The general solution gives
+$p_i\propto e^{-\beta U_i-\beta_V V}$. As in the earlier cases,
+$\beta_V=\frac{1}{k_B}\,\partial S/\partial\langle V\rangle=\beta P$, because
+$\partial S/\partial V|_{U,N}=P/T$. With the partition function
+\begin{equation*}
+    \Gamma(\beta,P)=\sum_i e^{-\beta(U_i+PV_i)},
+\end{equation*}
+the entropy is $S=k_B[\beta(\langle U\rangle+P\langle V\rangle)+\ln\Gamma]$.
+Solving for the potential gives
+\begin{equation}
+    \boxed{G=U+PV-TS=-k_BT\ln\Gamma.}
+\end{equation}
+All five ensembles of this chapter therefore follow from entropy maximization
+under different sets of constraints.
+
+\subsection{Euler's Homogeneous Function Theorem}
+
+\paragraph{Extensive variables as functions of other variables.}
+We have classified variables as extensive or intensive, but not yet studied
+how one extensive variable depends on the others. \textcolor{blue}{Euler's
+(homogeneous function) theorem} is a general calculus statement for functions
+with a scaling property. A function $f(x_1,\ldots,x_n)$ is
+\textcolor{blue}{homogeneous of degree $k$} if
+\begin{equation}
+    \boxed{f(\lambda x_1,\ldots,\lambda x_n)=\lambda^k f(x_1,\ldots,x_n).}
+\end{equation}
+
+\paragraph{Euler's theorem.}
+If $f$ is differentiable on $\mathbb{R}^n$ and homogeneous of degree $k$, then
+\begin{equation}
+    \boxed{\sum_{i=1}^n x_i\frac{\partial f}{\partial x_i}=k\,f(x_1,\ldots,x_n).}
+\end{equation}
+
+\paragraph{Proof of the theorem.}
+Differentiate the defining relation with respect to $\lambda$. With
+$y_i=\lambda x_i$, the chain rule gives
+\begin{align*}
+    \sum_{i=1}^n\frac{\partial f}{\partial y_i}\bigg|_{y=\lambda x}x_i
+    =k\lambda^{k-1}f(x_1,\ldots,x_n).
+\end{align*}
+Setting $\lambda=1$ yields the theorem.
+
+\paragraph{Application to the internal energy.}
+The internal energy is homogeneous of degree one:
+\begin{equation*}
+    U(\lambda S,\lambda V,\lambda N)=\lambda\,U(S,V,N).
+\end{equation*}
+Euler's theorem then gives
+\begin{equation}
+    \boxed{U=\frac{\partial U}{\partial S}\bigg|_{V,N}S
+    +\frac{\partial U}{\partial V}\bigg|_{S,N}V
+    +\frac{\partial U}{\partial N}\bigg|_{S,V}N=TS-PV+\mu N.}
+\end{equation}
+This is a relation between values, not a statement about the variables of
+$U$. The natural variables of $U$ remain $(S,V,N)$, and $(T,P,\mu)$ are
+functions of them, computed from the derivatives of $U$. They cannot be
+treated as variables of $U$: scaling the system changes $U$, but leaves
+the intensive variables $(T,P,\mu)$ unchanged.
+
+\paragraph{Potentials with fewer extensive variables.}
+In the $NPT$ ensemble, $N$ is the only extensive natural variable, so scaling
+the system scales $G$ with $N$ alone:
+\begin{equation*}
+    G(\lambda N,P,T)=\lambda\,G(N,P,T).
+\end{equation*}
+Euler's theorem then gives $G=\mu N$ for a single-component system, the
+formula commonly used in chemistry. The same argument applies to every
+potential, and we obtain each one by subtracting its transformed terms from
+$U=TS-PV+\mu N$:
+\begin{align*}
+    F&=U-TS=-PV+\mu N, &H&=U+PV=TS+\mu N,\\
+    \Phi&=U-TS-\mu N=-PV, &G&=U-TS+PV=\mu N.
+\end{align*}
+Hence
+\begin{equation}
+    \boxed{
+    \begin{aligned}
+        F(N,V,T)&=-PV+\mu N, &H(N,P,S)&=TS+\mu N,\\
+        \Phi(\mu,V,T)&=-PV, &G(N,P,T)&=\mu N.
+    \end{aligned}}
+\end{equation}
+Ensembles with one intensive natural variable, $NVT$ and $NPS$, have a
+potential that depends on two extensive variables. Ensembles with two
+intensive natural variables, $\mu VT$ and $NPT$, have a potential that
+depends on one extensive variable only.
+
+\subsection{Multi-Component System}
+
+\paragraph{Generalization to several species.}
+So far, we have treated a single species, but realistic systems contain
+several. For species $i$, we introduce the particle number $N_i$ and the
+chemical potential $\mu_i$. The pairs $(\mu_i,N_i)$ are conjugate, like the
+$(\mu,N)$ we have used, and each species adds one degree of freedom.
+\textcolor{red}{From here on, every term $\mu N$ in a Legendre transformation
+is replaced by $\sum_i\mu_iN_i$.} Euler's theorem becomes
+\begin{equation}
+    \boxed{U=TS-PV+\sum_i\mu_iN_i,}
+\end{equation}
+and all earlier results carry over.
+
+\paragraph{Relations between the potentials.}
+The potentials are connected by Legendre transformations:
+\begin{center}
+\begin{tikzpicture}[
+    pot/.style={
+        draw, rounded corners=4pt, thick,
+        minimum width=3.6cm, minimum height=1.6cm,
+        inner sep=4pt, align=center, fill=blue!6
+    },
+    arr/.style={-{Latex[length=3mm]}, thick, shorten >=2pt, shorten <=2pt},
+    lbl/.style={fill=white, inner sep=2pt, font=\small}
+]
+
+% Nodes: U and F on the central axis, H/G on the right, Phi mirrored on the left
+\node[pot] (U)   at (0,5)    {$U(\{N_i\},V,S)$};
+\node[pot] (F)   at (0,0)    {$F(\{N_i\},V,T)$};
+\node[pot] (H)   at (7,5)    {$H(\{N_i\},P,S)$};
+\node[pot] (G)   at (7,0)    {$G(\{N_i\},P,T)$};
+\node[pot] (Phi) at (-7,0)   {$\Phi(\{\mu_i\},V,T)$};
+
+% Right-hand square
+\draw[arr] (U) -- node[lbl] {$+PV$} (H);
+\draw[arr] (U) -- node[lbl] {$-TS$} (F);
+\draw[arr] (H) -- node[lbl] {$-TS$} (G);
+\draw[arr] (F) -- node[lbl] {$+PV$} (G);
+\draw[arr] (U) -- node[lbl, pos=0.55] {$+PV-TS$} (G);
+
+% Left-hand (mirrored) edges
+\draw[arr] (F) -- node[lbl] {$-\sum_i \mu_i N_i$} (Phi);
+\draw[arr] (U) -- node[lbl, pos=0.5] {$-TS-\sum_i \mu_i N_i$} (Phi);
+
+\end{tikzpicture}
+\end{center}
+
+\paragraph{Summary of the ensembles.}
+The table lists, for each ensemble, which variables are fixed and which are
+obtained by differentiating the potential:
+\begin{center}
+\renewcommand{\arraystretch}{2.6}
+
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Ensemble & $\{N_i\}VS$ & $\{N_i\}VT$ & $\{N_i\}PS$ & $\{\mu_i\}VT$ & $\{N_i\}PT$ \\ \hline
+\shortstack{Conventional\\name}
+  & \shortstack{micro-\\canonical}
+  & canonical
+  & \shortstack{isoenthalpic-\\isobaric}
+  & \shortstack{grand\\canonical}
+  & \shortstack{isothermal-\\isobaric} \\ \hline \hline
+\shortstack{Thermodynamic\\potential}
+  & $U$ & $F$ & $H$ & $\Phi$ & $G$ \\ \hline
+$N_i$
+  & fixed & fixed & fixed
+  & $-\dfrac{\partial \Phi}{\partial \mu_i}$ & fixed \\ \hline
+$V$
+  & fixed & fixed
+  & $\dfrac{\partial H}{\partial P}$ & fixed
+  & $\dfrac{\partial G}{\partial P}$ \\ \hline
+$S$
+  & fixed & $-\dfrac{\partial F}{\partial T}$ & fixed
+  & $-\dfrac{\partial \Phi}{\partial T}$
+  & $-\dfrac{\partial G}{\partial T}$ \\ \hline
+$\mu_i$
+  & $\dfrac{\partial U}{\partial N_i}$
+  & $\dfrac{\partial F}{\partial N_i}$
+  & $\dfrac{\partial H}{\partial N_i}$
+  & fixed
+  & $\dfrac{\partial G}{\partial N_i}$ \\ \hline
+$P$
+  & $-\dfrac{\partial U}{\partial V}$
+  & $-\dfrac{\partial F}{\partial V}$ & fixed
+  & $-\dfrac{\partial \Phi}{\partial V}$ & fixed \\ \hline
+$T$
+  & $\dfrac{\partial U}{\partial S}$ & fixed
+  & $\dfrac{\partial H}{\partial S}$ & fixed & fixed \\
+  \hline
+\end{tabular}
+\end{center}
+
+\subsection{Mixing Entropy and the Gibbs Paradox}
+
+\paragraph{Setting and the two properties of the entropy.}
+Let $X=(U,V,N_1,N_2)$ denote the extensive variables and
+$S(X)=k_B\ln\Omega(X)$ the microcanonical entropy. We use
+two properties, both understood in the thermodynamic limit.
+\begin{itemize}
+    \item \textbf{(P1) Superadditivity.} $S(X+Y)\ge S(X)+S(Y)$.
+    Place two independent systems with variables $X$ and $Y$ next to each
+    other. Each pair of microstates, one from each system, is a microstate of
+    the combined system with variables $X+Y$, and distinct pairs give
+    distinct microstates. Hence $\Omega(X+Y)\ge\Omega(X)\Omega(Y)$, and taking
+    $k_B\ln$ gives (P1).
+    \item \textbf{(P2) Homogeneity.} $S(\lambda X)=\lambda S(X)$ for
+    $\lambda>0$. This is extensivity. For identical particles it holds only
+    if $\Omega$ counts indistinguishable particles, that is, with the factor
+    $1/N!$ included.
+\end{itemize}
+
+\paragraph{Concavity of the entropy along the composition line.}
+For $\lambda\in[0,1]$, (P1) and (P2) give
+\begin{align*}
+    S\big(\lambda X+(1-\lambda)Y\big)
+    \ \ge\ S(\lambda X)+S\big((1-\lambda)Y\big)
+    = \lambda S(X)+(1-\lambda)S(Y),
+\end{align*}
+so $S$ is concave in $X$:
+\begin{equation}
+    \boxed{S\big(\lambda X+(1-\lambda)Y\big)\ \ge\ \lambda S(X)+(1-\lambda)S(Y).}
+\end{equation}
+Now fix the total energy $2U$, the volume $2V$, and the total particle number
+$2N$. The only remaining variable is the composition, which we label by the
+number $t$ of species-2 particles:
+\begin{equation*}
+    g(t)\equiv S(2U,\,2V,\,2N-t,\,t),\qquad t\in[0,2N].
+\end{equation*}
+The map $t\mapsto(2U,2V,2N-t,t)$ is affine, and a concave function composed
+with an affine map is concave, so $g$ is concave. Three points on this line
+matter:
+\begin{align*}
+    g(0)&=S(2U,2V,2N,0) &&\text{(all species 1)},\\
+    g(2N)&=S(2U,2V,0,2N) &&\text{(all species 2)},\\
+    g(N)&=S(2U,2V,N,N) &&\text{(half and half)}.
+\end{align*}
+Since $(N,N)=\tfrac12(2N,0)+\tfrac12(0,2N)$, the half-and-half state is the
+midpoint of the two pure states.
+
+\paragraph{Entropy of mixing for distinguishable species.}
+Take the two systems before the partition is removed,
+$X=(U,V,N,0)$ and $Y=(U,V,0,N)$, and define the entropy of mixing
+\begin{equation}
+    \boxed{\Delta S_{\mathrm{mix}}\equiv S(2U,2V,N,N)-S(U,V,N,0)-S(U,V,0,N)
+    =g(N)-S(U,V,N,0)-S(U,V,0,N).}
+\end{equation}
+\emph{Step 1: concavity at the midpoint.} Applying the concavity inequality
+along the line with $\lambda=\tfrac12$,
+\begin{align*}
+    g(N)\ \ge\ \tfrac12\,g(0)+\tfrac12\,g(2N).
+\end{align*}
+The right-hand side is the height of the chord joining the two end points,
+at its midpoint, so the graph of $g$ does not lie below its chord.
+
+\emph{Step 2: homogeneity at the end points.} By (P2) with $\lambda=2$,
+\begin{align*}
+    g(0)=S(2U,2V,2N,0)=2\,S(U,V,N,0),\qquad
+    g(2N)=S(2U,2V,0,2N)=2\,S(U,V,0,N).
+\end{align*}
+Inserting these into the midpoint inequality gives
+$g(N)\ge S(U,V,N,0)+S(U,V,0,N)$, that is,
+\begin{equation}
+    \boxed{\Delta S_{\mathrm{mix}}\ \ge 0.}
+\end{equation}
+The same result follows directly from (P1), since $X+Y=(2U,2V,N,N)$.
+
+\paragraph{When equality holds.}
+Equality in the midpoint inequality means that $g(N)$ lies on the chord. A
+concave function that touches its chord at an interior point equals the chord
+everywhere: if some $g(t_0)$ were strictly above the chord, concavity would
+put $g(N)$ strictly above it too. Therefore
+\begin{equation}
+    \boxed{\Delta S_{\mathrm{mix}}=0
+    \iff g \text{ is affine on } [0,2N],
+    \qquad
+    \Delta S_{\mathrm{mix}}>0
+    \iff g \text{ is not affine.}}
+\end{equation}
+In particular, $\Delta S_{\mathrm{mix}}>0$ whenever $S$ is strictly concave
+along the composition line.
+
+\paragraph{Identical particles and the paradox.}
+For identical particles, take $X=Y=(U,V,N)$. By (P2),
+\begin{align*}
+    S(2U,2V,2N)=2S(U,V,N)=S(X)+S(Y),
+\end{align*}
+so $\Delta S_{\mathrm{mix}}=0$ exactly. In terms of $g$: if the two
+``species'' are physically identical, $S$ depends only on $N_1+N_2$, so $g$
+is constant, hence affine, and the equality case applies. The difference
+between the two cases is whether the composition is a genuine variable of
+$S$. For distinguishable species, $g$ is not affine, and removing the
+partition increases the entropy by the strictly positive amount
+$\Delta S_{\mathrm{mix}}$. For identical particles, $g$ is constant and
+$\Delta S_{\mathrm{mix}}=0$. No continuity is expected between the two: they
+differ in what the counting $\Omega$ treats as distinct, which is why (P2)
+holds for identical particles only with the $1/N!$ included.
+
+\subsection{Gibbs-Duhem Relation}
+
+\paragraph{The intensive variables are not independent.}
+The \textcolor{blue}{Gibbs-Duhem relation} states that the intensive
+variables $(T,P,\{\mu_i\})$ are not independent. Write the extensive
+variables as $x=(S,V,\{N_i\})$ and their conjugates as
+$\xi=(T,-P,\{\mu_i\})$, using $\xi$ as in the Legendre transformation.
+Let $f$ be any thermodynamic potential, obtained from $U$ by exchanging the
+variables in a set $A$ for their conjugates:
+\begin{equation*}
+    f=U-\sum_{a\in A}\xi_a x_a,
+\end{equation*}
+so that $f=U$ for $A=\varnothing$, $f=F$ for $A=\{S\}$, $f=G$ for
+$A=\{S,V\}$, and so on. Wherever $f$ is differentiable in its natural
+variables,
+\begin{equation*}
+    df=\sum_{a\notin A}\xi_a\,dx_a-\sum_{a\in A}x_a\,d\xi_a.
+\end{equation*}
+By the Euler relation, $U=\sum_a\xi_a x_a$, so $f$ is also
+\begin{equation*}
+    f=\sum_{a\notin A}\xi_a x_a,
+    \qquad\text{hence}\qquad
+    df=\sum_{a\notin A}\xi_a\,dx_a+\sum_{a\notin A}x_a\,d\xi_a.
+\end{equation*}
+Comparing the two expressions for $df$ gives
+\begin{equation}
+    \boxed{\sum_a x_a\,d\xi_a=S\,dT-V\,dP+\sum_i N_i\,d\mu_i=0.}
+\end{equation}
+The result does not depend on the choice of $A$, so it holds in every
+ensemble. Of the $n$ intensive variables, only $n-1$ can be varied
+independently. 
+
+\paragraph{Why no ensemble fixes all the intensive variables.}
+Exchanging all extensive variables for their conjugates, $A=\{S,V,\{N_i\}\}$,
+gives the potential
+\begin{equation*}
+    f=U-TS+PV-\sum_i\mu_iN_i=0.
+\end{equation*}
+It vanishes identically by the Euler relation. Such a potential would depend
+on no extensive variable at all, so nothing would fix the size of the system.
+A system that exchanges energy, volume, and particles freely, with all of
+$(T,P,\{\mu_i\})$ held fixed, therefore has no ensemble of its own, and
+Gibbs-Duhem is the statement of this fact.

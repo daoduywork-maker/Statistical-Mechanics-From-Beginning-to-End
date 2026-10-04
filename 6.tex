@@ -1,0 +1,123 @@
+\section{First-Order Phase Transitions and Phase Diagram}
+For a given system, a \textcolor{blue}{phase} is a region of the space of natural
+variables in which the thermodynamic potential is analytic: infinitely
+differentiable, with no kinks or divergences. A \textcolor{blue}{phase transition}
+is a point where it fails to be analytic. Strictly, such singularities appear only
+in the thermodynamic limit $N\to\infty$, since the partition function of a finite
+system is analytic.
+
+We usually study phases at fixed particle numbers, pressure and temperature, for
+two reasons. Experimentally, these are easy to control. Structurally, the phases
+inside such a system exchange energy, volume and particles with each other, so at
+equilibrium $(\{\mu_i\},P,T)$ must be equal in all phases. The natural choice of
+potential is then the Gibbs free energy $G(T,P,\{N_i\})$. Because $G$ is extensive,
+\begin{align*}
+    G(T,P,\{N_i\}) = N\,g(T,P,\{x_i\}), \qquad x_i = N_i/N,
+\end{align*}
+so the total size $N$ does not affect the analyticity of $G$; only $g$ does.
+What matters is the composition $\{x_i\}$, of which $C-1$ are independent for $C$ component. A phase is therefore a region of the intensive variables $(T,P,\{x_i\})$,
+which span a $(C-1)+2=C+1$ dimensional space. Collecting every phase in this
+space gives the \textcolor{blue}{phase diagram}.
+
+At equilibrium, $g$ is continuous, so a phase transition is never a jump in the
+potential itself. Adding $g$ as one more axis to the $(C+1)$-dimensional space
+$(T,P,\{x_i\})$ gives a hypersurface $g(T,P,\{x_i\})$. A
+\textcolor{blue}{first-order transition} is a crease (kink) of this hypersurface:
+$g$ is continuous across it, but its first derivatives jump,
+\begin{align*}
+    s = -\frac{\partial g}{\partial T}, \qquad v = \frac{\partial g}{\partial P},
+\end{align*}
+the entropy and volume per particle. Equivalently, $S=-\partial G/\partial T$ and
+$V=\partial G/\partial P$ are discontinuous, which gives a latent heat
+$L = T\Delta S$ and a volume change $\Delta V$. Melting and boiling are
+examples. On the transition locus the coexisting phases share the same
+$(\{\mu_i\},P,T)$ but have different $s$, $v$ and composition, which is why the
+transition appears as a boundary of a coexistence region in the phase diagram.
+
+Transitions of higher order also exist: the order is the order of the lowest
+derivative of $g$ that is discontinuous or singular, and for these the
+hypersurface has no kink and the singularity appears in the curvature. They
+include the continuous transitions, such as the ferromagnetic Curie point, where
+response functions like the heat capacity diverge. We defer them to a later
+section.
+
+\subsection{Gibbs Phase Rule}
+
+    Suppose $\mathcal{P}$ phases of a system with $C$ components coexist. At
+    equilibrium all phases share the same intensive variables
+    $(T,P,\mu_1,\dots,\mu_C)$, which gives $C+2$ variables. Each phase has its
+    own Gibbs--Duhem relation,
+    \begin{align*}
+        S_\alpha\,dT - V_\alpha\,dP + \sum_i N_{i,\alpha}\,d\mu_i = 0,
+        \qquad \alpha = 1,\dots,\mathcal{P},
+    \end{align*}
+    which gives $\mathcal{P}$ independent constraints on them. The number of
+    degrees of freedom $F$ is the number of variables minus the number of
+    constraints,
+    \begin{align}
+        \boxed{F+\mathcal{P}=C+2.}
+    \end{align}
+    This is the \textcolor{blue}{Gibbs phase rule}. It counts only intensive
+    degrees of freedom: the amount of each phase remains free and is not counted. However, this is only applicable if $(T,P,\mu_1,\dots,\mu_C)$ are the only intensive variables. We will encounter system that depends on the magnetic field $\vec B$ of itself, which add another intensive variable to the count.
+
+\subsection{Clapeyron Equation and Fixed-Composition ($P$--$T$) Phase Diagram}
+No matter how many components the system has, temperature and pressure always
+participate. Consider the $P$--$T$ plane at fixed composition $\{x_i\}$ within the
+$(C+1)$-dimensional phase diagram. In this slice only $(P,T)$ can vary, so there
+are $2$ degrees of freedom. Two phases $1$ and $2$ coexist when every chemical
+potential matches,
+\begin{equation*}
+    \mu_i^{(1)}(T,P) = \mu_i^{(2)}(T,P), \qquad i=1,\dots,C,
+\end{equation*}
+which relates $P$ and $T$ and reduces the degrees of freedom from $2$ to $1$.
+The coexistence locus is therefore a curve in the plane. Moving along it, the two
+phases keep equal chemical potentials, so $d\mu_i^{(1)}=d\mu_i^{(2)}$ and, by
+the Gibbs--Duhem relation at fixed composition,
+\begin{equation*}
+    -s_1\,dT + v_1\,dP = -s_2\,dT + v_2\,dP ,
+\end{equation*}
+which gives the \textcolor{blue}{Clapeyron equation}
+\begin{equation}
+    \boxed{\frac{dP}{dT}=\frac{\Delta s}{\Delta v}}, \qquad
+    \Delta s = s_2-s_1,\;\; \Delta v = v_2-v_1 .
+\end{equation}
+At coexistence the transition proceeds reversibly at fixed $T$ and $P$, so the
+latent heat per particle is $\ell = T\Delta s$, and
+\begin{equation}
+    \boxed{\frac{dP}{dT}=\frac{\ell}{T\,\Delta v}.}
+\end{equation}
+
+Now suppose a third phase $3$ also coexists. Then
+\begin{equation*}
+    \mu_i^{(1)}(T,P)=\mu_i^{(2)}(T,P)=\mu_i^{(3)}(T,P), \qquad i=1,\dots,C .
+\end{equation*}
+Each pair of phases has its own coexistence curve, $\mu^{(1)}=\mu^{(2)}$,
+$\mu^{(2)}=\mu^{(3)}$ and $\mu^{(1)}=\mu^{(3)}$. A point lying on the first two
+satisfies $\mu^{(1)}=\mu^{(2)}=\mu^{(3)}$, so it lies on the third as well:
+only two of the three conditions are independent. Two independent equations in the
+two unknowns $(T,P)$ leave no degrees of freedom, so three phases can coexist
+only at an isolated point, the \textcolor{blue}{triple point}, where the three
+two-phase curves, the \textcolor{blue}{triple curves} intersect.
+
+\subsection{Unary System}
+A \textcolor{blue}{unary system} has only one component, $C=1$. This is a special case of the
+fixed-composition slice, since the composition is always $x=1$. We discuss it
+because it is the building block of higher-dimensional phase diagrams and
+introduces some terminology. For $C=1$ the phase rule reads
+$F = 3-\mathcal{P}$, so the number of coexisting phases $\mathcal{P}$ fixes the
+number of free variables.
+
+Within a single phase ($\mathcal{P}=1$, $F=2$), $P$ and $T$ can both be varied
+freely. The system is said to be in \textcolor{blue}{bivariant equilibrium}.
+
+When two phases coexist ($\mathcal{P}=2$, $F=1$), only one of $P$ and $T$ can be
+varied freely; the other is then fixed by the Clapeyron relation $P=P(T)$. The
+system is said to be in \textcolor{blue}{univariant equilibrium}, and the locus
+of two-phase coexistence is called a \textcolor{blue}{univariant curve}.
+
+When three phases coexist ($\mathcal{P}=3$, $F=0$), no variable can be changed
+freely. The system is said to be in \textcolor{blue}{invariant equilibrium}, and
+the point where this happens is called an \textcolor{blue}{invariant point}
+(the triple point).
+
+    

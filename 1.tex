@@ -1,0 +1,108 @@
+\section{Entropy Maximization Principle}
+
+\paragraph{The conventional approach and its limitation.}
+The conventional introduction to statistical mechanics rests on four notions:
+\begin{itemize}
+    \item A \textcolor{blue}{microstate} is a complete description of every
+    microscopic parameter of the system.
+    \item In an isolated system, all microstates are equally likely.
+    \item A \textcolor{blue}{macrostate} is a group of microstates that share
+    the same macroscopic observables.
+    \item Macrostates that contain more microstates are observed more often,
+    so the observed macrostate is the most probable one.
+\end{itemize}
+Boltzmann, Gibbs, and other founders of thermodynamics developed this
+approach. It is physically intuitive, but explaining why a system settles
+into the most probable macrostate requires \textcolor{blue}{ergodicity} and
+dynamical arguments, which are difficult to make rigorous.
+
+\paragraph{The MaxEnt alternative.}
+In this document, we follow Jaynes and treat equilibrium statistical
+mechanics as the solution of a constrained optimization problem: maximize
+the entropy subject to what is macroscopically known about the system. We
+call this the \textcolor{blue}{Entropy Maximization Principle (MaxEnt)}.
+
+\subsection{Gibbs-Shannon Entropy}
+
+\paragraph{From ``disorder'' to ignorance.}
+The meaning of \textcolor{blue}{entropy} has long been debated. The popular
+description of entropy as ``disorder'' is not a definition, because it gives
+no quantitative way to measure disorder. Clausius, Boltzmann, and other
+founders regarded entropy as a driving force of thermodynamic processes, which
+left open the question of which physical quantity entropy encodes. Jaynes
+proposed instead that entropy is not a property of the body itself, but a
+measure of our \textcolor{blue}{ignorance} about it. The
+\textcolor{blue}{Gibbs-Shannon entropy} formalizes this idea for $\Omega$
+events that occur with probabilities $p(i)$:
+\begin{equation}
+    \boxed{S(p) = -\sum_{i=1}^{\Omega} p(i)\ln p(i).}
+\end{equation}
+
+\paragraph{Why the Gibbs-Shannon entropy measures ignorance.}
+The term $-\ln p(i)$ measures our ignorance about event $i$, also called its
+\textcolor{blue}{surprisal}:
+\begin{itemize}
+    \item A certain event has $p(i)=1$, so its ignorance is $-\ln 1 = 0$.
+    \item A rare event has small $p(i)$, so its ignorance is large.
+\end{itemize}
+Summing $-\ln p(i)$ directly would fail, because knowing that an event will
+occur and knowing that it will not occur both mean low ignorance. We
+therefore weight each term by $p(i)$. Rare events seldom occur, and
+near-certain events are already expected, so both contribute little to the
+total. Equivalently, $S$ is the expected value of $-\ln p$.
+
+\subsection{Entropy Maximization}
+
+\paragraph{The principle of maximum ignorance.}
+Jaynes' second idea is that, without knowledge of the underlying mechanism,
+we should choose the distribution that maximizes our ignorance, that is, the
+Gibbs-Shannon entropy $S(p)$, subject to the known constraints. A
+lower-entropy distribution would introduce an unexplained bias toward some
+events. For example, a coin flip should assign equal probabilities to both
+outcomes unless a constraint, such as a loaded coin, states otherwise.
+
+\paragraph{Formulating the constrained optimization.}
+\textcolor{red}{For simplicity, we write $p_i$ instead of $p(i)$ from now on,
+as there is no need to distinguish between different probability
+distributions.}
+We write each known constraint as $g_a(p)=0$. For the expectation value of an
+observable with value $g_a(i)$ in event $i$,
+\begin{equation*}
+    g_a(p) = \sum_i p_i\, g_a(i) - \langle g_a\rangle .
+\end{equation*}
+Lagrange multipliers remove the constraints. We define the Lagrangian
+\begin{equation}
+    \boxed{\mathcal{L}(p)
+    = -\sum_i p_i \ln p_i
+    - \alpha\left(\sum_i p_i - 1\right)
+    - \sum_a \lambda_a\, g_a(p),}
+\end{equation}
+where $\alpha$ enforces normalization and each $\lambda_a$ enforces one
+constraint. The maximizing distribution satisfies
+\begin{equation}
+    \boxed{\frac{\partial \mathcal{L}}{\partial p_i} = 0,
+    \qquad
+    \frac{\partial \mathcal{L}}{\partial \alpha} = 0,
+    \qquad
+    \frac{\partial \mathcal{L}}{\partial \lambda_a} = 0.}
+    \label{eq:conditions}
+\end{equation}
+The last two conditions reproduce normalization and the constraints. The
+first condition determines $p_i$.
+
+% ---------- Optional: general solution, makes later ensembles special cases ----------
+\paragraph{The general MaxEnt distribution.}
+For expectation-value constraints, $\partial g_a/\partial p_i = g_a(i)$. The
+first condition in Eq.~\eqref{eq:conditions} then gives
+\begin{align*}
+    -\ln p_i - 1 - \alpha - \sum_a \lambda_a\, g_a(i) &= 0, \\
+    p_i &= e^{-1-\alpha}\, \exp\!\Big(-\sum_a \lambda_a\, g_a(i)\Big).
+\end{align*}
+Normalization fixes $\alpha$ and yields
+\begin{equation}
+    \boxed{p_i = \frac{1}{Z}\exp\!\Big(-\sum_a \lambda_a\, g_a(i)\Big),
+    \qquad
+    Z = \sum_i \exp\!\Big(-\sum_a \lambda_a\, g_a(i)\Big).}
+\end{equation}
+Since $S$ is strictly concave in $p$ and the constraints are linear, this
+stationary point is the unique maximum.

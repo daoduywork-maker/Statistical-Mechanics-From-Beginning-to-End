@@ -1,0 +1,61 @@
+%% ============================================================
+%%  STANDARD PREAMBLE (article, lecture notes)
+%% ============================================================
+
+% ---------- Document class and page layout ----------
+\documentclass[11pt]{article}      % Basic document type, 11pt body text
+\usepackage[margin=1in]{geometry}  % Sets page margins to 1 inch on all sides
+
+% ---------- Math ----------
+\usepackage{amsmath,amssymb}       % Core math: align, cases, \text{}, plus extra symbols (\mathbb, \hbar, ...)
+
+% ---------- Colors and boxes ----------
+\usepackage{xcolor}                % Lets you use colors (\textcolor{red}{...})
+\usepackage{mdframed}              % Boxes around text that can break across pages (theorems, key results)
+
+% ---------- Diagrams ----------
+\usepackage{tikz-cd}               % Commutative diagrams / arrow diagrams (also loads tikz)
+\usepackage{tikz}                  % General-purpose drawing: lines, shapes, plots
+\usetikzlibrary{arrows.meta, positioning} % arrows.meta: more arrow tip styles; positioning: place nodes "right=of A"
+
+% ---------- Text layout ----------
+\usepackage{multicol}              % Multi-column text (\begin{multicols}{2} ... \end{multicols})
+\usepackage{indentfirst}           % Indents the first paragraph after a heading (article class skips it by default)
+
+% ---------- Hyperlinks ----------
+\usepackage[hidelinks]{hyperref}   % Clickable TOC, \ref, \eqref, \cite; hidelinks = no colored text or boxes
+
+% ---------- Equation numbering ----------
+\numberwithin{equation}{section}   % Equation counter resets in each section
+\renewcommand{\theequation}{\thesection.\arabic{equation}} % Displays numbers as section.equation, e.g. (2.3)
+
+% ---------- Paragraph style ----------
+\setlength{\parindent}{2em}        % First-line indent of each paragraph
+\setlength{\parskip}{1\baselineskip} % Extra vertical gap between paragraphs
+
+% ---------- Title block ----------
+\title{Statistical Mechanics rediscovered under the lense of entropy maximization principles}
+\author{Duy M. Dao}
+\date{\today}                      % Compile date; replace with a fixed date if you prefer
+
+\begin{document}
+\maketitle                         % Prints title, author, date
+\tableofcontents                   % Clickable table of contents
+
+\newpage
+\part{Statistical Derivation of Ensembles}
+    \include{1.tex}                % Each \include starts on a new page
+    \include{2.tex}
+    \include{3.tex}
+    \include{4.tex}
+    \include{5.tex}
+\part{Phase Transtion}
+    \include{6.tex}
+    \include{7.tex}
+\part{Classical thermodnynamic}
+
+\part{Physical Chemistry}
+
+\part{Quantum Statistical Mechanics}
+
+\end{document}
