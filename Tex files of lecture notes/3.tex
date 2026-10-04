@@ -365,4 +365,47 @@ Since $\beta_i=k_B^{-1}\,\partial S_i/\partial U_i$, this gives
 \end{equation}
 
 \paragraph{Direction of energy flow and the zeroth law.}
-Suppose
+Suppose $\beta_1\neq\beta_2$ initially. A small energy transfer $\delta U_1$
+into body $(1)$ changes the total entropy by
+\begin{equation*}
+    \delta S = k_B(\beta_1-\beta_2)\,\delta U_1.
+\end{equation*}
+The second law requires $\delta S\geq0$, so energy flows into the body with
+the larger $\beta$, that is, the lower $T$. Energy therefore flows from high
+temperature to low temperature, as expected. A third body in contact with
+both must, by the same argument, reach the same $\beta$ at equilibrium. This
+transitivity is the \textcolor{blue}{zeroth law of thermodynamics}.
+
+\paragraph{Volume and particle exchange cannot be separated from energy exchange.}
+Suppose the two bodies can also exchange volume through a movable partition,
+with $V_1+V_2=V_{\text{tot}}$ fixed. Volume exchange does not by itself
+imply thermal contact: a heat-insulating piston that is free to slide
+permits volume exchange and forbids heat exchange, so $T_1\neq T_2$ in
+general. The multiplier conjugate to volume is
+$\beta_V\equiv k_B^{-1}\,\partial S/\partial V=P/(k_BT)$. Maximizing
+$S=S_1(V_1)+S_2(V_2)$ over the split of $V_{\text{tot}}$, with $U_1$ and
+$U_2$ fixed, gives
+\begin{align*}
+    \beta_{V,1}=\beta_{V,2}
+    \qquad\Longrightarrow\qquad
+    \frac{P_1}{T_1}=\frac{P_2}{T_2}.
+\end{align*}
+This permits $P_1\neq P_2$, yet a partition under a genuine pressure
+imbalance cannot rest, by Newton's second law alone. The flaw is the
+assumption that $U_1$ and $U_2$ stay fixed while the partition moves. A
+sliding wall does work $P\,dV$ on the side it pushes into, so even a
+heat-insulating wall exchanges energy through work, $dU=-P\,dV$ for
+$\delta Q=0$. If energy and volume can both be exchanged, as for a movable
+wall that also conducts heat, maximizing $S_1(U_1,V_1)+S_2(U_2,V_2)$ over
+both splits gives
+\begin{equation}
+    \boxed{T_1=T_2 \quad\text{and}\quad P_1=P_2,}
+\end{equation}
+the physically sensible free-piston equilibrium.
+
+More generally, exchanging volume or particle number is never independent of
+exchanging energy. Each carries its own energy contribution in the first law
+($-P\,dV$ and $\mu\,dN$), so letting either vary freely lets the energy vary
+too. This is why the multipliers conjugate to volume and particle number
+always appear entangled with the temperature: their exchange is, at bottom,
+still routed through energy.
