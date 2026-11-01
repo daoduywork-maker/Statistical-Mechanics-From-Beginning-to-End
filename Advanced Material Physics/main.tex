@@ -1,0 +1,71 @@
+%% ============================================================
+%%  STANDARD PREAMBLE (article, lecture notes)
+%% ============================================================
+
+% ---------- Document class and page layout ----------
+\documentclass[11pt]{article}      % Basic document type, 11pt body text
+\usepackage[margin=1in]{geometry}  % Sets page margins to 1 inch on all sides
+
+% ---------- Paragraph style ----------
+\usepackage{setspace}              % Lets you set the line spacing of the whole document
+\setstretch{1.2}                   % Line spacing factor: 1.0 = single (default), 1.2 = slightly airy, 1.5 = very loose
+\setlength{\parindent}{2em}        % First-line indent of each paragraph
+\setlength{\parskip}{1\baselineskip} % Extra vertical gap between paragraphs
+
+% ---------- Math ----------
+\usepackage{amsmath,amssymb}       % Core math: align, cases, \text{}, plus extra symbols (\mathbb, \hbar, ...)
+
+% ---------- Colors and boxes ----------
+\usepackage{xcolor}                % Lets you use colors (\textcolor{red}{...})
+\usepackage{mdframed}              % Boxes around text that can break across pages (theorems, key results)
+
+% ---------- Diagrams ----------
+\usepackage{tikz-cd}               % Commutative diagrams / arrow diagrams (also loads tikz)
+\usepackage{tikz}                  % General-purpose drawing: lines, shapes, plots
+\usetikzlibrary{arrows.meta, positioning} % arrows.meta: more arrow tip styles; positioning: place nodes "right=of A"
+
+% ---------- Text layout ----------
+\usepackage{multicol}              % Multi-column text (\begin{multicols}{2} ... \end{multicols})
+\usepackage{indentfirst}           % Indents the first paragraph after a heading (article class skips it by default)
+
+% ---------- Hyperlinks ----------
+\usepackage[hidelinks]{hyperref}   % Clickable TOC, \ref, \eqref, \cite; hidelinks = no colored text or boxes
+
+% ---------- Equation numbering ----------
+\numberwithin{equation}{section}   % Equation counter resets in each section
+\renewcommand{\theequation}{\thesection.\arabic{equation}} % Displays numbers as section.equation, e.g. (2.3)
+
+% ---------- Paragraph style ----------
+\setlength{\parindent}{2em}        % First-line indent of each paragraph
+\setlength{\parskip}{1\baselineskip} % Extra vertical gap between paragraphs
+
+% ---------- Title block ----------
+\title{Advanced material Physics}
+\author{Duy M. Dao}
+\date{\today}                      % Compile date; replace with a fixed date if you prefer
+
+\begin{document}
+\maketitle                         % Prints title, author, date
+%\tableofcontents                   % Clickable table of contents
+
+\newpage
+
+\part{Dielectric Polarization under Static Electric Field}
+
+\section{Lorentz Local field}
+Under static external electric field, a single molecule within a material will feel a local electric field $\vec E_{loc}$ 4 different components: the external field itself $\vec E_0$,the depolarization field caused by the bound charge $\vec E_1$, and the field caused by local neighbor dipoles/molecules. 
+
+For an uniform, homogenous material, we can approximate the field felt by a molecule by calculating only the field within a certain shape that is big enough so that the discrete molecules can be treated as a continuum and the field of the molecules outside it is neglegible; and small enough so that the polarization within it can be considered constant. The last compononent can be decomposed into the dipole contribution $\vec E_3$ and the bound charge contribution on the surface of that shape $\vec E_4$. 
+
+The shape of choosing intuitively should be a sphere although every shape should obtain the same answer. A sphere covers all lattice symmetry therefore work well with most lattice. 
+
+We choose a convenient coordinate system to deal with this system: the $\hat z$ axis is in the same direction with the polarization vector $P$ there. The center of the sphere is right at our molecules
+
+The dipole moment within the sphere, by symmmetry should be 0. since a dipole electric field is: 
+\begin{align}
+    \vec E(\vec R)=\frac{3(\vec p \cdot \hat R) - \hat p}{R^3}
+\end{align}
+
+
+
+\end{document}

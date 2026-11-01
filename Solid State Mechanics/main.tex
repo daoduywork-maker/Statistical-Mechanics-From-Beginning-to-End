@@ -6,6 +6,12 @@
 \documentclass[11pt]{article}      % Basic document type, 11pt body text
 \usepackage[margin=1in]{geometry}  % Sets page margins to 1 inch on all sides
 
+% ---------- Paragraph style ----------
+\usepackage{setspace}              % Lets you set the line spacing of the whole document
+\setstretch{1.2}                   % Line spacing factor: 1.0 = single (default), 1.2 = slightly airy, 1.5 = very loose
+\setlength{\parindent}{2em}        % First-line indent of each paragraph
+\setlength{\parskip}{1\baselineskip} % Extra vertical gap between paragraphs
+
 % ---------- Math ----------
 \usepackage{amsmath,amssymb}       % Core math: align, cases, \text{}, plus extra symbols (\mathbb, \hbar, ...)
 
@@ -34,28 +40,190 @@
 \setlength{\parskip}{1\baselineskip} % Extra vertical gap between paragraphs
 
 % ---------- Title block ----------
-\title{Statistical Mechanics rediscovered under the lense of entropy maximization principles}
+\title{Born-Oppenheimer Approximation}
 \author{Duy M. Dao}
 \date{\today}                      % Compile date; replace with a fixed date if you prefer
 
 \begin{document}
 \maketitle                         % Prints title, author, date
-\tableofcontents                   % Clickable table of contents
+%\tableofcontents                   % Clickable table of contents
 
 \newpage
-\part{Statistical Derivation of Ensembles}
-    \include{1.tex}                % Each \include starts on a new page
-    \include{2.tex}
-    \include{3.tex}
-    \include{4.tex}
-    \include{5.tex}
-\part{Phase Transtion}
-    \include{6.tex}
-    \include{7.tex}
-\part{Classical thermodnynamic}
 
-\part{Physical Chemistry}
+\paragraph{The Born-Oppenheimer Hamiltonian.}
+The \textcolor{blue}{Born-Oppenheimer (BO) Hamiltonian} omits the kinetic
+energy of the nuclei. Here, $i,j$ label the $N$ electrons with
+positions $r_i$, and $I,J$ label the $M$ nuclei with positions $R_I$ and
+charges $Z_I e$. \textcolor{red}{Both $r_i$ and $R_I$ are vectors of any dimension, and
+$||$ is the Euclidean norm.} The Hamiltonian is
+\begin{equation}
+    \boxed{
+    \begin{aligned}
+        \hat{\mathcal{H}}^{\mathrm{BO}}
+        ={}& \underbrace{-\sum_{i=1}^{N}\frac{\hbar^2}{2m_e}\,\nabla_{r_i}^{2}}_{\text{electron kinetic energy}}
+        \;+\; \underbrace{\frac{1}{2}\sum_{I\neq J}^{M}
+        \frac{e^2 Z_I Z_J}{4\pi\epsilon_0\,|R_I-R_J|}}_{\text{nuclei-nuclei repulsion}} \\[6pt]
+        &\;-\; \underbrace{\sum_{i=1}^{N}\sum_{I=1}^{M}
+        \frac{e^2 Z_I}{4\pi\epsilon_0\,|R_I-r_i|}}_{\text{nuclei-electron attraction}}
+        \;+\; \underbrace{\frac{1}{2}\sum_{i\neq j}^{N}
+        \frac{e^2}{4\pi\epsilon_0\,|r_i-r_j|}}_{\text{electron-electron repulsion}}.
+    \end{aligned}}
+\end{equation}
 
-\part{Quantum Statistical Mechanics}
+\paragraph{The full Hamiltonian.}
+Restoring the kinetic energy of the nuclei gives the full Hamiltonian:
+\begin{equation}
+    \boxed{
+        \hat{\mathcal{H}}
+        = -\sum_{I=1}^{M}\frac{\hbar^2}{2M_I}\,\nabla_{R_I}^{2}
+        +\hat{\mathcal{H}}^{\mathrm{BO}} 
+        = \hat{P}_R\,\hat{\mathcal{M}}^{-1}\hat{P}_R
+        +\hat{\mathcal{H}}^{\mathrm{BO}}.
+    }
+\end{equation}
+\textcolor{red}{Here, $R=(R_1,\ldots,R_M)$ collects all nuclear coordinates,
+and $\hat{\mathcal{M}}$ denotes the mass matrix, to distinguish it from the number of
+nuclei $M$.} The gradient $\nabla_R$ collects the derivatives with respect to
+every nuclear coordinate. In $d$ dimensions, it has $dM$ components, which is
+$3M$ in three dimensions. The inverse mass matrix $\hat{\mathcal{M}}^{-1}$ is
+diagonal and assigns the factor $1/M_I$ to each of the $d$ components of
+nucleus $I$. Therefore, the inverse mass operator acts on the momentum operator and not the wavefunction. The momentum operator can also act on the inverse mass operator by simply collecting the corresponding mass term. So the momentum operator and inverse mass operator commute:
+\begin{equation}
+    \boxed{
+        [\hat{P}, \hat{\mathcal{M}}^{-1}] = 0.
+    }
+\end{equation}
 
+\paragraph{The Born-Oppenheimer equation and surfaces.}
+Within the BO Hamiltonian, the nuclear coordinates $R$ are fixed parameters.
+For each fixed $R$, the electrons obey the \textcolor{blue}{Born-Oppenheimer
+equation}
+\begin{equation}
+    \boxed{\hat{\mathcal{H}}_{\mathrm{BO}}\,|\psi^{\mathrm{BO}}_n(R)\rangle
+    = E^{\mathrm{BO}}_n(R)\,|\psi^{\mathrm{BO}}_n(R)\rangle.}
+\end{equation}
+The eigenstate depends on the electron coordinates $r$ and, parametrically,
+on $R$. \textcolor{red}{The ket $|\psi^{\mathrm{BO}}_n(R)\rangle$ stands for the full
+function $\psi^{\mathrm{BO}}_n(r,R)$, where $r=(r_1,\ldots,r_N)$ collects all electron coordinates.} Varying $R$ traces out the eigenenergy
+$E^{\mathrm{BO}}_n$ as a function of the $dM$ nuclear coordinates. This
+function is called the $n$-th \textcolor{blue}{Born-Oppenheimer surface}, or
+\textcolor{blue}{potential energy surface}. It includes the nuclei-nuclei
+repulsion, and it acts as the potential for nuclear motion in the next step. 
+
+\paragraph{The Born-Huang expansion.}
+Let $\Psi(r,R,t)$ be a solution of the time-dependent Schr\"odinger equation
+of the full Hamiltonian. For each fixed $R$, the BO eigenstates form a
+complete basis for the electrons, so we can expand
+\begin{equation}
+    \boxed{|\Psi(r,R,t)\rangle
+    = \sum_n |\psi^{\mathrm{BO}}_n(R)\rangle\,\Theta_n(R,t).}
+\end{equation}
+The coefficient $\Theta_n(R,t)$ is the nuclear wavefunction associated with the
+$n$-th electronic state, that is, with the $n$-th BO surface. It does not
+depend on $r$, because it is the coefficient of the $r$-dependent states. Its
+square modulus, $|\Theta_n(R,t)|^2$, is the probability density of finding the
+nuclei at $R$ at time $t$ with the electrons in the $n$-th BO state. This expansion is called the
+\textcolor{blue}{Born-Huang expansion}.
+
+\paragraph{Time evolution in the BO basis.}
+To study the dynamics, we insert the Born-Huang expansion into the
+time-dependent Schr\"odinger equation:
+\begin{equation}
+    i\hbar\,\partial_t|\Psi(r,R,t)\rangle
+    =\Big(\hat{\mathcal{H}}_{\mathrm{BO}}
+    +\tfrac{1}{2}\,\hat{P}\hat{\mathcal{M}}^{-1}\hat{P}\Big)|\Psi(r,R,t)\rangle .
+\end{equation}
+On the left side, the BO eigenstates are stationary, so $\partial_t$ acts only
+on the nuclear wavefunctions:
+\begin{equation}
+    i\hbar\,\partial_t\sum_n|\psi^{\mathrm{BO}}_n(R)\rangle\,\Theta_n(R,t)
+    =\sum_n|\psi^{\mathrm{BO}}_n(R)\rangle\;i\hbar\,\partial_t\Theta_n(R,t).
+\end{equation}
+To isolate the dynamics of one nuclear wavefunction, we project onto
+$\langle\psi^{\mathrm{BO}}_m|$. The BO eigenstates are orthonormal at every
+$R$, $\langle\psi^{\mathrm{BO}}_m|\psi^{\mathrm{BO}}_n\rangle=\delta_{mn}$, so
+\begin{equation}
+    \langle\psi^{\mathrm{BO}}_m|\,i\hbar\,\partial_t|\Psi\rangle
+    =i\hbar\,\partial_t\Theta_m(R,t).
+\end{equation}
+The first term of the right side is diagonal in the BO basis:
+\begin{equation}
+    \hat{\mathcal{H}}_{\mathrm{BO}}\sum_n|\psi^{\mathrm{BO}}_n(R)\rangle\,\Theta_n(R,t)
+    =\sum_n E^{\mathrm{BO}}_n(R)\,|\psi^{\mathrm{BO}}_n(R)\rangle\,\Theta_n(R,t),
+\end{equation}
+and its projection gives $E^{\mathrm{BO}}_m(R)\,\Theta_m(R,t)$.
+The second term needs care. \textcolor{red}{An operator acts on the rightmost thing to it}, and
+here both $|\psi^{\mathrm{BO}}_n(R)\rangle$ and $\Theta_n(R,t)$ depend on $R$.
+Hence $\hat{P}$ obeys the product rule, and applying it twice gives
+\begin{equation}
+    \hat{P}\hat{\mathcal{M}}^{-1}\hat{P}\big(|\psi^{\mathrm{BO}}_n\rangle\,\Theta_n\big)
+    =\hat{P}\hat{\mathcal{M}}^{-1}\hat{P}|\psi^{\mathrm{BO}}_n\rangle\Theta_n
+    +2\hat{P}|\psi^{\mathrm{BO}}_n\rangle\hat{\mathcal{M}}^{-1}\hat{P}\Theta_n
+    +|\psi^{\mathrm{BO}}_n\rangle\,\hat{P}\hat{\mathcal{M}}^{-1}\hat{P}\Theta_n .
+\end{equation}
+Projecting onto $\langle\psi^{\mathrm{BO}}_m|$ and using orthonormality on the
+last term gives
+\begin{equation}
+    \frac{1}{2}\langle\psi^{\mathrm{BO}}_m|\hat{P}\hat{\mathcal{M}}^{-1}\hat{P}|\Psi\rangle
+    =\frac{1}{2}\hat{P}\hat{\mathcal{M}}^{-1}\hat{P}\,\Theta_m
+    +\sum_n\bigg(
+    \langle\psi^{\mathrm{BO}}_m|\hat{P}|\psi^{\mathrm{BO}}_n\rangle\hat{\mathcal{M}}^{-1}\hat{P}\Theta_n
+    +\frac{1}{2}\langle\psi^{\mathrm{BO}}_m|\hat{P}\hat{\mathcal{M}}^{-1}\hat{P}|\psi^{\mathrm{BO}}_n\rangle\,\Theta_n\bigg).
+\end{equation}
+Therefore, the full nuclear Schr\"odinger equation is
+\begin{equation}
+    \boxed{
+    \begin{aligned}
+        i\hbar\,\partial_t \Theta_m(R,t)&=\bigg(E^{\mathrm{BO}}_m(R)+\frac{1}{2}\hat{P} \hat{\mathcal{M}}^{-1} \hat{P} \bigg)\Theta_m(R,t)\\
+        &\quad+\sum_n\bigg[
+        \langle\psi^{\mathrm{BO}}_m|\hat{P}|\psi^{\mathrm{BO}}_n\rangle\hat{\mathcal{M}}^{-1}\hat{P}\Theta_n
+        +\frac{1}{2}\langle\psi^{\mathrm{BO}}_m|\hat{P}\hat{\mathcal{M}}^{-1}\hat{P}|\psi^{\mathrm{BO}}_n\rangle\,\Theta_n(R,t)\bigg].
+    \end{aligned}}
+\end{equation}
+
+\paragraph{Non-adiabatic coupling.}We can see that the evolution of the $m$-th excited state involves other states. This is because $R$ is a function of $t$. As time evolves, the BO eigenbasis also change. A BO eigenbasis at time $t+\delta t$ can be expressed as a linear combination of BO eigenbasis at time $t$. That's why time evolution requires coupling between eigenbasis. The first term is called the first derivative coupling, denoted as
+\begin{equation}
+    \boxed{
+        \vec A_{mn} =  \langle\psi^{\mathrm{BO}}_m|\hat{P}|\psi^{\mathrm{BO}}_n\rangle.
+    }
+\end{equation}
+It's a $dM$ dimensional vector field because the momentum operator is a gradient. It is hermitian
+\begin{equation}
+    \begin{aligned}
+        \hat P\langle\psi^{\mathrm{BO}}_m|\psi^{\mathrm{BO}}_n\rangle&=\langle\psi^{\mathrm{BO}}_m|\hat P\psi^{\mathrm{BO}}_n\rangle-\langle\hat P\psi^{\mathrm{BO}}_m|\psi^{\mathrm{BO}}_n\rangle \\ 
+        &=\vec A_{mn}- \vec A^*_{nm} \\ 
+        &=0
+    \end{aligned}
+\end{equation}
+The second term is called the second derivative coupling, denoted as
+\begin{equation}
+    \boxed{
+        B_{mn} =  \frac{1}{2}\langle\psi^{\mathrm{BO}}_m|\hat{P}\hat{\mathcal{M}}^{-1}\hat{P}|\psi^{\mathrm{BO}}_n\rangle.
+    }
+\end{equation}
+We can rewrite the second derivative coupling using the first derivative coupling. Applying the product rule to the vector field $\vec A_{mn}$ gives
+\begin{equation}
+    \hat{\mathcal{M}}^{-1}\hat{P}\vec A_{mn}
+    = \langle\psi^{\mathrm{BO}}_m|\hat{P}\hat{\mathcal{M}}^{-1}\hat{P}|\psi^{\mathrm{BO}}_n\rangle
+    - \langle\hat{\mathcal{M}}^{-1}\hat{P}\psi^{\mathrm{BO}}_m|\hat{P}\psi^{\mathrm{BO}}_n\rangle .
+\end{equation}
+The sign is negative because the bra of $\hat{P}\psi^{\mathrm{BO}}_m$ carries the complex conjugate of $-i\hbar$. Inserting the completeness relation between the two vectors
+\begin{equation}
+    \hat{\mathcal{M}}^{-1}\hat{P}\vec A_{mn}
+    = \langle\psi^{\mathrm{BO}}_m|\hat{P}\hat{\mathcal{M}}^{-1}\hat{P}|\psi^{\mathrm{BO}}_n\rangle
+    - \sum_j\langle\hat{\mathcal{M}}^{-1}\hat{P}\psi^{\mathrm{BO}}_m|\psi^{\mathrm{BO}}_j\rangle\langle\psi^{\mathrm{BO}}_j|\hat{P}\psi^{\mathrm{BO}}_n\rangle .
+\end{equation}
+Using the hermiticity of the first derivative coupling, we obtain  the final form 
+\begin{equation}
+    \boxed{
+        B_{mn} = \frac{1}{2}\,\hat{\mathcal{M}}^{-1}\hat{P}\vec A_{mn}
+        +\frac{1}{2}\sum_j \mathcal M^{-1} \vec A^*_{jm}\vec A_{jn}.
+    }
+\end{equation}
+\paragraph{The full Hamiltonian rewritten.}The full Hamiltonian has the final form 
+\begin{equation}
+    \boxed{
+        \hat{\mathcal{H}} = \hat{\mathcal{H}}^{\mathrm{BO}} +\frac{1}{2}\mathcal M^{-1}(\hat P + \hat A)^2.
+    }
+\end{equation}
 \end{document}
