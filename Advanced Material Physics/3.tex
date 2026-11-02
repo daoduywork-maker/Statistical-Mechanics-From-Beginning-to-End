@@ -1,4 +1,4 @@
-\section{Dielectric Sphere inside a Dielectric Medium}
+\section{Electric Field in Dielectric Medium}
 
 \subsection{Gauss's Law in a Polarizable Material}
 
@@ -103,3 +103,230 @@ which gives
     }
 \end{equation}
 Since $E_t = -\hat t\cdot\vec\nabla\phi$ and $\phi_1 = \phi_2$ holds all along the interface, this condition contains $E_{1,t} = E_{2,t}$.
+
+\subsection{Dielectric Sphere in a Dielectric Medium}
+
+\paragraph{Setup of the boundary-value problem.}
+Many physical systems can be modeled as a dielectric sphere of radius $R_0$ and dielectric constant $\varepsilon_1$ embedded in a dielectric medium of dielectric constant $\varepsilon_2$. A uniform external field $\vec E_0 = E_0\,\hat z$ is applied far from the sphere (Fig.~\ref{fig:sphere}). \textcolor{red}{From now on, $(r,\theta,\varphi)$ are the spherical coordinates of the field point, measured from the center of the sphere with the polar axis along $\vec E_0$. The azimuthal angle $\varphi$ is distinct from the potential $\phi$.} A rotation about the $z$ axis leaves the setup unchanged, so the potential is \textcolor{blue}{azimuthally symmetric},
+\begin{equation*}
+    \phi = \phi(r,\theta), \qquad \frac{\partial\phi}{\partial\varphi} = 0.
+\end{equation*}
+The goal is to find $\phi$, and therefore $\vec E = -\vec\nabla\phi$, in the whole space.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/sphere.pdf}
+\caption{Dielectric sphere of radius $R_0$ and dielectric constant $\varepsilon_1$ in a medium of dielectric constant $\varepsilon_2$. The external field $\vec E_0 = E_0\hat z$ is uniform far from the sphere. A field point has the spherical coordinates $(r,\theta,\varphi)$, measured from the center of the sphere.}
+\label{fig:sphere}
+\end{figure}
+
+\paragraph{General azimuthally symmetric solution of Laplace's equation.}
+With no free charge, $\phi$ satisfies Laplace's equation inside and outside the sphere. Its general azimuthally symmetric solution is
+\begin{equation}
+    \boxed{
+    \phi(r,\theta) = \sum_{l=0}^{\infty}\left(A_l\,r^l + \frac{B_l}{r^{l+1}}\right)\mathcal{P}_l(\cos\theta),
+    }
+\end{equation}
+where $\mathcal{P}_l(x)$ is the \textcolor{blue}{Legendre polynomial} of degree $l$, given by \textcolor{blue}{Rodrigues' formula}
+\begin{equation*}
+    \mathcal{P}_l(x) = \frac{1}{2^l\,l!}\,\frac{d^l}{dx^l}\left(x^2 - 1\right)^l.
+\end{equation*}
+
+\paragraph{Separation of the radial and angular dependences.}
+Each term of the sum is a product of a radial function and an angular function,
+\begin{equation*}
+    \phi_l(r,\theta) = \left(A_l\,r^l + \frac{B_l}{r^{l+1}}\right)\mathcal{P}_l(\cos\theta).
+\end{equation*}
+The angular profile of a single term is therefore the same at every radius. The full potential, however, mixes terms with different radial dependences, so its angular profile changes with $r$.
+
+\paragraph{Orthogonality of the Legendre polynomials.}
+The Legendre polynomials are orthogonal on $0 \le \theta \le \pi$ with the weight $\sin\theta$,
+\begin{equation*}
+    \int_0^\pi \mathcal{P}_l(\cos\theta)\,\mathcal{P}_m(\cos\theta)\,\sin\theta\,d\theta
+    = \int_{-1}^{1}\mathcal{P}_l(x)\,\mathcal{P}_m(x)\,dx
+    = \frac{2}{2l+1}\,\delta_{lm}.
+\end{equation*}
+The solution is therefore an expansion of the angular dependence in an orthogonal basis, in the same way as a Fourier series.
+
+\paragraph{Electric field of the general solution.}
+In spherical coordinates with azimuthal symmetry, the field is
+\begin{equation*}
+    \vec E = -\vec\nabla\phi = -\hat r\,\frac{\partial\phi}{\partial r} - \hat\theta\,\frac{1}{r}\frac{\partial\phi}{\partial\theta}.
+\end{equation*}
+With $d\mathcal{P}_l(\cos\theta)/d\theta = -\sin\theta\,\mathcal{P}_l'(\cos\theta)$, where the prime denotes the derivative with respect to the argument, the general solution gives
+\begin{equation}
+    \boxed{
+    \begin{aligned}
+    E_r(r,\theta) &= \sum_{l=0}^{\infty}\left[-l\,A_l\,r^{l-1} + (l+1)\frac{B_l}{r^{l+2}}\right]\mathcal{P}_l(\cos\theta),\\
+    E_\theta(r,\theta) &= \sum_{l=0}^{\infty}\left(A_l\,r^{l-1} + \frac{B_l}{r^{l+2}}\right)\sin\theta\,\mathcal{P}_l'(\cos\theta).
+    \end{aligned}
+    }
+\end{equation}
+
+\paragraph{Separate expansions inside and outside the sphere.}
+The potential is continuous at $r = R_0$, but its radial derivative jumps there when $\varepsilon_1 \neq \varepsilon_2$. A single expansion therefore cannot hold in the whole space, and each region carries its own coefficients. \textcolor{red}{From now on, $A_l^{(1)}, B_l^{(1)}$ are the coefficients of $\phi_1$ for $r < R_0$, and $A_l^{(2)}, B_l^{(2)}$ are those of $\phi_2$ for $r > R_0$.}
+
+\paragraph{Finite potential at the center.}
+The term $B_l^{(1)}/r^{l+1}$ diverges as $r \to 0$, but the center of the sphere contains no charge. Hence
+\begin{equation*}
+    B_l^{(1)} = 0 \quad \text{for all } l,
+    \qquad
+    \phi_1(r,\theta) = \sum_{l=0}^{\infty} A_l^{(1)}\,r^l\,\mathcal{P}_l(\cos\theta).
+\end{equation*}
+
+\paragraph{Uniform field far from the sphere.}
+Far from the sphere, the field is the unperturbed external field, $\phi_2 \to -E_0\,r\cos\theta = -E_0\,r\,\mathcal{P}_1(\cos\theta)$. The terms $B_l^{(2)}/r^{l+1}$ vanish as $r \to \infty$, whereas $A_l^{(2)}r^l$ must reproduce this limit. Hence
+\begin{equation*}
+    A_1^{(2)} = -E_0, \qquad A_l^{(2)} = 0 \quad (l \geq 2),
+\end{equation*}
+and $A_0^{(2)} = 0$ by the choice of the potential reference. The coefficients $B_l^{(2)}$ remain free,
+\begin{equation*}
+    \phi_2(r,\theta) = -E_0\,r\cos\theta + \sum_{l=0}^{\infty}\frac{B_l^{(2)}}{r^{l+1}}\,\mathcal{P}_l(\cos\theta).
+\end{equation*}
+
+\paragraph{Matching conditions at the surface of the sphere.}
+The surface $r = R_0$ has the normal $\hat n = \hat r$. Continuity of the potential, which contains the tangential condition $E_{1,\theta} = E_{2,\theta}$, and continuity of the normal displacement, $\varepsilon_1\,\partial\phi_1/\partial r = \varepsilon_2\,\partial\phi_2/\partial r$, give for every $\theta$
+\begin{equation}
+    \boxed{
+    \begin{aligned}
+    \sum_{l=0}^{\infty} A_l^{(1)} R_0^{\,l}\,\mathcal{P}_l(\cos\theta)
+    &= -E_0 R_0\cos\theta + \sum_{l=0}^{\infty}\frac{B_l^{(2)}}{R_0^{\,l+1}}\,\mathcal{P}_l(\cos\theta),\\
+    \varepsilon_1\sum_{l=0}^{\infty} l\,A_l^{(1)} R_0^{\,l-1}\,\mathcal{P}_l(\cos\theta)
+    &= \varepsilon_2\left[-E_0\cos\theta - \sum_{l=0}^{\infty}(l+1)\frac{B_l^{(2)}}{R_0^{\,l+2}}\,\mathcal{P}_l(\cos\theta)\right].
+    \end{aligned}
+    }
+\end{equation}
+
+\paragraph{Matching the coefficients of each Legendre polynomial.}
+With $-E_0R_0\cos\theta = -E_0R_0\,\mathcal{P}_1(\cos\theta)$, moving every term of the two matching conditions to the left side gives
+\begin{equation*}
+    \sum_{l=0}^{\infty} c_l^{(\phi)}\,\mathcal{P}_l(\cos\theta) = 0,
+    \qquad
+    \sum_{l=0}^{\infty} c_l^{(D)}\,\mathcal{P}_l(\cos\theta) = 0
+    \qquad \text{for all } \theta,
+\end{equation*}
+where each coefficient is the difference between the two sides,
+\begin{align*}
+    c_l^{(\phi)} &= A_l^{(1)} R_0^{\,l} - \frac{B_l^{(2)}}{R_0^{\,l+1}} + E_0R_0\,\delta_{l1},\\
+    c_l^{(D)} &= \varepsilon_1\, l\, A_l^{(1)} R_0^{\,l-1} + \varepsilon_2\,(l+1)\,\frac{B_l^{(2)}}{R_0^{\,l+2}} + \varepsilon_2 E_0\,\delta_{l1}.
+\end{align*}
+The Kronecker delta $\delta_{l1}$ places the external-field term in the $l = 1$ coefficient only. Multiplying either sum by $\mathcal{P}_m(\cos\theta)\sin\theta$ and integrating over $0 \le \theta \le \pi$, the orthogonality relation leaves only the term $l = m$,
+\begin{equation*}
+    \sum_{l=0}^{\infty} c_l \int_0^\pi \mathcal{P}_l(\cos\theta)\,\mathcal{P}_m(\cos\theta)\sin\theta\,d\theta
+    = \frac{2}{2m+1}\,c_m = 0,
+    \qquad c_l = c_l^{(\phi)}\ \text{or}\ c_l^{(D)}.
+\end{equation*}
+Hence $c_l^{(\phi)} = 0$ and $c_l^{(D)} = 0$ for every $l$. For $l \neq 1$,
+\begin{align*}
+    A_l^{(1)} R_0^{\,l} &= \frac{B_l^{(2)}}{R_0^{\,l+1}}
+    \quad\Rightarrow\quad A_l^{(1)} = \frac{B_l^{(2)}}{R_0^{\,2l+1}},\\
+    \varepsilon_1\, l\, A_l^{(1)} R_0^{\,l-1} &= -\varepsilon_2\,(l+1)\,\frac{B_l^{(2)}}{R_0^{\,l+2}}.
+\end{align*}
+For $l = 1$, the external field adds a term to each condition,
+\begin{align*}
+    A_1^{(1)} R_0 &= -E_0 R_0 + \frac{B_1^{(2)}}{R_0^{2}},\\
+    \varepsilon_1 A_1^{(1)} &= -\varepsilon_2 E_0 - 2\,\varepsilon_2\,\frac{B_1^{(2)}}{R_0^{3}}.
+\end{align*}
+
+\paragraph{Solution of the matching conditions.}
+For $l \neq 1$, substituting $A_l^{(1)} = B_l^{(2)}/R_0^{\,2l+1}$ into the displacement condition gives
+\begin{equation*}
+    \left[\varepsilon_1\, l + \varepsilon_2\,(l+1)\right]\frac{B_l^{(2)}}{R_0^{\,l+2}} = 0.
+\end{equation*}
+The bracket is positive for $\varepsilon_1, \varepsilon_2 > 0$, so $B_l^{(2)} = 0$ and therefore $A_l^{(1)} = 0$. For $l = 1$, the potential condition gives $A_1^{(1)} = -E_0 + B_1^{(2)}/R_0^3$. Substituting it into the displacement condition gives
+\begin{equation*}
+    \left(\varepsilon_1 + 2\varepsilon_2\right)\frac{B_1^{(2)}}{R_0^3} = \left(\varepsilon_1 - \varepsilon_2\right)E_0.
+\end{equation*}
+The coefficients are therefore
+\begin{equation}
+    \boxed{
+    A_l^{(1)} = B_l^{(2)} = 0 \quad (l \neq 1), \qquad
+    A_1^{(1)} = -\frac{3\varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,E_0, \qquad
+    B_1^{(2)} = \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,E_0 R_0^3.
+    }
+\end{equation}
+
+\paragraph{Potential inside and outside the sphere.}
+Substituting the coefficients into $\phi_1$ and $\phi_2$ gives the potential in the whole space,
+\begin{equation}
+    \boxed{
+    \phi(r,\theta) =
+    \begin{cases}
+        -\dfrac{3\varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,E_0\,r\cos\theta, & r < R_0,\\[12pt]
+        \left(\dfrac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,\dfrac{R_0^3}{r^2} - r\right)E_0\cos\theta, & r \geq R_0.
+    \end{cases}
+    }
+\end{equation}
+
+\paragraph{Uniform field inside the sphere.}
+Inside, $r\cos\theta = z$, so the potential is linear in $z$ and the field is
+\begin{equation}
+    \boxed{
+    \vec E_{\text{in}} = -\vec\nabla\phi_1 = \frac{3\varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,\vec E_0.
+    }
+\end{equation}
+The field inside the sphere is uniform and parallel to $\vec E_0$. For $\varepsilon_1 > \varepsilon_2$, it is weaker than $E_0$.
+
+\paragraph{Outside field as the applied field plus a dipole field.}
+Outside, the potential splits into the applied potential and a correction,
+\begin{equation*}
+    \phi_2 = -E_0\,r\cos\theta + \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,E_0R_0^3\,\frac{\cos\theta}{r^2}
+    = -\vec E_0\cdot\vec r + \frac{\vec p_{\text{eff}}\cdot\hat r}{r^2},
+\end{equation*}
+where $\hat z\cdot\hat r = \cos\theta$ and
+\begin{equation*}
+    \vec p_{\text{eff}} = \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,R_0^3\,\vec E_0.
+\end{equation*}
+The correction has the form of the dipole potential $\hat R\cdot\vec p/R^2$ of Section~1. Its field follows from $E_r = -\partial\phi/\partial r$ and $E_\theta = -(1/r)\,\partial\phi/\partial\theta$,
+\begin{equation*}
+    \vec E_2 = E_0\cos\theta\left(1 + 2\,\frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,\frac{R_0^3}{r^3}\right)\hat r
+    - E_0\sin\theta\left(1 - \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,\frac{R_0^3}{r^3}\right)\hat\theta.
+\end{equation*}
+The terms without $R_0$ give $E_0(\cos\theta\,\hat r - \sin\theta\,\hat\theta) = E_0\hat z = \vec E_0$. The remaining terms are proportional to $2\cos\theta\,\hat r + \sin\theta\,\hat\theta$. With $\sin\theta\,\hat\theta = \cos\theta\,\hat r - \hat z$ and $\cos\theta = \hat z\cdot\hat r$,
+\begin{equation*}
+    2\cos\theta\,\hat r + \sin\theta\,\hat\theta
+    = 2(\hat z\cdot\hat r)\,\hat r + (\hat z\cdot\hat r)\,\hat r - \hat z
+    = 3(\hat z\cdot\hat r)\,\hat r - \hat z.
+\end{equation*}
+Multiplying by $\vec p_{\text{eff}}$'s magnitude turns $\hat z$ into $\vec p_{\text{eff}}$, so the outside field is
+\begin{equation}
+    \boxed{
+    \vec E_{\text{out}} = \vec E_0 + \frac{3(\vec p_{\text{eff}}\cdot\hat r)\,\hat r - \vec p_{\text{eff}}}{r^3},
+    \qquad
+    \vec p_{\text{eff}} = \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,R_0^3\,\vec E_0,
+    }
+\end{equation}
+which is the applied field plus the field of a point dipole $\vec p_{\text{eff}}$ at the center of the sphere.
+
+\paragraph{Consistency checks of the solution.}
+At $r = R_0$, the tangential field and the normal displacement are continuous,
+\begin{align*}
+    E_{2,\theta}(R_0) &= -E_0\sin\theta\left(1 - \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\right)
+    = -\frac{3\varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,E_0\sin\theta = E_{1,\theta}(R_0),\\
+    \varepsilon_2\,E_{2,r}(R_0) &= \varepsilon_2\,E_0\cos\theta\left(1 + 2\,\frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\right)
+    = \frac{3\varepsilon_1\varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,E_0\cos\theta = \varepsilon_1\,E_{1,r}(R_0).
+\end{align*}
+Far from the sphere, the dipole term decays as $r^{-3}$ and $\vec E \to \vec E_0$. Three limits reproduce known results:
+\begin{align*}
+    \varepsilon_1 = \varepsilon_2: &\qquad \vec E = \vec E_0 \ \text{everywhere}, \qquad \vec p_{\text{eff}} = 0,\\
+    \varepsilon_1 \to \infty: &\qquad \vec E_{\text{in}} \to 0, \qquad \phi(R_0,\theta) = 0, \qquad \vec p_{\text{eff}} \to R_0^3\,\vec E_0,\\
+    \varepsilon_1 = 1,\ \varepsilon_2 > 1: &\qquad \vec E_{\text{in}} = \frac{3\varepsilon_2}{1 + 2\varepsilon_2}\,\vec E_0, \qquad |\vec E_{\text{in}}| > E_0.
+\end{align*}
+The first limit describes a sphere that is indistinguishable from its surroundings. The second describes a conducting sphere, which screens its interior and forms an equipotential surface. The third describes a spherical cavity in a dielectric, where the field is stronger than the applied field.
+
+\paragraph{Effective dipole moment and the dipole moment of the sphere.}
+The interface carries bound charge from both media. With the outward normal $\hat r$ of the sphere, medium 1 contributes $\vec P_1\cdot\hat r$ and medium 2 contributes $-\vec P_2\cdot\hat r$. With $\vec P = (\varepsilon - 1)\vec E/4\pi$ and $\varepsilon_1E_{1,r} = \varepsilon_2E_{2,r}$, the total bound surface charge is
+\begin{equation*}
+    \sigma_{b,\text{tot}} = \left(\vec P_1 - \vec P_2\right)\cdot\hat r
+    = \frac{E_{2,r} - E_{1,r}}{4\pi}
+    = \frac{3}{4\pi}\,\frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,E_0\cos\theta.
+\end{equation*}
+A surface charge $\sigma_0\cos\theta$ on a sphere has the dipole moment $\oint \sigma_0\cos\theta\,\vec r\,dS = \tfrac{4\pi}{3}R_0^3\,\sigma_0\,\hat z$, so $\sigma_{b,\text{tot}}$ produces exactly $\vec p_{\text{eff}}$. The sphere's own material, however, carries only $\vec P_1$, and its dipole moment is
+\begin{equation}
+    \boxed{
+    \vec p_{\text{sphere}} = \frac{4\pi}{3}R_0^3\,\vec P_1
+    = \frac{(\varepsilon_1 - 1)\,\varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,R_0^3\,\vec E_0
+    \;\neq\; \vec p_{\text{eff}} \quad (\varepsilon_2 \neq 1).
+    }
+\end{equation}
+The difference is the dipole moment of the bound charge of medium 2 at the interface. The two moments coincide only for a sphere in vacuum, $\varepsilon_2 = 1$. The field therefore depends only on the ratio $\varepsilon_1/\varepsilon_2$, whereas the polarization of the sphere does not.
