@@ -1,10 +1,11 @@
 \section{Polarization}
+\label{sec:polarization}
 
 \paragraph{Why the dipole moment describes a neutral material in a field.}
-Most materials are electrically neutral. Under an external electric field, the total charge remains zero, but the electrons and the nuclei are displaced in opposite directions and produce an \textcolor{blue}{induced dipole}. Some materials, such as polar molecular liquids and ferroelectrics, also carry \textcolor{blue}{permanent dipoles} even without an external field. In both cases, the monopole term vanishes, so the dipole term is the leading term of the multipole expansion far from the material. Because $Q = 0$, the dipole moment is also independent of the choice of origin, as shown in the previous section. The dipole moment is therefore the quantity of interest whenever a material interacts with an electric field.
+Most materials are electrically neutral. In an external electric field, the total charge remains zero, but the electrons and the nuclei are displaced in opposite directions and produce an \textcolor{blue}{induced dipole}. Some materials, such as polar molecular liquids and ferroelectrics, also carry \textcolor{blue}{permanent dipoles} even without an external field. In both cases, the monopole term vanishes, so the dipole term is the leading term of the multipole expansion far from the material. Because $Q = 0$, the dipole moment is also independent of the choice of origin, as shown in Section~\ref{sec:multipole}. The dipole moment is therefore the quantity of interest whenever a material interacts with an electric field.
 
 \paragraph{Polarization as a dipole moment density, and why it is not a derivative.}
-The \textcolor{blue}{polarization vector} $\vec P$ describes the dipole moment density of a material. Real materials consist of discrete dipoles, so the common definition $\vec P = \Delta\vec p/\Delta V$ cannot be a derivative: the ratio does not converge as the volume $\Delta V \to 0$. A small volume between atoms contains no dipole and gives zero, whereas a small volume around a point dipole gives a ratio that grows without bound. The ratio is meaningful only for a volume that is large compared with the interatomic distance $a$ but small compared with the length $L$ over which the macroscopic fields vary.
+The \textcolor{blue}{polarization vector} $\vec P$ describes the dipole moment density of a material. Real materials consist of discrete dipoles, so the common definition $\vec P = \Delta\vec p/\Delta V$ cannot be a derivative, because the ratio does not converge as the volume $\Delta V \to 0$. A small volume between atoms contains no dipole and gives zero, whereas a small volume around a point dipole gives a ratio that grows without bound. The ratio is meaningful only for a volume that is large compared with the interatomic distance $a$ but small compared with the length $L$ over which the macroscopic fields vary.
 
 \paragraph{Polarization as a spatial average of the microscopic dipoles.}
 The precise definition replaces the limit with an average. A set of point dipoles $\vec p_k$ at positions $\vec r_k$ has the \textcolor{blue}{microscopic dipole density}
@@ -28,7 +29,7 @@ Figure~\ref{fig:averaging} illustrates this averaging for a one-dimensional chai
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/averaging.pdf}
-\caption{Averaging of a one-dimensional chain of dipoles. (a)~Discrete dipoles $\vec p_k$ with interatomic distance $a$; dipoles inside $\Omega$ in black. (b)~Microscopic dipole density as delta peaks, with one averaging window $w$ of width $\ell \gg a$. (c)~Contributions $p_k\,w(x-x_k)$ of single dipoles (thin curves) and their sum, the smooth polarization $P(x)$ (thick curve). Dipoles far outside $\Omega$ (gray) do not contribute to the shaded area, and dipoles within $\ell$ of the boundary contribute partially.}
+\caption{Averaging of a one-dimensional chain of dipoles. (a)~Discrete dipoles $\vec p_k$ with interatomic distance $a$, with the dipoles inside $\Omega$ in black. (b)~Microscopic dipole density as delta peaks, with one averaging window $w$ of width $\ell \gg a$. (c)~Contributions $p_k\,w(x-x_k)$ of single dipoles (thin curves) and their sum, the smooth polarization $P(x)$ (thick curve). Dipoles far outside $\Omega$ (gray) do not contribute to the shaded area, and dipoles within $\ell$ of the boundary contribute partially.}
 \label{fig:averaging}
 \end{figure}
 
@@ -86,6 +87,6 @@ where $\sigma_b$ is the \textcolor{blue}{bound surface charge density} and $\rho
 \begin{figure}[htbp]
 \centering
 \includegraphics{figures/boundcharge.pdf}
-\caption{Bound charges of a chain of dipoles between two surfaces. (a)~Uniform polarization: the charges of neighboring dipoles cancel inside the box, and only the surfaces carry the uncompensated charges $\pm\sigma_b$. (b)~Polarization increasing to the right: the box holds $+q_2$ and $-q_4$ with $q_4 > q_2$, so it carries the net charge $-(dP/dx)\,\Delta V$. Here $A$ is the cross-sectional area and $\Delta V$ the volume of the box.}
+\caption{Bound charges of a chain of dipoles between two surfaces. (a)~Uniform polarization: the charges of neighboring dipoles cancel inside the box, and only the surfaces carry the uncompensated charges $\pm\sigma_b$. (b)~Polarization increasing to the right: the box holds $+q_2$ and $-q_4$ with $q_4 > q_2$, so it carries the net charge $-(dP/dx)\,\Delta V$. Here $\Delta S$ is the cross-sectional area of the box and $\Delta V$ is its volume.}
 \label{fig:boundcharge}
 \end{figure}

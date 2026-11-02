@@ -1,4 +1,5 @@
-\section{Electric Field in Dielectric Medium}
+\section{Electric Fields in Dielectric Media}
+\label{sec:dielectric}
 
 \subsection{Gauss's Law in a Polarizable Material}
 
@@ -13,7 +14,7 @@ The bound charge is unknown until $\vec E$ is known. Moving it to the left side 
     \vec D = \vec E + 4\pi\vec P, \qquad \vec\nabla\cdot\vec D = 4\pi\rho_f.
     }
 \end{equation}
-This is only a change of variables; a relation between $\vec P$ and $\vec E$ is still needed.
+This step is only a change of variables. A relation between $\vec P$ and $\vec E$ is still needed.
 
 \paragraph{Linear response and the dielectric tensor.}
 For a weak field, the polarization is expanded to first order about $\vec E = 0$,
@@ -42,11 +43,11 @@ An \textcolor{blue}{isotropic} material responds equally in every direction, $\c
 where $\chi$ is the \textcolor{blue}{electric susceptibility} and $\varepsilon$ is the \textcolor{blue}{dielectric constant}.
 
 \paragraph{Limits of the linear model.}
-Each assumption above fails in some materials. A ferroelectric carries a spontaneous polarization, $\vec P(0) = \vec P_s \neq 0$. A strong field, as in nonlinear optics, makes the second-order term significant,
+Each assumption of the linear model fails in some materials. A ferroelectric carries a spontaneous polarization, $\vec P(0) = \vec P_s \neq 0$. A strong field, as in nonlinear optics, makes the second-order term significant,
 \begin{equation*}
     P_\alpha = \sum_\beta \chi_{\alpha\beta}E_\beta + \sum_{\beta,\gamma}\chi^{(2)}_{\alpha\beta\gamma}E_\beta E_\gamma + \mathcal{O}(E^3).
 \end{equation*}
-A time-dependent field gives a frequency-dependent response, $\vec P(\omega) = \chi(\omega)\,\vec E(\omega)$; for example, metals at optical frequencies have $\varepsilon(\omega) < 0$. This note treats static, weak fields in linear isotropic media only.
+A time-dependent field gives a frequency-dependent response, $\vec P(\omega) = \chi(\omega)\,\vec E(\omega)$. For example, metals at optical frequencies have $\varepsilon(\omega) < 0$. This note treats only static, weak fields in linear isotropic media.
 
 \subsection{Boundary Conditions between Two Dielectric Media}
 
@@ -63,13 +64,13 @@ so the potential satisfies Laplace's equation in both media,
 \end{equation}
 
 \paragraph{Normal component from the divergence theorem.}
-Let $\hat n$ be the unit normal to the interface, pointing from medium 1 into medium 2, with $\partial/\partial n = \hat n\cdot\vec\nabla$ and $D_n = \vec D\cdot\hat n$. A pillbox of face area $\Delta A$ and height $h$ straddles the interface. The divergence theorem gives
+Let $\hat n$ be the unit normal to the interface, pointing from medium 1 into medium 2, with $\partial/\partial n = \hat n\cdot\vec\nabla$ and $D_n = \vec D\cdot\hat n$. A pillbox of face area $\Delta S$ and height $h$ straddles the interface. The divergence theorem, with the surface element $d\vec S$, gives
 \begin{equation*}
-    \oint_{\text{pillbox}} \vec D\cdot d\vec A = \int_{\text{pillbox}} \vec\nabla\cdot\vec D\;d^3r = 4\pi Q_f = 0.
+    \oint_{\text{pillbox}} \vec D\cdot d\vec S = \int_{\text{pillbox}} \vec\nabla\cdot\vec D\;d^3r = 4\pi Q_f = 0.
 \end{equation*}
 As $h \to 0$, the side wall drops out and only the two faces remain,
 \begin{equation*}
-    \left(D_{2,n} - D_{1,n}\right)\Delta A = 0
+    \left(D_{2,n} - D_{1,n}\right)\Delta S = 0
     \quad\Rightarrow\quad
     \varepsilon_1 E_{1,n} = \varepsilon_2 E_{2,n}.
 \end{equation*}
@@ -82,19 +83,19 @@ With $E_n = -\partial\phi/\partial n$,
 The same pillbox applied to $\vec E$ encloses the bound surface charge, $E_{2,n} - E_{1,n} = 4\pi\sigma_b$, so $E_n$ itself jumps across the interface.
 
 \paragraph{Tangential component from Stokes' theorem.}
-In electrostatics, $\partial\vec B/\partial t = 0$, so Faraday's law gives $\vec\nabla\times\vec E = 0$. Let $C$ be a rectangular loop with two sides of length $\Delta l$ along a tangent $\hat t$ of the interface, one in each medium, and two sides of height $h$ crossing it. Stokes' theorem gives
+In electrostatics, $\partial\vec B/\partial t = 0$, so Faraday's law gives $\vec\nabla\times\vec E = 0$. Let $C$ be a rectangular loop with two sides of length $\Delta s$ along a tangent $\hat t$ of the interface, one in each medium, and two sides of height $h$ crossing it. Stokes' theorem, with the line element $d\vec s$, gives
 \begin{equation*}
-    \oint_C \vec E\cdot d\vec l = \int_S \left(\vec\nabla\times\vec E\right)\cdot d\vec S = 0,
+    \oint_C \vec E\cdot d\vec s = \int_{S_C} \left(\vec\nabla\times\vec E\right)\cdot d\vec S = 0,
 \end{equation*}
-where $S$ is the surface bounded by $C$. As $h \to 0$, only the two long sides remain,
+where $S_C$ is the surface bounded by $C$. As $h \to 0$, only the two long sides remain,
 \begin{equation*}
-    \left(E_{2,t} - E_{1,t}\right)\Delta l = 0
+    \left(E_{2,t} - E_{1,t}\right)\Delta s = 0
     \quad\Rightarrow\quad
     E_{1,t} = E_{2,t}.
 \end{equation*}
-The same theorem forbids closed field lines, because $\vec E\cdot d\vec l > 0$ along a field line and $\oint\vec E\cdot d\vec l$ would be positive. Across the interface, the potential difference over the height $h$ vanishes for a finite field,
+The same theorem forbids closed field lines, because $\vec E\cdot d\vec s > 0$ along a field line and $\oint\vec E\cdot d\vec s$ would be positive. Across the interface, the potential difference over the height $h$ vanishes for a finite field,
 \begin{equation*}
-    \phi_2 - \phi_1 = -\int_0^h \vec E\cdot\hat n\;dl \;\longrightarrow\; 0 \qquad (h \to 0),
+    \phi_2 - \phi_1 = -\int_0^h \vec E\cdot\hat n\;ds \;\longrightarrow\; 0 \qquad (h \to 0),
 \end{equation*}
 which gives
 \begin{equation}
@@ -107,7 +108,7 @@ Since $E_t = -\hat t\cdot\vec\nabla\phi$ and $\phi_1 = \phi_2$ holds all along t
 \subsection{Dielectric Sphere in a Dielectric Medium}
 
 \paragraph{Setup of the boundary-value problem.}
-Many physical systems can be modeled as a dielectric sphere of radius $R_0$ and dielectric constant $\varepsilon_1$ embedded in a dielectric medium of dielectric constant $\varepsilon_2$. A uniform external field $\vec E_0 = E_0\,\hat z$ is applied far from the sphere (Fig.~\ref{fig:sphere}). \textcolor{red}{From now on, $(r,\theta,\varphi)$ are the spherical coordinates of the field point, measured from the center of the sphere with the polar axis along $\vec E_0$. The azimuthal angle $\varphi$ is distinct from the potential $\phi$.} A rotation about the $z$ axis leaves the setup unchanged, so the potential is \textcolor{blue}{azimuthally symmetric},
+Many physical systems can be modeled as a dielectric sphere of radius $R_0$ and dielectric constant $\varepsilon_1$ embedded in a dielectric medium of dielectric constant $\varepsilon_2$. A uniform external field $\vec E_0 = E_0\,\hat z$ is applied far from the sphere (Fig.~\ref{fig:sphere}). \textcolor{red}{From now on, $(r,\theta,\varphi)$ are the spherical coordinates of the field point, measured from the center of the sphere with the polar axis along $\vec E_0$. The field point is therefore $\vec r$, which replaces $\vec R$ of Sections~\ref{sec:multipole} and~\ref{sec:polarization}. The azimuthal angle $\varphi$ is distinct from the potential $\phi$.} A rotation about the $z$ axis leaves the setup unchanged, so the potential is \textcolor{blue}{azimuthally symmetric},
 \begin{equation*}
     \phi = \phi(r,\theta), \qquad \frac{\partial\phi}{\partial\varphi} = 0.
 \end{equation*}
@@ -164,7 +165,7 @@ With $d\mathcal{P}_l(\cos\theta)/d\theta = -\sin\theta\,\mathcal{P}_l'(\cos\thet
 \end{equation}
 
 \paragraph{Separate expansions inside and outside the sphere.}
-The potential is continuous at $r = R_0$, but its radial derivative jumps there when $\varepsilon_1 \neq \varepsilon_2$. A single expansion therefore cannot hold in the whole space, and each region carries its own coefficients. \textcolor{red}{From now on, $A_l^{(1)}, B_l^{(1)}$ are the coefficients of $\phi_1$ for $r < R_0$, and $A_l^{(2)}, B_l^{(2)}$ are those of $\phi_2$ for $r > R_0$.}
+The potential is continuous at $r = R_0$, but its radial derivative jumps there when $\varepsilon_1 \neq \varepsilon_2$. A single expansion therefore cannot hold in the whole space, and each region carries its own coefficients. \textcolor{red}{From now on, $A_l^{(1)}, B_l^{(1)}$ are the coefficients of $\phi_1$ for $r < R_0$, and $A_l^{(2)}, B_l^{(2)}$ are those of $\phi_2$ for $r > R_0$. The corresponding fields are $\vec E_1 = -\vec\nabla\phi_1$ and $\vec E_2 = -\vec\nabla\phi_2$.}
 
 \paragraph{Finite potential at the center.}
 The term $B_l^{(1)}/r^{l+1}$ diverges as $r \to 0$, but the center of the sphere contains no charge. Hence
@@ -262,13 +263,13 @@ Substituting the coefficients into $\phi_1$ and $\phi_2$ gives the potential in 
 Inside, $r\cos\theta = z$, so the potential is linear in $z$ and the field is
 \begin{equation}
     \boxed{
-    \vec E_{\text{in}} = -\vec\nabla\phi_1 = \frac{3\varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,\vec E_0.
+    \vec E_1 = -\vec\nabla\phi_1 = \frac{3\varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,\vec E_0.
     }
 \end{equation}
-The field inside the sphere is uniform and parallel to $\vec E_0$. For $\varepsilon_1 > \varepsilon_2$, it is weaker than $E_0$.
+The field inside the sphere is uniform and parallel to $\vec E_0$. For $\varepsilon_1 > \varepsilon_2$, the field inside is weaker than $E_0$.
 
-\paragraph{Outside field as the applied field plus a dipole field.}
-Outside, the potential splits into the applied potential and a correction,
+\paragraph{Outside field as the external field plus a dipole field.}
+Outside, the potential splits into the potential of the external field and a correction,
 \begin{equation*}
     \phi_2 = -E_0\,r\cos\theta + \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,E_0R_0^3\,\frac{\cos\theta}{r^2}
     = -\vec E_0\cdot\vec r + \frac{\vec p_{\text{eff}}\cdot\hat r}{r^2},
@@ -277,26 +278,30 @@ where $\hat z\cdot\hat r = \cos\theta$ and
 \begin{equation*}
     \vec p_{\text{eff}} = \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,R_0^3\,\vec E_0.
 \end{equation*}
-The correction has the form of the dipole potential $\hat R\cdot\vec p/R^2$ of Section~1. Its field follows from $E_r = -\partial\phi/\partial r$ and $E_\theta = -(1/r)\,\partial\phi/\partial\theta$,
+The correction has the form of the dipole potential $\hat R\cdot\vec p/R^2$ of Section~\ref{sec:multipole}, with $\vec R$ replaced by $\vec r$. Its field follows from $E_r = -\partial\phi/\partial r$ and $E_\theta = -(1/r)\,\partial\phi/\partial\theta$,
 \begin{equation*}
     \vec E_2 = E_0\cos\theta\left(1 + 2\,\frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,\frac{R_0^3}{r^3}\right)\hat r
     - E_0\sin\theta\left(1 - \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,\frac{R_0^3}{r^3}\right)\hat\theta.
 \end{equation*}
-The terms without $R_0$ give $E_0(\cos\theta\,\hat r - \sin\theta\,\hat\theta) = E_0\hat z = \vec E_0$. The remaining terms are proportional to $2\cos\theta\,\hat r + \sin\theta\,\hat\theta$. With $\sin\theta\,\hat\theta = \cos\theta\,\hat r - \hat z$ and $\cos\theta = \hat z\cdot\hat r$,
+The terms without $R_0$ give $E_0(\cos\theta\,\hat r - \sin\theta\,\hat\theta) = E_0\hat z = \vec E_0$. With $\vec p_{\text{eff}} = p_{\text{eff}}\,\hat z$, the remaining terms are
+\begin{equation*}
+    \frac{p_{\text{eff}}}{r^3}\left(2\cos\theta\,\hat r + \sin\theta\,\hat\theta\right).
+\end{equation*}
+With $\sin\theta\,\hat\theta = \cos\theta\,\hat r - \hat z$ and $\cos\theta = \hat z\cdot\hat r$, the bracket becomes
 \begin{equation*}
     2\cos\theta\,\hat r + \sin\theta\,\hat\theta
     = 2(\hat z\cdot\hat r)\,\hat r + (\hat z\cdot\hat r)\,\hat r - \hat z
     = 3(\hat z\cdot\hat r)\,\hat r - \hat z.
 \end{equation*}
-Multiplying by $\vec p_{\text{eff}}$'s magnitude turns $\hat z$ into $\vec p_{\text{eff}}$, so the outside field is
+Multiplying by $p_{\text{eff}}$ turns $\hat z$ into $\vec p_{\text{eff}}$, so the outside field is
 \begin{equation}
     \boxed{
-    \vec E_{\text{out}} = \vec E_0 + \frac{3(\vec p_{\text{eff}}\cdot\hat r)\,\hat r - \vec p_{\text{eff}}}{r^3},
+    \vec E_2 = \vec E_0 + \frac{3(\vec p_{\text{eff}}\cdot\hat r)\,\hat r - \vec p_{\text{eff}}}{r^3},
     \qquad
     \vec p_{\text{eff}} = \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,R_0^3\,\vec E_0,
     }
 \end{equation}
-which is the applied field plus the field of a point dipole $\vec p_{\text{eff}}$ at the center of the sphere.
+which is the external field plus the field of a point dipole $\vec p_{\text{eff}}$ at the center of the sphere.
 
 \paragraph{Consistency checks of the solution.}
 At $r = R_0$, the tangential field and the normal displacement are continuous,
@@ -306,13 +311,13 @@ At $r = R_0$, the tangential field and the normal displacement are continuous,
     \varepsilon_2\,E_{2,r}(R_0) &= \varepsilon_2\,E_0\cos\theta\left(1 + 2\,\frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\right)
     = \frac{3\varepsilon_1\varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,E_0\cos\theta = \varepsilon_1\,E_{1,r}(R_0).
 \end{align*}
-Far from the sphere, the dipole term decays as $r^{-3}$ and $\vec E \to \vec E_0$. Three limits reproduce known results:
+Far from the sphere, the dipole term decays as $r^{-3}$ and $\vec E \to \vec E_0$. Three limits reproduce known results,
 \begin{align*}
     \varepsilon_1 = \varepsilon_2: &\qquad \vec E = \vec E_0 \ \text{everywhere}, \qquad \vec p_{\text{eff}} = 0,\\
-    \varepsilon_1 \to \infty: &\qquad \vec E_{\text{in}} \to 0, \qquad \phi(R_0,\theta) = 0, \qquad \vec p_{\text{eff}} \to R_0^3\,\vec E_0,\\
-    \varepsilon_1 = 1,\ \varepsilon_2 > 1: &\qquad \vec E_{\text{in}} = \frac{3\varepsilon_2}{1 + 2\varepsilon_2}\,\vec E_0, \qquad |\vec E_{\text{in}}| > E_0.
+    \varepsilon_1 \to \infty: &\qquad \vec E_1 \to 0, \qquad \phi(R_0,\theta) = 0, \qquad \vec p_{\text{eff}} \to R_0^3\,\vec E_0,\\
+    \varepsilon_1 = 1,\ \varepsilon_2 > 1: &\qquad \vec E_1 = \frac{3\varepsilon_2}{1 + 2\varepsilon_2}\,\vec E_0, \qquad |\vec E_1| > E_0.
 \end{align*}
-The first limit describes a sphere that is indistinguishable from its surroundings. The second describes a conducting sphere, which screens its interior and forms an equipotential surface. The third describes a spherical cavity in a dielectric, where the field is stronger than the applied field.
+The first limit describes a sphere that is indistinguishable from its surroundings. The second describes a conducting sphere, which screens its interior and forms an equipotential surface. The third describes a spherical cavity in a dielectric, where the field is stronger than the external field.
 
 \paragraph{Effective dipole moment and the dipole moment of the sphere.}
 The interface carries bound charge from both media. With the outward normal $\hat r$ of the sphere, medium 1 contributes $\vec P_1\cdot\hat r$ and medium 2 contributes $-\vec P_2\cdot\hat r$. With $\vec P = (\varepsilon - 1)\vec E/4\pi$ and $\varepsilon_1E_{1,r} = \varepsilon_2E_{2,r}$, the total bound surface charge is

@@ -1,11 +1,12 @@
 \section{Multipole Expansion of a Point Cloud}
+\label{sec:multipole}
 
 \paragraph{Potential of a point cloud and the need for an expansion.}
 Consider $N$ point charges $q_i$ at positions $\vec r_i$, which together form a \textcolor{blue}{point cloud}. The electric potential at $\vec R$ is the sum of the contributions of all point charges,
 \begin{equation*}
     \phi(\vec R) = \sum_{i=1}^{N} \frac{q_i}{|\vec R - \vec r_i|}.
 \end{equation*}
-In general, this potential depends on the charge positions in a complicated way. Far from the cloud, however, the \textcolor{blue}{multipole expansion} breaks the potential down into \textcolor{blue}{multipole terms}. \textcolor{red}{For brevity, we write $R \equiv |\vec R|$ and $r_i \equiv |\vec r_i|$ from now on, and $\hat R = \vec R/R$ denotes the unit vector along $\vec R$.}
+In general, this potential depends on the charge positions in a complicated way. Far from the cloud, however, the \textcolor{blue}{multipole expansion} breaks the potential down into \textcolor{blue}{multipole terms}. \textcolor{red}{From now on, $R \equiv |\vec R|$ and $r_i \equiv |\vec r_i|$ denote the distances from the origin, and $\hat R = \vec R/R$ denotes the unit vector along $\vec R$.}
 
 \paragraph{Expansion of the inverse distance in powers of $r_i/R$.}
 Factoring $R$ out of the distance gives
@@ -16,7 +17,7 @@ Factoring $R$ out of the distance gives
     \qquad
     \eta = -2\,\frac{\hat R\cdot\vec r_i}{R} + \frac{r_i^2}{R^2}.
 \end{equation*}
-Far from the cloud, $r_i \ll R$ for every charge, so $|\eta| \ll 1$ and the Taylor expansion of $(1+\eta)^{-1/2}$ applies:
+Far from the cloud, $r_i \ll R$ for every charge, so $|\eta| \ll 1$ and the Taylor expansion of $(1+\eta)^{-1/2}$ applies,
 \begin{align*}
     (1+\eta)^{-1/2}
     &= 1 - \frac{1}{2}\eta + \frac{3}{8}\eta^2 + \mathcal{O}(\eta^3)\\
@@ -61,7 +62,7 @@ The second term is the \textcolor{blue}{dipole term},
     \sum_{i=1}^{N}\frac{q_i\,(\hat R\cdot\vec r_i)}{R^2} = \frac{\hat R\cdot\vec p}{R^2}, \qquad \vec p = \sum_{i=1}^{N} q_i\,\vec r_i,
     }
 \end{equation}
-where $\vec p$ is the dipole, a vector or rank-1 tensor. It is usually called the \textcolor{blue}{dipole moment vector}. This term remains even when the point cloud is neutral.
+where $\vec p$, a vector or rank-1 tensor, is the \textcolor{blue}{dipole moment vector}. This term remains even when the point cloud is neutral.
 
 \paragraph{Quadrupole term written as a matrix product.}
 The third term is the \textcolor{blue}{quadrupole term},
@@ -101,7 +102,7 @@ The quadrupole term is therefore
     \end{gathered}
     }
 \end{equation}
-where $\mathcal{Q}$ is the quadrupole, a symmetric matrix or rank-2 tensor. It is usually called the \textcolor{blue}{quadrupole moment tensor}. Its trace vanishes, because $\sum_\alpha\left(3\,r_{i\alpha}^2 - r_i^2\right) = 0$ for every charge.
+where $\mathcal{Q}$, a symmetric matrix or rank-2 tensor, is the \textcolor{blue}{quadrupole moment tensor}. The trace of $\mathcal{Q}$ vanishes, because $\sum_\alpha\left(3\,r_{i\alpha}^2 - r_i^2\right) = 0$ for every charge.
 
 \paragraph{Dependence of the moments on the choice of origin.}
 The multipole moments depend on where the origin is placed. Shifting the origin by $\vec d$ replaces $\vec r_i$ with $\vec r_i - \vec d$, so the dipole moment becomes
