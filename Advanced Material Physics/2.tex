@@ -27,75 +27,7 @@ Figure~\ref{fig:averaging} illustrates this averaging for a one-dimensional chai
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[
-  font=\small,
-  >={Stealth[length=2mm]},
-  declare function={
-    spacing = 0.5;                                % interatomic distance a (cm)
-    sig     = 0.55;                               % half-width of w (cm); width l ~ 2*sig
-    pscale  = 1.3;                                % vertical plot scale of P(x)
-    dip(\x) = 0.55 + 0.25*sin(deg(2*pi*\x/12));   % slowly varying dipole size p_k
-  }
-]
-  % ---------- region Omega (spans all panels) ----------
-  \def\xa{4.5}  \def\xb{9.5}
-  \fill[blue!6] (\xa,-0.3) rectangle (\xb,6.3);
-  \draw[densely dashed, blue!70!black] (\xa,-0.3) -- (\xa,6.3) (\xb,-0.3) -- (\xb,6.3);
-  \node[blue!70!black] at ({(\xa+\xb)/2},6.55) {region $\Omega$};
-
-  % ---------- (a) chain of atoms with dipoles ----------
-  \node at (-0.7,5.75) {(a)};
-  \draw[gray] (0,5.6) -- (13.5,5.6);
-  \foreach \k in {1,...,26}{
-    \pgfmathsetmacro{\xk}{\k*spacing}
-    \pgfmathsetmacro{\len}{0.42*dip(\xk)}
-    \pgfmathtruncatemacro{\inside}{(\xk>\xa) && (\xk<\xb)}
-    \ifnum\inside=1 \def\col{black}\else\def\col{gray!55}\fi
-    \fill[\col] (\xk,5.6) circle (0.09);
-    \draw[->, thick, \col] ({\xk-\len/2},5.95) -- ({\xk+\len/2},5.95);
-  }
-  \draw[|<->|] (11.5,5.25) -- (12.0,5.25) node[midway, below] {$a$};
-  \node[anchor=west] at (13.6,5.75) {$\vec p_k$};
-
-  % ---------- (b) microscopic density and one averaging window ----------
-  \node at (-0.7,3.6) {(b)};
-  \draw[->] (0,3.0) -- (13.5,3.0) node[right] {$x$};
-  \foreach \k in {1,...,26}{
-    \pgfmathsetmacro{\xk}{\k*spacing}
-    \draw[->, thick, red!70!black] (\xk,3.0) -- (\xk,{3.0+1.3*dip(\xk)});
-  }
-  % averaging window w centred at x' = 2.5
-  \draw[thick, densely dashed, orange!80!black, domain=0.3:4.7, samples=60]
-    plot (\x, {3.0 + 1.5*exp(-((\x-2.5)^2)/(2*sig^2))});
-  \draw[<->] ({2.5-sig},{3.0+1.5*exp(-0.5)}) -- ({2.5+sig},{3.0+1.5*exp(-0.5)})
-    node[midway, above=1pt, fill=white, inner sep=1pt] {$\ell$};
-  \node[orange!80!black, anchor=east] at (1.85,4.35) {$w(x-x')$};
-  \node[anchor=west] at (13.6,3.6) {$P_{\text{micro}}(x)$};
-
-  % ---------- (c) smooth polarization ----------
-  \node at (-0.7,1.0) {(c)};
-  % build P(x) = sum_k p_k w(x - x_k) as one pgfmath expression
-  \def\Psum{0}
-  \foreach \k in {1,...,26}{
-    \xdef\Psum{\unexpanded\expandafter{\Psum} + dip(\k*spacing)*exp(-((\noexpand\x-\k*spacing)^2)/(2*sig^2))}
-  }
-  \def\Pnorm{pscale/(sig*sqrt(2*pi))}   % normalization of w times the plot scale
-  % individual contributions p_k w(x - x_k)
-  \foreach \k in {1,...,26}{
-    \pgfmathsetmacro{\xk}{\k*spacing}
-    \pgfmathtruncatemacro{\inside}{(\xk>\xa) && (\xk<\xb)}
-    \ifnum\inside=1 \def\col{blue!60}\else\def\col{gray!50}\fi
-    \draw[\col, thin, domain={max(0,\xk-1.6)}:{min(13.5,\xk+1.6)}, samples=40]
-      plot (\x, {\Pnorm*dip(\xk)*exp(-((\x-\xk)^2)/(2*sig^2))});
-  }
-  % area under P(x) inside Omega
-  \fill[blue!25, opacity=0.6, domain=\xa:\xb, samples=60]
-    (\xa,0) -- plot (\x, {\Pnorm*(\Psum)}) -- (\xb,0) -- cycle;
-  \draw[very thick, domain=0:13.5, samples=160] plot (\x, {\Pnorm*(\Psum)});
-  \draw[->] (0,0) -- (13.5,0) node[right] {$x$};
-  \node[anchor=west] at (13.6,1.0) {$P(x)$};
-  \node[blue!70!black, anchor=north] at ({(\xa+\xb)/2},-0.3) {shaded area $=\int_\Omega P\,dx$};
-\end{tikzpicture}
+\includegraphics{figures/averaging.pdf}
 \caption{Averaging of a one-dimensional chain of dipoles. (a)~Discrete dipoles $\vec p_k$ with interatomic distance $a$; dipoles inside $\Omega$ in black. (b)~Microscopic dipole density as delta peaks, with one averaging window $w$ of width $\ell \gg a$. (c)~Contributions $p_k\,w(x-x_k)$ of single dipoles (thin curves) and their sum, the smooth polarization $P(x)$ (thick curve). Dipoles far outside $\Omega$ (gray) do not contribute to the shaded area, and dipoles within $\ell$ of the boundary contribute partially.}
 \label{fig:averaging}
 \end{figure}
@@ -153,56 +85,7 @@ where $\sigma_b$ is the \textcolor{blue}{bound surface charge density} and $\rho
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[
-  font=\small,
-  >={Stealth[length=2mm]},
-  negcharge/.style={circle, draw=blue!70!black, fill=blue!20, inner sep=0pt},
-  poscharge/.style={circle, draw=red!70!black,  fill=red!20,  inner sep=0pt},
-  mol/.style={rounded corners=7pt, draw=gray!60, fill=gray!8},
-  box/.style={thick, densely dashed},
-]
-  % ============ (a) uniform polarization ============
-  \begin{scope}[yshift=4.0cm]
-    \node at (-0.6,0.4) {(a)};
-    \node[anchor=east] at (11.4,1.65) {uniform $\vec P$};
-    \foreach \k in {1,...,6}{
-      \pgfmathsetmacro{\c}{1.7*\k}
-      \draw[mol] ({\c-0.75},-0.38) rectangle ({\c+0.75},0.38);
-      \node[negcharge, minimum size=5mm] at ({\c-0.42},0) {$-$};
-      \node[poscharge, minimum size=5mm] at ({\c+0.42},0) {$+$};
-      \draw[->, thick] ({\c-0.4},0.9) -- ({\c+0.4},0.9);
-    }
-    \node[anchor=west] at (11.2,0.9) {$\vec P$};
-    \draw[very thick, gray] (0.8,-0.7) -- (0.8,0.7) (11.4,-0.7) -- (11.4,0.7);
-    \node[blue!70!black] at (1.28,-0.75) {$-\sigma_b$};
-    \node[red!70!black]  at (10.62,-0.75) {$+\sigma_b$};
-    % box from the centre of dipole 2 to the centre of dipole 4
-    \draw[box] (3.4,-0.55) rectangle (6.8,1.2);
-    \node at (5.1,-0.95) {charge in box: $q - q = 0$};
-  \end{scope}
-
-  % ============ (b) non-uniform polarization ============
-  \node at (-0.6,0.4) {(b)};
-  \node[anchor=east] at (11.4,1.65) {non-uniform $\vec P$};
-  \foreach \k in {1,...,6}{
-    \pgfmathsetmacro{\c}{1.7*\k}
-    \pgfmathsetmacro{\s}{3.2+0.45*\k}      % circle size grows with q_k
-    \pgfmathsetmacro{\L}{0.2+0.09*\k}      % arrow half-length grows with P
-    \draw[mol] ({\c-0.75},-0.38) rectangle ({\c+0.75},0.38);
-    \node[negcharge, minimum size=\s mm] at ({\c-0.42},0) {\scriptsize$-$};
-    \node[poscharge, minimum size=\s mm] at ({\c+0.42},0) {\scriptsize$+$};
-    \ifnum\k=2 \def\col{orange!80!black}\else\ifnum\k=4 \def\col{orange!80!black}\else\def\col{black}\fi\fi
-    \draw[->, thick, \col] ({\c-\L},0.9) -- ({\c+\L},0.9);
-    \node[gray!40!black] at (\c,-0.85) {$q_{\k}$};
-  }
-  \node[anchor=west] at (11.2,0.9) {$\vec P$};
-  \draw[very thick, gray] (0.8,-0.7) -- (0.8,0.7) (11.4,-0.7) -- (11.4,0.7);
-  % box from the centre of dipole 2 to the centre of dipole 4
-  \draw[box] (3.4,-0.55) rectangle (6.8,1.2);
-  \node[orange!80!black, anchor=south] at (3.4,1.2) {$P_{\text{in}}$};
-  \node[orange!80!black, anchor=south] at (6.8,1.2) {$P_{\text{out}}$};
-  \node at (5.1,-1.35) {charge in box: $q_2 - q_4 = -(P_{\text{out}}-P_{\text{in}})\,A = -(dP/dx)\,\Delta V < 0$};
-\end{tikzpicture}
+\includegraphics{figures/boundcharge.pdf}
 \caption{Bound charges of a chain of dipoles between two surfaces. (a)~Uniform polarization: the charges of neighboring dipoles cancel inside the box, and only the surfaces carry the uncompensated charges $\pm\sigma_b$. (b)~Polarization increasing to the right: the box holds $+q_2$ and $-q_4$ with $q_4 > q_2$, so it carries the net charge $-(dP/dx)\,\Delta V$. Here $A$ is the cross-sectional area and $\Delta V$ the volume of the box.}
 \label{fig:boundcharge}
 \end{figure}
