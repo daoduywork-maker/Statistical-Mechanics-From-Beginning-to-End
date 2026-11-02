@@ -1,0 +1,111 @@
+\section{Multipole Expansion of a Point Cloud}
+
+\paragraph{Potential of a point cloud and the need for an expansion.}
+Consider $N$ point charges $q_i$ at positions $\vec r_i$, which together form a \textcolor{blue}{point cloud}. The electric potential at $\vec R$ is the sum of the contributions of all point charges,
+\begin{equation*}
+    \phi(\vec R) = \sum_{i=1}^{N} \frac{q_i}{|\vec R - \vec r_i|}.
+\end{equation*}
+In general, this potential depends on the charge positions in a complicated way. Far from the cloud, however, the \textcolor{blue}{multipole expansion} breaks the potential down into \textcolor{blue}{multipole terms}. \textcolor{red}{For brevity, we write $R \equiv |\vec R|$ and $r_i \equiv |\vec r_i|$ from now on, and $\hat R = \vec R/R$ denotes the unit vector along $\vec R$.}
+
+\paragraph{Expansion of the inverse distance in powers of $r_i/R$.}
+Factoring $R$ out of the distance gives
+\begin{equation*}
+    \frac{1}{|\vec R - \vec r_i|}
+    = \frac{1}{R}\left(1 - 2\,\frac{\hat R\cdot\vec r_i}{R} + \frac{r_i^2}{R^2}\right)^{-1/2}
+    = \frac{1}{R}\,(1+\eta)^{-1/2},
+    \qquad
+    \eta = -2\,\frac{\hat R\cdot\vec r_i}{R} + \frac{r_i^2}{R^2}.
+\end{equation*}
+Far from the cloud, $r_i \ll R$ for every charge, so $|\eta| \ll 1$ and the Taylor expansion of $(1+\eta)^{-1/2}$ applies:
+\begin{align*}
+    (1+\eta)^{-1/2}
+    &= 1 - \frac{1}{2}\eta + \frac{3}{8}\eta^2 + \mathcal{O}(\eta^3)\\
+    &= 1 - \frac{1}{2}\left(-2\,\frac{\hat R\cdot\vec r_i}{R} + \frac{r_i^2}{R^2}\right)
+       + \frac{3}{8}\left[4\,\frac{(\hat R\cdot\vec r_i)^2}{R^2}
+       - 4\,\frac{(\hat R\cdot\vec r_i)\,r_i^2}{R^3}
+       + \frac{r_i^4}{R^4}\right]
+       + \mathcal{O}(\eta^3).
+\end{align*}
+Grouping the terms by order of $r_i/R$ and dropping the third and higher orders gives
+\begin{equation*}
+    (1+\eta)^{-1/2}
+    = 1 + \frac{\hat R\cdot\vec r_i}{R}
+      + \left[\frac{3}{2}\frac{(\hat R\cdot\vec r_i)^2}{R^2} - \frac{1}{2}\frac{r_i^2}{R^2}\right]
+      + \mathcal{O}\!\left(\frac{r_i^3}{R^3}\right).
+\end{equation*}
+
+\paragraph{Multipole expansion of the potential.}
+Substituting this series into the potential gives, to second order in $r_i/R$,
+\begin{equation}
+    \boxed{
+    \phi(\vec R) \approx \sum_{i=1}^{N}\frac{q_i}{R}
+    \left\{1 + \frac{\hat R\cdot\vec r_i}{R}
+    + \left[\frac{3}{2}\frac{(\hat R\cdot\vec r_i)^2}{R^2} - \frac{1}{2}\frac{r_i^2}{R^2}\right]\right\}.
+    }
+\end{equation}
+The three terms in braces are the monopole, dipole, and quadrupole terms.
+
+\paragraph{Monopole term: the total charge.}
+The first term is the \textcolor{blue}{monopole term},
+\begin{equation}
+    \boxed{
+    \sum_{i=1}^{N}\frac{q_i}{R} = \frac{Q}{R}, \qquad Q = \sum_{i=1}^{N} q_i,
+    }
+\end{equation}
+where $Q$ is the total charge, also called the \textcolor{blue}{monopole moment}, a scalar or rank-0 tensor. This term vanishes when the point cloud is neutral.
+
+\paragraph{Dipole term: the dipole moment vector.}
+The second term is the \textcolor{blue}{dipole term},
+\begin{equation}
+    \boxed{
+    \sum_{i=1}^{N}\frac{q_i\,(\hat R\cdot\vec r_i)}{R^2} = \frac{\hat R\cdot\vec p}{R^2}, \qquad \vec p = \sum_{i=1}^{N} q_i\,\vec r_i,
+    }
+\end{equation}
+where $\vec p$ is the dipole, a vector or rank-1 tensor. It is usually called the \textcolor{blue}{dipole moment vector}. This term remains even when the point cloud is neutral.
+
+\paragraph{Quadrupole term written as a matrix product.}
+The third term is the \textcolor{blue}{quadrupole term},
+\begin{equation*}
+    \sum_{i=1}^{N}\frac{q_i}{R}\left[\frac{3}{2}\frac{(\hat R\cdot\vec r_i)^2}{R^2} - \frac{1}{2}\frac{r_i^2}{R^2}\right]
+    = \frac{1}{2R^3}\sum_{i=1}^{N} q_i\left[3(\hat R\cdot\vec r_i)^2 - r_i^2\right].
+\end{equation*}
+\textcolor{red}{From now on, Greek indices $\alpha,\beta \in \{x,y,z\}$ label Cartesian components, and the Latin index $i$ still labels the charges. For example, $r_{i\alpha}$ is the $\alpha$ component of $\vec r_i$.} In components, the squared dot product becomes a double sum,
+\begin{equation*}
+    (\hat R\cdot\vec r_i)^2
+    = \sum_{\alpha}\hat R_\alpha r_{i\alpha}\sum_{\beta}\hat R_\beta r_{i\beta}
+    = \sum_{\alpha,\beta}\hat R_\alpha\hat R_\beta\, r_{i\alpha}r_{i\beta}.
+\end{equation*}
+Because $\hat R$ is a unit vector, $\sum_{\alpha,\beta}\hat R_\alpha\hat R_\beta\,\delta_{\alpha\beta} = 1$, where $\delta_{\alpha\beta}$ is the Kronecker delta. The squared distance therefore takes the same form,
+\begin{equation*}
+    r_i^2 = \sum_{\alpha,\beta}\hat R_\alpha\hat R_\beta\, r_i^2\,\delta_{\alpha\beta}.
+\end{equation*}
+Both sums resemble the inner product $\vec u^{T}M\vec u$ of a vector $\vec u$ and a matrix $M$. To see this, let $\vec w = M\vec u$. Each component $w_\alpha = \sum_\beta M_{\alpha\beta}u_\beta$ multiplies the $\alpha$-th row of $M$ entry by entry with $\vec u$ and sums over the columns $\beta$. The inner product is then
+\begin{equation*}
+    \vec u^{T}M\vec u = \vec u^{T}\vec w = \sum_{\alpha} u_\alpha w_\alpha = \sum_{\alpha,\beta} u_\alpha M_{\alpha\beta}u_\beta.
+\end{equation*}
+
+\paragraph{Quadrupole moment tensor.}
+Combining the two sums with $u_\alpha = \hat R_\alpha$ gives
+\begin{equation*}
+    \sum_{i=1}^{N} q_i\left[3(\hat R\cdot\vec r_i)^2 - r_i^2\right]
+    = \sum_{\alpha,\beta}\hat R_\alpha\hat R_\beta \sum_{i=1}^{N} q_i\left(3\,r_{i\alpha}r_{i\beta} - r_i^2\,\delta_{\alpha\beta}\right)
+    = \hat R^{T}\mathcal{Q}\,\hat R.
+\end{equation*}
+The quadrupole term is therefore
+\begin{equation}
+    \boxed{
+    \begin{gathered}
+    \sum_{i=1}^{N}\frac{q_i}{R}\left[\frac{3}{2}\frac{(\hat R\cdot\vec r_i)^2}{R^2} - \frac{1}{2}\frac{r_i^2}{R^2}\right]
+    = \frac{\hat R^{T}\mathcal{Q}\,\hat R}{2R^3},\\[4pt]
+    \mathcal{Q}_{\alpha\beta} = \sum_{i=1}^{N} q_i\left(3\,r_{i\alpha}r_{i\beta} - r_i^2\,\delta_{\alpha\beta}\right),
+    \end{gathered}
+    }
+\end{equation}
+where $\mathcal{Q}$ is the quadrupole, a symmetric matrix or rank-2 tensor. It is usually called the \textcolor{blue}{quadrupole moment tensor}. Its trace vanishes, because $\sum_\alpha\left(3\,r_{i\alpha}^2 - r_i^2\right) = 0$ for every charge.
+
+\paragraph{Dependence of the moments on the choice of origin.}
+The multipole moments depend on where the origin is placed. Shifting the origin by $\vec d$ replaces $\vec r_i$ with $\vec r_i - \vec d$, so the dipole moment becomes
+\begin{equation*}
+    \vec p\,' = \sum_{i=1}^{N} q_i\left(\vec r_i - \vec d\right) = \vec p - Q\,\vec d.
+\end{equation*}
+The dipole moment is therefore independent of the origin only when $Q = 0$. The same argument shows that $\mathcal{Q}$ is independent of the origin only when $Q$ and $\vec p$ both vanish. In general, only the lowest nonvanishing moment is independent of the origin.

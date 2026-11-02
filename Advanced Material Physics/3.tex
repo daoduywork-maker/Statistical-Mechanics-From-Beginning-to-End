@@ -1,0 +1,105 @@
+\section{Dielectric Sphere inside a Dielectric Medium}
+
+\subsection{Gauss's Law in a Polarizable Material}
+
+\paragraph{Electric displacement as the field of the free charges.}
+Gauss's law counts both the \textcolor{blue}{free charge} $\rho_f$ and the bound charge $\rho_b$,
+\begin{equation*}
+    \vec\nabla\cdot\vec E = 4\pi(\rho_f + \rho_b), \qquad \rho_b = -\vec\nabla\cdot\vec P.
+\end{equation*}
+The bound charge is unknown until $\vec E$ is known. Moving it to the left side defines the \textcolor{blue}{electric displacement} $\vec D$,
+\begin{equation}
+    \boxed{
+    \vec D = \vec E + 4\pi\vec P, \qquad \vec\nabla\cdot\vec D = 4\pi\rho_f.
+    }
+\end{equation}
+This is only a change of variables; a relation between $\vec P$ and $\vec E$ is still needed.
+
+\paragraph{Linear response and the dielectric tensor.}
+For a weak field, the polarization is expanded to first order about $\vec E = 0$,
+\begin{equation*}
+    P_\alpha(\vec E) = P_\alpha(0) + \sum_\beta \chi_{\alpha\beta}E_\beta + \mathcal{O}(E^2),
+    \qquad
+    \chi_{\alpha\beta} = \left.\frac{\partial P_\alpha}{\partial E_\beta}\right|_{\vec E = 0}.
+\end{equation*}
+With $P_\alpha(0) = 0$ and without the $\mathcal{O}(E^2)$ terms,
+\begin{equation}
+    \boxed{
+    P_\alpha = \sum_\beta \chi_{\alpha\beta}E_\beta, \qquad
+    D_\alpha = \sum_\beta \varepsilon_{\alpha\beta}E_\beta, \qquad
+    \varepsilon_{\alpha\beta} = \delta_{\alpha\beta} + 4\pi\chi_{\alpha\beta},
+    }
+\end{equation}
+where $\chi_{\alpha\beta}$ is the \textcolor{blue}{susceptibility tensor} and $\varepsilon_{\alpha\beta}$ is the \textcolor{blue}{dielectric tensor}. Here $\vec E$ is the macroscopic field at the same point, not the external field.
+
+\paragraph{Isotropic materials and the dielectric constant.}
+An \textcolor{blue}{isotropic} material responds equally in every direction, $\chi_{\alpha\beta} = \chi\,\delta_{\alpha\beta}$, so that
+\begin{equation}
+    \boxed{
+    \vec P = \chi\,\vec E, \qquad \vec D = \varepsilon\,\vec E, \qquad \varepsilon = 1 + 4\pi\chi,
+    }
+\end{equation}
+where $\chi$ is the \textcolor{blue}{electric susceptibility} and $\varepsilon$ is the \textcolor{blue}{dielectric constant}.
+
+\paragraph{Limits of the linear model.}
+Each assumption above fails in some materials. A ferroelectric carries a spontaneous polarization, $\vec P(0) = \vec P_s \neq 0$. A strong field, as in nonlinear optics, makes the second-order term significant,
+\begin{equation*}
+    P_\alpha = \sum_\beta \chi_{\alpha\beta}E_\beta + \sum_{\beta,\gamma}\chi^{(2)}_{\alpha\beta\gamma}E_\beta E_\gamma + \mathcal{O}(E^3).
+\end{equation*}
+A time-dependent field gives a frequency-dependent response, $\vec P(\omega) = \chi(\omega)\,\vec E(\omega)$; for example, metals at optical frequencies have $\varepsilon(\omega) < 0$. This note treats static, weak fields in linear isotropic media only.
+
+\subsection{Boundary Conditions between Two Dielectric Media}
+
+\paragraph{Laplace's equation inside each medium.}
+Consider two linear isotropic media, labeled 1 and 2, with constant dielectric constants $\varepsilon_1$ and $\varepsilon_2$ and $\rho_f = 0$. With $\vec D = -\varepsilon\vec\nabla\phi$,
+\begin{equation*}
+    \vec\nabla\cdot\vec D = -\varepsilon\,\nabla^2\phi = 0,
+\end{equation*}
+so the potential satisfies Laplace's equation in both media,
+\begin{equation}
+    \boxed{
+    \nabla^2\phi_1 = 0, \qquad \nabla^2\phi_2 = 0.
+    }
+\end{equation}
+
+\paragraph{Normal component from the divergence theorem.}
+Let $\hat n$ be the unit normal to the interface, pointing from medium 1 into medium 2, with $\partial/\partial n = \hat n\cdot\vec\nabla$ and $D_n = \vec D\cdot\hat n$. A pillbox of face area $\Delta A$ and height $h$ straddles the interface. The divergence theorem gives
+\begin{equation*}
+    \oint_{\text{pillbox}} \vec D\cdot d\vec A = \int_{\text{pillbox}} \vec\nabla\cdot\vec D\;d^3r = 4\pi Q_f = 0.
+\end{equation*}
+As $h \to 0$, the side wall drops out and only the two faces remain,
+\begin{equation*}
+    \left(D_{2,n} - D_{1,n}\right)\Delta A = 0
+    \quad\Rightarrow\quad
+    \varepsilon_1 E_{1,n} = \varepsilon_2 E_{2,n}.
+\end{equation*}
+With $E_n = -\partial\phi/\partial n$,
+\begin{equation}
+    \boxed{
+    \varepsilon_1\frac{\partial\phi_1}{\partial n} = \varepsilon_2\frac{\partial\phi_2}{\partial n}.
+    }
+\end{equation}
+The same pillbox applied to $\vec E$ encloses the bound surface charge, $E_{2,n} - E_{1,n} = 4\pi\sigma_b$, so $E_n$ itself jumps across the interface.
+
+\paragraph{Tangential component from Stokes' theorem.}
+In electrostatics, $\partial\vec B/\partial t = 0$, so Faraday's law gives $\vec\nabla\times\vec E = 0$. Let $C$ be a rectangular loop with two sides of length $\Delta l$ along a tangent $\hat t$ of the interface, one in each medium, and two sides of height $h$ crossing it. Stokes' theorem gives
+\begin{equation*}
+    \oint_C \vec E\cdot d\vec l = \int_S \left(\vec\nabla\times\vec E\right)\cdot d\vec S = 0,
+\end{equation*}
+where $S$ is the surface bounded by $C$. As $h \to 0$, only the two long sides remain,
+\begin{equation*}
+    \left(E_{2,t} - E_{1,t}\right)\Delta l = 0
+    \quad\Rightarrow\quad
+    E_{1,t} = E_{2,t}.
+\end{equation*}
+The same theorem forbids closed field lines, because $\vec E\cdot d\vec l > 0$ along a field line and $\oint\vec E\cdot d\vec l$ would be positive. Across the interface, the potential difference over the height $h$ vanishes for a finite field,
+\begin{equation*}
+    \phi_2 - \phi_1 = -\int_0^h \vec E\cdot\hat n\;dl \;\longrightarrow\; 0 \qquad (h \to 0),
+\end{equation*}
+which gives
+\begin{equation}
+    \boxed{
+    \phi_1 = \phi_2 \quad \text{on the interface}.
+    }
+\end{equation}
+Since $E_t = -\hat t\cdot\vec\nabla\phi$ and $\phi_1 = \phi_2$ holds all along the interface, this condition contains $E_{1,t} = E_{2,t}$.
