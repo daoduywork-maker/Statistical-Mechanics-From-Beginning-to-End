@@ -43,27 +43,61 @@ where $\rho_{f,\text{micro}}$ is the microscopic density of the free charges. Th
 \end{equation*}
 which is Gauss's law of Section~\ref{sec:dielectric}. The relation $\vec\nabla\times\vec E_{\text{micro}} = 0$ averages to $\vec\nabla\times\vec E = 0$ in the same way. Every solution of Section~\ref{sec:dielectric} is therefore a macroscopic field. For example, the uniform field $\vec E_1$ inside the dielectric sphere is the average of a microscopic field that diverges at every atom. The linear relation $\vec P = \chi\vec E$ also holds only for macroscopic fields, because $\vec P_{\text{micro}}$ is a sum of delta functions and cannot be proportional to $\vec E_{\text{micro}}$.
 
-Lorentz reconcile this by using an imaginary sphere. A sphere is chosen such that it's bigger than the the lattice spacing so verything outside of it can be considered a continuum and small enough compared to the scale that the field is varying so that it feels a single uniform external field. An tom locatd at the center of the sphere now feel 4 compontents
-\begin{align}
-    E_loc=E_ext + E_dep + E_bound + E_dip
-\end{align}
-%use underbrace to note them as external field, material surface boundcharge or depolarization field, bound charge of the spherical cavity and field of the diople inside the sphere
+\paragraph{Lorentz sphere.}
+Lorentz evaluated the difference between the local field and the macroscopic field with an imaginary sphere of radius $R_L$ centered on the atom, the \textcolor{blue}{Lorentz sphere} (Fig.~\ref{fig:lorentz}). The radius satisfies
+\begin{equation*}
+    a \ll R_L \ll L.
+\end{equation*}
+Because $R_L \gg a$, the dipoles outside the sphere can be treated as a continuum with the polarization $\vec P$. Because $R_L \ll L$, the polarization is uniform over the sphere and its surroundings. The dipoles inside the sphere remain discrete. The atom at the center then feels four contributions,
+\begin{equation*}
+    \vec E_{\text{loc}} =
+    \underbrace{\vec E_{\text{ext}}}_{\substack{\text{external}\\ \text{field}}}
+    + \underbrace{\vec E_{\text{dep}}}_{\substack{\text{outer surface,}\\ \text{depolarization}}}
+    + \underbrace{\vec E_{\text{cav}}}_{\substack{\text{surface of the}\\ \text{Lorentz sphere}}}
+    + \underbrace{\vec E_{\text{near}}}_{\substack{\text{dipoles inside}\\ \text{the sphere}}},
+\end{equation*}
+where $\vec E_{\text{dep}}$ is the \textcolor{blue}{depolarization field} of the bound charge on the outer surface of the sample, $\vec E_{\text{cav}}$ is the field of the bound charge on the surface of the Lorentz sphere, and $\vec E_{\text{near}}$ is the field of the discrete dipoles inside the sphere, without the central atom. For a uniform $\vec P$, the bulk carries no bound charge, $\rho_b = -\vec\nabla\cdot\vec P = 0$. The macroscopic field is therefore the sum of the first two terms, $\vec E = \vec E_{\text{ext}} + \vec E_{\text{dep}}$.
 
-The spherical cavity have oposite surface bound charge to that of a sphere to neutralize the charge. So the bound charge of the spherical cavity would be 
-\begin{align}
-    \sigma_b = - \vec P \cdot \hat r = -P\cos\theta 
-\end{align}
-% need a figure here 
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/lorentz.pdf}
+\caption{Lorentz sphere of radius $R_L$ in a uniformly polarized sample. Outside the sphere, the dipoles form a continuum with polarization $\vec P$ (gray arrows), and the outer surface carries the bound charge $\sigma_b = \pm P$. Inside the sphere, the dipoles remain discrete on a cubic lattice (black), with the atom under consideration at the center (orange). The surface of the sphere carries the bound charge $\sigma_b = -P\cos\theta$.}
+\label{fig:lorentz}
+\end{figure}
 
-Because of the azimuthual symmetry, only the azimuthual component of the Electric field survive and it is 
-\begin{align}
-    E_bz=\int_0^{\pi} \frac{\sigma_b 2\pi\sin\theta R d\theta R \cos\theta}{R^2} = \frac{4\pi P}{3}
-\end{align}
+\paragraph{Field of the bound charge on the Lorentz sphere.}
+The material lies outside the sphere, so its outward normal on the sphere points toward the center, $\hat n = -\hat r$. With $\vec P = P\hat z$, the bound surface charge is
+\begin{equation*}
+    \sigma_b = \vec P\cdot\hat n = -P\cos\theta.
+\end{equation*}
+This charge is opposite to that of a uniformly polarized sphere, because the cavity is the material with the sphere removed. The ring between $\theta$ and $\theta + d\theta$ carries the charge $dq = \sigma_b\,2\pi R_L^2\sin\theta\,d\theta$ at the distance $R_L$ from the center. Its field at the center points along $-\hat r$. By azimuthal symmetry, only the $z$ component survives, $-\cos\theta\,dq/R_L^2$, so that
+\begin{equation*}
+    E_{\text{cav},z} = \int_0^\pi \left(-\cos\theta\right)\frac{\left(-P\cos\theta\right)2\pi R_L^2\sin\theta}{R_L^2}\,d\theta
+    = 2\pi P\int_0^\pi \cos^2\theta\,\sin\theta\,d\theta
+    = \frac{4\pi}{3}\,P.
+\end{equation*}
+The cavity field, $\vec E_{\text{cav}} = \tfrac{4\pi}{3}\vec P$, does not depend on the radius $R_L$.
 
-If our material is crytallin and is highly symmetric, preferably cubic, there existh a dipole j at rj that cancel the field of dipole i and ri 
+\paragraph{Field of the dipoles inside the sphere.}
+For a uniform $\vec P$, all dipoles inside the sphere are equal, $\vec p_k = p\,\hat z$. A dipole at $\vec r_k = (x_k, y_k, z_k)$, measured from the center, produces the point-dipole field $\vec E_{\text{dip}}(0;\vec p_k,\vec r_k)$ at the center, with $\hat u_k = -\vec r_k/r_k$. The components of the sum are
+\begin{equation*}
+    E_{\text{near},x} = 3p\sum_k \frac{x_k z_k}{r_k^5}, \qquad
+    E_{\text{near},y} = 3p\sum_k \frac{y_k z_k}{r_k^5}, \qquad
+    E_{\text{near},z} = p\sum_k \frac{3z_k^2 - r_k^2}{r_k^5}.
+\end{equation*}
+A cubic lattice centered on the atom is unchanged by the reflection $z \to -z$, which pairs each dipole at $(x_k, y_k, z_k)$ with one at $(x_k, y_k, -z_k)$. The $x$ and $y$ sums therefore vanish. The lattice is also unchanged by any permutation of the axes, so
+\begin{equation*}
+    \sum_k \frac{x_k^2}{r_k^5} = \sum_k \frac{y_k^2}{r_k^5} = \sum_k \frac{z_k^2}{r_k^5}
+    \quad\Rightarrow\quad
+    \sum_k \frac{3z_k^2 - r_k^2}{r_k^5} = \sum_k \frac{2z_k^2 - x_k^2 - y_k^2}{r_k^5} = 0.
+\end{equation*}
+Hence $\vec E_{\text{near}} = 0$ for a cubic lattice. The same holds on average for a random, isotropic arrangement of dipoles, such as in a gas or a liquid.
 
-So the local field would just be 
-\begin{align}
-    E_loc = E_xt +\frac{4\pi P}{3}
-\end{align}
-which is higher than the external field itself. as said
+\paragraph{Lorentz local field.}
+Combining the four contributions gives the \textcolor{blue}{Lorentz local field},
+\begin{equation}
+    \boxed{
+    \vec E_{\text{loc}} = \vec E_{\text{ext}} + \vec E_{\text{dep}} + \frac{4\pi}{3}\vec P = \vec E + \frac{4\pi}{3}\vec P.
+    }
+\end{equation}
+For $\vec P$ parallel to $\vec E$, the local field is stronger than the macroscopic field.
