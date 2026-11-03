@@ -30,3 +30,15 @@ The limit exists, because the subtraction removes the only term that diverges at
 \end{equation*}
 The first term excludes the field of $\vec p_j$ and takes the field at one point. The second term includes the field of $\vec p_j$ and averages over the width $\ell$. Near $\vec r_j$, the fields of the neighbors vary on the scale of the interatomic distance $a \ll \ell$, so the two terms differ.
 
+\paragraph{Macroscopic equations as averaged microscopic equations.}
+The equations of Section~\ref{sec:dielectric} contain no explicit averaging, yet they describe macroscopic fields. The reason is that the average with $w$ commutes with the derivatives in the microscopic field equations. A point dipole $\vec p_k$ at $\vec r_k$ has the charge density $-\vec p_k\cdot\vec\nabla\,\delta(\vec r - \vec r_k)$, so the microscopic charge density is
+\begin{equation*}
+    \rho_{\text{micro}} = \rho_{f,\text{micro}} - \vec\nabla\cdot\vec P_{\text{micro}},
+\end{equation*}
+where $\rho_{f,\text{micro}}$ is the microscopic density of the free charges. The microscopic field obeys Gauss's law exactly, $\vec\nabla\cdot\vec E_{\text{micro}} = 4\pi\rho_{\text{micro}}$. The average with $w$ is the convolution $(w * f)(\vec r) = \int w(\vec r - \vec r\,')\,f(\vec r\,')\,d^3r'$. Averaging both sides and moving the average through $\vec\nabla$ gives
+\begin{equation*}
+    \vec\nabla\cdot\left(w * \vec E_{\text{micro}}\right) = 4\pi\left[w * \rho_{f,\text{micro}} - \vec\nabla\cdot\left(w * \vec P_{\text{micro}}\right)\right]
+    \quad\Rightarrow\quad
+    \vec\nabla\cdot\vec E = 4\pi\left(\rho_f - \vec\nabla\cdot\vec P\right),
+\end{equation*}
+which is Gauss's law of Section~\ref{sec:dielectric}. The relation $\vec\nabla\times\vec E_{\text{micro}} = 0$ averages to $\vec\nabla\times\vec E = 0$ in the same way. Every solution of Section~\ref{sec:dielectric} is therefore a macroscopic field. For example, the uniform field $\vec E_1$ inside the dielectric sphere is the average of a microscopic field that diverges at every atom. The linear relation $\vec P = \chi\vec E$ also holds only for macroscopic fields, because $\vec P_{\text{micro}}$ is a sum of delta functions and cannot be proportional to $\vec E_{\text{micro}}$.
