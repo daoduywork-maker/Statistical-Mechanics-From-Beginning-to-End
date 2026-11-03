@@ -141,19 +141,71 @@ The right side of the molar form depends only on the atom or molecule. The left 
 \paragraph{Range of validity.}
 The Lorentz model assumes $\vec E_{\text{near}} = 0$. It is therefore accurate when the fields of the neighboring dipoles cancel by symmetry, as in highly symmetric crystals, or are weak because the dipoles are far apart, as in gases. Nonpolar liquids also satisfy this condition on average.
 
-\subsection{Debye Orientational polarizability}
+\subsection{Debye Orientational Polarizability}
 
-The problem of Lorentz model is very clear. It can not describe polar materials. Polar material possesses permanent dipole moment. Say their dipole moment magnitude is $\mu_0$. Under external Electric field, those dipole possesses electrostatic energy. At temperature $T$, the dipole angle distrubution obey the Boltzmann distrubution 
-\begin{align}
-    p(\mu(\theta))=\dfrac{e^{-\vec\mu\cdot \E_{loc}}/k_bT}{Z}
-\end{align}
-where $Z$ is the partition function, summing over all angle that a dipole can align in the material 
-\begin{align}
-    Z = \int_0^\infty e^{-\mu_0E\cos\theta/k_bT}d\theta = ?
-\end{align}
-One can see that the average dipole moment perpendicular to the field is 0
-%show the math
-and the avergae dipole moment align with the field is 
-% show the math here 
+\paragraph{Permanent dipoles in a local field.}
+The Clausius--Mossotti relation contains only induced dipoles. In a \textcolor{blue}{polar material}, each molecule also carries a \textcolor{blue}{permanent dipole moment} $\vec p_0$ of fixed magnitude $p_0$. \textcolor{red}{From now on, $\vartheta$ and $\varphi$ are the polar and azimuthal angles of $\vec p_0$, measured from the direction of $\vec E_{\text{loc}}$, which defines the $z$ axis.} In the local field, the dipole has the energy
+\begin{equation*}
+    U(\vartheta) = -\vec p_0\cdot\vec E_{\text{loc}} = -p_0E_{\text{loc}}\cos\vartheta.
+\end{equation*}
+Thermal motion rotates the dipoles. At the temperature $T$, the orientations follow the Boltzmann distribution over the solid angle $d\Omega = \sin\vartheta\,d\vartheta\,d\varphi$,
+\begin{equation*}
+    g(\vartheta)\,d\Omega = \frac{e^{-U(\vartheta)/k_BT}}{Z}\,d\Omega,
+    \qquad
+    Z = \int e^{-U(\vartheta)/k_BT}\,d\Omega,
+\end{equation*}
+where $k_B$ is the Boltzmann constant, $g$ is the probability density per solid angle, and $Z$ is the \textcolor{blue}{partition function}.
+
+\paragraph{Partition function.}
+With the dimensionless field strength $\xi = p_0E_{\text{loc}}/k_BT$, the integral over $\varphi$ gives $2\pi$, and the integral over $\vartheta$ is elementary,
+\begin{equation*}
+    Z = \int_0^{2\pi} d\varphi \int_0^\pi e^{\xi\cos\vartheta}\sin\vartheta\,d\vartheta
+    = 2\pi\left[-\frac{e^{\xi\cos\vartheta}}{\xi}\right]_0^\pi
+    = 2\pi\,\frac{e^{\xi} - e^{-\xi}}{\xi}
+    = \frac{4\pi\sinh\xi}{\xi}.
+\end{equation*}
+
+\paragraph{Average dipole moment perpendicular to the field.}
+The $x$ component of $\vec p_0$ is $p_0\sin\vartheta\cos\varphi$. Its average contains the factor $\int_0^{2\pi}\cos\varphi\,d\varphi = 0$,
+\begin{equation*}
+    \langle p_{0,x}\rangle = \frac{p_0}{Z}\int_0^{2\pi}\cos\varphi\,d\varphi\int_0^\pi e^{\xi\cos\vartheta}\sin^2\vartheta\,d\vartheta = 0.
+\end{equation*}
+The $y$ component vanishes in the same way, with $\sin\varphi$ in place of $\cos\varphi$. The field has no preferred direction perpendicular to itself, so the dipoles cancel in that plane.
+
+\paragraph{Average dipole moment along the field.}
+The $z$ component of $\vec p_0$ is $p_0\cos\vartheta$. Because $\partial e^{\xi\cos\vartheta}/\partial\xi = \cos\vartheta\,e^{\xi\cos\vartheta}$, its average is a derivative of the partition function,
+\begin{equation*}
+    \langle p_{0,z}\rangle = \frac{p_0}{Z}\int_0^{2\pi} d\varphi\int_0^\pi \cos\vartheta\,e^{\xi\cos\vartheta}\sin\vartheta\,d\vartheta
+    = \frac{p_0}{Z}\,\frac{\partial Z}{\partial\xi}
+    = p_0\,\frac{\partial\ln Z}{\partial\xi}.
+\end{equation*}
+With $\ln Z = \ln 4\pi + \ln\sinh\xi - \ln\xi$,
+\begin{equation}
+    \boxed{
+    \langle p_{0,z}\rangle = p_0\,\mathcal{L}(\xi),
+    \qquad
+    \mathcal{L}(\xi) = \coth\xi - \frac{1}{\xi},
+    }
+\end{equation}
+where $\mathcal{L}$ is the \textcolor{blue}{Langevin function}. It rises from $\mathcal{L}(0) = 0$ to $\mathcal{L}(\xi) \to 1$ for $\xi \to \infty$, where all dipoles align with the field.
+
+\paragraph{Weak-field limit and the orientational polarizability.}
+For $\xi \ll 1$, the expansion $\coth\xi = 1/\xi + \xi/3 + \mathcal{O}(\xi^3)$ gives $\mathcal{L}(\xi) \approx \xi/3$. The average dipole moment is then linear in the local field,
+\begin{equation}
+    \boxed{
+    \langle p_{0,z}\rangle = \alpha_{\text{or}}\,E_{\text{loc}},
+    \qquad
+    \alpha_{\text{or}} = \frac{p_0^2}{3k_BT},
+    }
+\end{equation}
+where $\alpha_{\text{or}}$ is the \textcolor{blue}{orientational polarizability}. Unlike $\alpha_{\text{pol}}$, it decreases with temperature, because thermal motion opposes the alignment.
+
+\paragraph{Debye equation.}
+A polar molecule responds to the local field with both its induced and its permanent dipole, so its total polarizability is $\alpha_{\text{pol}} + \alpha_{\text{or}}$. Replacing $\alpha_{\text{pol}}$ in the Clausius--Mossotti relation gives the \textcolor{blue}{Debye equation},
+\begin{equation}
+    \boxed{
+    \frac{\varepsilon - 1}{\varepsilon + 2} = \frac{4\pi n}{3}\left(\alpha_{\text{pol}} + \frac{p_0^2}{3k_BT}\right).
+    }
+\end{equation}
 
 \subsection{Lorentz catastrophe and Onsager model}
