@@ -4,7 +4,7 @@
 \subsection{Lorentz Model}
 
 \paragraph{Local field and macroscopic field.}
-The response of a material to an external field is complicated, even for a linear isotropic material. The field that polarizes an atom or a molecule, the \textcolor{blue}{local field}, differs from the macroscopic field $\vec E$ of Section~\ref{sec:dielectric}. Besides the external field and the field of the bound charge on the outer surface of the sample, each atom feels the fields of its neighboring dipoles. The macroscopic field is an average over a region that contains many atoms, including the space between them. The local field, in contrast, is the field at the position of one atom, without the field of that atom itself.
+The field that polarizes an atom or a molecule, the \textcolor{blue}{local field}, differs from the macroscopic field $\vec E$ of Section~\ref{sec:dielectric}, even in a linear isotropic material. Besides the external field and the field of the bound charge on the outer surface of the sample, each atom feels the fields of its neighboring dipoles. The macroscopic field is an average over a region that contains many atoms, including the space between them. The local field, in contrast, is the field at the position of one atom, without the field of that atom itself.
 
 \paragraph{Microscopic, macroscopic, and local fields.}
 The point dipoles $\vec p_k$ at the positions $\vec r_k$ and the external sources produce the \textcolor{blue}{microscopic field}
@@ -13,7 +13,7 @@ The point dipoles $\vec p_k$ at the positions $\vec r_k$ and the external source
     \qquad
     \vec E_{\text{dip}}(\vec r;\vec p_k,\vec r_k) = \frac{3(\vec p_k\cdot\hat u_k)\,\hat u_k - \vec p_k}{|\vec r - \vec r_k|^3},
 \end{equation*}
-where $\hat u_k = (\vec r - \vec r_k)/|\vec r - \vec r_k|$ and $\vec E_{\text{dip}}$ is the point-dipole field of Section~\ref{sec:polarization}. The sum already contains the field of the bound charge on the outer surface, because this charge consists of the uncompensated ends of the dipole chains (Fig.~\ref{fig:boundcharge}). The macroscopic field and the local field at dipole $j$ follow from $\vec E_{\text{micro}}$ by two different operations. The macroscopic field is its average with the weighting function $w$ of Section~\ref{sec:polarization}. The local field is its value at $\vec r_j$ after the field of $\vec p_j$ itself is removed,
+where $\hat u_k = (\vec r - \vec r_k)/|\vec r - \vec r_k|$ and $\vec E_{\text{dip}}$ is the point-dipole field of Section~\ref{sec:polarization}. The sum already contains the field of the bound charge on the outer surface, because this charge consists of the uncompensated ends of the dipole chains (Fig.~\ref{fig:boundcharge}). The macroscopic field and the local field at dipole $j$ follow from $\vec E_{\text{micro}}$ by two operations. The macroscopic field is the average of $\vec E_{\text{micro}}$ with the weighting function $w$ of Section~\ref{sec:polarization}. The local field is the value of $\vec E_{\text{micro}}$ at $\vec r_j$ after the field of $\vec p_j$ itself is removed,
 \begin{equation}
     \boxed{
     \begin{gathered}
@@ -31,7 +31,7 @@ The limit exists, because the subtraction removes the only term that diverges at
 The first term excludes the field of $\vec p_j$ and takes the field at one point. The second term includes the field of $\vec p_j$ and averages over the width $\ell$. Near $\vec r_j$, the fields of the neighbors vary on the scale of the interatomic distance $a \ll \ell$, so the two terms differ.
 
 \paragraph{Macroscopic equations as averaged microscopic equations.}
-The equations of Section~\ref{sec:dielectric} contain no explicit averaging, yet they describe macroscopic fields. The reason is that the average with $w$ commutes with the derivatives in the microscopic field equations. A point dipole $\vec p_k$ at $\vec r_k$ has the charge density $-\vec p_k\cdot\vec\nabla\,\delta(\vec r - \vec r_k)$, so the microscopic charge density is
+The equations of Section~\ref{sec:dielectric} contain no explicit averaging, yet they describe macroscopic fields, because the average with $w$ commutes with the derivatives in the microscopic field equations. A point dipole $\vec p_k$ at $\vec r_k$ has the charge density $-\vec p_k\cdot\vec\nabla\,\delta(\vec r - \vec r_k)$, so the microscopic charge density is
 \begin{equation*}
     \rho_{\text{micro}} = \rho_{f,\text{micro}} - \vec\nabla\cdot\vec P_{\text{micro}},
 \end{equation*}
@@ -48,7 +48,7 @@ Lorentz evaluated the difference between the local field and the macroscopic fie
 \begin{equation*}
     a \ll R_L \ll L.
 \end{equation*}
-Because $R_L \gg a$, the dipoles outside the sphere can be treated as a continuum with the polarization $\vec P$. Because $R_L \ll L$, the polarization is uniform over the sphere and its surroundings. The dipoles inside the sphere remain discrete. The atom at the center then feels four contributions,
+The condition $R_L \gg a$ allows the dipoles outside the sphere to be treated as a continuum with the polarization $\vec P$. The condition $R_L \ll L$ makes the polarization uniform over the sphere and its surroundings. The dipoles inside the sphere remain discrete. The atom at the center then feels four contributions,
 \begin{equation*}
     \vec E_{\text{loc}} =
     \underbrace{\vec E_{\text{ext}}}_{\substack{\text{external}\\ \text{field}}}
@@ -70,7 +70,7 @@ The material lies outside the sphere, so its outward normal on the sphere points
 \begin{equation*}
     \sigma_b = \vec P\cdot\hat n = -P\cos\theta.
 \end{equation*}
-This charge is opposite to that of a uniformly polarized sphere, because the cavity is the material with the sphere removed. The ring between $\theta$ and $\theta + d\theta$ carries the charge $dq = \sigma_b\,2\pi R_L^2\sin\theta\,d\theta$ at the distance $R_L$ from the center. Its field at the center points along $-\hat r$. By azimuthal symmetry, only the $z$ component survives, $-\cos\theta\,dq/R_L^2$, so that
+This charge is opposite to that of a uniformly polarized sphere, because the cavity is the material with the sphere removed. The ring between $\theta$ and $\theta + d\theta$ carries the charge $dq = \sigma_b\,2\pi R_L^2\sin\theta\,d\theta$ at the distance $R_L$ from the center. The field of the ring at the center points along $-\hat r$. By azimuthal symmetry, only the $z$ component survives, $-\cos\theta\,dq/R_L^2$, so that
 \begin{equation*}
     E_{\text{cav},z} = \int_0^\pi \left(-\cos\theta\right)\frac{\left(-P\cos\theta\right)2\pi R_L^2\sin\theta}{R_L^2}\,d\theta
     = 2\pi P\int_0^\pi \cos^2\theta\,\sin\theta\,d\theta
@@ -139,7 +139,7 @@ Rearranging gives the \textcolor{blue}{Clausius--Mossotti relation}, which links
 The right side of the molar form depends only on the atom or molecule. The left side, the \textcolor{blue}{molar polarization}, is therefore constant for a given substance at any density.
 
 \paragraph{Range of validity.}
-The Lorentz model assumes $\vec E_{\text{near}} = 0$. It is therefore accurate when the fields of the neighboring dipoles cancel by symmetry, as in highly symmetric crystals, or are weak because the dipoles are far apart, as in gases. Nonpolar liquids also satisfy this condition on average.
+The Lorentz model assumes $\vec E_{\text{near}} = 0$. The model is therefore accurate when the fields of the neighboring dipoles cancel by symmetry, as in highly symmetric crystals, or are weak because the dipoles are far apart, as in gases. Nonpolar liquids also satisfy this condition on average.
 
 \subsection{Debye Orientational Polarizability}
 \label{subsec:debye}
@@ -174,7 +174,7 @@ The $x$ component of $\vec p_0$ is $p_0\sin\vartheta\cos\varphi$. Its average co
 The $y$ component vanishes in the same way, with $\sin\varphi$ in place of $\cos\varphi$. The field has no preferred direction perpendicular to itself, so the dipoles cancel in that plane.
 
 \paragraph{Average dipole moment along the field.}
-The $z$ component of $\vec p_0$ is $p_0\cos\vartheta$. Because $\partial e^{\xi\cos\vartheta}/\partial\xi = \cos\vartheta\,e^{\xi\cos\vartheta}$, its average is a derivative of the partition function,
+The $z$ component of $\vec p_0$ is $p_0\cos\vartheta$. The average of this component is a derivative of the partition function, because the derivative of $e^{\xi\cos\vartheta}$ with respect to $\xi$ is $\cos\vartheta\,e^{\xi\cos\vartheta}$,
 \begin{equation*}
     \langle p_{0,z}\rangle = \frac{p_0}{Z}\int_0^{2\pi} d\varphi\int_0^\pi \cos\vartheta\,e^{\xi\cos\vartheta}\sin\vartheta\,d\vartheta
     = \frac{p_0}{Z}\,\frac{\partial Z}{\partial\xi}
@@ -188,7 +188,7 @@ With $\ln Z = \ln 4\pi + \ln\sinh\xi - \ln\xi$,
     \mathcal{L}(\xi) = \coth\xi - \frac{1}{\xi},
     }
 \end{equation}
-where $\mathcal{L}$ is the \textcolor{blue}{Langevin function}. It rises from $\mathcal{L}(0) = 0$ to $\mathcal{L}(\xi) \to 1$ for $\xi \to \infty$, where all dipoles align with the field.
+where $\mathcal{L}$ is the \textcolor{blue}{Langevin function}. The Langevin function rises from $\mathcal{L}(0) = 0$ to $\mathcal{L}(\xi) \to 1$ for $\xi \to \infty$, where all dipoles align with the field.
 
 \paragraph{Weak-field limit and the orientational polarizability.}
 For $\xi \ll 1$, the expansion $\coth\xi = 1/\xi + \xi/3 + \mathcal{O}(\xi^3)$ gives $\mathcal{L}(\xi) \approx \xi/3$. The average dipole moment is then linear in the local field,
@@ -199,7 +199,7 @@ For $\xi \ll 1$, the expansion $\coth\xi = 1/\xi + \xi/3 + \mathcal{O}(\xi^3)$ g
     \alpha_{\text{or}} = \frac{p_0^2}{3k_BT},
     }
 \end{equation}
-where $\alpha_{\text{or}}$ is the \textcolor{blue}{orientational polarizability}. Unlike $\alpha_{\text{pol}}$, it decreases with temperature, because thermal motion opposes the alignment.
+where $\alpha_{\text{or}}$ is the \textcolor{blue}{orientational polarizability}. Unlike $\alpha_{\text{pol}}$, the orientational polarizability decreases with temperature, because thermal motion opposes the alignment.
 
 \paragraph{Debye equation.}
 A polar molecule responds to the local field with both its induced and its permanent dipole, so its total polarizability is $\alpha_{\text{pol}} + \alpha_{\text{or}}$. Replacing $\alpha_{\text{pol}}$ in the Clausius--Mossotti relation gives the \textcolor{blue}{Debye equation},
@@ -211,10 +211,6 @@ A polar molecule responds to the local field with both its induced and its perma
 
 \subsection{Lorentz Catastrophe and Onsager Model}
 
-% ============================================================
-% DRAFT LAYOUT (Claude) -- equations verified, wording to polish.
-% ============================================================
-
 \paragraph{Debye catastrophe.}
 % TODO (Duy): polish wording.
 Solving the Debye equation for $\varepsilon$ gives
@@ -223,11 +219,11 @@ Solving the Debye equation for $\varepsilon$ gives
     \qquad
     y(T) = \frac{4\pi n}{3}\left(\alpha_{\text{pol}} + \frac{p_0^2}{3k_BT}\right).
 \end{equation*}
-The left side of the Debye equation is smaller than one for every finite $\varepsilon > 0$. As the temperature decreases, $y$ grows and reaches one at the \textcolor{blue}{critical temperature}
+The left side of the Debye equation is less than one for every finite $\varepsilon > 0$. As the temperature decreases, $y$ grows and reaches one at the \textcolor{blue}{critical temperature}
 \begin{equation*}
     k_BT_c = \frac{4\pi n\,p_0^2/9}{1 - 4\pi n\,\alpha_{\text{pol}}/3},
 \end{equation*}
-where $\varepsilon \to \infty$. Below $T_c$, the equation has no finite positive solution, and the dipoles align without an external field. The Debye equation therefore predicts a spontaneous polarization, a ferroelectric state, below $T_c$. For water ($p_0 = 1.85$~D, $n = 3.34\times10^{22}$~cm$^{-3}$), $T_c \approx 1460$~K, so liquid water at room temperature would be ferroelectric (Fig.~\ref{fig:debye}). Water is not ferroelectric. This failure is the \textcolor{blue}{Lorentz catastrophe}.
+where $\varepsilon \to \infty$. Below $T_c$, the equation has no finite positive solution, and the dipoles align without an external field. The Debye equation therefore predicts a spontaneous polarization, a ferroelectric state, below $T_c$. For water ($p_0 = 1.85$~D, $n = 3.34\times10^{22}$~cm$^{-3}$), $T_c \approx 1460$~K, so liquid water at room temperature would be ferroelectric (Fig.~\ref{fig:debye}). Water is not ferroelectric, and this failure is called the \textcolor{blue}{Lorentz catastrophe}.
 
 \begin{figure}[htbp]
 \centering
@@ -265,7 +261,7 @@ The total dipole moment of the molecule is its permanent part plus the part indu
 where $\vec G$ is the \textcolor{blue}{cavity field} and $\vec E_{\text{rf}}$ is the \textcolor{blue}{reaction field}.
 
 \paragraph{Cavity field.}
-The cavity field is the field inside an empty spherical cavity in the dielectric. It follows from the dielectric sphere of Section~\ref{sec:dielectric} with $\varepsilon_1 = 1$ and $\varepsilon_2 = \varepsilon$,
+The cavity field is the field inside an empty spherical cavity in the dielectric. This field follows from the dielectric sphere of Section~\ref{sec:dielectric} with $\varepsilon_1 = 1$ and $\varepsilon_2 = \varepsilon$,
 \begin{equation*}
     \vec G = \frac{3\varepsilon}{2\varepsilon + 1}\,\vec E.
 \end{equation*}
@@ -323,7 +319,7 @@ The average dipole moment and the polarization are
     \qquad
     \vec P = n\,\langle\vec p\rangle = \frac{\varepsilon - 1}{4\pi}\,\vec E.
 \end{equation*}
-The \textcolor{blue}{optical dielectric constant} $\varepsilon_\infty$ describes the response of the induced dipoles alone, for example at frequencies too high for the dipoles to rotate. It follows from the Clausius--Mossotti relation,
+The \textcolor{blue}{optical dielectric constant} $\varepsilon_\infty$ describes the response of the induced dipoles alone, for example at frequencies too high for the dipoles to rotate. The Clausius--Mossotti relation gives $\varepsilon_\infty$,
 \begin{equation*}
     \frac{\varepsilon_\infty - 1}{\varepsilon_\infty + 2} = \frac{4\pi}{3}\,n\,\alpha_{\text{pol}}.
 \end{equation*}
@@ -344,5 +340,5 @@ The dielectric constant grows as $1/T$ without diverging at any finite temperatu
 
 \paragraph{Limitations.}
 % TODO (Duy): polish; Kirkwood correlation factor could be its own subsection.
-The Onsager model treats the surroundings of each molecule as a continuum and ignores short-range correlations between the orientations of neighboring molecules. For water, it gives $\varepsilon \approx 28$ at 298~K, whereas the measured value is $78$. Hydrogen bonds align neighboring water molecules, and the \textcolor{blue}{Kirkwood correlation factor} accounts for this alignment.
+The Onsager model treats the surroundings of each molecule as a continuum and ignores short-range correlations between the orientations of neighboring molecules. For water, the model gives $\varepsilon \approx 28$ at 298~K, whereas the measured value is $78$. Hydrogen bonds align neighboring water molecules, and the \textcolor{blue}{Kirkwood correlation factor} accounts for this alignment.
 

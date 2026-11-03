@@ -6,7 +6,7 @@ Consider $N$ point charges $q_i$ at positions $\vec r_i$, which together form a 
 \begin{equation*}
     \phi(\vec R) = \sum_{i=1}^{N} \frac{q_i}{|\vec R - \vec r_i|}.
 \end{equation*}
-In general, this potential depends on the charge positions in a complicated way. Far from the cloud, however, the \textcolor{blue}{multipole expansion} breaks the potential down into \textcolor{blue}{multipole terms}. \textcolor{red}{From now on, $R \equiv |\vec R|$ and $r_i \equiv |\vec r_i|$ denote the distances from the origin, and $\hat R = \vec R/R$ denotes the unit vector along $\vec R$.}
+In general, this potential has no simple dependence on $\vec R$. Far from the cloud, however, the \textcolor{blue}{multipole expansion} breaks the potential down into \textcolor{blue}{multipole terms}. \textcolor{red}{From now on, $R \equiv |\vec R|$ and $r_i \equiv |\vec r_i|$ denote the distances from the origin, and $\hat R = \vec R/R$ denotes the unit vector along $\vec R$.}
 
 \paragraph{Expansion of the inverse distance in powers of $r_i/R$.}
 Factoring $R$ out of the distance gives
@@ -76,7 +76,7 @@ The third term is the \textcolor{blue}{quadrupole term},
     = \sum_{\alpha}\hat R_\alpha r_{i\alpha}\sum_{\beta}\hat R_\beta r_{i\beta}
     = \sum_{\alpha,\beta}\hat R_\alpha\hat R_\beta\, r_{i\alpha}r_{i\beta}.
 \end{equation*}
-Because $\hat R$ is a unit vector, $\sum_{\alpha,\beta}\hat R_\alpha\hat R_\beta\,\delta_{\alpha\beta} = 1$, where $\delta_{\alpha\beta}$ is the Kronecker delta. The squared distance therefore takes the same form,
+The unit vector $\hat R$ satisfies $\sum_{\alpha,\beta}\hat R_\alpha\hat R_\beta\,\delta_{\alpha\beta} = 1$, where $\delta_{\alpha\beta}$ is the Kronecker delta. The squared distance therefore takes the same form,
 \begin{equation*}
     r_i^2 = \sum_{\alpha,\beta}\hat R_\alpha\hat R_\beta\, r_i^2\,\delta_{\alpha\beta}.
 \end{equation*}
