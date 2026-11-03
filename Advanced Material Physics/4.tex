@@ -142,6 +142,7 @@ The right side of the molar form depends only on the atom or molecule. The left 
 The Lorentz model assumes $\vec E_{\text{near}} = 0$. It is therefore accurate when the fields of the neighboring dipoles cancel by symmetry, as in highly symmetric crystals, or are weak because the dipoles are far apart, as in gases. Nonpolar liquids also satisfy this condition on average.
 
 \subsection{Debye Orientational Polarizability}
+\label{subsec:debye}
 
 \paragraph{Permanent dipoles in a local field.}
 The Clausius--Mossotti relation contains only induced dipoles. In a \textcolor{blue}{polar material}, each molecule also carries a \textcolor{blue}{permanent dipole moment} $\vec p_0$ of fixed magnitude $p_0$. \textcolor{red}{From now on, $\vartheta$ and $\varphi$ are the polar and azimuthal angles of $\vec p_0$, measured from the direction of $\vec E_{\text{loc}}$, which defines the $z$ axis.} In the local field, the dipole has the energy
@@ -208,4 +209,140 @@ A polar molecule responds to the local field with both its induced and its perma
     }
 \end{equation}
 
-\subsection{Lorentz catastrophe and Onsager model}
+\subsection{Lorentz Catastrophe and Onsager Model}
+
+% ============================================================
+% DRAFT LAYOUT (Claude) -- equations verified, wording to polish.
+% ============================================================
+
+\paragraph{Debye catastrophe.}
+% TODO (Duy): polish wording.
+Solving the Debye equation for $\varepsilon$ gives
+\begin{equation*}
+    \varepsilon = \frac{1 + 2y}{1 - y},
+    \qquad
+    y(T) = \frac{4\pi n}{3}\left(\alpha_{\text{pol}} + \frac{p_0^2}{3k_BT}\right).
+\end{equation*}
+The left side of the Debye equation is smaller than one for every finite $\varepsilon > 0$. As the temperature decreases, $y$ grows and reaches one at the \textcolor{blue}{critical temperature}
+\begin{equation*}
+    k_BT_c = \frac{4\pi n\,p_0^2/9}{1 - 4\pi n\,\alpha_{\text{pol}}/3},
+\end{equation*}
+where $\varepsilon \to \infty$. Below $T_c$, the equation has no finite positive solution, and the dipoles align without an external field. The Debye equation therefore predicts a spontaneous polarization, a ferroelectric state, below $T_c$. For water ($p_0 = 1.85$~D, $n = 3.34\times10^{22}$~cm$^{-3}$), $T_c \approx 1460$~K, so liquid water at room temperature would be ferroelectric (Fig.~\ref{fig:debye}). Water is not ferroelectric. This failure is the \textcolor{blue}{Lorentz catastrophe}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/debye_catastrophe.pdf}
+\caption{Static dielectric constant of water predicted by the Debye equation (solid) and the Onsager model (dashed), with $p_0 = 1.85$~D, $n = 3.34\times10^{22}$~cm$^{-3}$, and $\varepsilon_\infty = 1.78$. The Debye equation diverges at $T_c \approx 1460$~K and has no finite solution below it (shaded). The Onsager model stays finite at all temperatures. The circles are the measured values of liquid water at 273~K, 298~K, and 373~K.}
+\label{fig:debye}
+\end{figure}
+
+\paragraph{Origin of the catastrophe: self-alignment.}
+% TODO (Duy): this is the "Loop 2" argument; add the intuition in your words.
+Part of the field that the neighbors produce at a molecule is caused by the molecule itself. For a rigid dipole $\vec p_0$, this part follows the dipole, $\lambda\,\vec p_0$, with a constant $\lambda$. The orientation energy of the molecule is then
+\begin{equation*}
+    U(\vartheta) = -\vec p_0\cdot\vec G - \tfrac12\lambda\,p_0^2,
+\end{equation*}
+where $\vec G$ is the field that does not depend on the orientation. The second term is the same for every $\vartheta$ and cancels in the Boltzmann average. The Lorentz local field instead contains the average polarization, $\tfrac{4\pi}{3}\vec P = \tfrac{4\pi}{3}n\langle\vec p_0\rangle$, as a fixed field. This replacement of $\lambda\vec p_0$ by its average turns the self-field into an aligning field,
+\begin{equation*}
+    \langle p_{0,z}\rangle = \frac{p_0^2}{3k_BT}\left(E + \frac{4\pi}{3}n\langle p_{0,z}\rangle\right)
+    \quad\Rightarrow\quad
+    \langle p_{0,z}\rangle = \frac{\dfrac{p_0^2}{3k_BT}\,E}{1 - \dfrac{4\pi n\,p_0^2}{9k_BT}},
+\end{equation*}
+which diverges at $T_c$ (here with $\alpha_{\text{pol}} = 0$). The molecule aligns itself through its own contribution to $\vec P$.
+
+\paragraph{Onsager model.}
+% TODO (Duy): contrast with the Lorentz sphere (imaginary vs real cavity).
+Onsager placed each molecule as a point dipole at the center of a real spherical cavity of radius $R_c$ in a continuum of dielectric constant $\varepsilon$. Each molecule occupies the volume $1/n$, so that
+\begin{equation*}
+    \frac{4\pi}{3}R_c^3\,n = 1.
+\end{equation*}
+The total dipole moment of the molecule is its permanent part plus the part induced by the local field,
+\begin{equation*}
+    \vec p = \vec p_0 + \alpha_{\text{pol}}\,\vec E_{\text{loc}},
+    \qquad
+    \vec E_{\text{loc}} = \vec G + \vec E_{\text{rf}},
+\end{equation*}
+where $\vec G$ is the \textcolor{blue}{cavity field} and $\vec E_{\text{rf}}$ is the \textcolor{blue}{reaction field}.
+
+\paragraph{Cavity field.}
+The cavity field is the field inside an empty spherical cavity in the dielectric. It follows from the dielectric sphere of Section~\ref{sec:dielectric} with $\varepsilon_1 = 1$ and $\varepsilon_2 = \varepsilon$,
+\begin{equation*}
+    \vec G = \frac{3\varepsilon}{2\varepsilon + 1}\,\vec E.
+\end{equation*}
+% TODO (Duy): compare with the Lorentz value (eps + 2)/3 E.
+
+\paragraph{Reaction field.}
+Without an external field, the dipole $\vec p = p\,\hat z$ at the center polarizes the surrounding dielectric. With $\theta$ measured from $\vec p$, the potential inside and outside the cavity is
+\begin{equation*}
+    \phi_1 = \frac{p\cos\theta}{r^2} + A\,r\cos\theta \quad (r < R_c),
+    \qquad
+    \phi_2 = \frac{B\cos\theta}{r^2} \quad (r > R_c).
+\end{equation*}
+% TODO (Duy): explain the choice of terms (point dipole at the center, no field at infinity).
+The boundary conditions of Section~\ref{sec:dielectric} at $r = R_c$, with $\varepsilon = 1$ inside, give
+\begin{equation*}
+    \frac{p}{R_c^2} + A R_c = \frac{B}{R_c^2},
+    \qquad
+    -\frac{2p}{R_c^3} + A = -\varepsilon\,\frac{2B}{R_c^3}
+    \quad\Rightarrow\quad
+    A = -\frac{2(\varepsilon - 1)}{2\varepsilon + 1}\,\frac{p}{R_c^3}.
+\end{equation*}
+The term $A\,r\cos\theta = A z$ is a uniform field $-A\hat z$ at the molecule, so that
+\begin{equation*}
+    \vec E_{\text{rf}} = \lambda\,\vec p,
+    \qquad
+    \lambda = \frac{2(\varepsilon - 1)}{(2\varepsilon + 1)R_c^3}.
+\end{equation*}
+% TODO (Duy): why E_rf is parallel to p (spherical symmetry, linear medium; bound charge
+% negative on the top of the cavity wall, positive at the bottom).
+
+\paragraph{Self-consistent dipole moment.}
+Substituting $\vec E_{\text{loc}} = \vec G + \lambda\vec p$ into $\vec p = \vec p_0 + \alpha_{\text{pol}}\vec E_{\text{loc}}$ gives
+\begin{equation*}
+    \vec p = \frac{\vec p_0 + \alpha_{\text{pol}}\,\vec G}{1 - \alpha_{\text{pol}}\lambda}.
+\end{equation*}
+% TODO (Duy): this is the "Loop 1" geometric series, 1/(1 - x) = 1 + x + x^2 + ...
+
+\paragraph{Directing field.}
+The torque on the permanent dipole is $\vec p_0\times\vec E_{\text{loc}}$. The part of $\vec E_{\text{rf}}$ that is parallel to $\vec p_0$ exerts no torque, whereas the part induced by $\vec G$ does. With $\vec p_0\times\vec p_0 = 0$,
+\begin{align*}
+    \vec p_0\times\vec E_{\text{loc}}
+    &= \vec p_0\times\left(\vec G + \lambda\,\frac{\vec p_0 + \alpha_{\text{pol}}\vec G}{1 - \alpha_{\text{pol}}\lambda}\right)
+    = \vec p_0\times\vec E_{\text{dir}},\\
+    \vec E_{\text{dir}} &= \frac{\vec G}{1 - \alpha_{\text{pol}}\lambda},
+\end{align*}
+where $\vec E_{\text{dir}}$ is the \textcolor{blue}{directing field}. Only $\vec E_{\text{dir}}$ enters the Boltzmann factor, so the weak-field average of Section~\ref{subsec:debye} gives
+\begin{equation*}
+    \langle\vec p_0\rangle = \frac{p_0^2}{3k_BT}\,\vec E_{\text{dir}}.
+\end{equation*}
+
+\paragraph{Onsager equation.}
+The average dipole moment and the polarization are
+\begin{equation*}
+    \langle\vec p\rangle = \frac{\langle\vec p_0\rangle + \alpha_{\text{pol}}\vec G}{1 - \alpha_{\text{pol}}\lambda},
+    \qquad
+    \vec P = n\,\langle\vec p\rangle = \frac{\varepsilon - 1}{4\pi}\,\vec E.
+\end{equation*}
+The \textcolor{blue}{optical dielectric constant} $\varepsilon_\infty$ describes the response of the induced dipoles alone, for example at frequencies too high for the dipoles to rotate. It follows from the Clausius--Mossotti relation,
+\begin{equation*}
+    \frac{\varepsilon_\infty - 1}{\varepsilon_\infty + 2} = \frac{4\pi}{3}\,n\,\alpha_{\text{pol}}.
+\end{equation*}
+% TODO (Duy): algebra -- substitute G, lambda, R_c, and alpha_pol(eps_inf). (Checked symbolically.)
+Eliminating $\vec G$, $\lambda$, $R_c$, and $\alpha_{\text{pol}}$ gives the \textcolor{blue}{Onsager equation},
+\begin{equation}
+    \boxed{
+    \frac{(\varepsilon - \varepsilon_\infty)(2\varepsilon + \varepsilon_\infty)}{\varepsilon\,(\varepsilon_\infty + 2)^2} = \frac{4\pi n\,p_0^2}{9k_BT}.
+    }
+\end{equation}
+
+\paragraph{Checks of the Onsager equation.}
+For $p_0 = 0$, the right side vanishes and $\varepsilon = \varepsilon_\infty$, which is the Clausius--Mossotti relation. For large $\varepsilon$, the left side grows as $2\varepsilon/(\varepsilon_\infty + 2)^2$, so that
+\begin{equation*}
+    \varepsilon \approx \frac{2\pi n\,p_0^2\,(\varepsilon_\infty + 2)^2}{9k_BT}.
+\end{equation*}
+The dielectric constant grows as $1/T$ without diverging at any finite temperature, so the Onsager model removes the Lorentz catastrophe (Fig.~\ref{fig:debye}).
+
+\paragraph{Limitations.}
+% TODO (Duy): polish; Kirkwood correlation factor could be its own subsection.
+The Onsager model treats the surroundings of each molecule as a continuum and ignores short-range correlations between the orientations of neighboring molecules. For water, it gives $\varepsilon \approx 28$ at 298~K, whereas the measured value is $78$. Hydrogen bonds align neighboring water molecules, and the \textcolor{blue}{Kirkwood correlation factor} accounts for this alignment.
+
