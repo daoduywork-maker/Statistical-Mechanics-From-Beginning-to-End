@@ -42,3 +42,28 @@ where $\rho_{f,\text{micro}}$ is the microscopic density of the free charges. Th
     \vec\nabla\cdot\vec E = 4\pi\left(\rho_f - \vec\nabla\cdot\vec P\right),
 \end{equation*}
 which is Gauss's law of Section~\ref{sec:dielectric}. The relation $\vec\nabla\times\vec E_{\text{micro}} = 0$ averages to $\vec\nabla\times\vec E = 0$ in the same way. Every solution of Section~\ref{sec:dielectric} is therefore a macroscopic field. For example, the uniform field $\vec E_1$ inside the dielectric sphere is the average of a microscopic field that diverges at every atom. The linear relation $\vec P = \chi\vec E$ also holds only for macroscopic fields, because $\vec P_{\text{micro}}$ is a sum of delta functions and cannot be proportional to $\vec E_{\text{micro}}$.
+
+Lorentz reconcile this by using an imaginary sphere. A sphere is chosen such that it's bigger than the the lattice spacing so verything outside of it can be considered a continuum and small enough compared to the scale that the field is varying so that it feels a single uniform external field. An tom locatd at the center of the sphere now feel 4 compontents
+\begin{align}
+    E_loc=E_ext + E_dep + E_bound + E_dip
+\end{align}
+%use underbrace to note them as external field, material surface boundcharge or depolarization field, bound charge of the spherical cavity and field of the diople inside the sphere
+
+The spherical cavity have oposite surface bound charge to that of a sphere to neutralize the charge. So the bound charge of the spherical cavity would be 
+\begin{align}
+    \sigma_b = - \vec P \cdot \hat r = -P\cos\theta 
+\end{align}
+% need a figure here 
+
+Because of the azimuthual symmetry, only the azimuthual component of the Electric field survive and it is 
+\begin{align}
+    E_bz=\int_0^{\pi} \frac{\sigma_b 2\pi\sin\theta R d\theta R \cos\theta}{R^2} = \frac{4\pi P}{3}
+\end{align}
+
+If our material is crytallin and is highly symmetric, preferably cubic, there existh a dipole j at rj that cancel the field of dipole i and ri 
+
+So the local field would just be 
+\begin{align}
+    E_loc = E_xt +\frac{4\pi P}{3}
+\end{align}
+which is higher than the external field itself. as said
