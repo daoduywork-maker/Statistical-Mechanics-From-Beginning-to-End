@@ -8,7 +8,7 @@
 \begin{equation*}
     \vec\nabla\cdot\vec E = 4\pi(\rho_f + \rho_b), \qquad \rho_b = -\vec\nabla\cdot\vec P.
 \end{equation*}
-The bound charge is unknown until $\vec E$ is known. Moving it to the left side defines the \textcolor{blue}{electric displacement} $\vec D$,
+The bound charge is unknown until $\vec E$ is known. Moving the bound charge to the left side defines the \textcolor{blue}{electric displacement} $\vec D$,
 \begin{equation}
     \boxed{
     \vec D = \vec E + 4\pi\vec P, \qquad \vec\nabla\cdot\vec D = 4\pi\rho_f.
@@ -103,12 +103,12 @@ which gives
     \phi_1 = \phi_2 \quad \text{on the interface}.
     }
 \end{equation}
-Since $E_t = -\hat t\cdot\vec\nabla\phi$ and $\phi_1 = \phi_2$ holds all along the interface, this condition contains $E_{1,t} = E_{2,t}$.
+This condition contains $E_{1,t} = E_{2,t}$, because $E_t = -\hat t\cdot\vec\nabla\phi$ and $\phi_1 = \phi_2$ holds all along the interface.
 
 \subsection{Dielectric Sphere in a Dielectric Medium}
 
 \paragraph{Setup of the boundary-value problem.}
-Many physical systems can be modeled as a dielectric sphere of radius $R_0$ and dielectric constant $\varepsilon_1$ embedded in a dielectric medium of dielectric constant $\varepsilon_2$. A uniform external field $\vec E_0 = E_0\,\hat z$ is applied far from the sphere (Fig.~\ref{fig:sphere}). \textcolor{red}{From now on, $(r,\theta,\varphi)$ are the spherical coordinates of the field point, measured from the center of the sphere with the polar axis along $\vec E_0$. The field point is therefore $\vec r$, which replaces $\vec R$ of Sections~\ref{sec:multipole} and~\ref{sec:polarization}. The azimuthal angle $\varphi$ is distinct from the potential $\phi$.} A rotation about the $z$ axis leaves the setup unchanged, so the potential is \textcolor{blue}{azimuthally symmetric},
+Many physical systems, such as a nanoparticle in a host matrix or a precipitate in a crystal, can be modeled as a dielectric sphere of radius $R_0$ and dielectric constant $\varepsilon_1$ embedded in a dielectric medium of dielectric constant $\varepsilon_2$. A uniform external field $\vec E_0 = E_0\,\hat z$ is applied far from the sphere (Fig.~\ref{fig:sphere}). \textcolor{red}{From now on, $(r,\theta,\varphi)$ are the spherical coordinates of the field point, measured from the center of the sphere with the polar axis along $\vec E_0$. The field point is therefore $\vec r$, which replaces $\vec R$ of Sections~\ref{sec:multipole} and~\ref{sec:polarization}. The azimuthal angle $\varphi$ is distinct from the potential $\phi$.} A rotation about the $z$ axis leaves the setup unchanged, so the potential is \textcolor{blue}{azimuthally symmetric},
 \begin{equation*}
     \phi = \phi(r,\theta), \qquad \frac{\partial\phi}{\partial\varphi} = 0.
 \end{equation*}
@@ -138,7 +138,7 @@ Each term of the sum is a product of a radial function and an angular function,
 \begin{equation*}
     \phi_l(r,\theta) = \left(A_l\,r^l + \frac{B_l}{r^{l+1}}\right)\mathcal{P}_l(\cos\theta).
 \end{equation*}
-The angular profile of a single term is therefore the same at every radius. The full potential, however, mixes terms with different radial dependences, so its angular profile changes with $r$.
+The angular profile of a single term is therefore the same at every radius. The full potential, however, mixes terms whose radial dependences differ, so its angular profile changes with $r$.
 
 \paragraph{Orthogonality of the Legendre polynomials.}
 The Legendre polynomials are orthogonal on $0 \le \theta \le \pi$ with the weight $\sin\theta$,
@@ -186,7 +186,7 @@ and $A_0^{(2)} = 0$ by the choice of the potential reference. The coefficients $
 \end{equation*}
 
 \paragraph{Matching conditions at the surface of the sphere.}
-The surface $r = R_0$ has the normal $\hat n = \hat r$. Continuity of the potential, which contains the tangential condition $E_{1,\theta} = E_{2,\theta}$, and continuity of the normal displacement, $\varepsilon_1\,\partial\phi_1/\partial r = \varepsilon_2\,\partial\phi_2/\partial r$, give for every $\theta$
+The surface $r = R_0$ has the normal $\hat n = \hat r$. Two conditions hold there for every $\theta$. The potential is continuous, which contains the tangential condition $E_{1,\theta} = E_{2,\theta}$, and the normal displacement is continuous, $\varepsilon_1\,\partial\phi_1/\partial r = \varepsilon_2\,\partial\phi_2/\partial r$. With the two expansions, these conditions read
 \begin{equation}
     \boxed{
     \begin{aligned}
@@ -199,19 +199,18 @@ The surface $r = R_0$ has the normal $\hat n = \hat r$. Continuity of the potent
 \end{equation}
 
 \paragraph{Matching the coefficients of each Legendre polynomial.}
-With $-E_0R_0\cos\theta = -E_0R_0\,\mathcal{P}_1(\cos\theta)$, moving every term of the two matching conditions to the left side gives
+The external-field term is written as $-E_0R_0\cos\theta = -E_0R_0\,\mathcal{P}_1(\cos\theta)$. Moving every term of the two matching conditions to the left side then gives, for all $\theta$,
 \begin{equation*}
     \sum_{l=0}^{\infty} c_l^{(\phi)}\,\mathcal{P}_l(\cos\theta) = 0,
     \qquad
-    \sum_{l=0}^{\infty} c_l^{(D)}\,\mathcal{P}_l(\cos\theta) = 0
-    \qquad \text{for all } \theta,
+    \sum_{l=0}^{\infty} c_l^{(D)}\,\mathcal{P}_l(\cos\theta) = 0,
 \end{equation*}
 where each coefficient is the difference between the two sides,
 \begin{align*}
     c_l^{(\phi)} &= A_l^{(1)} R_0^{\,l} - \frac{B_l^{(2)}}{R_0^{\,l+1}} + E_0R_0\,\delta_{l1},\\
     c_l^{(D)} &= \varepsilon_1\, l\, A_l^{(1)} R_0^{\,l-1} + \varepsilon_2\,(l+1)\,\frac{B_l^{(2)}}{R_0^{\,l+2}} + \varepsilon_2 E_0\,\delta_{l1}.
 \end{align*}
-The Kronecker delta $\delta_{l1}$ places the external-field term in the $l = 1$ coefficient only. Multiplying either sum by $\mathcal{P}_m(\cos\theta)\sin\theta$ and integrating over $0 \le \theta \le \pi$, the orthogonality relation leaves only the term $l = m$,
+The Kronecker delta $\delta_{l1}$ places the external-field term in the $l = 1$ coefficient only. When either sum is multiplied by $\mathcal{P}_m(\cos\theta)\sin\theta$ and integrated over $0 \le \theta \le \pi$, the orthogonality relation leaves only the term $l = m$,
 \begin{equation*}
     \sum_{l=0}^{\infty} c_l \int_0^\pi \mathcal{P}_l(\cos\theta)\,\mathcal{P}_m(\cos\theta)\sin\theta\,d\theta
     = \frac{2}{2m+1}\,c_m = 0,
@@ -234,7 +233,7 @@ For $l \neq 1$, substituting $A_l^{(1)} = B_l^{(2)}/R_0^{\,2l+1}$ into the displ
 \begin{equation*}
     \left[\varepsilon_1\, l + \varepsilon_2\,(l+1)\right]\frac{B_l^{(2)}}{R_0^{\,l+2}} = 0.
 \end{equation*}
-The bracket is positive for $\varepsilon_1, \varepsilon_2 > 0$, so $B_l^{(2)} = 0$ and therefore $A_l^{(1)} = 0$. For $l = 1$, the potential condition gives $A_1^{(1)} = -E_0 + B_1^{(2)}/R_0^3$. Substituting it into the displacement condition gives
+The bracket is positive for $\varepsilon_1, \varepsilon_2 > 0$, so $B_l^{(2)} = 0$ and therefore $A_l^{(1)} = 0$. For $l = 1$, the potential condition gives $A_1^{(1)} = -E_0 + B_1^{(2)}/R_0^3$. Substituting this expression into the displacement condition gives
 \begin{equation*}
     \left(\varepsilon_1 + 2\varepsilon_2\right)\frac{B_1^{(2)}}{R_0^3} = \left(\varepsilon_1 - \varepsilon_2\right)E_0.
 \end{equation*}
@@ -266,7 +265,7 @@ Inside, $r\cos\theta = z$, so the potential is linear in $z$ and the field is
     \vec E_1 = -\vec\nabla\phi_1 = \frac{3\varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,\vec E_0.
     }
 \end{equation}
-The field inside the sphere is uniform and parallel to $\vec E_0$. For $\varepsilon_1 > \varepsilon_2$, the field inside is weaker than $E_0$.
+The field inside the sphere is uniform and parallel to $\vec E_0$. For $\varepsilon_1 > \varepsilon_2$, this field is weaker than $E_0$.
 
 \paragraph{Outside field as the external field plus a dipole field.}
 Outside, the potential splits into the potential of the external field and a correction,
@@ -278,7 +277,7 @@ where $\hat z\cdot\hat r = \cos\theta$ and
 \begin{equation*}
     \vec p_{\text{eff}} = \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,R_0^3\,\vec E_0.
 \end{equation*}
-The correction has the form of the dipole potential $\hat R\cdot\vec p/R^2$ of Section~\ref{sec:multipole}, with $\vec R$ replaced by $\vec r$. Its field follows from $E_r = -\partial\phi/\partial r$ and $E_\theta = -(1/r)\,\partial\phi/\partial\theta$,
+The correction has the form of the dipole potential $\hat R\cdot\vec p/R^2$ of Section~\ref{sec:multipole}, with $\vec R$ replaced by $\vec r$. The field of the correction follows from $E_r = -\partial\phi/\partial r$ and $E_\theta = -(1/r)\,\partial\phi/\partial\theta$,
 \begin{equation*}
     \vec E_2 = E_0\cos\theta\left(1 + 2\,\frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,\frac{R_0^3}{r^3}\right)\hat r
     - E_0\sin\theta\left(1 - \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + 2\varepsilon_2}\,\frac{R_0^3}{r^3}\right)\hat\theta.
