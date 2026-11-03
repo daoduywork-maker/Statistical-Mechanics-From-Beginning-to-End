@@ -93,14 +93,24 @@ Charges $+q$ sit at $(\pm a, 0, 0)$ and charges $-q$ at $(0, \pm a, 0)$.
 \textit{Answer.} (b) $\phi = 2q\sum_{l\ \text{odd}} (s/2)^l\,\mathcal{P}_l(\cos\theta)/R^{l+1}$, with the point dipole $p = qs$ as the leading term and no quadrupole. (c) $(s/2R)^2\,\mathcal{P}_3(\cos\theta)/\mathcal{P}_1(\cos\theta)$.\\
 \textit{Related:} Sections~1 and~3 of the note; Coelho, Secs.~II.2--II.3.
 
+\paragraph{Exercise 4: Partial charges from measured dipole moments.}
+The gas-phase HCl molecule has the bond length $L = 1.275$~\AA\ and the dipole moment $1.08$~D. The water molecule has the O--H bond length $b = 0.958$~\AA, the H--O--H angle $\psi = 104.5^\circ$, and the dipole moment $1.85$~D.
+\begin{parts}
+    \item Model HCl as the charges $\pm\delta e$ on the two nuclei. Find $\delta$, which is the fraction of ionic character $p/eL$.
+    \item Model water as the charge $+\delta e$ on each H and $-2\delta e$ on O. Show that the dipole moment is $p = 2\delta e\,b\cos(\psi/2)$, directed along the bisector of the H--O--H angle, and find $\delta$.
+    \item Find the dipole moment of a fully ionic water molecule, $\delta = 1$, and compare it with the measured value.
+\end{parts}
+\textit{Answer.} (a) $eL = 6.12$~D and $\delta = 0.18$. (b) $\delta = 0.33$. (c) $5.63$~D, three times the measured value, so the O--H bonds are mostly covalent.\\
+\textit{Related:} Section~1 of the note; Coelho, Sec.~III.3.
+
 % ============================================================
 \section{Induced Polarizability}
 % ============================================================
 
 \paragraph{Models for the atomic polarizability.}
-Section~4 of the note defines the atomic polarizability $\alpha_{\text{pol}}$ but does not model it. Exercises~4--9 build simple models and connect them to the local field.
+Section~4 of the note defines the atomic polarizability $\alpha_{\text{pol}}$ but does not model it. Exercises~5--11 build simple models and connect them to the local field.
 
-\paragraph{Exercise 4: Atom as a nucleus in a uniform electron cloud.}
+\paragraph{Exercise 5: Atom as a nucleus in a uniform electron cloud.}
 A nucleus of charge $Ze$ sits at the center of a rigid, uniformly charged electron cloud of radius $R$ and total charge $-Ze$. A field $\vec E$ displaces the nucleus by $d \ll R$.
 \begin{parts}
     \item Use Gauss's law for the field of the cloud to find the restoring force on the nucleus. Show that the induced dipole moment is $\vec p = R^3\vec E$, so that $\alpha_{\text{pol}} = R^3$.
@@ -109,25 +119,41 @@ A nucleus of charge $Ze$ sits at the center of a rigid, uniformly charged electr
 \textit{Answer.} (a) The cloud field at distance $d$ from its center is $Zed/R^3$, so $Ze\,E = Z^2e^2d/R^3$. (b) $E = 1.0\times10^3$~statV/cm, $d = 2.1\times10^{-12}$~cm, and $d/R = 2.1\times10^{-4}$, so the linear response holds.\\
 \textit{Related:} Section~4 of the note; Coelho, Sec.~III.2.
 
-\paragraph{Exercise 5: Atom as a dielectric sphere.}
+\paragraph{Exercise 6: Atom as a dielectric sphere.}
 \begin{parts}
     \item Model an atom as a sphere of radius $R$ and dielectric constant $\varepsilon_s$ in vacuum. From the effective dipole moment of the dielectric sphere in Section~3 of the note, with $\varepsilon_1 = \varepsilon_s$ and $\varepsilon_2 = 1$, find $\alpha_{\text{pol}}$. Check the limits $\varepsilon_s \to 1$ and $\varepsilon_s \to \infty$.
     \item A material consists of such spheres with the number density $n$, which fill the volume fraction $f_V = \tfrac{4\pi}{3}R^3n$. Combine part~(a) with the Clausius--Mossotti relation to find $\varepsilon$ of the material.
 \end{parts}
-\textit{Answer.} (a) $\alpha_{\text{pol}} = R^3(\varepsilon_s - 1)/(\varepsilon_s + 2)$. The limit $\varepsilon_s \to \infty$ gives $R^3$, as in Exercise~4. (b) $(\varepsilon - 1)/(\varepsilon + 2) = f_V(\varepsilon_s - 1)/(\varepsilon_s + 2)$, the Maxwell Garnett mixing formula in a vacuum host.\\
+\textit{Answer.} (a) $\alpha_{\text{pol}} = R^3(\varepsilon_s - 1)/(\varepsilon_s + 2)$. The limit $\varepsilon_s \to \infty$ gives $R^3$, as in Exercise~5. (b) $(\varepsilon - 1)/(\varepsilon + 2) = f_V(\varepsilon_s - 1)/(\varepsilon_s + 2)$, the Maxwell Garnett mixing formula in a vacuum host.\\
 \textit{Related:} Sections~3 and~4 of the note; Coelho, Sec.~III.2.
 
-\paragraph{Exercise 6: Polarizability of a diatomic molecule.}
+\paragraph{Exercise 7: Polarizability of a diatomic molecule.}
 Two identical atoms of polarizability $\alpha_{\text{pol}}$ sit at the distance $L$. Each atom feels the external field plus the point-dipole field of the other atom (Section~2 of the note).
 \begin{parts}
     \item For a field along the molecular axis, show that the molecular polarizability is $\alpha_\parallel = 2\alpha_{\text{pol}}/(1 - 2\alpha_{\text{pol}}/L^3)$.
     \item For a field perpendicular to the axis, show that $\alpha_\perp = 2\alpha_{\text{pol}}/(1 + \alpha_{\text{pol}}/L^3)$.
-    \item With $\alpha_{\text{pol}} = R^3$ (Exercise~4) and touching atoms, $L = 2R$, evaluate $\alpha_\parallel$, $\alpha_\perp$, and the anisotropy $\Delta\alpha = \alpha_\parallel - \alpha_\perp$.
+    \item With $\alpha_{\text{pol}} = R^3$ (Exercise~5) and touching atoms, $L = 2R$, evaluate $\alpha_\parallel$, $\alpha_\perp$, and the anisotropy $\Delta\alpha = \alpha_\parallel - \alpha_\perp$.
 \end{parts}
 \textit{Answer.} (c) $\alpha_\parallel = \tfrac{8}{3}\alpha_{\text{pol}}$, $\alpha_\perp = \tfrac{16}{9}\alpha_{\text{pol}}$, and $\Delta\alpha = \tfrac{8}{9}\alpha_{\text{pol}} > 0$. An elongated molecule is easier to polarize along its axis.\\
 \textit{Related:} Sections~2 and~4 of the note; Coelho, Sec.~III.3.
 
-\paragraph{Exercise 7: Symmetry of the polarizability tensor.}
+\paragraph{Exercise 8: Polarizable-ion model of the NaCl molecule.}
+A gas-phase NaCl molecule consists of the ions Na$^+$ and Cl$^-$ at the distance $L = 2.361$~\AA. The ions have the polarizabilities $\alpha_+ = 0.41$~\AA$^3$ and $\alpha_- = 2.96$~\AA$^3$. The measured dipole moment of the molecule is $9.0$~D.
+\begin{parts}
+    \item Show that the charge of each ion polarizes the other ion, and that both induced dipoles point opposite to the ionic dipole of magnitude $eL$.
+    \item Neglect the fields of the induced dipoles and show that the dipole moment of the molecule is $p = eL - e(\alpha_+ + \alpha_-)/L^2$. Evaluate $p$.
+    \item Include the point-dipole field of each induced dipole at the other ion (Section~2 of the note). Show that the induced dipoles satisfy
+    \begin{equation*}
+        p_+ = \alpha_+\left(\frac{e}{L^2} + \frac{2p_-}{L^3}\right),
+        \qquad
+        p_- = \alpha_-\left(\frac{e}{L^2} + \frac{2p_+}{L^3}\right).
+    \end{equation*}
+    Solve for $p_+ + p_-$ and compare the resulting dipole moment with the measured value.
+\end{parts}
+\textit{Answer.} (b) $eL = 11.34$~D, the induced dipoles reduce it by $2.90$~D, and $p = 8.44$~D. (c) $p_+ + p_- = (e/L^2)\left(\alpha_+ + \alpha_- + 4\alpha_+\alpha_-/L^3\right)/\left(1 - 4\alpha_+\alpha_-/L^6\right) = 3.32$~D, so that $p = 8.03$~D. The model underestimates the measured $9.0$~D, because the point-dipole approximation is crude for ions in contact.\\
+\textit{Related:} Section~2 of the note; Coelho, Sec.~III.3.
+
+\paragraph{Exercise 9: Symmetry of the polarizability tensor.}
 An anisotropic molecule has the induced dipole moment $p_\beta = \sum_\gamma \alpha^{\text{pol}}_{\beta\gamma}E_\gamma$. When the field changes by $d\vec E$, the energy of the induced dipole changes by $dw = -\sum_\beta p_\beta\,dE_\beta$.
 \begin{parts}
     \item Require $dw$ to be an exact differential and show that $\alpha^{\text{pol}}_{\beta\gamma} = \alpha^{\text{pol}}_{\gamma\beta}$.
@@ -137,7 +163,7 @@ An anisotropic molecule has the induced dipole moment $p_\beta = \sum_\gamma \al
 \textit{Answer.} (a) The condition $\partial(\sum_\gamma\alpha^{\text{pol}}_{\beta\gamma}E_\gamma)/\partial E_\delta = \partial(\sum_\gamma\alpha^{\text{pol}}_{\delta\gamma}E_\gamma)/\partial E_\beta$ gives $\alpha^{\text{pol}}_{\beta\delta} = \alpha^{\text{pol}}_{\delta\beta}$. (b) A real symmetric matrix has real eigenvalues and orthogonal eigenvectors.\\
 \textit{Related:} Section~3 of the note; Coelho, Sec.~III.3.
 
-\paragraph{Exercise 8: Ionic polarizability.}
+\paragraph{Exercise 10: Ionic polarizability.}
 Two ions of charges $\pm e$ and reduced mass $m_r$ are bound by a spring of constant $\kappa$, so that their vibration frequency is $\omega_0 = \sqrt{\kappa/m_r}$.
 \begin{parts}
     \item A static field $\vec E$ along the bond stretches it by $x$. Show that the ionic polarizability is $\alpha_{\text{ion}} = e^2/(m_r\omega_0^2)$.
@@ -146,7 +172,7 @@ Two ions of charges $\pm e$ and reduced mass $m_r$ are bound by a spring of cons
 \textit{Answer.} (b) $m_r = 2.32\times10^{-23}$~g, $\omega_0 = 3.09\times10^{13}$~s$^{-1}$, and $\alpha_{\text{ion}} = 1.0\times10^{-23}$~cm$^3 = 10$~\AA$^3$, an order of magnitude larger than the electronic estimate.\\
 \textit{Related:} Section~4 of the note; Coelho, Sec.~III.4.
 
-\paragraph{Exercise 9: Near-field sum of a dipole chain.}
+\paragraph{Exercise 11: Near-field sum of a dipole chain.}
 An infinite chain of equal dipoles $\vec p$ has the spacing $a$. Use the point-dipole field of Section~2 of the note and $\zeta(3) = \sum_{n=1}^{\infty} n^{-3} \approx 1.202$.
 \begin{parts}
     \item Find the field at one site produced by all other dipoles, for dipoles along the chain.
@@ -160,7 +186,7 @@ An infinite chain of equal dipoles $\vec p$ has the spacing $a$. Use the point-d
 \section{Orientational Polarization}
 % ============================================================
 
-\paragraph{Exercise 10: Langevin function beyond the linear term.}
+\paragraph{Exercise 12: Langevin function beyond the linear term.}
 \begin{parts}
     \item Expand $e^{\xi\cos\vartheta}$ in powers of $\xi$ before integrating the partition function of Section~4.3 of the note. Find $\ln Z$ to order $\xi^4$ and show that $\mathcal{L}(\xi) = \xi/3 - \xi^3/45 + \mathcal{O}(\xi^5)$.
     \item For $p_0 = 1.85$~D at $T = 300$~K, find the field at which $\langle p_{0,z}\rangle$ falls 1\% below the linear law.
@@ -168,7 +194,7 @@ An infinite chain of equal dipoles $\vec p$ has the spacing $a$. Use the point-d
 \textit{Answer.} (a) $\ln Z = \ln 4\pi + \xi^2/6 - \xi^4/180 + \mathcal{O}(\xi^6)$. (b) $\xi^2/15 = 0.01$ gives $\xi = 0.387$ and $E = 8.7\times10^3$~statV/cm $= 2.6\times10^8$~V/m, far above ordinary laboratory fields.\\
 \textit{Related:} Section~4.3 of the note; Coelho, Sec.~IV.1.
 
-\paragraph{Exercise 11: Dipoles with discrete orientations and spontaneous polarization.}
+\paragraph{Exercise 13: Dipoles with discrete orientations and spontaneous polarization.}
 \begin{parts}
     \item Dipoles of magnitude $p_0$ can point only along $\pm\hat z$, parallel to the field. Show that $\langle p_{0,z}\rangle = p_0\tanh\xi$, with $\xi = p_0E/k_BT$.
     \item In a cubic crystal, dipoles can point along the eight body diagonals $\langle 111\rangle$. For a field along $[001]$, find $\langle p_{0,z}\rangle$ and its low-field limit. Compare with the Langevin result.
@@ -177,7 +203,7 @@ An infinite chain of equal dipoles $\vec p$ has the spacing $a$. Use the point-d
 \textit{Answer.} (b) $\langle p_{0,z}\rangle = (p_0/\sqrt3)\tanh(\xi/\sqrt3) \approx p_0\xi/3$, the same as for free dipoles, because the cubic symmetry makes the low-field response isotropic. (c) Free dipoles give $k_BT_c = \gamma np_0^2/3 = 4\pi np_0^2/9$, the Debye critical temperature with $\alpha_{\text{pol}} = 0$.\\
 \textit{Related:} Sections~4.3 and~4.4 of the note; Coelho, Sec.~IV.2.
 
-\paragraph{Exercise 12: Impurity--vacancy dipole in a crystal.}
+\paragraph{Exercise 14: Impurity--vacancy dipole in a crystal.}
 In a simple cubic lattice of constant $a$, a divalent impurity binds a vacancy on one of its six nearest-neighbor sites. The pair forms a dipole of magnitude $p_0 = ea$. A field $\vec E$ points along $[001]$.
 \begin{parts}
     \item Find the energies of the six vacancy positions and show that
@@ -191,7 +217,7 @@ In a simple cubic lattice of constant $a$, a divalent impurity binds a vacancy o
 \textit{Answer.} (a) Two positions have the energies $\mp p_0E$, and four have zero energy. (b) $\langle p_{0,z}\rangle = p_0\xi/3 + \mathcal{O}(\xi^5)$. (c) $\Delta\varepsilon = 4\pi np_0^2/3k_BT$.\\
 \textit{Related:} Section~4.3 of the note; Coelho, Sec.~IV.2.
 
-\paragraph{Exercise 13: Anisotropic polar molecule.}
+\paragraph{Exercise 15: Anisotropic polar molecule.}
 A linear molecule carries the permanent dipole $\vec p_0$ along its axis and has the polarizabilities $\alpha_\parallel$ along the axis and $\alpha_\perp$ perpendicular to it, with $\Delta\alpha = \alpha_\parallel - \alpha_\perp > 0$. The axis makes the angle $\vartheta$ with the field.
 \begin{parts}
     \item Show that the orientation energy is $w(\vartheta) = -p_0E\cos\vartheta - \tfrac12\left(\Delta\alpha\cos^2\vartheta + \alpha_\perp\right)E^2$.
@@ -201,7 +227,7 @@ A linear molecule carries the permanent dipole $\vec p_0$ along its axis and has
 \textit{Answer.} (b) $dw/d\vartheta = E\sin\vartheta\,(p_0 + \Delta\alpha E\cos\vartheta)$, and $d^2w/d\vartheta^2 = E(\Delta\alpha E - p_0)$ at $\vartheta = \pi$. (c) $S = \Delta\alpha E^2/15k_BT$.\\
 \textit{Related:} Section~4.3 of the note; Coelho, Secs.~III.3 and~IV.3.
 
-\paragraph{Exercise 14: Electrocaloric effect.}
+\paragraph{Exercise 16: Electrocaloric effect.}
 An isotropic dielectric with the temperature-dependent dielectric constant $\varepsilon(T)$ is charged to the field $E$ at constant temperature. Per unit volume, the potential $G(T, E)$ satisfies $dG = -s\,dT - (D/4\pi)\,dE$, where $s$ is the entropy density.
 \begin{parts}
     \item Derive the Maxwell relation $(\partial s/\partial E)_T = (1/4\pi)(\partial D/\partial T)_E$.
@@ -215,7 +241,7 @@ An isotropic dielectric with the temperature-dependent dielectric constant $\var
 \section{Local-Field Models}
 % ============================================================
 
-\paragraph{Exercise 15: Dipole moment from a Debye plot.}
+\paragraph{Exercise 17: Dipole moment from a Debye plot.}
 A polar gas at the fixed number density $n = 2.69\times10^{19}$~cm$^{-3}$ has $\varepsilon - 1 = 4.17\times10^{-3}$ at 300~K and $3.35\times10^{-3}$ at 400~K.
 \begin{parts}
     \item Show that the Debye equation reduces to $\varepsilon - 1 = 4\pi n\left(\alpha_{\text{pol}} + p_0^2/3k_BT\right)$ for $\varepsilon - 1 \ll 1$.
@@ -224,7 +250,7 @@ A polar gas at the fixed number density $n = 2.69\times10^{19}$~cm$^{-3}$ has $\
 \textit{Answer.} (b) $p_0 = 1.10$~D and $\alpha_{\text{pol}} = 2.6$~\AA$^3$.\\
 \textit{Related:} Section~4.3 of the note; Coelho, Sec.~V.1.
 
-\paragraph{Exercise 16: Local-field correction factors and the Kirkwood factor.}
+\paragraph{Exercise 18: Local-field correction factors and the Kirkwood factor.}
 Write the orientational contribution as $\varepsilon_s - \varepsilon_\infty = A\cdot 4\pi np_0^2/3k_BT$, where $\varepsilon_s$ is the static dielectric constant, $\varepsilon_\infty$ is the optical dielectric constant, and $A$ is a local-field correction factor.
 \begin{parts}
     \item From the Debye equation, with $\varepsilon_\infty$ given by the Clausius--Mossotti relation, show that $A_{\text{CM}} = (\varepsilon_s + 2)(\varepsilon_\infty + 2)/9$.
