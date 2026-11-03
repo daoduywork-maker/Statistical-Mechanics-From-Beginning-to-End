@@ -1,0 +1,32 @@
+\section{Local Electric Field}
+\label{sec:local}
+
+\subsection{Lorentz Model}
+
+\paragraph{Local field and macroscopic field.}
+The response of a material to an external field is complicated, even for a linear isotropic material. The field that polarizes an atom or a molecule, the \textcolor{blue}{local field}, differs from the macroscopic field $\vec E$ of Section~\ref{sec:dielectric}. Besides the external field and the field of the bound charge on the outer surface of the sample, each atom feels the fields of its neighboring dipoles. The macroscopic field is an average over a region that contains many atoms, including the space between them. The local field, in contrast, is the field at the position of one atom, without the field of that atom itself.
+
+\paragraph{Microscopic, macroscopic, and local fields.}
+The point dipoles $\vec p_k$ at the positions $\vec r_k$ and the external sources produce the \textcolor{blue}{microscopic field}
+\begin{equation*}
+    \vec E_{\text{micro}}(\vec r) = \vec E_{\text{ext}}(\vec r) + \sum_k \vec E_{\text{dip}}(\vec r;\vec p_k,\vec r_k),
+    \qquad
+    \vec E_{\text{dip}}(\vec r;\vec p_k,\vec r_k) = \frac{3(\vec p_k\cdot\hat u_k)\,\hat u_k - \vec p_k}{|\vec r - \vec r_k|^3},
+\end{equation*}
+where $\hat u_k = (\vec r - \vec r_k)/|\vec r - \vec r_k|$ and $\vec E_{\text{dip}}$ is the point-dipole field of Section~\ref{sec:polarization}. The sum already contains the field of the bound charge on the outer surface, because this charge consists of the uncompensated ends of the dipole chains (Fig.~\ref{fig:boundcharge}). The macroscopic field and the local field at dipole $j$ follow from $\vec E_{\text{micro}}$ by two different operations. The macroscopic field is its average with the weighting function $w$ of Section~\ref{sec:polarization}. The local field is its value at $\vec r_j$ after the field of $\vec p_j$ itself is removed,
+\begin{equation}
+    \boxed{
+    \begin{gathered}
+    \vec E(\vec r) = \int w(\vec r - \vec r\,')\,\vec E_{\text{micro}}(\vec r\,')\,d^3r',\\[4pt]
+    \vec E_{\text{loc}}(\vec r_j) = \lim_{\vec r \to \vec r_j}\left[\vec E_{\text{micro}}(\vec r) - \vec E_{\text{dip}}(\vec r;\vec p_j,\vec r_j)\right].
+    \end{gathered}
+    }
+\end{equation}
+The limit exists, because the subtraction removes the only term that diverges at $\vec r_j$. The difference between the two fields at the position of dipole $j$ is therefore
+\begin{equation*}
+    \vec E_{\text{loc}}(\vec r_j) - \vec E(\vec r_j)
+    = \lim_{\vec r \to \vec r_j}\left[\vec E_{\text{micro}}(\vec r) - \vec E_{\text{dip}}(\vec r;\vec p_j,\vec r_j)\right]
+    - \int w(\vec r_j - \vec r\,')\,\vec E_{\text{micro}}(\vec r\,')\,d^3r'.
+\end{equation*}
+The first term excludes the field of $\vec p_j$ and takes the field at one point. The second term includes the field of $\vec p_j$ and averages over the width $\ell$. Near $\vec r_j$, the fields of the neighbors vary on the scale of the interatomic distance $a \ll \ell$, so the two terms differ.
+
