@@ -1,0 +1,239 @@
+%% ============================================================
+%%  STANDARD PREAMBLE (article, lecture notes) -- exercise sheet,
+%%  compiled separately from main.tex into exercise.pdf
+%% ============================================================
+
+% ---------- Document class and page layout ----------
+\documentclass[11pt]{article}      % Basic document type, 11pt body text
+\usepackage[margin=1in]{geometry}  % Sets page margins to 1 inch on all sides
+
+% ---------- Paragraph style ----------
+\usepackage{setspace}              % Lets you set the line spacing of the whole document
+\setstretch{1.2}                   % Line spacing factor: 1.0 = single (default), 1.2 = slightly airy, 1.5 = very loose
+\setlength{\parindent}{2em}        % First-line indent of each paragraph
+\setlength{\parskip}{1\baselineskip} % Extra vertical gap between paragraphs
+
+% ---------- Math ----------
+\usepackage{amsmath,amssymb}       % Core math: align, cases, \text{}, \boxed{}, plus extra symbols (\mathbb, \hbar, ...)
+
+% ---------- Colors and boxes ----------
+\usepackage{xcolor}                % Lets you use colors (\textcolor{red}{...})
+\usepackage{mdframed}              % Boxes around text that can break across pages (theorems, key results)
+
+% ---------- Diagrams ----------
+\usepackage{tikz-cd}               % Commutative diagrams / arrow diagrams (also loads tikz)
+\usepackage{tikz}                  % General-purpose drawing: lines, shapes, plots
+\usetikzlibrary{arrows.meta, positioning} % arrows.meta: more arrow tip styles; positioning: place nodes "right=of A"
+\usepackage{graphicx}              % Inserts the precompiled figure PDFs from figures/ (\includegraphics)
+
+% ---------- Text layout ----------
+\usepackage{multicol}              % Multi-column text (\begin{multicols}{2} ... \end{multicols})
+\usepackage{indentfirst}           % Indents the first paragraph after a heading (article class skips it by default)
+
+% ---------- Hyperlinks (load last) ----------
+\usepackage[hidelinks]{hyperref}   % Clickable TOC, \ref, \eqref, \cite; hidelinks = no colored text or boxes
+
+% ---------- Equation numbering ----------
+\numberwithin{equation}{section}   % Equation counter resets in each section
+\renewcommand{\theequation}{\thesection.\arabic{equation}} % Displays numbers as section.equation, e.g. (2.3)
+
+% ---------- Title block ----------
+\title{Advanced Material Physics: Exercises}
+\author{Duy M. Dao}
+\date{\today}                      % Compile date; replace with a fixed date if you prefer
+
+\begin{document}
+\maketitle                         % Prints title, author, date
+
+\paragraph{Unit system used in these exercises.}
+\textcolor{red}{Throughout these exercises, $4\pi\epsilon_0 = 1$.}
+
+% Lettered parts (a), (b), ... for the exercises in this file.
+\newenvironment{parts}
+  {\begin{enumerate}\renewcommand{\theenumi}{\alph{enumi}}\renewcommand{\labelenumi}{(\theenumi)}}
+  {\end{enumerate}}
+
+\paragraph{Scope of the exercises.}
+The exercises follow the topics of Part~1 of R.~Coelho, \textit{Physics of Dielectrics for the Engineer} (Elsevier, 1979), up to the Onsager model (Sec.~V.3). They are written in the notation and the units of the lecture note \textit{Advanced Material Physics}, with $4\pi\epsilon_0 = 1$, and $1$~D $= 10^{-18}$~statC\,cm. Each exercise names the related sections of the note and of the book, and ends with an answer for checking.
+
+% ============================================================
+\section{Multipole Expansion}
+% ============================================================
+
+\paragraph{Exercise 1: Origin dependence of the moments.}
+A charge $3q$ sits at $z = +d$ and a charge $q$ at $z = -d$.
+\begin{parts}
+    \item Find the monopole moment $Q$ and the dipole moment $\vec p$ about the midpoint.
+    \item Find the origin on the $z$ axis about which the dipole moment vanishes.
+    \item Find the quadrupole component $\mathcal{Q}_{zz}$ about the midpoint and about the origin of part~(b).
+\end{parts}
+\textit{Answer.} (a) $Q = 4q$ and $\vec p = 2qd\,\hat z$. (b) $z = d/2$, the charge centroid $\sum_i q_iz_i/Q$. (c) $\mathcal{Q}_{zz} = 8qd^2$ about the midpoint and $6qd^2$ about $z = d/2$.\\
+\textit{Related:} Section~1 of the note; Coelho, Sec.~II.1.
+
+\paragraph{Exercise 2: Planar quadrupole.}
+Charges $+q$ sit at $(\pm a, 0, 0)$ and charges $-q$ at $(0, \pm a, 0)$.
+\begin{parts}
+    \item Show that $Q = 0$ and $\vec p = 0$.
+    \item Compute the quadrupole moment tensor $\mathcal{Q}$ of Section~1 of the note and check that its trace vanishes.
+    \item Write the leading term of the far-field potential in terms of the polar angle $\theta$ and the azimuthal angle $\varphi$ of $\hat R$.
+\end{parts}
+\textit{Answer.} (b) $\mathcal{Q} = \mathrm{diag}(6qa^2, -6qa^2, 0)$. (c) $\phi \approx 3qa^2\sin^2\theta\cos 2\varphi/R^3$.\\
+\textit{Related:} Section~1 of the note; Coelho, Sec.~II.1.
+
+\paragraph{Exercise 3: Legendre expansion of a physical dipole.}
+\begin{parts}
+    \item Show that the first three terms of
+    \begin{equation*}
+        \frac{1}{|\vec R - \vec r|} = \sum_{l=0}^{\infty}\frac{r^l}{R^{l+1}}\,\mathcal{P}_l(\cos\gamma),
+    \end{equation*}
+    where $\gamma$ is the angle between $\vec R$ and $\vec r$, reproduce the expansion of Section~1 of the note.
+    \item Charges $\pm q$ sit at $\pm(s/2)\hat z$. Using $\mathcal{P}_l(-x) = (-1)^l\mathcal{P}_l(x)$, show that only odd $l$ contribute to the potential.
+    \item Find the ratio of the $l = 3$ term to the $l = 1$ term.
+\end{parts}
+\textit{Answer.} (b) $\phi = 2q\sum_{l\ \text{odd}} (s/2)^l\,\mathcal{P}_l(\cos\theta)/R^{l+1}$, with the point dipole $p = qs$ as the leading term and no quadrupole. (c) $(s/2R)^2\,\mathcal{P}_3(\cos\theta)/\mathcal{P}_1(\cos\theta)$.\\
+\textit{Related:} Sections~1 and~3 of the note; Coelho, Secs.~II.2--II.3.
+
+% ============================================================
+\section{Induced Polarizability}
+% ============================================================
+
+\paragraph{Models for the atomic polarizability.}
+Section~4 of the note defines the atomic polarizability $\alpha_{\text{pol}}$ but does not model it. Exercises~4--9 build simple models and connect them to the local field.
+
+\paragraph{Exercise 4: Atom as a nucleus in a uniform electron cloud.}
+A nucleus of charge $Ze$ sits at the center of a rigid, uniformly charged electron cloud of radius $R$ and total charge $-Ze$. A field $\vec E$ displaces the nucleus by $d \ll R$.
+\begin{parts}
+    \item Use Gauss's law for the field of the cloud to find the restoring force on the nucleus. Show that the induced dipole moment is $\vec p = R^3\vec E$, so that $\alpha_{\text{pol}} = R^3$.
+    \item For $Z = 1$, $R = 1$~\AA, and $E = 3\times10^7$~V/m, find $d$ and $d/R$.
+\end{parts}
+\textit{Answer.} (a) The cloud field at distance $d$ from its center is $Zed/R^3$, so $Ze\,E = Z^2e^2d/R^3$. (b) $E = 1.0\times10^3$~statV/cm, $d = 2.1\times10^{-12}$~cm, and $d/R = 2.1\times10^{-4}$, so the linear response holds.\\
+\textit{Related:} Section~4 of the note; Coelho, Sec.~III.2.
+
+\paragraph{Exercise 5: Atom as a dielectric sphere.}
+\begin{parts}
+    \item Model an atom as a sphere of radius $R$ and dielectric constant $\varepsilon_s$ in vacuum. From the effective dipole moment of the dielectric sphere in Section~3 of the note, with $\varepsilon_1 = \varepsilon_s$ and $\varepsilon_2 = 1$, find $\alpha_{\text{pol}}$. Check the limits $\varepsilon_s \to 1$ and $\varepsilon_s \to \infty$.
+    \item A material consists of such spheres with the number density $n$, which fill the volume fraction $f_V = \tfrac{4\pi}{3}R^3n$. Combine part~(a) with the Clausius--Mossotti relation to find $\varepsilon$ of the material.
+\end{parts}
+\textit{Answer.} (a) $\alpha_{\text{pol}} = R^3(\varepsilon_s - 1)/(\varepsilon_s + 2)$. The limit $\varepsilon_s \to \infty$ gives $R^3$, as in Exercise~4. (b) $(\varepsilon - 1)/(\varepsilon + 2) = f_V(\varepsilon_s - 1)/(\varepsilon_s + 2)$, the Maxwell Garnett mixing formula in a vacuum host.\\
+\textit{Related:} Sections~3 and~4 of the note; Coelho, Sec.~III.2.
+
+\paragraph{Exercise 6: Polarizability of a diatomic molecule.}
+Two identical atoms of polarizability $\alpha_{\text{pol}}$ sit at the distance $L$. Each atom feels the external field plus the point-dipole field of the other atom (Section~2 of the note).
+\begin{parts}
+    \item For a field along the molecular axis, show that the molecular polarizability is $\alpha_\parallel = 2\alpha_{\text{pol}}/(1 - 2\alpha_{\text{pol}}/L^3)$.
+    \item For a field perpendicular to the axis, show that $\alpha_\perp = 2\alpha_{\text{pol}}/(1 + \alpha_{\text{pol}}/L^3)$.
+    \item With $\alpha_{\text{pol}} = R^3$ (Exercise~4) and touching atoms, $L = 2R$, evaluate $\alpha_\parallel$, $\alpha_\perp$, and the anisotropy $\Delta\alpha = \alpha_\parallel - \alpha_\perp$.
+\end{parts}
+\textit{Answer.} (c) $\alpha_\parallel = \tfrac{8}{3}\alpha_{\text{pol}}$, $\alpha_\perp = \tfrac{16}{9}\alpha_{\text{pol}}$, and $\Delta\alpha = \tfrac{8}{9}\alpha_{\text{pol}} > 0$. An elongated molecule is easier to polarize along its axis.\\
+\textit{Related:} Sections~2 and~4 of the note; Coelho, Sec.~III.3.
+
+\paragraph{Exercise 7: Symmetry of the polarizability tensor.}
+An anisotropic molecule has the induced dipole moment $p_\beta = \sum_\gamma \alpha^{\text{pol}}_{\beta\gamma}E_\gamma$. When the field changes by $d\vec E$, the energy of the induced dipole changes by $dw = -\sum_\beta p_\beta\,dE_\beta$.
+\begin{parts}
+    \item Require $dw$ to be an exact differential and show that $\alpha^{\text{pol}}_{\beta\gamma} = \alpha^{\text{pol}}_{\gamma\beta}$.
+    \item Explain why a rotation to the principal axes makes the tensor diagonal, with three principal polarizabilities.
+    \item Apply the same argument to the energy density of a dielectric to show that the dielectric tensor $\varepsilon_{\beta\gamma}$ of Section~3 of the note is symmetric.
+\end{parts}
+\textit{Answer.} (a) The condition $\partial(\sum_\gamma\alpha^{\text{pol}}_{\beta\gamma}E_\gamma)/\partial E_\delta = \partial(\sum_\gamma\alpha^{\text{pol}}_{\delta\gamma}E_\gamma)/\partial E_\beta$ gives $\alpha^{\text{pol}}_{\beta\delta} = \alpha^{\text{pol}}_{\delta\beta}$. (b) A real symmetric matrix has real eigenvalues and orthogonal eigenvectors.\\
+\textit{Related:} Section~3 of the note; Coelho, Sec.~III.3.
+
+\paragraph{Exercise 8: Ionic polarizability.}
+Two ions of charges $\pm e$ and reduced mass $m_r$ are bound by a spring of constant $\kappa$, so that their vibration frequency is $\omega_0 = \sqrt{\kappa/m_r}$.
+\begin{parts}
+    \item A static field $\vec E$ along the bond stretches it by $x$. Show that the ionic polarizability is $\alpha_{\text{ion}} = e^2/(m_r\omega_0^2)$.
+    \item For NaCl, use the atomic masses $23.0$~u and $35.5$~u and the transverse optical frequency $\omega_0/2\pi c = 164$~cm$^{-1}$ to estimate $\alpha_{\text{ion}}$. Compare it with $\alpha_{\text{pol}} = R^3$ for $R = 1$~\AA.
+\end{parts}
+\textit{Answer.} (b) $m_r = 2.32\times10^{-23}$~g, $\omega_0 = 3.09\times10^{13}$~s$^{-1}$, and $\alpha_{\text{ion}} = 1.0\times10^{-23}$~cm$^3 = 10$~\AA$^3$, an order of magnitude larger than the electronic estimate.\\
+\textit{Related:} Section~4 of the note; Coelho, Sec.~III.4.
+
+\paragraph{Exercise 9: Near-field sum of a dipole chain.}
+An infinite chain of equal dipoles $\vec p$ has the spacing $a$. Use the point-dipole field of Section~2 of the note and $\zeta(3) = \sum_{n=1}^{\infty} n^{-3} \approx 1.202$.
+\begin{parts}
+    \item Find the field at one site produced by all other dipoles, for dipoles along the chain.
+    \item Repeat part~(a) for dipoles perpendicular to the chain.
+    \item The Lorentz model of Section~4 of the note sets $\vec E_{\text{near}} = 0$. Explain why this assumption holds for a cubic lattice but fails for a chain.
+\end{parts}
+\textit{Answer.} (a) $4\zeta(3)\,\vec p/a^3 \approx 4.81\,\vec p/a^3$. (b) $-2\zeta(3)\,\vec p/a^3 \approx -2.40\,\vec p/a^3$. (c) A chain lacks the equivalence of the three axes that makes $\sum_k(3z_k^2 - r_k^2)/r_k^5$ vanish.\\
+\textit{Related:} Section~4 of the note; Coelho, Sec.~III.4 (problem on the one-dimensional lattice).
+
+% ============================================================
+\section{Orientational Polarization}
+% ============================================================
+
+\paragraph{Exercise 10: Langevin function beyond the linear term.}
+\begin{parts}
+    \item Expand $e^{\xi\cos\vartheta}$ in powers of $\xi$ before integrating the partition function of Section~4.3 of the note. Find $\ln Z$ to order $\xi^4$ and show that $\mathcal{L}(\xi) = \xi/3 - \xi^3/45 + \mathcal{O}(\xi^5)$.
+    \item For $p_0 = 1.85$~D at $T = 300$~K, find the field at which $\langle p_{0,z}\rangle$ falls 1\% below the linear law.
+\end{parts}
+\textit{Answer.} (a) $\ln Z = \ln 4\pi + \xi^2/6 - \xi^4/180 + \mathcal{O}(\xi^6)$. (b) $\xi^2/15 = 0.01$ gives $\xi = 0.387$ and $E = 8.7\times10^3$~statV/cm $= 2.6\times10^8$~V/m, far above ordinary laboratory fields.\\
+\textit{Related:} Section~4.3 of the note; Coelho, Sec.~IV.1.
+
+\paragraph{Exercise 11: Dipoles with discrete orientations and spontaneous polarization.}
+\begin{parts}
+    \item Dipoles of magnitude $p_0$ can point only along $\pm\hat z$, parallel to the field. Show that $\langle p_{0,z}\rangle = p_0\tanh\xi$, with $\xi = p_0E/k_BT$.
+    \item In a cubic crystal, dipoles can point along the eight body diagonals $\langle 111\rangle$. For a field along $[001]$, find $\langle p_{0,z}\rangle$ and its low-field limit. Compare with the Langevin result.
+    \item Let the dipoles of part~(a) feel the local field $E + \gamma P$, with $P = n\langle p_{0,z}\rangle$. Show that a spontaneous polarization appears below $k_BT_c = \gamma n p_0^2$. Repeat for freely rotating dipoles and compare with the critical temperature of Section~4 of the note for $\gamma = 4\pi/3$ and $\alpha_{\text{pol}} = 0$.
+\end{parts}
+\textit{Answer.} (b) $\langle p_{0,z}\rangle = (p_0/\sqrt3)\tanh(\xi/\sqrt3) \approx p_0\xi/3$, the same as for free dipoles, because the cubic symmetry makes the low-field response isotropic. (c) Free dipoles give $k_BT_c = \gamma np_0^2/3 = 4\pi np_0^2/9$, the Debye critical temperature with $\alpha_{\text{pol}} = 0$.\\
+\textit{Related:} Sections~4.3 and~4.4 of the note; Coelho, Sec.~IV.2.
+
+\paragraph{Exercise 12: Impurity--vacancy dipole in a crystal.}
+In a simple cubic lattice of constant $a$, a divalent impurity binds a vacancy on one of its six nearest-neighbor sites. The pair forms a dipole of magnitude $p_0 = ea$. A field $\vec E$ points along $[001]$.
+\begin{parts}
+    \item Find the energies of the six vacancy positions and show that
+    \begin{equation*}
+        \langle p_{0,z}\rangle = p_0\,\frac{e^{\xi} - e^{-\xi}}{e^{\xi} + e^{-\xi} + 4},
+        \qquad \xi = \frac{p_0E}{k_BT}.
+    \end{equation*}
+    \item Show that the low-field limit is the Langevin result $p_0^2E/3k_BT$.
+    \item For a dilute concentration $n$ of such pairs, find their contribution to $\varepsilon$.
+\end{parts}
+\textit{Answer.} (a) Two positions have the energies $\mp p_0E$, and four have zero energy. (b) $\langle p_{0,z}\rangle = p_0\xi/3 + \mathcal{O}(\xi^5)$. (c) $\Delta\varepsilon = 4\pi np_0^2/3k_BT$.\\
+\textit{Related:} Section~4.3 of the note; Coelho, Sec.~IV.2.
+
+\paragraph{Exercise 13: Anisotropic polar molecule.}
+A linear molecule carries the permanent dipole $\vec p_0$ along its axis and has the polarizabilities $\alpha_\parallel$ along the axis and $\alpha_\perp$ perpendicular to it, with $\Delta\alpha = \alpha_\parallel - \alpha_\perp > 0$. The axis makes the angle $\vartheta$ with the field.
+\begin{parts}
+    \item Show that the orientation energy is $w(\vartheta) = -p_0E\cos\vartheta - \tfrac12\left(\Delta\alpha\cos^2\vartheta + \alpha_\perp\right)E^2$.
+    \item Find the equilibrium orientations. Show that the antiparallel orientation $\vartheta = \pi$ becomes stable for $E > p_0/\Delta\alpha$.
+    \item For a nonpolar molecule, $p_0 = 0$, show that at low fields $\langle\cos^2\vartheta\rangle = \tfrac13 + \tfrac{4}{45}z$, with $z = \Delta\alpha E^2/2k_BT$. Find the order parameter $S = \tfrac12(3\langle\cos^2\vartheta\rangle - 1)$.
+\end{parts}
+\textit{Answer.} (b) $dw/d\vartheta = E\sin\vartheta\,(p_0 + \Delta\alpha E\cos\vartheta)$, and $d^2w/d\vartheta^2 = E(\Delta\alpha E - p_0)$ at $\vartheta = \pi$. (c) $S = \Delta\alpha E^2/15k_BT$.\\
+\textit{Related:} Section~4.3 of the note; Coelho, Secs.~III.3 and~IV.3.
+
+\paragraph{Exercise 14: Electrocaloric effect.}
+An isotropic dielectric with the temperature-dependent dielectric constant $\varepsilon(T)$ is charged to the field $E$ at constant temperature. Per unit volume, the potential $G(T, E)$ satisfies $dG = -s\,dT - (D/4\pi)\,dE$, where $s$ is the entropy density.
+\begin{parts}
+    \item Derive the Maxwell relation $(\partial s/\partial E)_T = (1/4\pi)(\partial D/\partial T)_E$.
+    \item Show that the entropy change is $\Delta s = (E^2/8\pi)\,\partial\varepsilon/\partial T$.
+    \item For a dilute polar material with $\varepsilon = \varepsilon_\infty + 4\pi np_0^2/3k_BT$, find the heat $Q = T\Delta s$ absorbed per unit volume and interpret its sign.
+\end{parts}
+\textit{Answer.} (c) $Q = -np_0^2E^2/6k_BT$. The material releases heat, because the field orders the dipoles and lowers the entropy.\\
+\textit{Related:} Section~4.3 of the note; Coelho, Sec.~IV.1.
+
+% ============================================================
+\section{Local-Field Models}
+% ============================================================
+
+\paragraph{Exercise 15: Dipole moment from a Debye plot.}
+A polar gas at the fixed number density $n = 2.69\times10^{19}$~cm$^{-3}$ has $\varepsilon - 1 = 4.17\times10^{-3}$ at 300~K and $3.35\times10^{-3}$ at 400~K.
+\begin{parts}
+    \item Show that the Debye equation reduces to $\varepsilon - 1 = 4\pi n\left(\alpha_{\text{pol}} + p_0^2/3k_BT\right)$ for $\varepsilon - 1 \ll 1$.
+    \item Find $p_0$ and $\alpha_{\text{pol}}$.
+\end{parts}
+\textit{Answer.} (b) $p_0 = 1.10$~D and $\alpha_{\text{pol}} = 2.6$~\AA$^3$.\\
+\textit{Related:} Section~4.3 of the note; Coelho, Sec.~V.1.
+
+\paragraph{Exercise 16: Local-field correction factors and the Kirkwood factor.}
+Write the orientational contribution as $\varepsilon_s - \varepsilon_\infty = A\cdot 4\pi np_0^2/3k_BT$, where $\varepsilon_s$ is the static dielectric constant, $\varepsilon_\infty$ is the optical dielectric constant, and $A$ is a local-field correction factor.
+\begin{parts}
+    \item From the Debye equation, with $\varepsilon_\infty$ given by the Clausius--Mossotti relation, show that $A_{\text{CM}} = (\varepsilon_s + 2)(\varepsilon_\infty + 2)/9$.
+    \item From the Onsager equation, show that $A_{\text{O}} = \varepsilon_s(\varepsilon_\infty + 2)^2/[3(2\varepsilon_s + \varepsilon_\infty)]$.
+    \item Show that both factors tend to one for a dilute material.
+    \item For water ($\varepsilon_s = 78.4$, $\varepsilon_\infty = 1.78$, $n = 3.34\times10^{22}$~cm$^{-3}$, $T = 298$~K), compute $A_{\text{CM}}$ and $A_{\text{O}}$ and the dipole moment that each model infers from $\varepsilon_s$. Compare with the gas-phase value $p_0 = 1.85$~D.
+    \item Replace $p_0^2$ by $g\,p_0^2$ in the Onsager equation and find the Kirkwood correlation factor $g$ of water.
+\end{parts}
+\textit{Answer.} (d) $A_{\text{CM}} = 33.8$ and $A_{\text{O}} = 2.36$. The inferred dipole moments are $4.75$~D for $A = 1$, $0.82$~D for $A_{\text{CM}}$, and $3.09$~D for $A_{\text{O}}$. (e) $g = 2.80$, which reflects the alignment of neighboring molecules by hydrogen bonds.\\
+\textit{Related:} Section~4 of the note; Coelho, Secs.~V.2--V.3.
+
+\end{document}
