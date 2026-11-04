@@ -144,3 +144,270 @@ locus is a \textcolor{blue}{univariant curve}. When three phases coexist
 ($\mathcal{P}=3$, $F=0$), no variable varies freely. The system is in
 \textcolor{blue}{invariant equilibrium}, and the point of three-phase
 coexistence is an \textcolor{blue}{invariant point}, the triple point.
+
+\paragraph{The chemical potential of each phase.}
+For $C=1$, the Euler relation gives $G=\mu N$, so the Gibbs free energy per
+particle is the chemical potential, $g=\mu$. Each phase $\alpha$ has a
+separate function $\mu_\alpha(T,P)$, defined wherever the phase exists at
+least as a local minimum of $G$. The Gibbs--Duhem relation per particle,
+$d\mu=-s\,dT+v\,dP$, gives the slopes
+\begin{equation}
+    \boxed{\frac{\partial\mu_\alpha}{\partial T}\bigg|_P=-s_\alpha<0,
+    \qquad
+    \frac{\partial\mu_\alpha}{\partial P}\bigg|_T=v_\alpha>0.}
+\end{equation}
+At fixed $P$, every curve $\mu_\alpha(T)$ therefore decreases with
+temperature, and the curve of the phase with the larger entropy decreases
+faster. With the heat capacity per particle at constant pressure,
+$c_P\equiv T\,\partial s/\partial T|_P>0$, the curvature
+$\partial^2\mu_\alpha/\partial T^2|_P=-c_P/T$ is negative, so each curve is
+also concave. In most substances,
+$s_{\text{vapor}}>s_{\text{liquid}}>s_{\text{solid}}$, so the solid has the
+lowest $\mu$ at low temperature, the liquid at intermediate temperature and
+the vapor at high temperature (Fig.~\ref{fig:unary-mu-T}).
+
+\paragraph{The stable phase minimizes the chemical potential.}
+The Gibbs free energy $G=N\mu$ is minimized at fixed $(N,P,T)$. The stable
+phase is therefore the phase with the lowest chemical potential, and the
+equilibrium chemical potential is the lower envelope of the single-phase
+curves:
+\begin{equation}
+    \boxed{\mu(T,P)=\min_\alpha\,\mu_\alpha(T,P).}
+\end{equation}
+Two curves cross at a transition temperature, such as the melting
+temperature $T_m$ or the boiling temperature $T_b$. At the crossing, the
+envelope is continuous, but the slope jumps from $-s_1$ to $-s_2$. This kink
+is the crease of $g$ in a one-dimensional slice, and the jump in slope gives
+the latent heat per particle, $\ell=T\Delta s$.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
+    % axes
+    \draw[->] (0,0) -- (8.4,0) node[right] {$T$};
+    \draw[->] (0,0) -- (0,6) node[above] {$\mu$};
+    % mu_alpha(T) = a - b T - 0.02 T^2 (schematic), plotted as 5.2 + 0.5 mu
+    % solid: stable on [0,5]
+    \draw[domain=0:5, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(-0.5*\t-0.02*\t*\t)});
+    \draw[dashed, domain=5:8.5, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(-0.5*\t-0.02*\t*\t)});
+    % liquid: stable on [5,7]
+    \draw[dashed, domain=2.5:5, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(1.5-0.8*\t-0.02*\t*\t)});
+    \draw[domain=5:7, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(1.5-0.8*\t-0.02*\t*\t)});
+    \draw[dashed, domain=7:9, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(1.5-0.8*\t-0.02*\t*\t)});
+    % vapor: stable on [7,10]
+    \draw[dashed, domain=4.2:7, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(5-1.3*\t-0.02*\t*\t)});
+    \draw[domain=7:10, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(5-1.3*\t-0.02*\t*\t)});
+    % transition temperatures
+    \draw[dotted] (3.5,0) node[below] {$T_m$} -- (3.5,3.7);
+    \draw[dotted] (4.9,0) node[below] {$T_b$} -- (4.9,2.66);
+    % labels at the right ends of the curves
+    \node[right] at (5.95,2.35) {solid};
+    \node[right] at (6.3,1.54) {liquid};
+    \node[right] at (7.0,0.2) {vapor};
+\end{tikzpicture}
+\caption{Chemical potentials of the solid, liquid and vapor phases at fixed
+pressure. Solid lines: stable branches (lower envelope). Dashed lines:
+metastable branches.}
+\label{fig:unary-mu-T}
+\end{figure}
+
+\paragraph{Metastable phases and polymorphs.}
+Beyond a crossing, the curve of the former phase continues above the
+envelope (dashed lines in Fig.~\ref{fig:unary-mu-T}). A phase on such a
+branch is \textcolor{blue}{metastable}, because $G$ is at a local but not a
+global minimum. The phase persists until a fluctuation nucleates the stable
+phase. A supercooled liquid below $T_m$ and a superheated liquid above $T_b$
+are examples. A unary system may also have several solid phases with
+different crystal structures, called \textcolor{blue}{polymorphs}, each with
+a separate curve $\mu_\alpha(T,P)$. For example, the black $\gamma$ phase of
+CsPbI$_3$ is a metastable polymorph at room temperature, with the yellow
+$\delta$ phase as the stable phase.
+
+\paragraph{Slopes of the coexistence curves.}
+The Clapeyron equation fixes the slope of each univariant curve in the
+$P$--$T$ diagram (Fig.~\ref{fig:unary-PT}). Melting involves a small volume
+change, so the solid--liquid curve is steep. For most substances, $\Delta
+v>0$ on melting, and the slope is positive. Water is an exception, because
+ice is less dense than liquid water, so $\Delta v<0$ and the melting curve
+has a negative slope. On the liquid--vapor and solid--vapor curves, the
+vapor volume dominates, $\Delta v\approx v_{\text{vapor}}$. If the vapor
+behaves as an ideal gas, $Pv=k_BT$, and the Clapeyron equation becomes the
+\textcolor{blue}{Clausius--Clapeyron equation}
+\begin{equation}
+    \boxed{\frac{dP}{dT}=\frac{\ell P}{k_BT^2}.}
+\end{equation}
+For a constant latent heat, integration from a reference point $(T_0,P_0)$
+on the curve gives
+\begin{equation}
+    \boxed{P(T)=P_0\exp\!\left[-\frac{\ell}{k_B}\left(\frac{1}{T}-\frac{1}{T_0}\right)\right].}
+\end{equation}
+The vapor pressure therefore rises exponentially with temperature. At the
+triple point, the entropy changes around a closed cycle of the three phases
+sum to zero, so the latent heats satisfy
+$\ell_{\text{sub}}=\ell_{\text{fus}}+\ell_{\text{vap}}$. Since
+$\ell_{\text{sub}}>\ell_{\text{vap}}$ and $\Delta v$ is nearly the same for
+both, the solid--vapor curve is steeper than the liquid--vapor curve at the
+triple point.
+
+\paragraph{The critical point.}
+The liquid--vapor curve does not continue indefinitely. As $T$ rises along
+the curve, the liquid expands and the vapor compresses until $\Delta v$ and
+$\Delta s$ both vanish at the \textcolor{blue}{critical point} $(T_c,P_c)$,
+where the curve ends. Above $T_c$, liquid and vapor can no longer be
+distinguished, and the fluid is called \textcolor{blue}{supercritical}. A
+path that circles around the critical point connects the liquid to the vapor
+without crossing any coexistence curve, so the potential stays analytic
+along the whole path. By the definition of a phase, liquid and vapor are
+therefore one \textcolor{blue}{fluid phase}, and the distinction between
+them exists only below $T_c$. No such path exists between solid and liquid,
+because the two phases differ in symmetry, and a symmetry cannot change
+continuously. The solid--liquid curve therefore has no critical point. The
+critical point itself is a continuous transition and is treated later.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
+    % axes
+    \draw[->] (0,0) -- (8.2,0) node[right] {$T$};
+    \draw[->] (0,0) -- (0,6) node[above] {$P$};
+    % solid--vapor (sublimation) curve
+    \draw (0.5,0.1) .. controls (1.8,0.35) and (2.6,0.9) .. (3,1.5);
+    % liquid--vapor (vaporization) curve, ending at the critical point
+    \draw (3,1.5) .. controls (4.5,2.2) and (6,3.3) .. (7,4.4);
+    % solid--liquid (melting) curve
+    \draw (3,1.5) -- (3.5,5.6);
+    % triple and critical points
+    \fill (3,1.5) circle (2pt);
+    \fill (7,4.4) circle (2pt);
+    \node[below right] at (3,1.5) {triple point};
+    \node[below right] at (7,4.4) {critical point};
+    % supercritical boundaries (no transition)
+    \draw[dotted] (7,4.4) -- (7,5.6);
+    \draw[dotted] (7,4.4) -- (8,4.4);
+    % phase labels
+    \node at (1.5,3.2) {solid};
+    \node at (4.7,4.0) {liquid};
+    \node at (6.3,0.9) {vapor};
+    \node[align=center] at (7.75,5.2) {super-\\critical};
+\end{tikzpicture}
+\caption{Schematic $P$--$T$ diagram of a unary system with a triple point
+and a liquid--vapor critical point.}
+\label{fig:unary-PT}
+\end{figure}
+
+\paragraph{Two-phase coexistence in the $P$--$v$ plane.}
+\textcolor{red}{From here on, $v\equiv V/N$ and $f\equiv F/N$ denote the
+volume and the Helmholtz free energy per particle, $n_\alpha\equiv
+N_\alpha/N$ denotes the fraction of particles in phase $\alpha$, and the
+subscripts $l$ and $g$ label the liquid and the vapor (gas).}
+The $P$--$T$ diagram does not show the amount of each phase. An isotherm in
+the $P$--$v$ plane below $T_c$ does. As the vapor is compressed, the
+pressure rises until the vapor pressure $P_{\text{sat}}(T)$ is reached at
+$v=v_g$. Further compression converts vapor into liquid at constant pressure
+until $v=v_l$, and only then is the liquid compressed. Between $v_l$ and
+$v_g$, the system is a mixture of liquid and vapor at the same
+$(T,P_{\text{sat}})$. The phase rule allows exactly this mixture, because
+coexistence fixes $P$ at fixed $T$ but leaves the amounts of the two phases
+free.
+
+\paragraph{The lever rule.}
+Particle number and volume are conserved:
+\begin{equation*}
+    n_l+n_g=1,\qquad n_l v_l+n_g v_g=v.
+\end{equation*}
+These two equations give the \textcolor{blue}{lever rule}
+\begin{equation}
+    \boxed{n_l=\frac{v_g-v}{v_g-v_l},\qquad n_g=\frac{v-v_l}{v_g-v_l}.}
+\end{equation}
+Equivalently, $n_l\,(v-v_l)=n_g\,(v_g-v)$. The overall state $v$ is the
+fulcrum of a lever with arms $v-v_l$ and $v_g-v$, and each phase fraction is
+proportional to the arm on the opposite side. The overall state therefore
+lies closer to the dominant phase. The rule holds for any conserved
+extensive quantity per particle, and the binary system applies the same rule
+to the composition.
+
+\paragraph{The common tangent construction.}
+The free energy per particle at fixed $T$ gives the coexisting volumes $v_l$
+and $v_g$. A phase at $(T,v)$ has the pressure $P=-\partial f/\partial v$
+and, by the Euler relation $F=-PV+\mu N$, the chemical potential
+$\mu=f+Pv$. The tangent line to $f$ at $v$ therefore has slope $-P$ and
+intercept $\mu$ at $v=0$, which is the Legendre construction of
+Section~4 again. Coexistence requires equal pressures and equal chemical
+potentials. Equal pressures give equal slopes, and equal chemical
+potentials give $f_g(v_g)-f_l(v_l)=-P_{\text{sat}}(v_g-v_l)$, so the chord
+between the two points has the same slope as the tangents:
+\begin{equation}
+    \boxed{f_l'(v_l)=f_g'(v_g)=\frac{f_g(v_g)-f_l(v_l)}{v_g-v_l}=-P_{\text{sat}}.}
+\end{equation}
+The two tangent lines therefore coincide in a \textcolor{blue}{common
+tangent} (Fig.~\ref{fig:unary-fv}).
+
+\paragraph{The mixture lies on the tangent and minimizes $F$.}
+For $v_l<v<v_g$, the mixture has the free energy per particle
+\begin{equation*}
+    f_{\text{mix}}(v)=n_l\,f_l(v_l)+n_g\,f_g(v_g).
+\end{equation*}
+By the lever rule, $n_l$ and $n_g$ are linear in $v$, so $f_{\text{mix}}$ is
+the straight segment between the two tangent points, that is, the common
+tangent. Where the single-phase curve lies above this segment, the mixture
+has the lower free energy, and the minimization of $F$ at fixed $(N,V,T)$
+selects the mixture. The equilibrium $f(v)$ is therefore the
+\textcolor{blue}{convex hull} of the single-phase curves, the largest convex
+function that lies below all of them. This construction restores the
+convexity of $F$ in $V$ that stability requires and explains why the
+pressure, $-\partial f/\partial v$, stays constant across the two-phase
+region.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
+    % axes
+    \draw[->] (0,0) -- (7.4,0) node[right] {$v$};
+    \draw[->] (0,0) -- (0,6.6) node[above] {$f$};
+    % single-phase curve f(v) = tangent + 0.05 (v-2)^2 (v-6)^2, scaled by 0.6
+    \draw[domain=1.4:6.5, smooth, variable=\t, samples=60]
+        plot ({\t},{0.6*(10-1.5*\t+0.05*(\t-2)^2*(\t-6)^2)});
+    % common tangent, extended to v = 0 to show the intercept mu
+    \draw[dotted] (0,6) -- (2,4.2);
+    \draw[line width=1.6pt] (2,4.2) -- (6,0.6);
+    \draw[dotted] (6,0.6) -- (6.6,0.06);
+    % tangent points
+    \fill (2,4.2) circle (2pt);
+    \fill (6,0.6) circle (2pt);
+    \draw[dashed] (2,4.2) -- (2,0) node[below] {$v_l$};
+    \draw[dashed] (6,0.6) -- (6,0) node[below] {$v_g$};
+    % intercept
+    \node[left] at (0,6) {$\mu$};
+    % labels
+    \node[right] at (4.2,2.9) {$f(v)$};
+    \node[align=left, right] at (2.05,0.75) {common tangent,\\ slope $-P_{\text{sat}}$};
+\end{tikzpicture}
+\caption{Common tangent construction on the free energy per particle at
+fixed $T<T_c$. Thick line: equilibrium two-phase mixture (convex hull).}
+\label{fig:unary-fv}
+\end{figure}
+
+\paragraph{Maxwell's equal-area rule.}
+A model equation of state, such as that of van der Waals, may give a single
+isotherm $P(v)$ with a non-monotonic loop below $T_c$. The common tangent
+then becomes a condition on $P(v)$. The integral of $P=-\partial f/\partial
+v$ along the model isotherm gives $f(v_l)-f(v_g)=\int_{v_l}^{v_g}P\,dv$, and
+the common tangent gives $f(v_l)-f(v_g)=P_{\text{sat}}(v_g-v_l)$. Hence
+\begin{equation}
+    \boxed{\int_{v_l}^{v_g}P(v)\,dv=P_{\text{sat}}\,(v_g-v_l).}
+\end{equation}
+The horizontal line $P=P_{\text{sat}}$ therefore cuts the loop into two
+regions of equal area.
+
+\paragraph{Outlook to the binary system.}
+The binary system uses both tools with the composition $x$ in place of $v$.
+A tie line joins the two coexisting phases, the lever rule gives the phase
+fractions along it, and the common tangent of $g(x)$ at fixed $(T,P)$ gives
+the compositions of the coexisting phases.
