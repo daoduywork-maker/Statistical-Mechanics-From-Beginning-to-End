@@ -2,7 +2,7 @@
 
 \paragraph{Constraining the average of an observable.}
 The microcanonical ensemble does not distinguish between accessible
-microstates: only their number matters. Realistic systems, however, obey
+microstates, so only their number matters. However, realistic systems obey
 constraints imposed by measurement. Suppose microstate $i$ has a definite
 value $a_i$ of an observable $A$, and the measured average is $\bar A$. The
 expectation value is
@@ -12,11 +12,11 @@ expectation value is
 and the constraint reads $\langle A\rangle=\bar A$.
 \textcolor{red}{Here, $\langle A\rangle$ denotes the operation that extracts
 the mean of the observable $A$, and $\bar A$ denotes the numerical value
-assigned to that mean. Since only one constraint is present, we also rename
-the multiplier $\lambda_a$ as $\beta$.}
+assigned to that mean. Since only one constraint is present, the multiplier
+$\lambda_a$ is renamed $\beta$.}
 The Lagrangian now contains the multiplier $\alpha$ for normalization and
-the multiplier $\beta$ for the constraint on $\langle A\rangle$. Its
-stationarity conditions are
+the multiplier $\beta$ for the constraint on $\langle A\rangle$. The
+stationarity conditions of this Lagrangian are
 \begin{align*}
     \frac{\partial\mathcal{L}}{\partial p_i}
     &= -\ln p_i-1-\alpha-\beta a_i=0, \\
@@ -27,29 +27,29 @@ stationarity conditions are
 \end{align*}
 
 \paragraph{The Boltzmann distribution and the partition function.}
-The first condition gives $p_i = e^{-1-\alpha-\beta a_i}$. Substituting this
-into normalization and into the constraint yields
+The first condition gives $p_i = e^{-1-\alpha-\beta a_i}$. Substitution of
+this result into the normalization condition and the constraint yields
 \begin{align*}
     e^{-1-\alpha}\sum_i e^{-\beta a_i} = 1,
     \qquad
     e^{-1-\alpha}\sum_i a_i e^{-\beta a_i} = \bar A.
 \end{align*}
 The first equation determines $\alpha$ in terms of $\beta$ and leaves a
-single free parameter. Defining the \textcolor{blue}{canonical partition
-function}
+single free parameter. The \textcolor{blue}{canonical partition function} is
+defined as
 \begin{equation}
     \boxed{Z(\beta) \equiv \sum_i e^{-\beta a_i},}
 \end{equation}
-the probability distribution becomes
+so the probability distribution becomes
 \begin{equation}
     \boxed{p_i = \frac{e^{-\beta a_i}}{Z(\beta)}.}
 \end{equation}
-This is the \textcolor{blue}{Boltzmann distribution}. For $\beta>0$, states
-with larger $a_i$ are less probable. The remaining constraint,
+This result is the \textcolor{blue}{Boltzmann distribution}. For $\beta>0$,
+states with larger $a_i$ are less probable. The remaining constraint,
 $\langle A\rangle(\beta)=\bar A$, determines $\beta$.
 
 \paragraph{Uniqueness of the multiplier.}
-To show that $\beta$ is unique, we first express the mean through $Z$:
+The uniqueness of $\beta$ follows from the mean expressed through $Z$:
 \begin{align*}
     \langle A\rangle = \frac{1}{Z}\sum_i a_i e^{-\beta a_i}
     = -\frac{\partial\ln Z}{\partial\beta}.
@@ -58,7 +58,8 @@ Hence
 \begin{equation}
     \boxed{\langle A\rangle = -\frac{\partial\ln Z}{\partial\beta}.}
 \end{equation}
-Differentiating once more, with $\mathrm{Var}(A)\equiv\langle A^2\rangle-\langle A\rangle^2$,
+With $\mathrm{Var}(A)\equiv\langle A^2\rangle-\langle A\rangle^2$, the
+derivative of the mean is
 \begin{align*}
     \frac{\partial\langle A\rangle}{\partial\beta}
     &= \frac{\partial}{\partial\beta}
@@ -73,25 +74,26 @@ so
     \boxed{\frac{\partial\langle A\rangle}{\partial\beta} = -\mathrm{Var}(A).}
 \end{equation}
 Since $\mathrm{Var}(A)\geq0$, $\langle A\rangle(\beta)$ is monotonically
-non-increasing. It is strictly decreasing whenever $A$ is not identical
-across all accessible microstates. Thus, for target values in the interior
-of the achievable range, $\langle A\rangle$ determines $\beta$ uniquely.
+non-increasing. The mean is strictly decreasing whenever $A$ takes more than
+one value over the accessible microstates. Thus, for target values in the
+interior of the achievable range, $\langle A\rangle$ determines $\beta$
+uniquely.
 
 \paragraph{Entropy of the canonical distribution and the meaning of $\beta$.}
-We now compute the entropy of the resulting distribution, with $k_B$
-omitted during the derivation:
+The entropy of the resulting distribution, with $k_B$ omitted during the
+derivation, is
 \begin{align*}
     S &= -\sum_i p_i\ln p_i
     = -\sum_i p_i\left(-\beta a_i-\ln Z\right) \\
     &= \beta\sum_i a_i p_i+\ln Z\sum_i p_i
     = \beta\langle A\rangle+\ln Z.
 \end{align*}
-Restoring $k_B$,
+With $k_B$ restored,
 \begin{equation}
     \boxed{S=k_B\left(\beta\langle A\rangle+\ln Z\right).}
 \end{equation}
 Although $S$ depends on $\bar A$ both explicitly and implicitly through
-$\beta(\bar A)$, differentiating gives
+$\beta(\bar A)$, the derivative of $S$ reduces to $\beta$:
 \begin{align*}
     \frac{\partial S}{\partial\langle A\rangle}
     &= \beta
@@ -102,7 +104,7 @@ $\beta(\bar A)$, differentiating gives
     -\langle A\rangle\frac{d\beta}{d\langle A\rangle}
     = \beta.
 \end{align*}
-Restoring $k_B$ yields the meaning of the multiplier:
+With $k_B$ restored, this result gives the meaning of the multiplier:
 \begin{equation}
     \boxed{\beta=\frac{1}{k_B}\frac{\partial S}{\partial\langle A\rangle}.}
 \end{equation}
@@ -116,32 +118,32 @@ $x,y\in I$ and all $t\in[0,1]$,
 Geometrically, every chord lies on or below the graph. The function is
 \textcolor{blue}{strictly concave} if the inequality is strict for $x\neq y$
 and $t\in(0,1)$. For a twice-differentiable $f$, concavity is equivalent to
-$f''\leq0$, and $f''<0$ guarantees strict concavity.
-
-We apply this criterion to $S$ as a function of $\langle A\rangle$. Using
-the inverse-function rule and $\partial\langle A\rangle/\partial\beta=-\mathrm{Var}(A)$,
+$f''\leq0$, and $f''<0$ guarantees strict concavity. For $S$ as a function
+of $\langle A\rangle$, the inverse-function rule and
+$\partial\langle A\rangle/\partial\beta=-\mathrm{Var}(A)$ give
 \begin{align*}
     \frac{\partial^2 S}{\partial\langle A\rangle^2}
     = \frac{d\beta}{d\langle A\rangle}
     = \left(\frac{d\langle A\rangle}{d\beta}\right)^{-1}
     = -\frac{1}{\mathrm{Var}(A)}.
 \end{align*}
-Restoring $k_B$,
+With $k_B$ restored,
 \begin{equation}
     \boxed{\frac{\partial^2 S}{\partial\langle A\rangle^2}
     = -\frac{k_B}{\mathrm{Var}(A)}<0.}
 \end{equation}
 The entropy is therefore strictly concave in $\langle A\rangle$ whenever $A$
-is not identical across all accessible microstates. This is the monotonic
-decrease of $\langle A\rangle(\beta)$ read from the side of $S$: each value
-of $\langle A\rangle$ corresponds to exactly one $\beta$.
+takes more than one value over the accessible microstates. This concavity is
+the monotonic decrease of $\langle A\rangle(\beta)$ viewed from the side of
+$S$, with each value of $\langle A\rangle$ corresponding to exactly one
+$\beta$.
 
 \paragraph{Specialization to the internal energy.}
-We have not specified the observable $A$, so the derivation applies to any
-observable whose expectation value is constrained. The canonical ensemble
-conventionally fixes the volume $V$ and particle number $N$ and constrains
-the internal energy. \textcolor{red}{From here on, we take $A=U$ and write
-$U_i$ for $a_i$.} The results become
+Since the observable $A$ was never specified, the derivation applies to any
+observable with a constrained expectation value. The canonical ensemble
+conventionally fixes the volume $V$ and the particle number $N$ and
+constrains the internal energy. \textcolor{red}{From here on, $A=U$, and
+$U_i$ replaces $a_i$.} The results become
 \begin{equation}
     \boxed{
     \begin{aligned}
@@ -151,33 +153,33 @@ $U_i$ for $a_i$.} The results become
         S &= k_B\left(\beta\langle U\rangle+\ln Z\right).
     \end{aligned}}
 \end{equation}
-We identify $\beta$ with the temperature in Section~\ref{sec:multipliers}.
-The reason for not constraining only the particle number or the volume will
-be discussed shortly.
+Section~\ref{sec:multipliers} identifies $\beta$ with the temperature. The
+end of this section explains why the particle number or the volume cannot be
+constrained alone.
 
 \paragraph{Recovering the microcanonical ensemble.}
 If every accessible microstate has the same energy $U$, the canonical
-ensemble reduces to the microcanonical one. All weights $e^{-\beta U}$ are
-identical, so the distribution is uniform and the mean energy is the exact
-value $U$. Then
+ensemble reduces to the microcanonical ensemble. All the weights
+$e^{-\beta U}$ are identical, so the distribution is uniform and the mean
+energy equals $U$ exactly. Then
 \begin{align*}
     Z &= \sum_{i=1}^{\Omega} e^{-\beta U} = \Omega\, e^{-\beta U}, \\
     S &= k_B\left(\beta U+\ln\Omega-\beta U\right) = k_B\ln\Omega.
 \end{align*}
 
-\subsection{First and Second Law of Thermodynamics - Making Sense of Multipliers}
+\subsection{First and Second Laws of Thermodynamics --- Meaning of the Multipliers}
 \label{sec:multipliers}
 
 \paragraph{The multipliers need thermodynamics for their meaning.}
 The MaxEnt formalism does not by itself provide the physical interpretation
-or numerical calibration of its multipliers. In particular, the
+or the numerical calibration of the multipliers. In particular, the
 identification
 \begin{equation}
     \boxed{\beta=\frac{1}{k_B}\frac{\partial S}{\partial \langle U\rangle}=\frac{1}{k_BT}}
 \end{equation}
-cannot be derived from MaxEnt alone. It is an empirical correspondence
-established by classical thermodynamics. We therefore obtain the physical
-meaning of the multipliers by connecting them to the thermodynamic laws.
+cannot be derived from MaxEnt alone. This identification is an empirical
+correspondence established by classical thermodynamics. The physical meaning
+of the multipliers therefore comes from the thermodynamic laws.
 
 \paragraph{From the first and second laws to the fundamental relation.}
 The \textcolor{blue}{first law} expresses energy conservation:
@@ -188,19 +190,18 @@ where
 \begin{itemize}
     \item $\delta W=P\,dV$ is the work done \emph{by} the system.
     \item The symbols $\delta Q$ and $\delta W$ emphasize that heat and work
-    are not state functions: their values depend on the path between two
-    states.
+    are not state functions, because their values depend on the path
+    between two states.
     \item The \textcolor{blue}{chemical potential} $\mu$ is the change in
-    internal energy associated with adding particles at fixed entropy and
-    volume.
+    internal energy per added particle at fixed entropy and volume.
 \end{itemize}
 The \textcolor{blue}{second law}, in the form of the Clausius inequality,
 states
 \begin{equation}
     \boxed{\delta Q\leq T\,dS,}
 \end{equation}
-with equality for reversible processes. Combining the two laws for a
-reversible process gives
+with equality for reversible processes. For a reversible process, the two
+laws combine to give
 \begin{equation}
     \boxed{dU=T\,dS-P\,dV+\mu\, dN,}
     \label{eq:combined-law}
@@ -213,7 +214,7 @@ and therefore
     \frac{\partial U}{\partial N}\bigg|_{S,V}=\mu.}
     \label{eq:U-derivs}
 \end{equation}
-Rearranging Eq.~\eqref{eq:combined-law} gives the equivalent form
+The equivalent entropy form of Eq.~\eqref{eq:combined-law} is
 \begin{equation}
     \boxed{dS=\frac{1}{T}\,dU+\frac{P}{T}\,dV-\frac{\mu}{T}\,dN,}
 \end{equation}
@@ -233,10 +234,10 @@ and therefore
     \item A quantity $X$ is \textcolor{blue}{extensive} if, for two weakly
     coupled subsystems, $X_{\mathrm{total}}=X_1+X_2$. Equivalently, for
     $\lambda$ identical, non-interacting copies, $X_\lambda=\lambda X_1$.
-    \item A quantity $Y$ is \textcolor{blue}{intensive} if it does not scale
-    with the number of copies: $Y_\lambda=Y_1$.
-    \item Energy, particle number, volume, and entropy are extensive, while
-    temperature, pressure, and chemical potential are intensive.
+    \item A quantity $Y$ is \textcolor{blue}{intensive} if $Y$ does not scale
+    with the number of copies, $Y_\lambda=Y_1$.
+    \item Energy, particle number, volume and entropy are extensive, whereas
+    temperature, pressure and chemical potential are intensive.
 \end{itemize}
 This distinction explains why the Lagrange multipliers associated with
 extensive constraints are intensive. For any observable $A$ with constrained
@@ -246,22 +247,22 @@ average $\langle A\rangle$, the multiplier is
 \end{equation*}
 Because $\langle A\rangle$ and $S$ are both extensive, their scaling factors
 cancel in the derivative, so $\beta_A$ is intensive. Thermodynamic variables
-therefore come in \textcolor{blue}{conjugate pairs}: an extensive variable
-and its \textcolor{blue}{intensive conjugate}.
+therefore come in \textcolor{blue}{conjugate pairs}, each consisting of an
+extensive variable and its \textcolor{blue}{intensive conjugate}.
 
 \paragraph{Additivity of entropy follows from statistical independence.}
 \textcolor{red}{Here, the superscripts $(1)$ and $(2)$ also label the
 distributions of the two systems, $p^{(1)}_i$ and $p^{(2)}_j$.}
-The partition function factorizes because the joint distribution does:
-$p_{ij}=p^{(1)}_i\,p^{(2)}_j$. The entropy is then additive:
+The partition function factorizes because the joint distribution
+factorizes, $p_{ij}=p^{(1)}_i\,p^{(2)}_j$. The entropy is then additive:
 \begin{align*}
     S_{1+2}
     = -\sum_{i,j} p^{(1)}_i p^{(2)}_j
     \ln\!\big(p^{(1)}_i p^{(2)}_j\big)
     = S_1+S_2.
 \end{align*}
-This requires statistical independence, not equilibrium, so the two systems
-may have different multipliers $\beta_1$ and $\beta_2$:
+Additivity requires statistical independence but not equilibrium, so the two
+systems may have different multipliers $\beta_1$ and $\beta_2$:
 \begin{equation}
     \boxed{S_{1+2}=k_B\left(\beta_1\langle U_1\rangle+\ln Z_1
     +\beta_2\langle U_2\rangle+\ln Z_2\right).}
@@ -277,91 +278,93 @@ Independence holds when the coupling between the systems is weak. For strong
 coupling, the joint distribution does not factorize, and
 $S_{1+2}=S_1+S_2-I$ with the mutual information $I\geq0$.
 
-\subsection{Energy Fluctuation, Thermodynamic Limit, and Equivalence of Ensembles}
+\subsection{Energy Fluctuation, Thermodynamic Limit and Equivalence of Ensembles}
 
 \paragraph{Energy fluctuation and the heat capacity.}
 The variance of the internal energy, the \textcolor{blue}{energy
 fluctuation} around the controlled mean $\langle U\rangle=\bar U$, can be
-written in familiar thermodynamic quantities. By the chain rule,
+expressed through familiar thermodynamic quantities. By the chain rule,
 \begin{align*}
     \mathrm{Var}(U)
     = -\frac{\partial\langle U\rangle}{\partial\beta}
     = -\frac{\partial\langle U\rangle}{\partial T}\frac{\partial T}{\partial\beta}.
 \end{align*}
-Since $T=1/(k_B\beta)$, we have $\partial T/\partial\beta=-k_BT^2$. By
-definition, $\left.\partial\langle U\rangle/\partial T\right|_{V,N}\equiv C_V$
-is the \textcolor{blue}{isochoric heat capacity}. It is computed at fixed
-volume and particle number, which are the natural variables of the canonical
-ensemble. Substituting,
+Since $T=1/(k_B\beta)$, $\partial T/\partial\beta=-k_BT^2$. The
+\textcolor{blue}{isochoric heat capacity} is defined as
+$C_V\equiv\left.\partial\langle U\rangle/\partial T\right|_{V,N}$, at the
+fixed volume and particle number of the canonical ensemble. Substitution
+gives
 \begin{equation}
     \boxed{\mathrm{Var}(U) = k_B T^2\, C_V.}
 \end{equation}
 
 \paragraph{Why fluctuations vanish in the thermodynamic limit.}
-One might attribute the smallness of fluctuations to the tiny numerical
-value of $k_B$ in SI units. This is not the reason: the value of $k_B$ only
-reflects our choice of units. The genuine reason is that $C_V$ and
-$\langle U\rangle$ are both extensive and scale linearly with the particle
-number $N$. Hence
+The smallness of fluctuations is sometimes attributed to the tiny numerical
+value of $k_B$ in SI units. This attribution is incorrect, because the value
+of $k_B$ only reflects the choice of units. The genuine reason is that $C_V$
+and $\langle U\rangle$ are both extensive and scale linearly with the
+particle number $N$. Hence
 \begin{equation}
     \boxed{\frac{\sqrt{\mathrm{Var}(U)}}{\langle U\rangle}
     \sim\frac{\sqrt{N}}{N}=\frac{1}{\sqrt{N}},}
 \end{equation}
-which vanishes as $N\to\infty$. For a macroscopic system, relative energy
-fluctuations are negligible because of the sheer size of $N$.
-\textcolor{red}{For this reason, we write $U$ in place of $\langle U\rangle$
-from here on, and likewise for other extensive variables.}
+which vanishes as $N\to\infty$. The relative energy fluctuations of a
+macroscopic system are therefore negligible because of the sheer size of
+$N$. \textcolor{red}{For this reason, $U$ replaces $\langle U\rangle$ from
+here on, and likewise for other extensive variables.}
 At large $N$, the canonical ensemble therefore behaves as the microcanonical
-one: the fluctuation is negligible, and the relation between energy and
-temperature is one-to-one.
+ensemble, with negligible fluctuations and a one-to-one relation between
+energy and temperature.
 
 \paragraph{Physical reading of the fluctuation formula.}
-At higher temperature, $\beta$ is smaller, so the entropic cost per unit of
-exchanged energy is smaller. The system then absorbs or releases energy more
-freely, consistent with the larger fluctuation $k_BT^2C_V$.
+The multiplier $\beta$ is smaller at higher temperature, so the entropic
+cost per unit of exchanged energy is smaller. The system then absorbs or
+releases energy more freely, consistent with the larger fluctuation
+$k_BT^2C_V$.
 
 \paragraph{Concavity of $S(U)$ and thermodynamic stability.}
-Applying the concavity result to $A=U$ and using $\mathrm{Var}(U)=k_BT^2C_V$,
+For $A=U$, the concavity result and $\mathrm{Var}(U)=k_BT^2C_V$ give
 \begin{equation}
     \boxed{\frac{\partial^2 S}{\partial U^2}
     = -\frac{k_B}{\mathrm{Var}(U)} = -\frac{1}{C_V\,T^2}.}
 \end{equation}
 Concavity of $S(U)$ is therefore equivalent to $C_V>0$, the
-\textcolor{blue}{thermodynamic stability} condition: adding energy to a
-system must raise its temperature. This property is needed again when we
-introduce Legendre transformations.
+\textcolor{blue}{thermodynamic stability} condition, which requires that
+adding energy to a system raises the system temperature. This property is
+used again for the Legendre transformation in the next section.
 
 \subsection{Zeroth Law of Thermodynamics}
 
 \paragraph{Two bodies exchanging energy.}
-Consider two bodies, $(1)$ and $(2)$, in contact so that they can exchange
-energy. Two points need to be stated precisely:
+Two bodies, $(1)$ and $(2)$, are in contact and can exchange energy. Two
+points need precise statements:
 \begin{itemize}
-    \item The combined system $(1)+(2)$ is genuinely isolated: nothing is
-    exchanged with the outside. The total energy is a hard constraint,
+    \item The combined system $(1)+(2)$ is genuinely isolated and exchanges
+    nothing with the outside. The total energy is a hard constraint,
     $U_1+U_2=U_{\text{tot}}$, so whatever one body releases, the other
-    receives. This is a microcanonical condition on the pair as a whole.
+    receives. This constraint is a microcanonical condition on the pair as a
+    whole.
     \item Each body has an entropy function $S_i(U_i,V_i,N_i)$, which is the
-    canonical entropy derived earlier in this chapter. Each body carries the
+    canonical entropy derived earlier in this section. Each body carries the
     multiplier $\beta_i\equiv k_B^{-1}\,\partial S_i/\partial U_i$ attached to
-    its own energy. The pair is microcanonical, while each body behaves
-    canonically with the other body as its energy reservoir.
+    the energy of that body. The pair is microcanonical, whereas each body
+    behaves canonically, with the other body as the energy reservoir.
 \end{itemize}
 
 \paragraph{Equilibrium requires equal multipliers.}
 The two bodies are weakly coupled, so the combined entropy is additive,
 $S=S_1+S_2$. Equilibrium corresponds to the maximum of $S$ with respect to
-how $U_{\text{tot}}$ is shared. Substituting $U_2=U_{\text{tot}}-U_1$ and
-differentiating with respect to $U_1$,
+how $U_{\text{tot}}$ is shared. The substitution $U_2=U_{\text{tot}}-U_1$
+and differentiation with respect to $U_1$ give
 \begin{align*}
     \frac{\partial S}{\partial U_1}
     = \frac{\partial S_1}{\partial U_1}
     +\frac{\partial S_2}{\partial U_2}\frac{\partial U_2}{\partial U_1}
     = \frac{\partial S_1}{\partial U_1}-\frac{\partial S_2}{\partial U_2}=0.
 \end{align*}
-Since $\beta_i=k_B^{-1}\,\partial S_i/\partial U_i$, this gives
+Since $\beta_i=k_B^{-1}\,\partial S_i/\partial U_i$, this condition gives
 \begin{equation}
-    \boxed{\beta_1=\beta_2, \qquad\text{i.e.}\qquad T_1=T_2.}
+    \boxed{\beta_1=\beta_2 \qquad\text{and hence}\qquad T_1=T_2.}
 \end{equation}
 
 \paragraph{Direction of energy flow and the zeroth law.}
@@ -372,40 +375,40 @@ into body $(1)$ changes the total entropy by
 \end{equation*}
 The second law requires $\delta S\geq0$, so energy flows into the body with
 the larger $\beta$, that is, the lower $T$. Energy therefore flows from high
-temperature to low temperature, as expected. A third body in contact with
-both must, by the same argument, reach the same $\beta$ at equilibrium. This
+temperature to low temperature. A third body in contact with both bodies
+reaches the same $\beta$ at equilibrium by the same argument. This
 transitivity is the \textcolor{blue}{zeroth law of thermodynamics}.
 
 \paragraph{Volume and particle exchange cannot be separated from energy exchange.}
 Suppose the two bodies can also exchange volume through a movable partition,
 with $V_1+V_2=V_{\text{tot}}$ fixed. Volume exchange does not by itself
-imply thermal contact: a heat-insulating piston that is free to slide
-permits volume exchange and forbids heat exchange, so $T_1\neq T_2$ in
-general. The multiplier conjugate to volume is
-$\beta_V\equiv k_B^{-1}\,\partial S/\partial V=P/(k_BT)$. Maximizing
+imply thermal contact. A heat-insulating piston that slides freely permits
+volume exchange but forbids heat exchange, so $T_1\neq T_2$ in general. The
+multiplier conjugate to volume is
+$\beta_V\equiv k_B^{-1}\,\partial S/\partial V=P/(k_BT)$. The maximum of
 $S=S_1(V_1)+S_2(V_2)$ over the split of $V_{\text{tot}}$, with $U_1$ and
-$U_2$ fixed, gives
+$U_2$ fixed, satisfies
 \begin{align*}
     \beta_{V,1}=\beta_{V,2}
     \qquad\Longrightarrow\qquad
     \frac{P_1}{T_1}=\frac{P_2}{T_2}.
 \end{align*}
-This permits $P_1\neq P_2$, yet a partition under a genuine pressure
-imbalance cannot rest, by Newton's second law alone. The flaw is the
+This condition permits $P_1\neq P_2$. However, by Newton's second law alone,
+a partition under a genuine pressure imbalance cannot rest. The flaw is the
 assumption that $U_1$ and $U_2$ stay fixed while the partition moves. A
-sliding wall does work $P\,dV$ on the side it pushes into, so even a
+sliding wall does work $P\,dV$ on the side toward which the wall moves, so even a
 heat-insulating wall exchanges energy through work, $dU=-P\,dV$ for
 $\delta Q=0$. If energy and volume can both be exchanged, as for a movable
-wall that also conducts heat, maximizing $S_1(U_1,V_1)+S_2(U_2,V_2)$ over
-both splits gives
+wall that also conducts heat, the maximum of $S_1(U_1,V_1)+S_2(U_2,V_2)$
+over both splits satisfies
 \begin{equation}
     \boxed{T_1=T_2 \quad\text{and}\quad P_1=P_2,}
 \end{equation}
 the physically sensible free-piston equilibrium.
 
-More generally, exchanging volume or particle number is never independent of
-exchanging energy. Each carries its own energy contribution in the first law
-($-P\,dV$ and $\mu\,dN$), so letting either vary freely lets the energy vary
-too. This is why the multipliers conjugate to volume and particle number
-always appear entangled with the temperature: their exchange is, at bottom,
-still routed through energy.
+\paragraph{Why the multipliers of $V$ and $N$ contain the temperature.}
+More generally, volume or particle exchange always involves energy exchange.
+Each exchange contributes its own term to the first law, $-P\,dV$ or
+$\mu\,dN$, so the energy varies whenever either quantity varies freely. The
+multipliers conjugate to volume and particle number therefore always appear
+together with the temperature.

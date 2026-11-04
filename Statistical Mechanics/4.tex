@@ -5,17 +5,15 @@
 \paragraph{Two ways to slice the entropy landscape.}
 Consider the entropy $S(U,X)$ as a surface over the $(X,U)$ plane, where $X$
 is an extensive variable that can be freely partitioned, such as a volume
-shared between two bodies. Draw the \textcolor{blue}{level curves} of $S$,
-the curves along which $S$ is constant, like contour lines on a topographic
+shared between two bodies. The \textcolor{blue}{level curves} of $S$, the
+curves along which $S$ is constant, resemble contour lines on a topographic
 map. The map can be sliced in two ways:
 \begin{itemize}
-    \item Entropy maximum at fixed $U$: walk along a horizontal line,
-    $U=\text{const}$, and find the highest contour it reaches. At that point
-    the line touches the contour without crossing it, so the contour is
-    tangent to the line.
-    \item Energy minimum at fixed $S$: walk along one contour,
-    $S=\text{const}$, and find its lowest point. There the contour has a
-    horizontal tangent.
+    \item Entropy maximum at fixed $U$. Along a horizontal line,
+    $U=\text{const}$, the highest contour reached touches the line without
+    crossing the line, so the contour is tangent to the line.
+    \item Energy minimum at fixed $S$. Along one contour,
+    $S=\text{const}$, the lowest point has a horizontal tangent.
 \end{itemize}
 Both slices therefore select a point where the level curve of $S$ has a
 horizontal tangent in the $(X,U)$ plane.
@@ -28,9 +26,9 @@ The gradient
 \end{equation*}
 is perpendicular to the level curve. If $\partial S/\partial X=0$ at a point,
 the gradient points purely along the $U$-direction, so the level curve points
-purely along the $X$-direction: it is horizontal. A horizontal tangent means
+purely along the $X$-direction and is horizontal. A horizontal tangent means
 $dU/dX|_S=0$, a stationary point of $U$ along the contour. The implicit
-function theorem makes this explicit:
+function theorem makes this condition explicit:
 \begin{equation}
     \boxed{\frac{\partial U}{\partial X}\bigg|_S
     = -\,\frac{\partial S/\partial X\,|_U}{\partial S/\partial U\,|_X}.}
@@ -42,31 +40,31 @@ vanishes exactly when the numerator vanishes:
     \quad\Longleftrightarrow\quad
     \frac{\partial U}{\partial X}\bigg|_S=0.}
 \end{equation}
-The two conditions are not coincidentally equal. They describe the same
-point on the same contour line.
+The two conditions are equivalent because they describe the same point on
+the same contour line.
 
 \paragraph{Generality of the argument and the role of stability.}
 This argument does not depend on entropy or energy. For any smooth function
 $f(x,y)$ that is monotonic in $y$ at fixed $x$, the points where $f$ is
 extremal in $x$ at fixed $y$ coincide with the points where $y$ is extremal
-in $x$ along a level set of $f$, because both say that the contour is flat.
-Thermodynamics is the case $f=S$ and $y=U$, with $x$ any extensive variable;
-monotonicity follows from $\partial S/\partial U=1/T>0$. What the
-thermodynamic stability condition, $\partial^2S/\partial X^2<0$, adds is the
-type of flat point: a maximum of $S$ at fixed $U$ corresponds to a minimum of
-$U$ at fixed $S$.
+in $x$ along a level set of $f$, because both conditions say that the
+contour is flat. Thermodynamics is the case $f=S$ and $y=U$, with $x$ any
+extensive variable, and monotonicity follows from $\partial S/\partial
+U=1/T>0$. The thermodynamic stability condition, $\partial^2S/\partial
+X^2<0$, adds the type of flat point, with a maximum of $S$ at fixed $U$
+corresponding to a minimum of $U$ at fixed $S$.
 
 \paragraph{Which flat point: maximum of $S$, minimum of $U$.}
-We differentiate the implicit-function relation once more along a contour of
-constant $S$. Using $\partial U/\partial X|_S=-T\,\partial S/\partial X|_U$,
+Differentiation of $\partial U/\partial X|_S=-T\,\partial S/\partial X|_U$
+once more along a contour of constant $S$ gives
 \begin{equation*}
     \frac{\partial^2U}{\partial X^2}\bigg|_S
     =-T\,\frac{d}{dX}\bigg|_S\left(\frac{\partial S}{\partial X}\bigg|_U\right)
     -\frac{\partial T}{\partial X}\bigg|_S\frac{\partial S}{\partial X}\bigg|_U.
 \end{equation*}
 At the stationary point, $\partial S/\partial X|_U=0$ and
-$\partial U/\partial X|_S=0$. The second term then vanishes, and in the first
-term the chain rule reduces to $\partial^2S/\partial X^2|_U$:
+$\partial U/\partial X|_S=0$, so the second term vanishes and the chain rule
+reduces the first term to $\partial^2S/\partial X^2|_U$:
 \begin{equation}
     \boxed{\frac{\partial^2U}{\partial X^2}\bigg|_S
     =-T\,\frac{\partial^2S}{\partial X^2}\bigg|_U.}
@@ -78,16 +76,16 @@ fixed $S$.
 \subsection{Thermodynamic Potential}
 
 \paragraph{Entropy as the microcanonical thermodynamic potential.}
-In the microcanonical ensemble, the entropy $S(U,V,N)$ is a function of
-state: the values of $U$, $V$, and $N$ determine $S$ completely.
-Differentiating $S$ yields every conjugate intensive variable, and $S$ is the
-extremized quantity of the ensemble. For these reasons, $S$ is called the
+The microcanonical entropy $S(U,V,N)$ is a function of state, because the
+values of $U$, $V$ and $N$ determine $S$ completely. The derivatives of $S$
+give every conjugate intensive variable, and $S$ is the quantity extremized
+by the ensemble. For these reasons, $S$ is called the
 \textcolor{blue}{thermodynamic potential} of the ensemble, and $(U,V,N)$ are
-its \textcolor{blue}{natural variables}. A potential $\Psi(x_1,\ldots,x_n)$
+the \textcolor{blue}{natural variables}. A potential $\Psi(x_1,\ldots,x_n)$
 has natural variables $(x_1,\ldots,x_n)$ when:
 \begin{enumerate}
-    \item[(i)] differentiating $\Psi$ with respect to each $x_i$ recovers
-    every conjugate variable: $d\Psi$ is an exact differential in exactly
+    \item[(i)] the derivatives of $\Psi$ with respect to the $x_i$ give every
+    conjugate variable, so $d\Psi$ is an exact differential in exactly
     these variables, with nothing missing and nothing required from outside;
     \item[(ii)] the $x_i$ are precisely the quantities externally fixed or
     controlled under the physical condition that $\Psi$ describes, that is,
@@ -96,33 +94,33 @@ has natural variables $(x_1,\ldots,x_n)$ when:
 \end{enumerate}
 
 \paragraph{The need for a potential with natural variables $(N,V,T)$.}
-Because $S$ is strictly increasing in $U$, it can be inverted to give
-$U(S,V,N)$, which is also a function of state. Its derivatives likewise
-yield $T$, $P$, and $\mu$, and $U$ is minimized at fixed $(S,V,N)$. In the
-canonical ensemble, however, $U$ is no longer a controlled parameter; the
-temperature is. The entropy is then known only as a consequence of $T$, not
-as a coordinate we can vary at will. We therefore need a potential that
-preserves the full information of the system and uses the natural variables
-of the ensemble, $(N,V,T)$.
+Because $S$ is strictly increasing in $U$, the relation $S(U,V,N)$ can be
+inverted to give $U(S,V,N)$, which is also a function of state. The
+derivatives of $U$ likewise give $T$, $P$ and $\mu$, and $U$ is minimized at
+fixed $(S,V,N)$. However, the canonical ensemble controls the temperature
+rather than $U$. The entropy is then known only as a consequence of $T$, not
+as a freely varied coordinate. The canonical ensemble therefore needs a
+potential that preserves the full information of the system and has the
+natural variables $(N,V,T)$.
 
 \subsection{The Legendre Transformation}
 
 \paragraph{Constructing the transform from tangent lines.}
-\textcolor{red}{In this section we denote the slope by $\xi$ instead of $p$,
-to avoid confusion with the probability $p_i$ and the pressure $P$.}
+\textcolor{red}{In this section, $\xi$ denotes the slope instead of $p$, to
+avoid confusion with the probability $p_i$ and the pressure $P$.}
 Let $f(x)$ be a function. At each point $x$, the tangent line has slope
-$\xi(x)=f'(x)$ and intercept $f(x)-\xi(x)\,x$. Expressing the intercept as a
-function of the slope defines the \textcolor{blue}{Legendre transform}
+$\xi(x)=f'(x)$ and intercept $f(x)-\xi(x)\,x$. The intercept, expressed as a
+function of the slope, is the \textcolor{blue}{Legendre transform}
 \begin{equation}
     \boxed{g(\xi)=f(x)-\xi\,x,\qquad \xi=f'(x).}
 \end{equation}
-We say that $g(\xi)$ conserves the information of $f(x)$ if $f$ can be
+The transform $g(\xi)$ conserves the information of $f(x)$ if $f$ can be
 reconstructed from $g$ alone.
 
 \paragraph{Reconstructing $f$ from its transform.}
-Each tangent line, labeled by its slope $\xi$, is $y=\xi x+g(\xi)$, so the
-tangent lines form a family with one line per $\xi$. Fix a point $x$ and
-consider the vertical gap between this family and the curve,
+The tangent line with slope $\xi$ is $y=\xi x+g(\xi)$, so the tangent lines
+form a family with one line per $\xi$. At a fixed point $x$, the vertical
+gap between this family and the curve is
 \begin{equation*}
     \Delta(\xi,x)=\xi x+g(\xi)-f(x).
 \end{equation*}
@@ -137,12 +135,12 @@ $\Delta$ over $\xi$, not merely a stationary point:
     \frac{\partial\Delta}{\partial\xi}=x+g'(\xi)=0
     \quad\Longleftrightarrow\quad x=-g'(\xi).
 \end{equation*}
-Calling the solution $\xi^*(x)$, we reconstruct $f$ as
+With the solution denoted $\xi^*(x)$, $f$ is reconstructed as
 \begin{equation}
     \boxed{x=-g'(\xi),\qquad f(x)=\xi^*(x)\,x+g\big[\xi^*(x)\big].}
 \end{equation}
 Hence $f$ and $g$ determine each other, and no information is lost. The
-transformation trades the variable $x$ for its conjugate $\xi=f'(x)$.
+transformation trades the variable $x$ for the conjugate $\xi=f'(x)$.
 
 \subsection{Multivariable Legendre Transformation}
 
@@ -159,11 +157,11 @@ The Legendre transform is
 \end{equation}
 
 \paragraph{Reconstructing $f$ from its transform.}
-Each tangent hyperplane, labeled by its gradient $\boldsymbol{\xi}$, is
+The tangent hyperplane with gradient $\boldsymbol{\xi}$ is
 $y=\boldsymbol{\xi}\cdot\mathbf{x}+g(\boldsymbol{\xi})$, so the hyperplanes
 form a family with one member for each $\boldsymbol{\xi}\in\mathbb{R}^n$.
-Fix a point $\mathbf{x}$ and consider the vertical gap between this family
-and the surface,
+At a fixed point $\mathbf{x}$, the vertical gap between this family and the
+surface is
 \begin{equation*}
     \Delta(\boldsymbol{\xi},\mathbf{x})
     =\boldsymbol{\xi}\cdot\mathbf{x}+g(\boldsymbol{\xi})-f(\mathbf{x}).
@@ -181,17 +179,18 @@ $\Delta$ over $\boldsymbol{\xi}$:
     x_i=-\frac{\partial g}{\partial\xi_i}
     \qquad(i=1,\ldots,n).
 \end{equation*}
-Calling the solution $\boldsymbol{\xi}^*(\mathbf{x})$, we reconstruct $f$ as
+With the solution denoted $\boldsymbol{\xi}^*(\mathbf{x})$, $f$ is
+reconstructed as
 \begin{equation}
     \boxed{x_i=-\frac{\partial g}{\partial\xi_i},\qquad
     f(\mathbf{x})=\boldsymbol{\xi}^*(\mathbf{x})\cdot\mathbf{x}
     +g\big[\boldsymbol{\xi}^*(\mathbf{x})\big].}
 \end{equation}
-No information is lost: the transformation trades the variables
+No information is lost. The transformation trades the variables
 $x_1,\ldots,x_n$ for their conjugates $\xi_i=\partial f/\partial x_i$.
 
 \paragraph{Partial Legendre transforms.}
-In thermodynamics, one often transforms only a subset
+In thermodynamics, a Legendre transform often acts on only a subset
 $I\subseteq\{1,\ldots,n\}$ of the variables and leaves the rest untouched:
 \begin{equation}
     \boxed{g\big(\{\xi_i\}_{i\in I},\{x_j\}_{j\notin I}\big)
@@ -199,7 +198,7 @@ $I\subseteq\{1,\ldots,n\}$ of the variables and leaves the rest untouched:
     \qquad \xi_i=\frac{\partial f}{\partial x_i}\bigg|_{\mathbf{x}}.}
 \end{equation}
 The construction above goes through one variable at a time. Each $x_i$ with
-$i\in I$ is swapped for its conjugate $\xi_i$, and each $x_j$ with
+$i\in I$ is swapped for the conjugate $\xi_i$, and each $x_j$ with
 $j\notin I$ is held fixed as a spectator.
 
 \paragraph{Convexity of partial transforms.}
@@ -207,15 +206,15 @@ If $f$ is convex, a partial Legendre transform is concave in the transformed
 variables $\xi_i$ and convex in the untransformed variables $x_j$. Since
 $U(S,V,N)$ is convex by thermodynamic stability, $F(T,V,N)$ is concave in
 $T$ and convex in $V$, and $H(S,P,N)$ is concave in $P$ and convex in $S$.
-This is why $F$ is minimized over $V$ at fixed $T$, but not over $T$.
+For this reason, $F$ is minimized over $V$ at fixed $T$ but not over $T$.
 
-\subsection{$NVT$ Ensemble - Helmholtz Free Energy}
+\subsection{$NVT$ Ensemble --- Helmholtz Free Energy}
 
 \paragraph{Helmholtz free energy as the Legendre transform of $U$.}
 The thermodynamic potential of the \textcolor{blue}{$NVT$ ensemble}, or
-canonical ensemble, is the \textcolor{blue}{Helmholtz free energy}. It is the
-partial Legendre transform of $U(S,V,N)$ that trades $S$ for its conjugate
-$T=\partial U/\partial S|_{V,N}$:
+canonical ensemble, is the \textcolor{blue}{Helmholtz free energy}. The
+Helmholtz free energy is the partial Legendre transform of $U(S,V,N)$ that
+trades $S$ for the conjugate $T=\partial U/\partial S|_{V,N}$:
 \begin{equation*}
     F(N,V,T)=U-\frac{\partial U}{\partial S}\bigg|_{V,N}S,
 \end{equation*}
@@ -225,9 +224,9 @@ that is,
 \end{equation}
 
 \paragraph{Conjugate variables of $F$.}
-We check that $F$ generates every conjugate variable. Since $U$ depends on
-$S$, and $S$ in turn depends on $T$, $V$, and $N$, each derivative of $F$
-must include the contribution of $S$:
+The free energy $F$ generates every conjugate variable. Because $U$ depends
+on $S$, and $S$ in turn depends on $T$, $V$ and $N$, each derivative of $F$
+includes the contribution of $S$:
 \begin{align*}
     \frac{\partial F}{\partial T}\bigg|_{V,N}
     &=\frac{\partial U}{\partial S}\frac{\partial S}{\partial T}-S
@@ -247,23 +246,24 @@ Hence
     \frac{\partial F}{\partial V}\bigg|_{T,N}=-P,\qquad
     \frac{\partial F}{\partial N}\bigg|_{T,V}=\mu.}
 \end{equation}
-$F$ behaves much like $U$: it has the same dimension and yields the same $P$
-and $\mu$, while $T$ has become an argument and $-S$ its conjugate.
+Thus, $F$ behaves much like $U$, with the same dimension and the same $P$
+and $\mu$, whereas $T$ has become an argument and $-S$ the conjugate.
 
 \paragraph{Minimization of $F$ from entropy maximization.}
-The same result follows from MaxEnt applied to the combined system. Let the
-system, at fixed $V$ and $N$, exchange energy with a reservoir at temperature
-$T$, and treat the pair as isolated, as in the zeroth-law setup. The
+The minimization of $F$ follows from MaxEnt applied to the combined system.
+A system at fixed $V$ and $N$ exchanges energy with a reservoir at
+temperature $T$, and the pair is isolated, as in the zeroth-law setup. The
 reservoir gains the energy that the system loses, so
 $dS_{\text{res}}=-dU/T$, and the total entropy changes by
 \begin{equation}
     \boxed{dS_{\text{tot}}=dS-\frac{dU}{T}=-\frac{dF}{T}\geq0.}
 \end{equation}
-Maximizing the total entropy is therefore equivalent to minimizing $F$ of the
-system alone. The factor $-TS$ in $F$ accounts for the reservoir.
+The maximum of the total entropy is therefore the minimum of the system free
+energy $F$. The term $-TS$ in $F$ accounts for the reservoir.
 
 \paragraph{Free energy and the partition function.}
-Substituting $S=k_B(\beta U+\ln Z)$ and $\beta=1/(k_BT)$ into $F=U-TS$ gives
+Substitution of $S=k_B(\beta U+\ln Z)$ and $\beta=1/(k_BT)$ into $F=U-TS$
+gives
 \begin{align*}
     F=U-\frac{1}{k_B\beta}\,k_B\left(\beta U+\ln Z\right)
     =U-U-\frac{\ln Z}{\beta},
@@ -273,14 +273,14 @@ so
     \boxed{F=-k_BT\ln Z.}
 \end{equation}
 
-\subsection{$NPS$ Ensemble - Enthalpy}
+\subsection{$NPS$ Ensemble --- Enthalpy}
 
 \paragraph{Enthalpy as the Legendre transform of $U$ in the volume.}
-For some systems, it is more natural to control the pressure than the
-volume, because pressure is intensive and does not depend on system size. We label this the \textcolor{blue}{$NPS$ ensemble}, after the natural
-variables of $H$. Its thermodynamic potential
-is the \textcolor{blue}{enthalpy}, the partial Legendre transform of
-$U(S,V,N)$ that trades $V$ for its conjugate $-P=\partial U/\partial V|_{S,N}$:
+For some systems, the pressure is more natural to control than the volume,
+because the pressure is intensive and does not depend on the system size.
+The thermodynamic potential is then the \textcolor{blue}{enthalpy}, the
+partial Legendre transform of $U(S,V,N)$ that trades $V$ for the conjugate
+$-P=\partial U/\partial V|_{S,N}$:
 \begin{equation*}
     H(N,P,S)=U-\frac{\partial U}{\partial V}\bigg|_{S,N}V,
 \end{equation*}
@@ -288,7 +288,8 @@ that is,
 \begin{equation}
     \boxed{H(N,P,S)=U+PV.}
 \end{equation}
-It generates every conjugate variable:
+This ensemble is labeled the \textcolor{blue}{$NPS$ ensemble} after the
+natural variables of $H$. The enthalpy generates every conjugate variable:
 \begin{equation}
     \boxed{\frac{\partial H}{\partial S}\bigg|_{P,N}=T,\qquad
     \frac{\partial H}{\partial P}\bigg|_{S,N}=V,\qquad
@@ -306,23 +307,26 @@ at constant entropy
     \boxed{dH\leq0.}
 \end{equation}
 Any spontaneous process at fixed $(N,P,S)$ therefore proceeds toward lower
-$H$ and halts when $H$ reaches its minimum, which recovers the equilibrium
-condition established earlier. Most processes are not isentropic, however,
-so enthalpy is mainly used as the heat exchanged at fixed pressure. For
-example, it measures the heat of a phase transition in chemistry.
+$H$ and halts at the minimum of $H$, which recovers the equilibrium condition
+established earlier. However, most processes are not isentropic, so the
+enthalpy is mainly used as the heat exchanged at fixed pressure. For
+example, the enthalpy measures the heat of a phase transition.
 
 \paragraph{Labels and conventional names of ensembles.}
-\textcolor{red}{From here on, we label each ensemble by the natural variables
-of its thermodynamic potential, such as $NVT$ for $F$ and $NPS$ for $H$.
-The conventional name is given alongside.}
+\textcolor{red}{From here on, each ensemble is labeled by the natural
+variables of the thermodynamic potential, such as $NVT$ for $F$ and $NPS$
+for $H$. The conventional name is given alongside.}
 The conventional label of an ensemble lists the quantities held fixed as
 constraints. For $NPS$, the conventional name is the
 \textcolor{blue}{isoenthalpic-isobaric ensemble}, $NPH$, which fixes $N$,
-$P$, and the enthalpy $H$. It relates to $H(N,P,S)$ as the microcanonical
-ensemble $NVU$ relates to $U(S,V,N)$: the same state, described either by the
-fixed energy-like quantity or by the entropy. The ensembles in this chapter
-and the next are:
-\begin{center}
+$P$ and the enthalpy $H$. The $NPH$ ensemble relates to $H(N,P,S)$ as the
+microcanonical ensemble $NVU$ relates to $U(S,V,N)$, with the same state
+described either by the fixed energy-like quantity or by the entropy.
+Table~\ref{tab:ensembles} lists the ensembles of this section and the next.
+\begin{table}[h]
+\centering
+\caption{Natural variables, potentials and conventional names of the ensembles.}
+\label{tab:ensembles}
 \begin{tabular}{lll}
     Natural variables & Potential & Conventional name \\ \hline
     $(S,V,N)$ & $U$ & microcanonical ($NVU$) \\
@@ -331,4 +335,4 @@ and the next are:
     $(T,V,\mu)$ & grand potential & grand canonical ($\mu VT$) \\
     $(T,P,N)$ & $G$ & isothermal-isobaric ($NPT$) \\
 \end{tabular}
-\end{center}
+\end{table}
