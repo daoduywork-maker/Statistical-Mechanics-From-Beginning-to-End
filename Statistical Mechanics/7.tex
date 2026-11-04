@@ -20,18 +20,31 @@ structure gains one dimension:
     tie lines join the two surfaces. The region between the surfaces is the
     two-phase region, in which the overall composition fixes the amount of
     each phase.
-    \item \textcolor{blue}{Univariant curve} ($\mathcal{P}=3$, $F=1$). The
-    invariant points become curves, along which only one variable varies
-    freely. Three bivariant surfaces, one for each pair of phases, meet
-    along each such curve.
-    \item \textcolor{blue}{Invariant point} ($\mathcal{P}=4$, $F=0$). A new
-    kind of invariant point appears, at which none of $P$, $T$ or $X$ varies.
-    Every subset of the four phases coexists near this point, so
-    $\binom{4}{3}=4$ univariant curves, $\binom{4}{2}=6$ two-phase
-    (bivariant) surfaces and $\binom{4}{1}=4$ single-phase (tervariant)
-    volumes meet there. This point is therefore also called the
-    \textcolor{blue}{quadruple point}.
+    \item \textcolor{blue}{Univariant equilibrium} ($\mathcal{P}=3$,
+    $F=1$). The invariant points become univariant equilibria, along which
+    only one variable varies freely. At each $(P,T)$ of such an equilibrium,
+    the three phases have three different compositions, joined by a
+    \textcolor{blue}{tie triangle}. As $(P,T)$ moves along the equilibrium,
+    the tie triangles sweep a ruled surface in the $X$--$P$--$T$ space.
+    \item \textcolor{blue}{Invariant equilibrium} ($\mathcal{P}=4$, $F=0$).
+    A new kind of invariant equilibrium appears, at which none of $P$, $T$
+    or the four phase compositions varies. The four phases lie on a single
+    isobaric and isothermal tie line. Every subset of the four phases
+    coexists nearby, so $\binom{4}{3}=4$ three-phase, $\binom{4}{2}=6$
+    two-phase and $\binom{4}{1}=4$ one-phase equilibria meet at this
+    equilibrium, which is called the \textcolor{blue}{quadruple point}.
 \end{itemize}
+
+\paragraph{The $P$--$T$ projection.}
+Every tie line, tie triangle and four-phase tie line is isobaric and
+isothermal, so each one projects to a single point of the $P$--$T$ plane.
+The two-phase curves of the pure components lie on the faces $X=0$ and
+$X=1$ and project unchanged. A three-phase ruled surface projects to a
+curve, and a four-phase equilibrium projects to a point. One-phase and
+two-phase regions overlap in the projection, so the areas of a $P$--$T$
+projection cannot be labeled uniquely, and only the curves and points carry
+a unique meaning. The projection applies to any number of components and is
+used in Section~\ref{sec:pressure}.
 
 \subsection{Gibbs Free Energy of a Binary Solution}
 
@@ -76,35 +89,6 @@ and the axis $X=1$ at $\mu_2$. This construction is the Legendre
 construction of the unary system with two intercepts instead of one.
 Substitution of Eq.~\eqref{eq:tangent-intercepts} into
 Eq.~\eqref{eq:binary-euler} returns $g$, as required.
-
-\subsection{Solution Models}
-
-\paragraph{The ideal solution.}
-Explicit phase diagrams require the composition dependence of each $\mu_i$.
-The simplest assumption is that the two components just mix. An
-\textcolor{blue}{ideal solution} is defined by
-\begin{equation}
-    \boxed{\mu_i(T,P,X)=\mu_i^\circ(T,P)+k_BT\ln x_i,\qquad x_1=1-X,\quad x_2=X.}
-    \label{eq:ideal-mu}
-\end{equation}
-Each component then lowers its chemical potential below the pure value by
-$k_BT\ln x_i$. Equation~\eqref{eq:binary-euler} gives the Gibbs free energy
-per particle
-\begin{equation}
-    \boxed{g_{\text{id}}(T,P,X)=(1-X)\,\mu_1^\circ+X\,\mu_2^\circ
-    +k_BT\big[X\ln X+(1-X)\ln(1-X)\big].}
-\end{equation}
-
-\paragraph{The regular solution.}
-\textcolor{red}{Here, $w$ denotes the interaction parameter per particle.}
-The \textcolor{blue}{regular solution} adds to the ideal solution the
-simplest term that vanishes for both pure components and is symmetric in
-the composition:
-\begin{equation}
-    \boxed{g_{\text{reg}}(T,P,X)=g_{\text{id}}(T,P,X)+w\,X(1-X).}
-\end{equation}
-The model favors unlike neighbors for $w<0$ and like neighbors for $w>0$.
-Section~\ref{sec:gap} shows that $w>0$ can split one solution into two.
 
 \subsection{Two-Phase Equilibrium: Common Tangent and Lever Rule}
 
@@ -190,7 +174,149 @@ Intercepts: the common chemical potentials $\mu_1$ and $\mu_2$.}
 \label{fig:binary-gX}
 \end{figure}
 
+\subsection{Three-Phase Equilibrium}
+\label{sec:three-phase}
+
+\paragraph{One tangent line touching three curves.}
+\textcolor{red}{Here, the superscripts $(1)$, $(2)$ and $(3)$ label three
+phases in order of composition, $X^{(1)}<X^{(2)}<X^{(3)}$.}
+Three phases coexist when all three share the same $\mu_1$ and $\mu_2$. By
+Eq.~\eqref{eq:tangent-intercepts}, the three tangent lines then coincide, so
+the line $\lambda(X)=(1-X)\mu_1+X\mu_2$ touches all three curves:
+\begin{equation}
+    \boxed{g^{(k)}\big(X^{(k)}\big)=\lambda\big(X^{(k)}\big),\qquad
+    g^{(k)\prime}\big(X^{(k)}\big)=\mu_2-\mu_1,\qquad k=1,2,3.}
+\end{equation}
+These six conditions contain the five unknowns $\mu_1$, $\mu_2$ and the
+three compositions, so at a fixed pressure they also fix the temperature.
+The phase rule agrees, because $F=4-3=1$, and a fixed $P$ leaves no freedom.
+In an isobaric $T$--$X$ diagram, a three-phase equilibrium is therefore a
+horizontal line, the \textcolor{blue}{three-phase isotherm}, with three
+fixed compositions. For an overall composition on this line, two
+conservation laws cannot fix three phase fractions, so the amounts of the
+three phases depend on the heat exchanged, not on the composition alone.
+
+\paragraph{Which assemblage is stable above and below the isotherm.}
+Let $T_3$ denote the temperature of the isotherm. The free energy change of
+forming the middle phase from the two outer phases at the fixed overall
+composition $X^{(2)}$ is
+\begin{equation*}
+    \Delta g(T)\equiv g^{(2)}\big(X^{(2)}\big)
+    -n_1\,g^{(1)}\big(X^{(1)}\big)-n_3\,g^{(3)}\big(X^{(3)}\big),
+    \qquad
+    n_1=\frac{X^{(3)}-X^{(2)}}{X^{(3)}-X^{(1)}},\quad n_3=1-n_1,
+\end{equation*}
+with $\Delta g(T_3)=0$. The derivative of $\Delta g$ contains the entropies
+$-s^{(k)}=\partial g^{(k)}/\partial T$ and terms from the temperature
+dependence of the compositions and of $n_1$. With the common slope
+$m=\mu_2-\mu_1$ and the lever relation $n_1X^{(1)}+n_3X^{(3)}=X^{(2)}$, the
+composition terms sum to $m\,(X^{(1)}-X^{(3)})\,dn_1/dT$, and the terms from
+$n_1$ sum to $-(g^{(1)}-g^{(3)})\,dn_1/dT$. These two contributions cancel,
+because $m=(g^{(3)}-g^{(1)})/(X^{(3)}-X^{(1)})$. Hence
+\begin{equation}
+    \boxed{\frac{d\Delta g}{dT}\bigg|_{T_3}=-\Delta s_r,\qquad
+    \Delta s_r\equiv s^{(2)}-n_1s^{(1)}-n_3s^{(3)}.}
+\end{equation}
+If $\Delta s_r>0$, the middle phase has the larger entropy, $\Delta g<0$ above
+$T_3$, and the middle phase is stable above the isotherm. On cooling, it
+decomposes into the two outer phases. This case is the
+\textcolor{blue}{eutectic type}, $(2)\to(1)+(3)$. If $\Delta s_r<0$, the middle
+phase is stable below the isotherm and forms on cooling from the two outer
+phases. This case is the \textcolor{blue}{peritectic type}, $(1)+(3)\to(2)$.
+In both cases, the reaction releases the latent heat $T_3|\Delta s_r|$ per
+particle on cooling. Three two-phase regions end on every isotherm, one for
+each pair of the three phases. For the eutectic type, two of them lie above
+the isotherm and one below. For the peritectic type, one lies above and two
+below.
+
+\paragraph{Named three-phase reactions.}
+Table~\ref{tab:three-phase} lists the three-phase reactions with
+established names. Other combinations of phases are possible, with the
+restriction that a system has only one gas phase, because all gases mix
+completely.
+\begin{table}[htbp]
+\centering
+\caption{Three-phase reactions on cooling. $L$: liquid. $G$: gas. Greek
+letters: solid phases.}
+\label{tab:three-phase}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{llll}
+    \multicolumn{2}{l}{Eutectic type, $(2)\to(1)+(3)$}
+    & \multicolumn{2}{l}{Peritectic type, $(1)+(3)\to(2)$} \\ \hline
+    eutectic & $L\to\alpha+\beta$ & peritectic & $L+\alpha\to\beta$ \\
+    eutectoid & $\gamma\to\alpha+\beta$ & peritectoid & $\alpha+\gamma\to\beta$ \\
+    monotectic & $L_1\to\alpha+L_2$ & syntectic & $L_1+L_2\to\beta$ \\
+    metatectic & $\beta\to\alpha+L$ & & $G+L\to\alpha$ \\
+     & $L\to\alpha+G$ & & \\
+\end{tabular}
+\end{table}
+
+\subsection{Shapes of Two-Phase Regions}
+
+\paragraph{Conjugate boundaries.}
+At fixed pressure, a two-phase region is bounded by two conjugate curves,
+$X^\alpha(T)$ and $X^\beta(T)$, joined by horizontal tie lines. Both curves
+span the same temperature range. The region either closes where the two
+curves meet or ends on three-phase isotherms.
+
+\paragraph{Congruent points: the Gibbs--Konovalov relation.}
+Along the two boundaries at fixed pressure, the Gibbs--Duhem relation per
+particle holds in each phase:
+\begin{equation*}
+    s^\alpha\,dT+(1-X^\alpha)\,d\mu_1+X^\alpha\,d\mu_2=0,\qquad
+    s^\beta\,dT+(1-X^\beta)\,d\mu_1+X^\beta\,d\mu_2=0.
+\end{equation*}
+The difference of the two relations is the
+\textcolor{blue}{Gibbs--Konovalov relation}
+\begin{equation}
+    \boxed{(s^\alpha-s^\beta)\,dT=(X^\beta-X^\alpha)\,d(\mu_2-\mu_1).}
+\end{equation}
+By Eq.~\eqref{eq:tangent-intercepts}, $\mu_2-\mu_1=\partial g/\partial X$,
+which changes smoothly with the composition. Where the two phases have the
+same composition, $X^\alpha=X^\beta$ with $s^\alpha\neq s^\beta$, the
+coexistence temperature is therefore stationary, $dT/dX^\alpha=0$. The two
+boundaries meet with horizontal tangents at a maximum or a minimum, called a
+\textcolor{blue}{congruent point}, where the transformation occurs at a
+single temperature without a change of composition, as in a pure substance.
+
+\paragraph{Critical points.}
+Two phases with the same structure can also merge continuously. The
+two-phase region then closes at a \textcolor{blue}{critical point}, where
+$X^\alpha=X^\beta$ and $s^\alpha=s^\beta$ hold together, and both sides of
+the Gibbs--Konovalov relation vanish. The miscibility gap of
+Section~\ref{sec:gap} closes in this way.
+
+\subsection{Solution Models}
+
+\paragraph{The ideal solution.}
+Explicit phase diagrams require the composition dependence of each $\mu_i$.
+The simplest assumption is that the two components just mix. An
+\textcolor{blue}{ideal solution} is defined by
+\begin{equation}
+    \boxed{\mu_i(T,P,X)=\mu_i^\circ(T,P)+k_BT\ln x_i,\qquad x_1=1-X,\quad x_2=X.}
+    \label{eq:ideal-mu}
+\end{equation}
+The chemical potential of each component then lies below the pure value by
+$k_BT\ln x_i$. Equation~\eqref{eq:binary-euler} gives the Gibbs free energy
+per particle
+\begin{equation}
+    \boxed{g_{\text{id}}(T,P,X)=(1-X)\,\mu_1^\circ+X\,\mu_2^\circ
+    +k_BT\big[X\ln X+(1-X)\ln(1-X)\big].}
+\end{equation}
+
+\paragraph{The regular solution.}
+\textcolor{red}{Here, $w$ denotes the interaction parameter per particle.}
+The \textcolor{blue}{regular solution} adds to the ideal solution the
+simplest term that vanishes for both pure components and is symmetric in
+the composition:
+\begin{equation}
+    \boxed{g_{\text{reg}}(T,P,X)=g_{\text{id}}(T,P,X)+w\,X(1-X).}
+\end{equation}
+The model favors unlike neighbors for $w<0$ and like neighbors for $w>0$.
+Section~\ref{sec:gap} shows that $w>0$ can split one solution into two.
+
 \subsection{Isobaric $T$--$X$ Diagram of an Isomorphous System}
+\label{sec:lens}
 
 \paragraph{Isomorphous systems and the phase rule at fixed pressure.}
 Two components are \textcolor{blue}{isomorphous} when they dissolve
@@ -252,7 +378,7 @@ at $T_L$ and at $T_S$, unlike the single crease of a unary transition.
 \paragraph{Non-equilibrium solidification.}
 Equilibrium cooling requires the solid to change its composition along the
 solidus. Diffusion in a solid is slow, so in practice the first solid keeps
-its high content of component 2. The grains then have a composition
+the high content of component 2. The grains then have a composition
 gradient, called \textcolor{blue}{coring}, and the remaining liquid becomes
 richer in component 1 than the diagram predicts. Zone refining uses the
 same separation to purify silicon, because each pass of a molten zone
@@ -296,15 +422,363 @@ and liquid solutions. Upper curve: liquidus. Lower curve: solidus. Thick
 line: tie line at one temperature during cooling of the composition $X_0$.}
 \label{fig:binary-lens}
 \end{figure}
+\subsection{Miscibility Gap}
+\label{sec:gap}
 
-\subsection{Isothermal $P$--$X$ Diagram of a Liquid--Vapor System}
+\paragraph{Spinodal and critical temperature.}
+For $w>0$, the regular solution favors like pairs, and at low temperature
+the curve $g_{\text{reg}}(X)$ becomes concave in a central range of
+compositions. Inside this range, a homogeneous solution is unstable against
+small composition fluctuations. The boundary is the
+\textcolor{blue}{spinodal}, where the curvature vanishes:
+\begin{equation*}
+    \frac{\partial^2g_{\text{reg}}}{\partial X^2}
+    =\frac{k_BT}{X(1-X)}-2w=0.
+\end{equation*}
+Hence
+\begin{equation}
+    \boxed{T_{\text{sp}}(X)=\frac{2w}{k_B}\,X(1-X),\qquad
+    T_c=\frac{w}{2k_B}.}
+\end{equation}
+The spinodal reaches the maximum, the critical temperature $T_c$, at
+$X=1/2$. Above $T_c$, the components mix at every composition.
+
+\paragraph{The binodal from the common tangent.}
+Below $T_c$, the convex hull of the single curve $g_{\text{reg}}(X)$ has a
+common tangent that touches the curve at two compositions, and the solution
+splits into two solutions with the same structure. The linear terms of $g$
+do not affect the tangent points, and the remaining curve is symmetric
+about $X=1/2$, so the common tangent is horizontal after the linear terms
+are removed. The tangent points therefore satisfy
+$k_BT\ln[X/(1-X)]+w(1-2X)=0$, which gives the
+\textcolor{blue}{binodal}
+\begin{equation}
+    \boxed{T_{\text{b}}(X)=\frac{w}{k_B}\,\frac{1-2X}{\ln[(1-X)/X]}.}
+\end{equation}
+The region under the binodal is the \textcolor{blue}{miscibility gap}
+(Fig.~\ref{fig:binary-gap}). Between the binodal and the spinodal, a
+homogeneous solution is metastable, as a supercooled liquid is in the unary
+system. Inside the spinodal, the solution is unstable and separates
+spontaneously.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
+    % axes: x = 6X, y = 4 T/T_c
+    \draw[->] (0,0) -- (6.8,0) node[right] {$X$};
+    \draw[->] (0,0) -- (0,4.8) node[above] {$T$};
+    \draw (6,0) -- (6,4.6);
+    \node[below] at (0,0) {$0$};
+    \node[below] at (6,0) {$1$};
+    \node[below] at (3,0) {$\tfrac12$};
+    % binodal T/T_c = 2(1-2X)/ln((1-X)/X)
+    \draw[domain=0.002:0.4995, smooth, samples=80, variable=\t]
+        plot ({6*\t},{4*2*(1-2*\t)/ln((1-\t)/\t)});
+    \draw[domain=0.5005:0.998, smooth, samples=80, variable=\t]
+        plot ({6*\t},{4*2*(1-2*\t)/ln((1-\t)/\t)});
+    % spinodal T/T_c = 4X(1-X)
+    \draw[dashed, domain=0:1, smooth, samples=60, variable=\t]
+        plot ({6*\t},{4*4*\t*(1-\t)});
+    % critical point
+    \fill (3,4) circle (2pt);
+    \node[above, yshift=3pt] at (3,4) {$T_c$};
+    % labels
+    \node at (3,1.6) {unstable};
+    \draw[line width=0.4pt] (5.3,2.4) -- (6.3,2.4) node[right] {metastable};
+    \node at (4.5,4.45) {one solution};
+\end{tikzpicture}
+\caption{Miscibility gap of a regular solution. Solid curve: binodal
+(coexistence). Dashed curve: spinodal (limit of metastability).}
+\label{fig:binary-gap}
+\end{figure}
+
+\subsection{Combining the Miscibility Gap with the Liquidus and Solidus}
+\label{sec:gallery}
+
+\paragraph{Computed diagrams.}
+The common forms of isobaric diagrams follow from the convex hull of more
+than two curves $g^\alpha(X)$ at each temperature. Figure~\ref{fig:gallery}
+shows eight diagrams computed in this way. In each panel, every boundary
+and every three-phase isotherm results from the minimization of $G$ and is
+not drawn by hand. The models are the solution models of this section:
+\begin{itemize}
+    \item The liquid is an ideal solution with
+    $\mu_i^{\circ,l}-\mu_i^{\circ,s}=s_f(T_i-T)$, where $T_i$ is the melting
+    temperature of component $i$ and $s_f$ is the entropy of fusion per
+    particle. In panel (f), the liquid is a regular solution.
+    \item In panels (a) to (d) and (f), the solid is a single regular
+    solution with parameter $w_s$, so the two terminal solids $\alpha$ and
+    $\beta$ have the same structure.
+    \item In panels (e), (g) and (h), $\alpha$ and $\beta$ have different
+    structures and separate curves. In (g) and (h), an intermediate compound
+    $\gamma$ with a narrow curve near $X=1/2$ is added.
+\end{itemize}
+
+\paragraph{Lens, maximum and minimum.}
+For $w_s=0$, the solid and the liquid are both ideal, and the diagram is the
+lens of Section~\ref{sec:lens}, panel (a). For $w_s<0$, unlike neighbors
+lower the solid curve at intermediate compositions, and the liquidus and the
+solidus meet at a congruent maximum, panel (b). For a small $w_s>0$, the
+solid curve rises at intermediate compositions, and the liquidus and the
+solidus meet at a congruent minimum. The solid then has a miscibility gap
+with the critical temperature $w_s/2k_B$, which lies below the solidus and
+does not touch it, panel (c).
+
+\paragraph{Eutectic from a gap that meets the solidus.}
+A larger $w_s$ raises the critical temperature of the gap until the gap
+meets the minimum of the solidus. The single solid region then splits into
+$\alpha$ and $\beta$, the congruent minimum becomes the eutectic point, and
+the liquid of this composition decomposes at one temperature into $\alpha$
+and $\beta$, panel (d). The lower boundaries of $\alpha$ and $\beta$, called
+\textcolor{blue}{solvus} curves, are the two branches of the gap.
+
+\paragraph{Peritectic from very different melting points.}
+If the melting points of the two components differ strongly, the three-phase
+isotherm lies between them, and the liquid lies at one end of the isotherm
+instead of between the solids. Panel (e) shows the peritectic reaction
+$L+\beta\to\alpha$, in which $\alpha$ forms on cooling from the liquid and
+from the high-melting solid $\beta$.
+
+\paragraph{Monotectic from a gap in the liquid.}
+A regular liquid with $w_l>0$ has a miscibility gap of its own. Where this
+gap meets the liquidus, a monotectic isotherm appears, on which one liquid
+decomposes on cooling into a solid and a second liquid, panel (f). At lower
+temperature, the remaining liquid freezes at a eutectic isotherm.
+
+\paragraph{Intermediate phases.}
+A compound $\gamma$ that is stable up to the liquid melts congruently. The
+diagram then splits into two simple eutectic diagrams, $A$--$\gamma$ and
+$\gamma$--$B$, panel (g). A less stable compound decomposes below its own
+melting point into a liquid and a solid. It then melts incongruently, by a
+peritectic reaction, panel (h).
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[line width=0.6pt]
+    \input{figs/binary_gallery.tex}
+\end{tikzpicture}
+\caption{Isobaric $T$--$X$ diagrams computed from the convex hull of the
+Gibbs free energy curves. Horizontal axis: $X$ from $0$ (pure $A$, left) to
+$1$ (pure $B$, right). Vertical axis: $T$. Parameters, in units with
+$k_B=1$: (a) $T_A=1$, $T_B=1.5$, $s_f=1$, $w_s=0$; (b)--(d) $T_A=1$,
+$T_B=1.15$, $s_f=1.2$, $w_s=-1,\ 1.1,\ 2.2$; (e) $T_A=1$, $T_B=2$, separate
+solid structures; (f) $T_A=0.6$, $T_B=1.4$, $w_s=w_l=3$; (g), (h) separate
+solid structures with a compound $\gamma$ at $X=1/2$. The generating scripts
+are in the folder \texttt{figs}.}
+\label{fig:gallery}
+\end{figure}
+
+
+\subsection{Reading an Isobaric Diagram: Freezing Paths}
+
+\paragraph{The eutectic alloy.}
+\textcolor{red}{Here, $X_0$ denotes the overall composition of an alloy, and
+$X_e$, $X^\alpha$ and $X^\beta$ denote the compositions of the liquid and of
+the two solids on the eutectic isotherm at $T_e$.}
+An alloy of the eutectic composition stays liquid down to $T_e$ and then
+freezes at this single temperature, as a pure substance does. Unlike a pure
+substance, the liquid and each solid differ in composition. The eutectic
+isotherm acts as a tie line between $\alpha$ and $\beta$, and the lever rule
+gives the fractions of the eutectic mixture,
+\begin{equation}
+    \boxed{n_\alpha=\frac{X^\beta-X_e}{X^\beta-X^\alpha},\qquad
+    n_\beta=\frac{X_e-X^\alpha}{X^\beta-X^\alpha}.}
+\end{equation}
+
+\paragraph{Hypoeutectic and hypereutectic alloys.}
+An alloy with $X^\alpha<X_0<X_e$, called \textcolor{blue}{hypoeutectic},
+starts to freeze at the liquidus. Between the liquidus and $T_e$, primary
+$\alpha$ forms, and the liquid composition follows the liquidus toward
+$X_e$. Just above $T_e$, the lever rule on the tie line from $X^\alpha$ to
+$X_e$ gives the liquid fraction. At $T_e$, this liquid freezes into the
+eutectic mixture. The amounts after freezing are therefore
+\begin{equation}
+    \boxed{n_{\text{eutectic}}=\frac{X_0-X^\alpha}{X_e-X^\alpha},\qquad
+    n_{\text{primary }\alpha}=\frac{X_e-X_0}{X_e-X^\alpha},\qquad
+    n_\alpha^{\text{total}}=\frac{X^\beta-X_0}{X^\beta-X^\alpha}.}
+\end{equation}
+A \textcolor{blue}{hypereutectic} alloy, $X_e<X_0<X^\beta$, behaves in the
+same way with primary $\beta$. An alloy outside the isotherm, $X_0<X^\alpha$
+or $X_0>X^\beta$, freezes completely as one solid solution, as in the lens.
+
+\paragraph{Peritectic alloys.}
+For the peritectic reaction $L+\beta\to\alpha$ of
+Fig.~\ref{fig:gallery}(e), the compositions on the isotherm are ordered
+$X^L<X^\alpha<X^\beta$. Primary $\beta$ forms above the isotherm. At the
+isotherm, the liquid reacts with $\beta$ to form $\alpha$. The overall
+composition decides which phase is used up first. For $X^\alpha<X_0<X^\beta$,
+the liquid is used up, and $\alpha+\beta$ remains. For $X^L<X_0<X^\alpha$,
+$\beta$ is used up, and $L+\alpha$ remains and freezes further on cooling. For
+$X_0=X^\alpha$, both are used up exactly, and a single $\alpha$ phase
+remains. The lever rule on the isotherm gives the amounts just above and
+just below $T_p$.
+
+\paragraph{Non-equilibrium freezing.}
+Equilibrium freezing requires each solid to change its composition by
+diffusion as the temperature falls. In practice, diffusion in solids is slow.
+Coring of the primary phase then leaves more liquid at the eutectic isotherm
+than the lever rule predicts, so even alloys outside the isotherm can contain
+some eutectic. In a peritectic reaction, the product forms a layer between
+the liquid and the primary solid, and further reaction requires diffusion
+through this layer. The reaction therefore often stops before completion.
+
+\paragraph{Isothermal diffusion between two components.}
+At fixed $(T,P)$, both chemical potentials are constant across a two-phase
+mixture, because the coexisting phases share one tangent line. If
+diffusion fluxes are driven by gradients of the chemical potentials, no
+flux flows through a two-phase zone, and such a zone cannot grow. In a
+diffusion couple of $A$ and $B$ at fixed temperature, only one-phase layers
+form, in the order of the one-phase regions that the isotherm crosses in
+the diagram. Each two-phase region appears only as a sharp interface between
+two layers.
+
+
+\subsection{Assembly Rules for Isobaric Diagrams}
+
+\paragraph{Five rules.}
+The phase rule and the preceding sections restrict how one-phase,
+two-phase and three-phase equilibria fit together in an isobaric binary
+diagram:
+\begin{enumerate}
+    \item Two one-phase regions touch only at isolated congruent points,
+    never along a line. By the Gibbs--Konovalov relation, equal compositions
+    of two coexisting phases make the temperature stationary, which occurs
+    only at isolated points.
+    \item Two neighboring one-phase regions are separated by the two-phase
+    region of the same two phases.
+    \item Three two-phase regions end on every three-phase isotherm, one for
+    each pair of the three phases, so six boundaries meet each isotherm.
+    \item Two three-phase isotherms are connected by a two-phase region only
+    if they share two phases.
+    \item At a three-phase isotherm, the metastable extension of every
+    two-phase boundary lies in a two-phase region, never in a one-phase
+    region. This rule is the binary counterpart of the extension rule for
+    the triple curves of the unary system.
+\end{enumerate}
+
+\paragraph{A diagram from the univariant equilibria.}
+The melting and polymorphic points of the components and of the congruent
+compounds, the three-phase isotherms and the critical points fix the
+arrangement of the two-phase regions. Usually, only one arrangement
+satisfies the five rules, and measurements then fix the exact positions of
+the boundaries.
+
+
+\subsection{Pressure: $P$--$T$ Projections and Their Sections}
+\label{sec:pressure}
+
+\paragraph{The gas phase.}
+Isobaric diagrams of condensed systems usually omit the gas phase. A gas
+phase is present whenever a solid or liquid does not fill a sealed
+container, so the omission describes the equilibrium incompletely. The
+omission is harmless when the pressure lies far above the vapor pressures
+of the condensed phases. Otherwise, the pressure must be included.
+
+\paragraph{An isomorphous system with a gas phase.}
+\textcolor{red}{Here, $\ell_v$ denotes the latent heat of vaporization per
+particle, and $T_{b,i}$ the boiling temperature of pure $i$ at the
+reference pressure $P=1$.}
+Figure~\ref{fig:pressure} adds an ideal gas solution to the isomorphous model,
+with $\mu_i^{\circ,g}-\mu_i^{\circ,s}=s_f(T_i-T)+\ell_v(1-T/T_{b,i})+k_BT\ln P$.
+Each pure component contributes three triple curves in the $P$--$T$
+projection: sublimation ($G\alpha$), melting ($L\alpha$) and vaporization
+($GL$), which meet at the triple points $O_A$ and $O_B$. The binary
+three-phase curve $GL\alpha$ joins the two triple points. The isobaric
+sections follow from the same convex-hull construction:
+\begin{itemize}
+    \item At $p_1$, above both triple points, the section contains two
+    separate lenses, $L+\alpha$ for melting and $L+G$ for boiling.
+    \item At $p_2$, between the triple points, the section crosses the
+    $GL\alpha$ curve. The two lenses then end on a three-phase isotherm, on
+    which the liquid decomposes on cooling into gas and solid, $L\to\alpha+G$,
+    a eutectic-type reaction with a gas phase.
+    \item At $p_3$, below both triple points, no liquid exists, and every
+    alloy sublimes directly.
+\end{itemize}
+Isothermal $P$--$X$ sections follow from the projection in the same way, with
+the positions of the fields reversed, because the dense phases are stable at
+high pressure but at low temperature.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[line width=0.6pt]
+    \input{figs/binary_pressure.tex}
+\end{tikzpicture}
+\caption{Isomorphous system with solid ($\alpha$), liquid ($L$) and gas ($G$)
+solutions, all ideal, computed from the convex hull. (a) $P$--$T$ projection
+with the triple curves of the pure components and the binary three-phase
+curve $GL\alpha$. (b)--(d) Isobaric $T$--$X$ sections at the pressures
+marked in (a). Parameters: $T_A=1$, $T_B=1.4$, $s_f=1.2$, $\ell_v=10$,
+$T_{b,A}=1.8$, $T_{b,B}=2.4$, with $k_B=1$.}
+\label{fig:pressure}
+\end{figure}
+
+\paragraph{Quadruple points.}
+In a system with a eutectic, the gas, the liquid and the two solids coexist
+at a quadruple point $Q$ of the $P$--$T$ projection
+(Fig.~\ref{fig:quadruple}). Four three-phase curves, the
+\textcolor{blue}{quadruple curves}, meet at $Q$, one for each set of three of
+the four phases: $L\alpha\beta$, $G\alpha\beta$, $GL\alpha$ and $GL\beta$. At a
+quadruple point of the eutectic class, the $L\alpha\beta$ curve rises nearly
+vertically, the $G\alpha\beta$ curve runs toward lower temperature, and the
+$GL\alpha$ and $GL\beta$ curves run toward higher temperature, to the triple
+points of the components. Both components contribute to the vapor pressure
+of the $\alpha+\beta$ mixture, so the $G\alpha\beta$ curve lies above both
+sublimation curves. At a quadruple point of the peritectic class, the
+arrangement is reversed, with one curve toward higher and two toward lower
+temperature. Isobaric sections above $Q$ give the ordinary eutectic diagram.
+Sections between $Q$ and the triple points confine the liquid to a range of
+compositions, and sections below $Q$ contain no liquid.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
+    % axes
+    \draw[->] (0,0) -- (7,0) node[right] {$T$};
+    \draw[->] (0,0) -- (0,5.4) node[above] {$\ln P$};
+    % quadruple point and triple points (schematic)
+    \coordinate (Q) at (1.6,2.2);
+    \coordinate (OA) at (3.2,3.3);
+    \coordinate (OB) at (4.8,1.5);
+    % quadruple curves
+    \draw (Q) -- (1.75,5.0) node[above, font=\scriptsize] {$L\alpha\beta$};
+    \draw (Q) .. controls (1.0,1.7) and (0.5,1.3) .. (0.2,1.1)
+        node[above right, font=\scriptsize] {$G\alpha\beta$};
+    \draw (Q) .. controls (2.1,2.6) and (2.7,3.0) .. (OA);
+    \draw (Q) .. controls (2.6,3.0) and (4.1,2.9) .. (OB);
+    \node[font=\scriptsize, above left] at (2.3,2.75) {$GL\alpha$};
+    \node[font=\scriptsize] at (3.55,2.25) {$GL\beta$};
+    % triple curves of A
+    \draw (OA) -- (3.35,5.0) node[above, font=\scriptsize] {$L\alpha_A$};
+    \draw (OA) .. controls (4.6,4.0) and (5.6,4.4) .. (6.6,4.9)
+        node[right, font=\scriptsize] {$GL_A$};
+    \draw (OA) .. controls (2.7,2.1) and (1.7,0.9) .. (0.4,0.45);
+    \node[font=\scriptsize] at (2.35,1.35) {$G\alpha_A$};
+    % triple curves of B
+    \draw (OB) -- (5.0,5.0) node[above, font=\scriptsize] {$L\beta_B$};
+    \draw (OB) .. controls (5.6,2.2) and (6.2,2.8) .. (6.7,3.3)
+        node[right, font=\scriptsize] {$GL_B$};
+    \draw (OB) .. controls (3.5,0.8) and (2.0,0.3) .. (0.6,0.1);
+    \node[font=\scriptsize] at (3.0,0.3) {$G\beta_B$};
+    % points
+    \fill (Q) circle (2pt) node[left, font=\scriptsize] {$Q$};
+    \fill (OA) circle (2pt) node[right, font=\scriptsize] {$O_A$};
+    \fill (OB) circle (2pt) node[below right, font=\scriptsize] {$O_B$};
+\end{tikzpicture}
+\caption{Schematic $P$--$T$ projection of a binary eutectic system with the
+quadruple point $Q$, the four quadruple curves and the triple curves of the
+components.}
+\label{fig:quadruple}
+\end{figure}
+
+\subsection{Isothermal $P$--$X$ Section of a Liquid--Vapor System}
 
 \paragraph{Raoult's law.}
 \textcolor{red}{Here, $P_i$ denotes the partial pressure of component $i$ in
 the vapor, $P_i^*(T)$ the vapor pressure of pure liquid $i$, and $X^l$ and
 $X^g$ the compositions of the liquid and the vapor.}
 An ideal gas mixture has $\mu_i^g=\mu_i^{\circ,g}(T)+k_BT\ln P_i$, with
-$P_i=x_i^gP$. For the pure liquid in equilibrium with its vapor,
+$P_i=x_i^gP$. For the pure liquid in equilibrium with the vapor,
 $\mu_i^{\circ,l}=\mu_i^{\circ,g}(T)+k_BT\ln P_i^*$, where the weak pressure
 dependence of the liquid is neglected. An ideal liquid solution has
 $\mu_i^l=\mu_i^{\circ,l}+k_BT\ln x_i^l$, and the equality
@@ -367,131 +841,3 @@ down, because the liquid is stable at low $T$ but at high $P$.
 line: tie line.}
 \label{fig:binary-PX}
 \end{figure}
-
-\subsection{The $P$--$T$ Projection}
-
-\paragraph{Projecting the $X$--$P$--$T$ diagram.}
-A projection of the $X$--$P$--$T$ diagram along $X$ collects every
-composition in one $P$--$T$ plane. The vapor-pressure curves of the two
-pure components appear at $X=0$ and $X=1$, each ending at the critical point
-of that component. A slice at fixed overall composition, an
-\textcolor{blue}{isopleth}, gives a loop between these two curves, with the
-bubble curve on the high-pressure side and the dew curve on the
-low-pressure side (Fig.~\ref{fig:binary-PT}). The loop closes at the
-critical point of the mixture, and the critical points of all compositions
-form the \textcolor{blue}{critical locus} that joins the two pure critical
-points. The univariant three-phase equilibria of the $X$--$P$--$T$ diagram
-project to curves, and the quadruple points project to points. The
-projection therefore shows at a glance which temperatures and pressures
-allow more than one phase for some composition.
-
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt, xscale=1.8, yscale=1.25]
-    % axes
-    \draw[->] (0,0) -- (4.2,0) node[right] {$T$};
-    \draw[->] (0,0) -- (0,4.2) node[above] {$P$};
-    % pure component 2 (more volatile) and pure component 1
-    \draw (0.4,0.8) .. controls (1.2,1.4) and (1.8,2.2) .. (2.2,3.1);
-    \draw (0.4,0.12) .. controls (1.8,0.4) and (3,1.5) .. (3.6,2.6);
-    \fill (2.2,3.1) circle (1.6pt);
-    \fill (3.6,2.6) circle (1.6pt);
-    \node[left] at (2.2,3.1) {$C_2$};
-    \node[right] at (3.6,2.6) {$C_1$};
-    % critical locus
-    \draw[dashed] (2.2,3.1) .. controls (2.6,3.6) and (3.2,3.3) .. (3.6,2.6);
-    % isopleth loop for one composition
-    \draw[line width=1.2pt] (0.4,0.55) .. controls (1.5,1.3) and (2.5,2.6) .. (2.9,3.38);
-    \draw[line width=1.2pt] (0.4,0.30) .. controls (1.8,0.7) and (2.8,2.2) .. (2.9,3.38);
-    % labels
-    \node[above left] at (1.3,1.75) {$X=1$};
-    \node[below right] at (2.4,0.95) {$X=0$};
-    \node[align=center, above] at (2.9,3.55) {critical locus};
-\end{tikzpicture}
-\caption{Schematic $P$--$T$ projection of a binary liquid--vapor system.
-Thin lines: vapor-pressure curves of the pure components, ending at the
-critical points $C_1$ and $C_2$. Thick loop: isopleth at one composition.
-Dashed curve: critical locus.}
-\label{fig:binary-PT}
-\end{figure}
-
-\subsection{Beyond the Ideal Solution: Miscibility Gap}
-\label{sec:gap}
-
-\paragraph{Spinodal and critical temperature.}
-For $w>0$, the regular solution favors like pairs, and at low temperature
-the curve $g_{\text{reg}}(X)$ becomes concave in a central range of
-compositions. Inside this range, a homogeneous solution is unstable against
-small composition fluctuations. The boundary is the
-\textcolor{blue}{spinodal}, where the curvature vanishes:
-\begin{equation*}
-    \frac{\partial^2g_{\text{reg}}}{\partial X^2}
-    =\frac{k_BT}{X(1-X)}-2w=0.
-\end{equation*}
-Hence
-\begin{equation}
-    \boxed{T_{\text{sp}}(X)=\frac{2w}{k_B}\,X(1-X),\qquad
-    T_c=\frac{w}{2k_B}.}
-\end{equation}
-The spinodal reaches its maximum, the critical temperature $T_c$, at
-$X=1/2$. Above $T_c$, the components mix at every composition.
-
-\paragraph{The binodal from the common tangent.}
-Below $T_c$, the convex hull of the single curve $g_{\text{reg}}(X)$ has a
-common tangent that touches the curve at two compositions, and the solution
-splits into two solutions with the same structure. The linear terms of $g$
-do not affect the tangent points, and the remaining curve is symmetric
-about $X=1/2$, so the common tangent is horizontal after the linear terms
-are removed. The tangent points therefore satisfy
-$k_BT\ln[X/(1-X)]+w(1-2X)=0$, which gives the
-\textcolor{blue}{binodal}
-\begin{equation}
-    \boxed{T_{\text{b}}(X)=\frac{w}{k_B}\,\frac{1-2X}{\ln[(1-X)/X]}.}
-\end{equation}
-The region under the binodal is the \textcolor{blue}{miscibility gap}
-(Fig.~\ref{fig:binary-gap}). Between the binodal and the spinodal, a
-homogeneous solution is metastable, as a supercooled liquid is in the unary
-system. Inside the spinodal, the solution is unstable and separates
-spontaneously.
-
-\begin{figure}[htbp]
-\centering
-\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
-    % axes: x = 6X, y = 4 T/T_c
-    \draw[->] (0,0) -- (6.8,0) node[right] {$X$};
-    \draw[->] (0,0) -- (0,4.8) node[above] {$T$};
-    \draw (6,0) -- (6,4.6);
-    \node[below] at (0,0) {$0$};
-    \node[below] at (6,0) {$1$};
-    \node[below] at (3,0) {$\tfrac12$};
-    % binodal T/T_c = 2(1-2X)/ln((1-X)/X)
-    \draw[domain=0.002:0.4995, smooth, samples=80, variable=\t]
-        plot ({6*\t},{4*2*(1-2*\t)/ln((1-\t)/\t)});
-    \draw[domain=0.5005:0.998, smooth, samples=80, variable=\t]
-        plot ({6*\t},{4*2*(1-2*\t)/ln((1-\t)/\t)});
-    % spinodal T/T_c = 4X(1-X)
-    \draw[dashed, domain=0:1, smooth, samples=60, variable=\t]
-        plot ({6*\t},{4*4*\t*(1-\t)});
-    % critical point
-    \fill (3,4) circle (2pt);
-    \node[above, yshift=3pt] at (3,4) {$T_c$};
-    % labels
-    \node at (3,1.6) {unstable};
-    \draw[line width=0.4pt] (5.3,2.4) -- (6.3,2.4) node[right] {metastable};
-    \node at (4.5,4.45) {one solution};
-\end{tikzpicture}
-\caption{Miscibility gap of a regular solution. Solid curve: binodal
-(coexistence). Dashed curve: spinodal (limit of metastability).}
-\label{fig:binary-gap}
-\end{figure}
-
-\paragraph{Toward eutectic and peritectic systems.}
-A miscibility gap in the solid that meets the melting lens, or components
-with different crystal structures, produce a three-phase equilibrium at
-fixed pressure. By the phase rule at fixed $P$, three phases coexist at a
-single temperature, the eutectic or peritectic temperature, where a liquid
-transforms into two solids or a liquid and a solid transform into another
-solid. Non-ideal solid and liquid solutions can also make the liquidus and
-the solidus touch at a minimum or a maximum, where the two phases have the
-same composition and the alloy melts congruently, as a pure substance
-does. These systems are the subject of the next section.
