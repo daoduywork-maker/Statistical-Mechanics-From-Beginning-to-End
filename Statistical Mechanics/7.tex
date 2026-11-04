@@ -32,3 +32,491 @@ structure gains one dimension:
     volumes meet there. This point is therefore also called the
     \textcolor{blue}{quadruple point}.
 \end{itemize}
+
+\subsection{Gibbs Free Energy of a Binary Solution}
+
+\paragraph{Mechanical mixture and solution.}
+\textcolor{red}{From here on, $\mu_i^{\circ,\alpha}(T,P)$ denotes the
+chemical potential of pure component $i$ in the structure of phase
+$\alpha$, and $g^\alpha(T,P,X)\equiv G^\alpha/N$ denotes the Gibbs free
+energy per particle of phase $\alpha$, with $N=N_1+N_2$. The superscript
+$\alpha$ is dropped when only one phase is discussed.}
+The composition dependence of $g$ decides which phases coexist in a binary
+system. If the two components stay unmixed, as two separate piles, the Gibbs
+free energy per particle is linear in the composition,
+$(1-X)\mu_1^\circ+X\mu_2^\circ$. A \textcolor{blue}{solution} mixes the two
+components on the atomic scale and adds the free energy of mixing,
+$\Delta g_{\text{mix}}=\Delta h_{\text{mix}}-T\Delta s_{\text{mix}}$:
+\begin{equation}
+    \boxed{g(T,P,X)=(1-X)\,\mu_1^\circ+X\,\mu_2^\circ
+    +\Delta h_{\text{mix}}-T\Delta s_{\text{mix}}.}
+\end{equation}
+
+\paragraph{The ideal solution.}
+In an \textcolor{blue}{ideal solution}, the two components interact
+identically, so $\Delta h_{\text{mix}}=0$, and only the mixing entropy
+remains. The $N_1$ particles of component 1 and the $N_2$ particles of
+component 2 occupy $N$ sites in
+\begin{equation*}
+    \Omega=\frac{N!}{N_1!\,N_2!}
+\end{equation*}
+distinguishable ways. With Stirling's approximation,
+$\ln N!\approx N\ln N-N$,
+\begin{equation*}
+    \ln\Omega\approx N\ln N-N_1\ln N_1-N_2\ln N_2
+    =-N\big[X\ln X+(1-X)\ln(1-X)\big],
+\end{equation*}
+so $\Delta s_{\text{mix}}=k_B\ln\Omega/N$ and
+\begin{equation}
+    \boxed{g_{\text{id}}(T,P,X)=(1-X)\,\mu_1^\circ+X\,\mu_2^\circ
+    +k_BT\big[X\ln X+(1-X)\ln(1-X)\big].}
+\end{equation}
+This mixing entropy is the positive $\Delta S_{\text{mix}}$ of
+distinguishable species from the Gibbs paradox, now per particle and at any
+composition. The slope of the mixing term diverges as $X\to0$ or $X\to1$, so
+a small amount of a second component always lowers $g$. For this reason, a
+perfectly pure substance is never the equilibrium state at $T>0$.
+
+\paragraph{The regular solution.}
+\textcolor{red}{Here, $w$ denotes the interaction parameter per particle.}
+Real components interact differently. In the simplest model, each particle
+has $z$ nearest neighbors, and the bond energies are $\epsilon_{11}$,
+$\epsilon_{22}$ and $\epsilon_{12}$. If the particles remain randomly mixed,
+the mixing energy is
+\begin{equation*}
+    \Delta h_{\text{mix}}=w\,X(1-X),\qquad
+    w=z\left[\epsilon_{12}-\tfrac12(\epsilon_{11}+\epsilon_{22})\right].
+\end{equation*}
+The \textcolor{blue}{regular solution} keeps the ideal mixing entropy and
+adds this energy:
+\begin{equation}
+    \boxed{g_{\text{reg}}(T,P,X)=g_{\text{id}}(T,P,X)+w\,X(1-X).}
+\end{equation}
+Unlike pairs are favored for $w<0$, and like pairs are favored for $w>0$.
+Section~\ref{sec:gap} shows that $w>0$ can split one solution into two.
+
+\subsection{Chemical Potentials as Tangent Intercepts}
+
+\paragraph{Chemical potentials from $g(X)$.}
+The Gibbs free energy of a phase is $G=N\,g(T,P,X)$ with $X=N_2/N$. At fixed
+$(T,P)$, the derivatives $\partial X/\partial N_2|_{N_1}=(1-X)/N$ and
+$\partial X/\partial N_1|_{N_2}=-X/N$ give
+\begin{equation*}
+    \mu_2=\frac{\partial G}{\partial N_2}\bigg|_{T,P,N_1}
+    =g+N\frac{\partial g}{\partial X}\,\frac{1-X}{N},
+    \qquad
+    \mu_1=\frac{\partial G}{\partial N_1}\bigg|_{T,P,N_2}
+    =g-N\frac{\partial g}{\partial X}\,\frac{X}{N},
+\end{equation*}
+that is,
+\begin{equation}
+    \boxed{\mu_1=g-X\,\frac{\partial g}{\partial X},\qquad
+    \mu_2=g+(1-X)\,\frac{\partial g}{\partial X}.}
+    \label{eq:tangent-intercepts}
+\end{equation}
+The tangent line to $g$ at $X$ therefore meets the axis $X=0$ at $\mu_1$
+and the axis $X=1$ at $\mu_2$. This construction is the Legendre
+construction of the unary system with two intercepts instead of one. The
+Euler relation, $g=(1-X)\mu_1+X\mu_2$, follows directly from
+Eq.~\eqref{eq:tangent-intercepts}.
+
+\paragraph{Chemical potentials of an ideal solution.}
+For the ideal solution, $\partial g_{\text{id}}/\partial X
+=\mu_2^\circ-\mu_1^\circ+k_BT\ln[X/(1-X)]$, and
+Eq.~\eqref{eq:tangent-intercepts} gives
+\begin{equation}
+    \boxed{\mu_i=\mu_i^\circ+k_BT\ln x_i,\qquad x_1=1-X,\quad x_2=X.}
+    \label{eq:ideal-mu}
+\end{equation}
+Each component therefore lowers its chemical potential below the pure value
+by $k_BT\ln x_i$, the entropic gain of dilution.
+
+\subsection{Two-Phase Equilibrium: Common Tangent and Lever Rule}
+
+\paragraph{Equal chemical potentials as a common tangent.}
+Two phases, $\alpha$ and $\beta$, at the same $(T,P)$ have separate curves
+$g^\alpha(X)$ and $g^\beta(X)$. The phases coexist with compositions
+$X^\alpha$ and $X^\beta$ when both chemical potentials match,
+$\mu_1^\alpha=\mu_1^\beta$ and $\mu_2^\alpha=\mu_2^\beta$. By
+Eq.~\eqref{eq:tangent-intercepts}, the tangent lines at $X^\alpha$ and
+$X^\beta$ then have the same intercepts at $X=0$ and at $X=1$, so the two
+lines coincide:
+\begin{equation}
+    \boxed{g^{\alpha\prime}(X^\alpha)=g^{\beta\prime}(X^\beta)
+    =\frac{g^\beta(X^\beta)-g^\alpha(X^\alpha)}{X^\beta-X^\alpha}.}
+\end{equation}
+This condition is the \textcolor{blue}{common tangent construction}
+(Fig.~\ref{fig:binary-gX}). The unary construction on $f(v)$ needed one
+intercept, because the unary system has one chemical potential. The binary
+construction fixes two intercepts, one for each component.
+
+\paragraph{The equilibrium $g$ is the convex hull.}
+At fixed $(T,P,N_1,N_2)$, the system minimizes $G$. An overall composition
+$X$ between $X^\alpha$ and $X^\beta$ can split into the two phases, and the
+free energy of this mixture lies on the straight segment of the common
+tangent. Where both single-phase curves lie above the segment, the two-phase
+mixture is stable. The equilibrium $g(X)$ is therefore the convex hull of
+all the single-phase curves. A composition on a curved part of the hull is a
+single phase, and a composition on a straight part splits into the two
+phases at the ends of the segment. The phase rule agrees, because at fixed
+$(T,P)$, $F=4-\mathcal{P}-2=0$ for two phases, so the compositions
+$X^\alpha$ and $X^\beta$ are fixed.
+
+\paragraph{The lever rule on a tie line.}
+\textcolor{red}{Here, $n_\alpha\equiv N^\alpha/N$ denotes the fraction of all
+particles in phase $\alpha$, with $N^\alpha=N_1^\alpha+N_2^\alpha$.}
+In a phase diagram, the segment between $X^\alpha$ and $X^\beta$ at fixed
+$(T,P)$ is a \textcolor{blue}{tie line}. Conservation of the particle number
+and of component 2 gives
+\begin{equation*}
+    n_\alpha+n_\beta=1,\qquad n_\alpha X^\alpha+n_\beta X^\beta=X,
+\end{equation*}
+and hence the \textcolor{blue}{lever rule}
+\begin{equation}
+    \boxed{n_\alpha=\frac{X^\beta-X}{X^\beta-X^\alpha},\qquad
+    n_\beta=\frac{X-X^\alpha}{X^\beta-X^\alpha}.}
+\end{equation}
+The rule is the unary lever rule with the composition $X$ in place of the
+volume $v$.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
+    % axes: X from 0 to 1 (x = 6X), g plotted as 3.5(g+0.85)
+    \draw[->] (0,0) -- (6.8,0) node[right] {$X$};
+    \draw[->] (0,0) -- (0,5.6) node[above] {$g$};
+    \draw (6,0) -- (6,5.4);
+    \node[below] at (0,0) {$0$};
+    \node[below] at (6,0) {$1$};
+    % solid: ideal solution, mu_i^s = 0, k_BT = 0.5
+    \draw[domain=0.002:0.998, smooth, samples=80, variable=\t]
+        plot ({6*\t},{3.5*(0.85+0.5*(\t*ln(\t)+(1-\t)*ln(1-\t)))});
+    % liquid: mu_1^l = -0.6, mu_2^l = +0.6
+    \draw[domain=0.002:0.998, smooth, samples=80, variable=\t]
+        plot ({6*\t},{3.5*(0.85-0.6*(1-\t)+0.6*\t+0.5*(\t*ln(\t)+(1-\t)*ln(1-\t)))});
+    % common tangent: slope 0.6, intercepts mu_1 = -0.732, mu_2 = -0.132
+    \draw[dotted] (0,0.414) -- (1.389,0.900);
+    \draw[line width=1.6pt] (1.389,0.900) -- (4.611,2.028);
+    \draw[dotted] (4.611,2.028) -- (6,2.514);
+    \fill (1.389,0.900) circle (2pt);
+    \fill (4.611,2.028) circle (2pt);
+    \draw[dashed] (1.389,0.900) -- (1.389,0) node[below] {$X^l$};
+    \draw[dashed] (4.611,2.028) -- (4.611,0) node[below] {$X^s$};
+    % intercepts
+    \node[left] at (0,0.414) {$\mu_1$};
+    \node[right] at (6,2.514) {$\mu_2$};
+    % labels
+    \node[left] at (5.3,4.3) {$g^l$};
+    \node[above right] at (0.3,2.8) {$g^s$};
+\end{tikzpicture}
+\caption{Common tangent construction for a solid ($s$) and a liquid ($l$)
+solution at fixed $(T,P)$. Thick line: two-phase mixture on the convex hull.
+Intercepts: the common chemical potentials $\mu_1$ and $\mu_2$.}
+\label{fig:binary-gX}
+\end{figure}
+
+\subsection{Isobaric $T$--$X$ Diagram of an Isomorphous System}
+
+\paragraph{Isomorphous systems and the phase rule at fixed pressure.}
+Two components are \textcolor{blue}{isomorphous} when they dissolve
+completely in each other in both the liquid and the solid. This behavior
+requires the same crystal structure and similar atomic sizes, as in Cu--Ni,
+Si--Ge and Ag--Au. Most experiments on condensed phases run at a fixed
+pressure, so the phase diagram is the $T$--$X$ slice of the $X$--$P$--$T$
+diagram. With $P$ fixed, the phase rule becomes
+\begin{equation}
+    \boxed{F=C+1-\mathcal{P}=3-\mathcal{P}.}
+\end{equation}
+A single phase fills an area ($F=2$), and two coexisting phases at a chosen
+$T$ have fixed compositions ($F=1$), which form a tie line.
+
+\paragraph{Coexistence of ideal solid and liquid solutions.}
+If both the solid and the liquid are ideal solutions,
+Eq.~\eqref{eq:ideal-mu} turns the equilibrium condition
+$\mu_i^s=\mu_i^l$ into
+\begin{equation*}
+    \mu_i^{\circ,s}+k_BT\ln x_i^s=\mu_i^{\circ,l}+k_BT\ln x_i^l,
+    \qquad\text{so}\qquad
+    \frac{x_i^s}{x_i^l}=\exp\!\left(\frac{\mu_i^{\circ,l}-\mu_i^{\circ,s}}{k_BT}\right).
+\end{equation*}
+Pure component $i$ melts at $T_i$ with the latent heat per particle
+$\ell_i$. For a constant $\ell_i$, the entropy of fusion is $\ell_i/T_i$,
+so $\mu_i^{\circ,l}-\mu_i^{\circ,s}=\ell_i(1-T/T_i)$, and
+\begin{equation}
+    \boxed{k_i(T)\equiv\frac{x_i^s}{x_i^l}
+    =\exp\!\left[\frac{\ell_i}{k_B}\left(\frac{1}{T}-\frac{1}{T_i}\right)\right].}
+\end{equation}
+The two conditions $x_1^s+x_2^s=1$ and $x_1^l+x_2^l=1$ then give
+$k_1(1-X^l)+k_2X^l=1$, and therefore
+\begin{equation}
+    \boxed{X^l(T)=\frac{1-k_1}{k_2-k_1},\qquad X^s(T)=k_2\,X^l(T).}
+\end{equation}
+
+\paragraph{The liquidus, the solidus and the lens.}
+The curve $X^l(T)$ is the \textcolor{blue}{liquidus}, above which the system
+is fully liquid. The curve $X^s(T)$ is the \textcolor{blue}{solidus}, below
+which the system is fully solid. At $T=T_1$, $k_1=1$, and both curves reach
+$X=0$. At $T=T_2$, $k_2=1$, and both reach $X=1$. Between the two melting
+points, the curves enclose a lens-shaped two-phase region
+(Fig.~\ref{fig:binary-lens}). For $T_1<T<T_2$, $k_2>1$, so
+$X^s>X^l$, and the solid is richer than the liquid in the component with
+the higher melting point.
+
+\paragraph{Equilibrium cooling through the lens.}
+A liquid of overall composition $X_0$ starts to solidify at the liquidus
+temperature $T_L$, where the first solid has the composition $X^s(T_L)>X_0$.
+On further cooling, the liquid composition follows the liquidus, the solid
+composition follows the solidus, and the lever rule gives the amount of each
+phase on the tie line at every temperature. The last liquid disappears at
+the solidus temperature $T_S$, where the solid composition reaches $X_0$.
+A binary alloy therefore melts over the range $T_S<T<T_L$ instead of at a
+single temperature. At fixed $X_0$, the latent heat is released gradually
+over this range, so the entropy has no jump. Only the heat capacity jumps,
+at $T_L$ and at $T_S$, unlike the single crease of a unary transition.
+
+\paragraph{Non-equilibrium solidification.}
+Equilibrium cooling requires the solid to change its composition along the
+solidus. Diffusion in a solid is slow, so in practice the first solid keeps
+its high content of component 2. The grains then have a composition
+gradient, called \textcolor{blue}{coring}, and the remaining liquid becomes
+richer in component 1 than the diagram predicts. Zone refining uses the
+same separation to purify silicon, because each pass of a molten zone
+pushes the impurity into the liquid.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
+    % axes: x = 6X, y = 7(T - 0.9); T_1 = 1.0, T_2 = 1.6,
+    % l_1/k_B = 1.3, l_2/k_B = 2.1
+    \draw[->] (0,0) -- (6.8,0) node[right] {$X$};
+    \draw[->] (0,0) -- (0,5.6) node[above] {$T$};
+    \draw (6,0) -- (6,5.4);
+    \node[below] at (0,0) {$0$};
+    \node[below] at (6,0) {$1$};
+    % liquidus X^l(T)
+    \draw[domain=1.0005:1.5995, smooth, samples=60, variable=\t]
+        plot ({6*(1-exp(1.3*(1/\t-1)))/(exp(2.1*(1/\t-1/1.6))-exp(1.3*(1/\t-1)))},
+              {7*(\t-0.9)});
+    % solidus X^s(T)
+    \draw[domain=1.0005:1.5995, smooth, samples=60, variable=\t]
+        plot ({6*exp(2.1*(1/\t-1/1.6))*(1-exp(1.3*(1/\t-1)))/(exp(2.1*(1/\t-1/1.6))-exp(1.3*(1/\t-1)))},
+              {7*(\t-0.9)});
+    % melting points
+    \node[left] at (0,0.7) {$T_1$};
+    \node[right] at (6,4.9) {$T_2$};
+    % cooling path at X_0 = 0.4 and tie line at T = 1.25
+    \draw[dashed] (2.4,5.2) -- (2.4,0) node[below] {$X_0$};
+    \draw[line width=1.6pt] (2.041,2.45) -- (2.947,2.45);
+    \fill (2.041,2.45) circle (2pt);
+    \fill (2.947,2.45) circle (2pt);
+    \draw[dotted] (0,2.705) node[left] {$T_L$} -- (2.4,2.705);
+    \draw[dotted] (0,2.077) node[left] {$T_S$} -- (2.4,2.077);
+    % region labels
+    \node at (1.6,4.4) {liquid};
+    \node at (4.6,1.2) {solid};
+    \draw[line width=0.4pt] (4.2,3.64) -- (5.0,2.6) node[below] {$l+s$};
+\end{tikzpicture}
+\caption{Isobaric $T$--$X$ diagram of an isomorphous system with ideal solid
+and liquid solutions. Upper curve: liquidus. Lower curve: solidus. Thick
+line: tie line at one temperature during cooling of the composition $X_0$.}
+\label{fig:binary-lens}
+\end{figure}
+
+\subsection{Isothermal $P$--$X$ Diagram of a Liquid--Vapor System}
+
+\paragraph{Raoult's law.}
+\textcolor{red}{Here, $P_i$ denotes the partial pressure of component $i$ in
+the vapor, $P_i^*(T)$ the vapor pressure of pure liquid $i$, and $X^l$ and
+$X^g$ the compositions of the liquid and the vapor.}
+An ideal gas mixture has $\mu_i^g=\mu_i^{\circ,g}(T)+k_BT\ln P_i$, with
+$P_i=x_i^gP$. For the pure liquid in equilibrium with its vapor,
+$\mu_i^{\circ,l}=\mu_i^{\circ,g}(T)+k_BT\ln P_i^*$, where the weak pressure
+dependence of the liquid is neglected. An ideal liquid solution has
+$\mu_i^l=\mu_i^{\circ,l}+k_BT\ln x_i^l$, and the equality
+$\mu_i^l=\mu_i^g$ gives \textcolor{blue}{Raoult's law}:
+\begin{equation}
+    \boxed{P_i=x_i^l\,P_i^*.}
+\end{equation}
+
+\paragraph{The bubble curve and the dew curve.}
+The total pressure is the sum of the partial pressures,
+\begin{equation}
+    \boxed{P=(1-X^l)\,P_1^*+X^l\,P_2^*,}
+\end{equation}
+which is linear in $X^l$. This line is the \textcolor{blue}{bubble curve},
+where a compressed liquid forms the first bubble of vapor on decompression.
+The vapor composition follows from $X^g=P_2/P=X^lP_2^*/P$. Elimination of
+$X^l$ with $1-X^l=(1-X^g)P/P_1^*$ and $X^l=X^gP/P_2^*$ gives the
+\textcolor{blue}{dew curve}
+\begin{equation}
+    \boxed{P=\left[\frac{1-X^g}{P_1^*}+\frac{X^g}{P_2^*}\right]^{-1},}
+\end{equation}
+where the first drop of liquid forms on compression. The liquid is stable
+above the bubble curve, the vapor below the dew curve, and the two phases
+coexist between them (Fig.~\ref{fig:binary-PX}). The vapor is always richer
+in the more volatile component, the component with the larger $P_i^*$. The
+tie lines are horizontal, and the lever rule applies along them. The
+isobaric $T$--$X$ diagram of the same system is the lens turned upside
+down, because the liquid is stable at low $T$ but at high $P$.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
+    % axes: x = 6X, y = 1.3P; P_1^* = 1, P_2^* = 3
+    \draw[->] (0,0) -- (6.8,0) node[right] {$X$};
+    \draw[->] (0,0) -- (0,4.8) node[above] {$P$};
+    \draw (6,0) -- (6,4.6);
+    \node[below] at (0,0) {$0$};
+    \node[below] at (6,0) {$1$};
+    % bubble curve (linear) and dew curve
+    \draw (0,1.3) -- (6,3.9);
+    \draw[domain=0:1, smooth, samples=50, variable=\t]
+        plot ({6*\t},{1.3/((1-\t)+\t/3)});
+    \node[left] at (0,1.3) {$P_1^*$};
+    \node[right] at (6,3.9) {$P_2^*$};
+    % tie line at P = 1.8 for overall X = 0.5
+    \draw[line width=1.6pt] (2.4,2.34) -- (4.0,2.34);
+    \fill (2.4,2.34) circle (2pt);
+    \fill (4.0,2.34) circle (2pt);
+    \draw[dashed] (2.4,2.34) -- (2.4,0) node[below] {$X^l$};
+    \draw[dashed] (4.0,2.34) -- (4.0,0) node[below] {$X^g$};
+    % labels
+    \node at (1.6,3.6) {liquid};
+    \node at (4.6,1.0) {vapor};
+    \draw[line width=0.4pt] (4.6,2.97) -- (5.3,2.2) node[below] {$l+g$};
+    \node[rotate=23.4, above] at (1.3,2.2) {bubble curve};
+    \node at (1.2,1.05) {dew curve};
+\end{tikzpicture}
+\caption{Isothermal $P$--$X$ diagram of an ideal liquid--vapor system
+($P_2^*=3P_1^*$). Upper line: bubble curve. Lower curve: dew curve. Thick
+line: tie line.}
+\label{fig:binary-PX}
+\end{figure}
+
+\subsection{The $P$--$T$ Projection}
+
+\paragraph{Projecting the $X$--$P$--$T$ diagram.}
+A projection of the $X$--$P$--$T$ diagram along $X$ collects every
+composition in one $P$--$T$ plane. The vapor-pressure curves of the two
+pure components appear at $X=0$ and $X=1$, each ending at the critical point
+of that component. A slice at fixed overall composition, an
+\textcolor{blue}{isopleth}, gives a loop between these two curves, with the
+bubble curve on the high-pressure side and the dew curve on the
+low-pressure side (Fig.~\ref{fig:binary-PT}). The loop closes at the
+critical point of the mixture, and the critical points of all compositions
+form the \textcolor{blue}{critical locus} that joins the two pure critical
+points. The univariant three-phase equilibria of the $X$--$P$--$T$ diagram
+project to curves, and the quadruple points project to points. The
+projection therefore shows at a glance which temperatures and pressures
+allow more than one phase for some composition.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt, xscale=1.8, yscale=1.25]
+    % axes
+    \draw[->] (0,0) -- (4.2,0) node[right] {$T$};
+    \draw[->] (0,0) -- (0,4.2) node[above] {$P$};
+    % pure component 2 (more volatile) and pure component 1
+    \draw (0.4,0.8) .. controls (1.2,1.4) and (1.8,2.2) .. (2.2,3.1);
+    \draw (0.4,0.12) .. controls (1.8,0.4) and (3,1.5) .. (3.6,2.6);
+    \fill (2.2,3.1) circle (1.6pt);
+    \fill (3.6,2.6) circle (1.6pt);
+    \node[left] at (2.2,3.1) {$C_2$};
+    \node[right] at (3.6,2.6) {$C_1$};
+    % critical locus
+    \draw[dashed] (2.2,3.1) .. controls (2.6,3.6) and (3.2,3.3) .. (3.6,2.6);
+    % isopleth loop for one composition
+    \draw[line width=1.2pt] (0.4,0.55) .. controls (1.5,1.3) and (2.5,2.6) .. (2.9,3.38);
+    \draw[line width=1.2pt] (0.4,0.30) .. controls (1.8,0.7) and (2.8,2.2) .. (2.9,3.38);
+    % labels
+    \node[above left] at (1.3,1.75) {$X=1$};
+    \node[below right] at (2.4,0.95) {$X=0$};
+    \node[align=center, above] at (2.9,3.55) {critical locus};
+\end{tikzpicture}
+\caption{Schematic $P$--$T$ projection of a binary liquid--vapor system.
+Thin lines: vapor-pressure curves of the pure components, ending at the
+critical points $C_1$ and $C_2$. Thick loop: isopleth at one composition.
+Dashed curve: critical locus.}
+\label{fig:binary-PT}
+\end{figure}
+
+\subsection{Beyond the Ideal Solution: Miscibility Gap}
+\label{sec:gap}
+
+\paragraph{Spinodal and critical temperature.}
+For $w>0$, the regular solution favors like pairs, and at low temperature
+the curve $g_{\text{reg}}(X)$ becomes concave in a central range of
+compositions. Inside this range, a homogeneous solution is unstable against
+small composition fluctuations. The boundary is the
+\textcolor{blue}{spinodal}, where the curvature vanishes:
+\begin{equation*}
+    \frac{\partial^2g_{\text{reg}}}{\partial X^2}
+    =\frac{k_BT}{X(1-X)}-2w=0.
+\end{equation*}
+Hence
+\begin{equation}
+    \boxed{T_{\text{sp}}(X)=\frac{2w}{k_B}\,X(1-X),\qquad
+    T_c=\frac{w}{2k_B}.}
+\end{equation}
+The spinodal reaches its maximum, the critical temperature $T_c$, at
+$X=1/2$. Above $T_c$, the components mix at every composition.
+
+\paragraph{The binodal from the common tangent.}
+Below $T_c$, the convex hull of the single curve $g_{\text{reg}}(X)$ has a
+common tangent that touches the curve at two compositions, and the solution
+splits into two solutions with the same structure. The linear terms of $g$
+do not affect the tangent points, and the remaining curve is symmetric
+about $X=1/2$, so the common tangent is horizontal after the linear terms
+are removed. The tangent points therefore satisfy
+$k_BT\ln[X/(1-X)]+w(1-2X)=0$, which gives the
+\textcolor{blue}{binodal}
+\begin{equation}
+    \boxed{T_{\text{b}}(X)=\frac{w}{k_B}\,\frac{1-2X}{\ln[(1-X)/X]}.}
+\end{equation}
+The region under the binodal is the \textcolor{blue}{miscibility gap}
+(Fig.~\ref{fig:binary-gap}). Between the binodal and the spinodal, a
+homogeneous solution is metastable, as a supercooled liquid is in the unary
+system. Inside the spinodal, the solution is unstable and separates
+spontaneously.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
+    % axes: x = 6X, y = 4 T/T_c
+    \draw[->] (0,0) -- (6.8,0) node[right] {$X$};
+    \draw[->] (0,0) -- (0,4.8) node[above] {$T$};
+    \draw (6,0) -- (6,4.6);
+    \node[below] at (0,0) {$0$};
+    \node[below] at (6,0) {$1$};
+    \node[below] at (3,0) {$\tfrac12$};
+    % binodal T/T_c = 2(1-2X)/ln((1-X)/X)
+    \draw[domain=0.002:0.4995, smooth, samples=80, variable=\t]
+        plot ({6*\t},{4*2*(1-2*\t)/ln((1-\t)/\t)});
+    \draw[domain=0.5005:0.998, smooth, samples=80, variable=\t]
+        plot ({6*\t},{4*2*(1-2*\t)/ln((1-\t)/\t)});
+    % spinodal T/T_c = 4X(1-X)
+    \draw[dashed, domain=0:1, smooth, samples=60, variable=\t]
+        plot ({6*\t},{4*4*\t*(1-\t)});
+    % critical point
+    \fill (3,4) circle (2pt);
+    \node[above, yshift=3pt] at (3,4) {$T_c$};
+    % labels
+    \node at (3,1.6) {unstable};
+    \draw[line width=0.4pt] (5.3,2.4) -- (6.3,2.4) node[right] {metastable};
+    \node at (4.5,4.45) {one solution};
+\end{tikzpicture}
+\caption{Miscibility gap of a regular solution. Solid curve: binodal
+(coexistence). Dashed curve: spinodal (limit of metastability).}
+\label{fig:binary-gap}
+\end{figure}
+
+\paragraph{Toward eutectic and peritectic systems.}
+A miscibility gap in the solid that meets the melting lens, or components
+with different crystal structures, produce a three-phase equilibrium at
+fixed pressure. By the phase rule at fixed $P$, three phases coexist at a
+single temperature, the eutectic or peritectic temperature, where a liquid
+transforms into two solids or a liquid and a solid transform into another
+solid. Non-ideal solid and liquid solutions can also make the liquidus and
+the solidus touch at a minimum or a maximum, where the two phases have the
+same composition and the alloy melts congruently, as a pure substance
+does. These systems are the subject of the next section.
