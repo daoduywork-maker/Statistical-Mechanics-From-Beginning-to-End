@@ -184,36 +184,7 @@ the latent heat per particle, $\ell=T\Delta s$.
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
-    % axes
-    \draw[->] (0,0) -- (8.4,0) node[right] {$T$};
-    \draw[->] (0,0) -- (0,6) node[above] {$\mu$};
-    % mu_alpha(T) = a - b T - 0.02 T^2 (schematic), plotted as 5.2 + 0.5 mu
-    % solid: stable on [0,5]
-    \draw[domain=0:5, smooth, variable=\t]
-        plot ({0.7*\t},{5.2+0.5*(-0.5*\t-0.02*\t*\t)});
-    \draw[dashed, domain=5:8.5, smooth, variable=\t]
-        plot ({0.7*\t},{5.2+0.5*(-0.5*\t-0.02*\t*\t)});
-    % liquid: stable on [5,7]
-    \draw[dashed, domain=2.5:5, smooth, variable=\t]
-        plot ({0.7*\t},{5.2+0.5*(1.5-0.8*\t-0.02*\t*\t)});
-    \draw[domain=5:7, smooth, variable=\t]
-        plot ({0.7*\t},{5.2+0.5*(1.5-0.8*\t-0.02*\t*\t)});
-    \draw[dashed, domain=7:9, smooth, variable=\t]
-        plot ({0.7*\t},{5.2+0.5*(1.5-0.8*\t-0.02*\t*\t)});
-    % vapor: stable on [7,10]
-    \draw[dashed, domain=4.2:7, smooth, variable=\t]
-        plot ({0.7*\t},{5.2+0.5*(5-1.3*\t-0.02*\t*\t)});
-    \draw[domain=7:10, smooth, variable=\t]
-        plot ({0.7*\t},{5.2+0.5*(5-1.3*\t-0.02*\t*\t)});
-    % transition temperatures
-    \draw[dotted] (3.5,0) node[below] {$T_m$} -- (3.5,3.7);
-    \draw[dotted] (4.9,0) node[below] {$T_b$} -- (4.9,2.66);
-    % labels at the right ends of the curves
-    \node[right] at (5.95,2.35) {solid};
-    \node[right] at (6.3,1.54) {liquid};
-    \node[right] at (7.0,0.2) {vapor};
-\end{tikzpicture}
+\includegraphics{figures/unary-mu-T}
 \caption{Chemical potentials of the solid, liquid and vapor phases at fixed
 pressure. Solid lines: stable branches (lower envelope). Dashed lines:
 metastable branches.}
@@ -289,30 +260,7 @@ critical point itself is a continuous transition and is treated later.
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
-    % axes
-    \draw[->] (0,0) -- (8.2,0) node[right] {$T$};
-    \draw[->] (0,0) -- (0,6) node[above] {$P$};
-    % solid--vapor (sublimation) curve
-    \draw (0.5,0.1) .. controls (1.8,0.35) and (2.6,0.9) .. (3,1.5);
-    % liquid--vapor (vaporization) curve, ending at the critical point
-    \draw (3,1.5) .. controls (4.5,2.2) and (6,3.3) .. (7,4.4);
-    % solid--liquid (melting) curve
-    \draw (3,1.5) -- (3.5,5.6);
-    % triple and critical points
-    \fill (3,1.5) circle (2pt);
-    \fill (7,4.4) circle (2pt);
-    \node[below right] at (3,1.5) {triple point};
-    \node[below right] at (7,4.4) {critical point};
-    % supercritical boundaries (no transition)
-    \draw[dotted] (7,4.4) -- (7,5.6);
-    \draw[dotted] (7,4.4) -- (8,4.4);
-    % phase labels
-    \node at (1.5,3.2) {solid};
-    \node at (4.7,4.0) {liquid};
-    \node at (6.3,0.9) {vapor};
-    \node[align=center] at (7.75,5.2) {super-\\critical};
-\end{tikzpicture}
+\includegraphics{figures/unary-PT}
 \caption{Schematic $P$--$T$ diagram of a unary system with a triple point
 and a liquid--vapor critical point.}
 \label{fig:unary-PT}
@@ -383,28 +331,7 @@ region.
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
-    % axes
-    \draw[->] (0,0) -- (7.4,0) node[right] {$v$};
-    \draw[->] (0,0) -- (0,6.6) node[above] {$f$};
-    % single-phase curve f(v) = tangent + 0.05 (v-2)^2 (v-6)^2, scaled by 0.6
-    \draw[domain=1.4:6.5, smooth, variable=\t, samples=60]
-        plot ({\t},{0.6*(10-1.5*\t+0.05*(\t-2)^2*(\t-6)^2)});
-    % common tangent, extended to v = 0 to show the intercept mu
-    \draw[dotted] (0,6) -- (2,4.2);
-    \draw[line width=1.6pt] (2,4.2) -- (6,0.6);
-    \draw[dotted] (6,0.6) -- (6.6,0.06);
-    % tangent points
-    \fill (2,4.2) circle (2pt);
-    \fill (6,0.6) circle (2pt);
-    \draw[dashed] (2,4.2) -- (2,0) node[below] {$v_l$};
-    \draw[dashed] (6,0.6) -- (6,0) node[below] {$v_g$};
-    % intercept
-    \node[left] at (0,6) {$\mu$};
-    % labels
-    \node[right] at (4.2,2.9) {$f(v)$};
-    \node[align=left, right] at (2.05,0.75) {common tangent,\\ slope $-P_{\text{sat}}$};
-\end{tikzpicture}
+\includegraphics{figures/unary-fv}
 \caption{Common tangent construction on the free energy per particle at
 fixed $T<T_c$. Thick line: equilibrium two-phase mixture (convex hull).}
 \label{fig:unary-fv}

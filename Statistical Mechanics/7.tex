@@ -140,34 +140,7 @@ volume $v$.
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
-    % axes: X from 0 to 1 (x = 6X), g plotted as 3.5(g+0.85)
-    \draw[->] (0,0) -- (6.8,0) node[right] {$X$};
-    \draw[->] (0,0) -- (0,5.6) node[above] {$g$};
-    \draw (6,0) -- (6,5.4);
-    \node[below] at (0,0) {$0$};
-    \node[below] at (6,0) {$1$};
-    % solid: ideal solution, mu_i^s = 0, k_BT = 0.5
-    \draw[domain=0.002:0.998, smooth, samples=80, variable=\t]
-        plot ({6*\t},{3.5*(0.85+0.5*(\t*ln(\t)+(1-\t)*ln(1-\t)))});
-    % liquid: mu_1^l = -0.6, mu_2^l = +0.6
-    \draw[domain=0.002:0.998, smooth, samples=80, variable=\t]
-        plot ({6*\t},{3.5*(0.85-0.6*(1-\t)+0.6*\t+0.5*(\t*ln(\t)+(1-\t)*ln(1-\t)))});
-    % common tangent: slope 0.6, intercepts mu_1 = -0.732, mu_2 = -0.132
-    \draw[dotted] (0,0.414) -- (1.389,0.900);
-    \draw[line width=1.6pt] (1.389,0.900) -- (4.611,2.028);
-    \draw[dotted] (4.611,2.028) -- (6,2.514);
-    \fill (1.389,0.900) circle (2pt);
-    \fill (4.611,2.028) circle (2pt);
-    \draw[dashed] (1.389,0.900) -- (1.389,0) node[below] {$X^l$};
-    \draw[dashed] (4.611,2.028) -- (4.611,0) node[below] {$X^s$};
-    % intercepts
-    \node[left] at (0,0.414) {$\mu_1$};
-    \node[right] at (6,2.514) {$\mu_2$};
-    % labels
-    \node[left] at (5.3,4.3) {$g^l$};
-    \node[above right] at (0.3,2.8) {$g^s$};
-\end{tikzpicture}
+\includegraphics{figures/binary-gX}
 \caption{Common tangent construction for a solid ($s$) and a liquid ($l$)
 solution at fixed $(T,P)$. Thick line: two-phase mixture on the convex hull.
 Intercepts: the common chemical potentials $\mu_1$ and $\mu_2$.}
@@ -386,37 +359,7 @@ pushes the impurity into the liquid.
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
-    % axes: x = 6X, y = 7(T - 0.9); T_1 = 1.0, T_2 = 1.6,
-    % l_1/k_B = 1.3, l_2/k_B = 2.1
-    \draw[->] (0,0) -- (6.8,0) node[right] {$X$};
-    \draw[->] (0,0) -- (0,5.6) node[above] {$T$};
-    \draw (6,0) -- (6,5.4);
-    \node[below] at (0,0) {$0$};
-    \node[below] at (6,0) {$1$};
-    % liquidus X^l(T)
-    \draw[domain=1.0005:1.5995, smooth, samples=60, variable=\t]
-        plot ({6*(1-exp(1.3*(1/\t-1)))/(exp(2.1*(1/\t-1/1.6))-exp(1.3*(1/\t-1)))},
-              {7*(\t-0.9)});
-    % solidus X^s(T)
-    \draw[domain=1.0005:1.5995, smooth, samples=60, variable=\t]
-        plot ({6*exp(2.1*(1/\t-1/1.6))*(1-exp(1.3*(1/\t-1)))/(exp(2.1*(1/\t-1/1.6))-exp(1.3*(1/\t-1)))},
-              {7*(\t-0.9)});
-    % melting points
-    \node[left] at (0,0.7) {$T_1$};
-    \node[right] at (6,4.9) {$T_2$};
-    % cooling path at X_0 = 0.4 and tie line at T = 1.25
-    \draw[dashed] (2.4,5.2) -- (2.4,0) node[below] {$X_0$};
-    \draw[line width=1.6pt] (2.041,2.45) -- (2.947,2.45);
-    \fill (2.041,2.45) circle (2pt);
-    \fill (2.947,2.45) circle (2pt);
-    \draw[dotted] (0,2.705) node[left] {$T_L$} -- (2.4,2.705);
-    \draw[dotted] (0,2.077) node[left] {$T_S$} -- (2.4,2.077);
-    % region labels
-    \node at (1.6,4.4) {liquid};
-    \node at (4.6,1.2) {solid};
-    \draw[line width=0.4pt] (4.2,3.64) -- (5.0,2.6) node[below] {$l+s$};
-\end{tikzpicture}
+\includegraphics{figures/binary-lens}
 \caption{Isobaric $T$--$X$ diagram of an isomorphous system with ideal solid
 and liquid solutions. Upper curve: liquidus. Lower curve: solidus. Thick
 line: tie line at one temperature during cooling of the composition $X_0$.}
@@ -463,30 +406,7 @@ spontaneously.
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
-    % axes: x = 6X, y = 4 T/T_c
-    \draw[->] (0,0) -- (6.8,0) node[right] {$X$};
-    \draw[->] (0,0) -- (0,4.8) node[above] {$T$};
-    \draw (6,0) -- (6,4.6);
-    \node[below] at (0,0) {$0$};
-    \node[below] at (6,0) {$1$};
-    \node[below] at (3,0) {$\tfrac12$};
-    % binodal T/T_c = 2(1-2X)/ln((1-X)/X)
-    \draw[domain=0.002:0.4995, smooth, samples=80, variable=\t]
-        plot ({6*\t},{4*2*(1-2*\t)/ln((1-\t)/\t)});
-    \draw[domain=0.5005:0.998, smooth, samples=80, variable=\t]
-        plot ({6*\t},{4*2*(1-2*\t)/ln((1-\t)/\t)});
-    % spinodal T/T_c = 4X(1-X)
-    \draw[dashed, domain=0:1, smooth, samples=60, variable=\t]
-        plot ({6*\t},{4*4*\t*(1-\t)});
-    % critical point
-    \fill (3,4) circle (2pt);
-    \node[above, yshift=3pt] at (3,4) {$T_c$};
-    % labels
-    \node at (3,1.6) {unstable};
-    \draw[line width=0.4pt] (5.3,2.4) -- (6.3,2.4) node[right] {metastable};
-    \node at (4.5,4.45) {one solution};
-\end{tikzpicture}
+\includegraphics{figures/binary-gap}
 \caption{Miscibility gap of a regular solution. Solid curve: binodal
 (coexistence). Dashed curve: spinodal (limit of metastability).}
 \label{fig:binary-gap}
@@ -554,9 +474,7 @@ peritectic reaction, panel (h).
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[line width=0.6pt]
-    \input{figs/binary_gallery.tex}
-\end{tikzpicture}
+\includegraphics{figures/gallery}
 \caption{Isobaric $T$--$X$ diagrams computed from the convex hull of the
 Gibbs free energy curves. Horizontal axis: $X$ from $0$ (pure $A$, left) to
 $1$ (pure $B$, right). Vertical axis: $T$. Parameters, in units with
@@ -564,7 +482,7 @@ $k_B=1$: (a) $T_A=1$, $T_B=1.5$, $s_f=1$, $w_s=0$; (b)--(d) $T_A=1$,
 $T_B=1.15$, $s_f=1.2$, $w_s=-1,\ 1.1,\ 2.2$; (e) $T_A=1$, $T_B=2$, separate
 solid structures; (f) $T_A=0.6$, $T_B=1.4$, $w_s=w_l=3$; (g), (h) separate
 solid structures with a compound $\gamma$ at $X=1/2$. The generating scripts
-are in the folder \texttt{figs}.}
+are in the folder \texttt{figures}.}
 \label{fig:gallery}
 \end{figure}
 
@@ -701,9 +619,7 @@ high pressure but at low temperature.
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[line width=0.6pt]
-    \input{figs/binary_pressure.tex}
-\end{tikzpicture}
+\includegraphics{figures/pressure}
 \caption{Isomorphous system with solid ($\alpha$), liquid ($L$) and gas ($G$)
 solutions, all ideal, computed from the convex hull. (a) $P$--$T$ projection
 with the triple curves of the pure components and the binary three-phase
@@ -732,39 +648,7 @@ compositions, and sections below $Q$ contain no liquid.
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
-    % axes
-    \draw[->] (0,0) -- (7,0) node[right] {$T$};
-    \draw[->] (0,0) -- (0,5.4) node[above] {$\ln P$};
-    % quadruple point and triple points (schematic)
-    \coordinate (Q) at (1.6,2.2);
-    \coordinate (OA) at (3.2,3.3);
-    \coordinate (OB) at (4.8,1.5);
-    % quadruple curves
-    \draw (Q) -- (1.75,5.0) node[above, font=\scriptsize] {$L\alpha\beta$};
-    \draw (Q) .. controls (1.0,1.7) and (0.5,1.3) .. (0.2,1.1)
-        node[above right, font=\scriptsize] {$G\alpha\beta$};
-    \draw (Q) .. controls (2.1,2.6) and (2.7,3.0) .. (OA);
-    \draw (Q) .. controls (2.6,3.0) and (4.1,2.9) .. (OB);
-    \node[font=\scriptsize, above left] at (2.3,2.75) {$GL\alpha$};
-    \node[font=\scriptsize] at (3.55,2.25) {$GL\beta$};
-    % triple curves of A
-    \draw (OA) -- (3.35,5.0) node[above, font=\scriptsize] {$L\alpha_A$};
-    \draw (OA) .. controls (4.6,4.0) and (5.6,4.4) .. (6.6,4.9)
-        node[right, font=\scriptsize] {$GL_A$};
-    \draw (OA) .. controls (2.7,2.1) and (1.7,0.9) .. (0.4,0.45);
-    \node[font=\scriptsize] at (2.35,1.35) {$G\alpha_A$};
-    % triple curves of B
-    \draw (OB) -- (5.0,5.0) node[above, font=\scriptsize] {$L\beta_B$};
-    \draw (OB) .. controls (5.6,2.2) and (6.2,2.8) .. (6.7,3.3)
-        node[right, font=\scriptsize] {$GL_B$};
-    \draw (OB) .. controls (3.5,0.8) and (2.0,0.3) .. (0.6,0.1);
-    \node[font=\scriptsize] at (3.0,0.3) {$G\beta_B$};
-    % points
-    \fill (Q) circle (2pt) node[left, font=\scriptsize] {$Q$};
-    \fill (OA) circle (2pt) node[right, font=\scriptsize] {$O_A$};
-    \fill (OB) circle (2pt) node[below right, font=\scriptsize] {$O_B$};
-\end{tikzpicture}
+\includegraphics{figures/quadruple}
 \caption{Schematic $P$--$T$ projection of a binary eutectic system with the
 quadruple point $Q$, the four quadruple curves and the triple curves of the
 components.}
@@ -810,32 +694,7 @@ down, because the liquid is stable at low $T$ but at high $P$.
 
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
-    % axes: x = 6X, y = 1.3P; P_1^* = 1, P_2^* = 3
-    \draw[->] (0,0) -- (6.8,0) node[right] {$X$};
-    \draw[->] (0,0) -- (0,4.8) node[above] {$P$};
-    \draw (6,0) -- (6,4.6);
-    \node[below] at (0,0) {$0$};
-    \node[below] at (6,0) {$1$};
-    % bubble curve (linear) and dew curve
-    \draw (0,1.3) -- (6,3.9);
-    \draw[domain=0:1, smooth, samples=50, variable=\t]
-        plot ({6*\t},{1.3/((1-\t)+\t/3)});
-    \node[left] at (0,1.3) {$P_1^*$};
-    \node[right] at (6,3.9) {$P_2^*$};
-    % tie line at P = 1.8 for overall X = 0.5
-    \draw[line width=1.6pt] (2.4,2.34) -- (4.0,2.34);
-    \fill (2.4,2.34) circle (2pt);
-    \fill (4.0,2.34) circle (2pt);
-    \draw[dashed] (2.4,2.34) -- (2.4,0) node[below] {$X^l$};
-    \draw[dashed] (4.0,2.34) -- (4.0,0) node[below] {$X^g$};
-    % labels
-    \node at (1.6,3.6) {liquid};
-    \node at (4.6,1.0) {vapor};
-    \draw[line width=0.4pt] (4.6,2.97) -- (5.3,2.2) node[below] {$l+g$};
-    \node[rotate=23.4, above] at (1.3,2.2) {bubble curve};
-    \node at (1.2,1.05) {dew curve};
-\end{tikzpicture}
+\includegraphics{figures/binary-PX}
 \caption{Isothermal $P$--$X$ diagram of an ideal liquid--vapor system
 ($P_2^*=3P_1^*$). Upper line: bubble curve. Lower curve: dew curve. Thick
 line: tie line.}
