@@ -35,65 +35,22 @@ structure gains one dimension:
 
 \subsection{Gibbs Free Energy of a Binary Solution}
 
-\paragraph{Mechanical mixture and solution.}
+\paragraph{The Gibbs free energy as a sum over the components.}
 \textcolor{red}{From here on, $\mu_i^{\circ,\alpha}(T,P)$ denotes the
 chemical potential of pure component $i$ in the structure of phase
 $\alpha$, and $g^\alpha(T,P,X)\equiv G^\alpha/N$ denotes the Gibbs free
 energy per particle of phase $\alpha$, with $N=N_1+N_2$. The superscript
 $\alpha$ is dropped when only one phase is discussed.}
 The composition dependence of $g$ decides which phases coexist in a binary
-system. If the two components stay unmixed, as two separate piles, the Gibbs
-free energy per particle is linear in the composition,
-$(1-X)\mu_1^\circ+X\mu_2^\circ$. A \textcolor{blue}{solution} mixes the two
-components on the atomic scale and adds the free energy of mixing,
-$\Delta g_{\text{mix}}=\Delta h_{\text{mix}}-T\Delta s_{\text{mix}}$:
+system. By the Euler relation of the multi-component system, the Gibbs free
+energy of a phase is the sum of the contributions of the two components:
 \begin{equation}
-    \boxed{g(T,P,X)=(1-X)\,\mu_1^\circ+X\,\mu_2^\circ
-    +\Delta h_{\text{mix}}-T\Delta s_{\text{mix}}.}
+    \boxed{G=N_1\mu_1+N_2\mu_2,\qquad g(T,P,X)=(1-X)\,\mu_1+X\,\mu_2,}
+    \label{eq:binary-euler}
 \end{equation}
-
-\paragraph{The ideal solution.}
-In an \textcolor{blue}{ideal solution}, the two components interact
-identically, so $\Delta h_{\text{mix}}=0$, and only the mixing entropy
-remains. The $N_1$ particles of component 1 and the $N_2$ particles of
-component 2 occupy $N$ sites in
-\begin{equation*}
-    \Omega=\frac{N!}{N_1!\,N_2!}
-\end{equation*}
-distinguishable ways. With Stirling's approximation,
-$\ln N!\approx N\ln N-N$,
-\begin{equation*}
-    \ln\Omega\approx N\ln N-N_1\ln N_1-N_2\ln N_2
-    =-N\big[X\ln X+(1-X)\ln(1-X)\big],
-\end{equation*}
-so $\Delta s_{\text{mix}}=k_B\ln\Omega/N$ and
-\begin{equation}
-    \boxed{g_{\text{id}}(T,P,X)=(1-X)\,\mu_1^\circ+X\,\mu_2^\circ
-    +k_BT\big[X\ln X+(1-X)\ln(1-X)\big].}
-\end{equation}
-This mixing entropy is the positive $\Delta S_{\text{mix}}$ of
-distinguishable species from the Gibbs paradox, now per particle and at any
-composition. The slope of the mixing term diverges as $X\to0$ or $X\to1$, so
-a small amount of a second component always lowers $g$. For this reason, a
-perfectly pure substance is never the equilibrium state at $T>0$.
-
-\paragraph{The regular solution.}
-\textcolor{red}{Here, $w$ denotes the interaction parameter per particle.}
-Real components interact differently. In the simplest model, each particle
-has $z$ nearest neighbors, and the bond energies are $\epsilon_{11}$,
-$\epsilon_{22}$ and $\epsilon_{12}$. If the particles remain randomly mixed,
-the mixing energy is
-\begin{equation*}
-    \Delta h_{\text{mix}}=w\,X(1-X),\qquad
-    w=z\left[\epsilon_{12}-\tfrac12(\epsilon_{11}+\epsilon_{22})\right].
-\end{equation*}
-The \textcolor{blue}{regular solution} keeps the ideal mixing entropy and
-adds this energy:
-\begin{equation}
-    \boxed{g_{\text{reg}}(T,P,X)=g_{\text{id}}(T,P,X)+w\,X(1-X).}
-\end{equation}
-Unlike pairs are favored for $w<0$, and like pairs are favored for $w>0$.
-Section~\ref{sec:gap} shows that $w>0$ can split one solution into two.
+where each $\mu_i$ depends on $(T,P,X)$. This relation holds for any
+solution and requires no model of the interactions. The tangent intercepts,
+the common tangent and the lever rule below follow from it alone.
 
 \subsection{Chemical Potentials as Tangent Intercepts}
 
@@ -116,20 +73,38 @@ that is,
 \end{equation}
 The tangent line to $g$ at $X$ therefore meets the axis $X=0$ at $\mu_1$
 and the axis $X=1$ at $\mu_2$. This construction is the Legendre
-construction of the unary system with two intercepts instead of one. The
-Euler relation, $g=(1-X)\mu_1+X\mu_2$, follows directly from
-Eq.~\eqref{eq:tangent-intercepts}.
+construction of the unary system with two intercepts instead of one.
+Substitution of Eq.~\eqref{eq:tangent-intercepts} into
+Eq.~\eqref{eq:binary-euler} returns $g$, as required.
 
-\paragraph{Chemical potentials of an ideal solution.}
-For the ideal solution, $\partial g_{\text{id}}/\partial X
-=\mu_2^\circ-\mu_1^\circ+k_BT\ln[X/(1-X)]$, and
-Eq.~\eqref{eq:tangent-intercepts} gives
+\subsection{Solution Models}
+
+\paragraph{The ideal solution.}
+Explicit phase diagrams require the composition dependence of each $\mu_i$.
+The simplest assumption is that the two components just mix. An
+\textcolor{blue}{ideal solution} is defined by
 \begin{equation}
-    \boxed{\mu_i=\mu_i^\circ+k_BT\ln x_i,\qquad x_1=1-X,\quad x_2=X.}
+    \boxed{\mu_i(T,P,X)=\mu_i^\circ(T,P)+k_BT\ln x_i,\qquad x_1=1-X,\quad x_2=X.}
     \label{eq:ideal-mu}
 \end{equation}
-Each component therefore lowers its chemical potential below the pure value
-by $k_BT\ln x_i$, the entropic gain of dilution.
+Each component then lowers its chemical potential below the pure value by
+$k_BT\ln x_i$. Equation~\eqref{eq:binary-euler} gives the Gibbs free energy
+per particle
+\begin{equation}
+    \boxed{g_{\text{id}}(T,P,X)=(1-X)\,\mu_1^\circ+X\,\mu_2^\circ
+    +k_BT\big[X\ln X+(1-X)\ln(1-X)\big].}
+\end{equation}
+
+\paragraph{The regular solution.}
+\textcolor{red}{Here, $w$ denotes the interaction parameter per particle.}
+The \textcolor{blue}{regular solution} adds to the ideal solution the
+simplest term that vanishes for both pure components and is symmetric in
+the composition:
+\begin{equation}
+    \boxed{g_{\text{reg}}(T,P,X)=g_{\text{id}}(T,P,X)+w\,X(1-X).}
+\end{equation}
+The model favors unlike neighbors for $w<0$ and like neighbors for $w>0$.
+Section~\ref{sec:gap} shows that $w>0$ can split one solution into two.
 
 \subsection{Two-Phase Equilibrium: Common Tangent and Lever Rule}
 
