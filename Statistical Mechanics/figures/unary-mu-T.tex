@@ -1,0 +1,37 @@
+% Standalone figure for the Statistical Mechanics notes.
+% Build: pdflatex unary-mu-T.tex  (or run build.sh in this folder)
+\documentclass[11pt,tikz,border=2pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta, positioning}
+\begin{document}
+\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
+    % axes
+    \draw[->] (0,0) -- (8.4,0) node[right] {$T$};
+    \draw[->] (0,0) -- (0,6) node[above] {$\mu$};
+    % mu_alpha(T) = a - b T - 0.02 T^2 (schematic), plotted as 5.2 + 0.5 mu
+    % solid: stable on [0,5]
+    \draw[domain=0:5, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(-0.5*\t-0.02*\t*\t)});
+    \draw[dashed, domain=5:8.5, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(-0.5*\t-0.02*\t*\t)});
+    % liquid: stable on [5,7]
+    \draw[dashed, domain=2.5:5, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(1.5-0.8*\t-0.02*\t*\t)});
+    \draw[domain=5:7, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(1.5-0.8*\t-0.02*\t*\t)});
+    \draw[dashed, domain=7:9, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(1.5-0.8*\t-0.02*\t*\t)});
+    % vapor: stable on [7,10]
+    \draw[dashed, domain=4.2:7, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(5-1.3*\t-0.02*\t*\t)});
+    \draw[domain=7:10, smooth, variable=\t]
+        plot ({0.7*\t},{5.2+0.5*(5-1.3*\t-0.02*\t*\t)});
+    % transition temperatures
+    \draw[dotted] (3.5,0) node[below] {$T_m$} -- (3.5,3.7);
+    \draw[dotted] (4.9,0) node[below] {$T_b$} -- (4.9,2.66);
+    % labels at the right ends of the curves
+    \node[right] at (5.95,2.35) {solid};
+    \node[right] at (6.3,1.54) {liquid};
+    \node[right] at (7.0,0.2) {vapor};
+\end{tikzpicture}
+\end{document}
