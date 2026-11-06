@@ -19,6 +19,8 @@
 
 % ---------- Figures ----------
 \usepackage{graphicx}              % \includegraphics for the pre-built figures in figures/
+\usepackage{float}                 % [H] keeps each figure at its place in the text
+\usepackage{needspace}             % keeps a problem and its figure on one page
 
 % ---------- Colors and boxes ----------
 \usepackage{xcolor}                % Lets you use colors (\textcolor{red}{...})
@@ -63,40 +65,44 @@ Alloys between $A$ and $A_xB_y$ are of the eutectic type, and alloys between $A_
 Draw a phase diagram for this system.
 Describe how the percentages of the phases change if the eutectic point moves slightly to the left or to the right.
 
+\needspace{312pt}
 \paragraph{Problem 2.}
 Figure~\ref{fig:q1-lens} shows an isomorphous system.
 A bar of $A$ and a bar of $B$ are joined and heated to $T_2$ for isothermal diffusion.
 For the average compositions $x_1$ and $x_2$, state which phases form and give their compositions.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics{figures/quiz1_lens}
 \caption{Isomorphous system of Problem~2, with the isotherm $T_2$ and the compositions $x_1$, $y$, $z$ and $x_2$.}
 \label{fig:q1-lens}
 \end{figure}
 
+\needspace{366pt}
 \paragraph{Problem 3.}
 Figure~\ref{fig:q1-pt} shows the $P$--$T$ projection of a binary system with a quadruple point $Q$ of the eutectoid type.
 Draw the $T$--$X$ diagram at the pressure $p_0$.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics{figures/quiz1_pt}
 \caption{$P$--$T$ projection of Problem~3. Thick lines: binary three-phase equilibria. Thin lines: equilibria of the pure components $A$ and $B$. Dashed lines: the isobar $p_0$ and the isotherm $T_0$.}
 \label{fig:q1-pt}
 \end{figure}
 
+\needspace{344pt}
 \paragraph{Problem 4.}
 Figure~\ref{fig:q1-agpr} shows the Ag--Pr phase diagram.
 List all the three-phase reactions that involve the liquid phase.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics{figures/quiz1_agpr}
 \caption{Ag--Pr phase diagram of Problem~4, redrawn from the quiz figure.}
 \label{fig:q1-agpr}
 \end{figure}
 
+\needspace{369pt}
 \paragraph{Problem 5.}
 Figure~\ref{fig:q1-tern} shows the diopside--anorthite--albite (Di--An--Ab) system.
 The Di--An and Di--Ab sides are binary eutectic systems, and the Ab--An side is a solid-solution loop without a minimum.
@@ -104,7 +110,7 @@ Mark the eutectic points, the direction of falling temperature and the three-pha
 Draw an isotherm through $l_4$.
 For solidification, give the approximate composition of point $A$ and the path of the liquid during the cooling of composition $A$.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics{figures/quiz1_ternary}
 \caption{Di--An--Ab system of Problem~5 (compositions in wt\%). Thick curve: cotectic. Dashed lines: diopside--liquid lines and liquid--plagioclase tie lines, with the An content of the plagioclase in equilibrium with each liquid. Solid curve and dotted line: crystallization of composition $A$.}
@@ -124,7 +130,7 @@ In the $A$--$\gamma$ part, the liquid decomposes at the eutectic temperature $T_
 In the $\gamma$--$B$ part, the $B$-rich solid solution $\beta$ has the highest melting point, and the peritectic reaction $L + \beta \to \gamma$ occurs at $T_P$.
 The phase $\gamma$ dissolves some $B$, so the $\gamma$ field widens toward $B$ and meets the peritectic isotherm.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics{figures/quiz1_sol_compound}
 \caption{Phase diagram for Problem~1. $E$: eutectic point. $P$: liquid composition of the peritectic reaction. Dot at $T_\gamma$: congruent melting point of $A_xB_y$.}
@@ -177,7 +183,7 @@ The $L + \alpha$ region of the diagram therefore appears only as a sharp interfa
 The couple consists of a solid $\alpha$ layer with compositions from $0$ to $y$ and a liquid layer with compositions from $z$ to $1$ (\figref{fig:q1-sol2}).
 The tie line at $T_2$ fixes the compositions $y$ and $z$ on the two sides of the interface.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics{figures/quiz1_sol_profile}
 \caption{Composition profile of the diffusion couple at $T_2$ before the composition becomes uniform.}
@@ -235,7 +241,7 @@ The $G + \gamma$ region extends from $T_2$ to the isotherm at $T_5$, where the l
 Above $T_5$, the $L + \gamma$ region closes at the melting point of $B$ at $T_6$, and the $G + L$ region closes at the boiling point of $B$ at $T_7$.
 Two two-phase regions lie above each three-phase isotherm and one lies below, as required for eutectic-type reactions.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics{figures/quiz1_sol_tx}
 \caption{Schematic $T$--$X$ diagram at the pressure $p_0$. $T_1$ to $T_7$: crossings of the isobar listed in Table~\ref{tab:q1-cross}.}
@@ -282,7 +288,7 @@ The eutectic $E_1$ on the Di--An side lies at 58~wt\% Di and 42~wt\% An, and the
 The Ab--An side has no minimum, so the system has no ternary eutectic.
 Temperature falls along the cotectic from $E_1$ to $E_2$, along the Ab--An side from An to Ab, and in each primary field from the Di corner or the An corner toward the cotectic.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
 \centering
 \includegraphics{figures/quiz1_sol_ternary}
 \caption{Solution of Problem~5. Arrows on the cotectic: direction of falling temperature. Shaded triangle: three-phase field at the temperature of $l_4$. Dashed curve through $l_4$: isotherm. Thick arrow: path of the liquid for composition $A$.}
