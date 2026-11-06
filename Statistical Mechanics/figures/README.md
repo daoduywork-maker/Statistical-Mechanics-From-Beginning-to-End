@@ -25,3 +25,20 @@ Regenerate the data (needs numpy, scipy, contourpy), then rebuild the PDFs:
     python3 make_gallery.py  > binary_gallery.tex
     python3 make_pressure.py > binary_pressure.tex
     ./build.sh gallery pressure
+
+## Quiz 1 figures
+
+The `quiz1_*` figures belong to `quiz1.tex` and Section 8 of `exercise.tex`. They redraw the
+diagrams of Quiz 1 of the phase-diagram course in TikZ.
+
+- `quiz1_lens`, `quiz1_pt`, `quiz1_agpr`, `quiz1_ternary` — the four problem diagrams
+- `quiz1_sol_compound`, `quiz1_sol_profile`, `quiz1_sol_tx`, `quiz1_sol_ternary` — solution figures
+- `quiz1_coords.py` — computes the lens curves and converts the ternary points to triangle
+  coordinates (writes `quiz1_coords.json`)
+- `make_quiz1_figs.py` — fills the coordinates into the TikZ templates
+
+Regenerate after changing a coordinate:
+
+    python3 quiz1_coords.py
+    python3 make_quiz1_figs.py quiz1_coords.json .
+    ./build.sh quiz1_lens quiz1_pt quiz1_agpr quiz1_ternary quiz1_sol_compound quiz1_sol_profile quiz1_sol_tx quiz1_sol_ternary

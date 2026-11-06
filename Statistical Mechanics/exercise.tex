@@ -17,6 +17,9 @@
 % ---------- Math ----------
 \usepackage{amsmath,amssymb}       % Core math: align, cases, \text{}, \boxed{}, plus extra symbols (\mathbb, \hbar, ...)
 
+% ---------- Figures ----------
+\usepackage{graphicx}              % \includegraphics for the pre-built figures in figures/
+
 % ---------- Colors and boxes ----------
 \usepackage{xcolor}                % Lets you use colors (\textcolor{red}{...})
 
@@ -54,6 +57,7 @@ Problems on quantum gases, kinetic theory, interacting lattice models and contin
 The collections contain no problems on binary phase diagrams, so Section~7 of the note has no exercises here.
 Each exercise names the related sections of the note and the source, and ends with an answer for checking.
 Section~7 of this sheet adds guided exercises on point defects, built from the equations of a review article (see the start of that section).
+Section~8 adds the five problems of Quiz~1 of the phase-diagram course, which cover Section~7 of the note and one ternary system. Full solutions with figures are in the separate file \texttt{quiz1.pdf}.
 
 \paragraph{Units and notation.}
 \textcolor{red}{The Boltzmann constant $k_B$ is kept explicit, and $\beta = 1/(k_BT)$.
@@ -566,5 +570,81 @@ A supercell calculation repeats one charged defect $q$ on a cubic lattice of per
 \end{parts}
 \textit{Answer.} (a) The Coulomb sum over the net charges grows with the number of cells. The background sets the average charge, the $\vec G = 0$ term, to zero. (b) $E_M \propto q^2/(\varepsilon L)$, and $E_M = 0.17$~eV, larger than many target accuracies. (c) Halving the error doubles $L$, so the number of atoms grows $8$ times and the cost $8^3 = 512$ times. (d) Three sizes, or two with $a_1$ known. (e) $E^f$ contains $qE_F$, and $E_F$ is measured from the VBM, whose absolute energy depends on the reference of the potential.\\
 \textit{Related:} Section~5.2 of the note. \textit{Source:} [F], Secs.~I.C.2 and~III.C.
+
+% ============================================================
+\section{Binary and Ternary Phase Diagrams}
+% ============================================================
+
+\paragraph{Exercise 34: Compound with a eutectic side and a peritectic side.}
+The system $A$--$B$ forms the congruently melting compound $A_xB_y$, denoted $\gamma$. Alloys between $A$ and $A_xB_y$ are of the eutectic type, and alloys between $A_xB_y$ and $B$ are of the peritectic type.
+\begin{parts}
+    \item Draw the phase diagram.
+    \item In the reaction $L + \beta \to \gamma$, which phase lies in the middle of the isotherm? Use this order to decide whether $T_P$ lies above or below the melting point $T_\gamma$ of the compound.
+    \item Use the Gibbs--Konovalov relation to find the slope of the liquidus at the congruent point.
+    \item The eutectic point moves slightly to the left or to the right. Describe the change in the total amounts of $\alpha$ and $\gamma$ and in the amounts of primary crystals and eutectic for an alloy between $X_\alpha$ and $X_\gamma$.
+\end{parts}
+\textit{Answer.} (b) $\gamma$ lies in the middle, so the liquid lies between $X_\gamma$ and the $\gamma$ boundary, which requires $T_P > T_\gamma$. (c) The liquidus is horizontal at $X_\gamma$, a horizontal inflection between $E$ and $P$. (d) The total fractions $n_\alpha = (X_\gamma - X_0)/(X_\gamma - X_\alpha)$ do not change. For a hypoeutectic alloy, a shift to the right gives more primary $\alpha$, $(X_E - X_0)/(X_E - X_\alpha)$, and less eutectic. A shift to the left has the opposite effect.\\
+\textit{Related:} Sections~7.4, 7.6, 7.10 and~7.11 of the note. \textit{Source:} Quiz~1, Problem~1.
+
+\paragraph{Exercise 35: Isothermal diffusion in an isomorphous system.}
+In Fig.~\ref{fig:ex-lens}, a bar of $A$ and a bar of $B$ are joined and heated to $T_2$.
+\begin{parts}
+    \item Which phase is pure $B$ at $T_2$?
+    \item Why can no two-phase layer form in the diffusion couple? Sketch the composition profile during diffusion.
+    \item Which phases remain, and with which compositions, for the average compositions $x_1$ and $x_2$?
+\end{parts}
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/quiz1_lens}
+\caption{Isomorphous system of Exercise~35.}
+\label{fig:ex-lens}
+\end{figure}
+\textit{Answer.} (a) Liquid, because $T_2$ lies above the melting point of $B$. (b) Both chemical potentials are uniform across a two-phase mixture, so no flux crosses the mixture. The profile runs from $0$ to $y$ in solid $\alpha$, jumps from $y$ to $z$ at the interface, and runs from $z$ to $1$ in the liquid. (c) For $x_1 < y$, a single solid $\alpha$ of composition $x_1$. For $x_2 > z$, a single liquid of composition $x_2$.\\
+\textit{Related:} Sections~7.4, 7.8 and~7.11 of the note. \textit{Source:} Quiz~1, Problem~2.
+
+\paragraph{Exercise 36: From a $P$--$T$ projection to a $T$--$X$ section.}
+Figure~\ref{fig:ex-pt} shows the $P$--$T$ projection of a binary system with a eutectoid-type quadruple point $Q$.
+\begin{parts}
+    \item List the curves that the isobar $p_0$ crosses, in order of increasing temperature. Which are binary three-phase equilibria, and which belong to a pure component?
+    \item For each three-phase isotherm, find the middle phase and the reaction on cooling.
+    \item Draw the $T$--$X$ diagram at $p_0$.
+\end{parts}
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/quiz1_pt}
+\caption{$P$--$T$ projection of Exercise~36.}
+\label{fig:ex-pt}
+\end{figure}
+\textit{Answer.} (a) $\alpha\beta\gamma$, $G\alpha\gamma$, $G\alpha_A$, $\beta\gamma_B$, $GL\gamma$, $L\gamma_B$ and $GL_B$. The curves $\alpha\beta\gamma$, $G\alpha\gamma$ and $GL\gamma$ are binary. Pure $A$ sublimes directly at $p_0$. (b) $\gamma \to \alpha + \beta$, $G \to \alpha + \gamma$ and $L \to G + \gamma$, all of the eutectic type. (c) The two-phase regions $\alpha + G$, $\gamma + \beta$, $L + \gamma$ and $G + L$ close at the transition points of the pure components. See \texttt{quiz1.pdf}, Fig.~7.\\
+\textit{Related:} Sections~7.5, 7.12 and~7.13 of the note. \textit{Source:} Quiz~1, Problem~3.
+
+\paragraph{Exercise 37: Three-phase reactions in the Ag--Pr system.}
+List all the three-phase reactions with liquid in Fig.~\ref{fig:ex-agpr}, with the type, the temperature and the liquid composition of each reaction.
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/quiz1_agpr}
+\caption{Ag--Pr phase diagram of Exercise~37.}
+\label{fig:ex-agpr}
+\end{figure}
+\textit{Answer.} $L \to$ Fcc $+$ Ag$_5$Pr (eutectic, 1072~K, $x_L = 0.08$). $L +$ Ag$_{51}$Pr$_{14} \to$ Ag$_5$Pr (peritectic, 1102~K, $0.10$). $L +$ Ag$_{51}$Pr$_{14} \to$ Ag$_2$Pr (peritectic, 1107~K, $0.36$). $L \to$ Ag$_2$Pr $+$ AgPr (eutectic, 1091~K, $0.39$). Bcc $\to L +$ DHCP (metatectic, 890~K, $0.79$). $L \to$ AgPr $+$ DHCP (eutectic, 848~K, $0.77$). The congruent melting of Ag$_{51}$Pr$_{14}$ and AgPr involves only two phases.\\
+\textit{Related:} Sections~7.5 and~7.10 of the note, Table~3. \textit{Source:} Quiz~1, Problem~4.
+
+\paragraph{Exercise 38: The diopside--anorthite--albite system.}
+Figure~\ref{fig:ex-tern} shows the Di--An--Ab system, with binary eutectics on the Di--An and Di--Ab sides and a solid-solution loop without a minimum on the Ab--An side.
+\begin{parts}
+    \item Mark the eutectic points. Why does the system have no ternary eutectic?
+    \item In which directions does the temperature fall?
+    \item State the meaning of the thick curve, the dashed lines from Di, the dashed lines to the Ab--An side, the curve through $l_1$ and the dotted line.
+    \item Which three phases coexist along the cotectic, and which tie triangle belongs to $l_4$? Draw the isotherm through $l_4$.
+    \item Read the composition of $A$, and trace the path of the liquid during equilibrium cooling of $A$. Where does crystallization end, and which plagioclase remains?
+\end{parts}
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/quiz1_ternary}
+\caption{Di--An--Ab system of Exercise~38 (wt\%).}
+\label{fig:ex-tern}
+\end{figure}
+\textit{Answer.} (a) $E_1$ at 58~wt\% Di on the Di--An side and $E_2$ at 7~wt\% Di on the Di--Ab side. The Ab--An loop has no minimum. (b) Along the cotectic from $E_1$ to $E_2$, along the Ab--An side from An to Ab, and in each primary field toward the cotectic. (c) Cotectic ($L$ + Di + Pl), diopside--liquid tie lines, liquid--plagioclase tie lines labeled by the An content of the plagioclase, path of the liquid, and the tie line $l_2$--$A$--$s_2$. (d) $L$ + Di + Pl. At $l_4$, the triangle Di--$l_4$--An$_{55}$. The isotherm has two branches that meet at $l_4$ in a V pointing up the cotectic. (e) $A$ = 20~wt\% Di, 44~wt\% An, 36~wt\% Ab. The path runs $A \to l_1 \to l_2$ with plagioclase alone, then along the cotectic $l_2 \to l_3 \to l_4$ with diopside and plagioclase. Crystallization ends at $l_4$ with plagioclase An$_{55}$.\\
+\textit{Related:} Sections~7.4 and~7.5 of the note (ternary systems lie beyond the note). \textit{Source:} Quiz~1, Problem~5.
 
 \end{document}
