@@ -1,0 +1,157 @@
+% ============================================================
+% SKELETON -- Part II, Section 9: Thermodynamic Processes
+% ============================================================
+
+\section{Thermodynamic Processes}
+
+\paragraph{Scope of this section.}
+Sections~6--8 describe equilibrium states. This section connects the states
+by processes, computes the heat and the work along each process, and
+assembles the processes into cycles. The ideal gas of Section~7 and the van
+der Waals gas of Section~8 serve as the worked examples.
+
+\subsection{Quasi-Static Processes}
+
+\paragraph{Processes through equilibrium states.}
+A \textcolor{blue}{quasi-static process} passes through equilibrium states
+only, so the state variables are defined along the whole path. Heat and
+work then follow from integrals along the path, and both depend on the path.
+% FROM: delta Q, delta W and the Clausius inequality (Section 3).
+\begin{equation}
+    \boxed{W=\int P\,dV,\qquad Q=\int T\,dS\quad\text{(reversible)}.}
+\end{equation}
+
+\paragraph{Reversible and irreversible processes.}
+A \textcolor{blue}{reversible process} is quasi-static and produces no
+entropy, so the reverse path restores the system and the surroundings. A
+process with friction, heat flow across a finite temperature difference or
+free expansion produces entropy and is irreversible.
+
+\subsection{Elementary Processes}
+
+\paragraph{Isothermal, isobaric, isochoric and adiabatic processes.}
+Each elementary process fixes one variable. The heat and the work of each
+process follow from the response functions of Section~6.
+Table~\ref{tab:processes} summarizes the four processes for an ideal gas.
+% TODO: general expressions for delta Q and delta W; ideal-gas values.
+\begin{table}[h]
+\centering
+\caption{Work done by an ideal gas and heat absorbed in the four elementary
+processes between states 1 and 2.}
+\label{tab:processes}
+\begin{tabular}{lccc}
+    Process & Fixed variable & $W$ & $Q$ \\ \hline
+    Isothermal & $T$ & $Nk_BT\ln(V_2/V_1)$ & $W$ \\
+    Isobaric & $P$ & $P(V_2-V_1)$ & $C_P(T_2-T_1)$ \\
+    Isochoric & $V$ & $0$ & $C_V(T_2-T_1)$ \\
+    Adiabatic & $S$ & $C_V(T_1-T_2)$ & $0$ \\
+\end{tabular}
+\end{table}
+
+\paragraph{Adiabats and isotherms.}
+An adiabat is steeper than an isotherm in the $P$--$V$ plane by the factor
+$\gamma\equiv C_P/C_V$. For an ideal gas with constant $\gamma$, the
+adiabat is a power law.
+% FROM: C_P / C_V = kappa_T / kappa_S (Section 6).
+\begin{equation}
+    \boxed{\left(\frac{\partial P}{\partial V}\right)_{\!S}
+    =\gamma\left(\frac{\partial P}{\partial V}\right)_{\!T},
+    \qquad PV^\gamma=\text{const}\quad\text{(ideal gas)}.}
+\end{equation}
+
+\subsection{Heat Engines and the Carnot Cycle}
+
+\paragraph{Cycles, engines and efficiency.}
+A \textcolor{blue}{cycle} returns the system to the initial state, so
+$\Delta U=0$ and the net work equals the net heat. A
+\textcolor{blue}{heat engine} absorbs the heat $Q_{\text{h}}$ from a hot
+reservoir, rejects the heat $Q_{\text{l}}$ to a cold reservoir and
+delivers the work $W=Q_{\text{h}}-Q_{\text{l}}$.
+\textcolor{red}{Here, the subscripts h and l label the hot and the cold
+reservoir, so that the subscript c stays reserved for the critical point.}
+\begin{equation}
+    \boxed{\eta\equiv\frac{W}{Q_{\text{h}}}=1-\frac{Q_{\text{l}}}{Q_{\text{h}}}.}
+\end{equation}
+
+\paragraph{The Carnot cycle.}
+The \textcolor{blue}{Carnot cycle} consists of two isotherms at
+$T_{\text{h}}$ and $T_{\text{l}}$ joined by two adiabats. The cycle
+exchanges heat with each reservoir at a single temperature, so the cycle is
+reversible.
+% TODO: four steps in the P--V and T--S planes (figures); heat and work of
+%       each step for an ideal gas; V_2/V_1 = V_3/V_4 from the adiabats.
+\begin{equation}
+    \boxed{\frac{Q_{\text{l}}}{Q_{\text{h}}}=\frac{T_{\text{l}}}{T_{\text{h}}},
+    \qquad
+    \eta_{\text{C}}=1-\frac{T_{\text{l}}}{T_{\text{h}}}.}
+\end{equation}
+
+\paragraph{The Carnot bound from the second law.}
+The Carnot efficiency does not depend on the working substance. Over any
+cycle between two reservoirs, the Clausius inequality gives
+$Q_{\text{h}}/T_{\text{h}}-Q_{\text{l}}/T_{\text{l}}\leq0$, so no engine
+exceeds the Carnot efficiency, and every reversible engine reaches the
+Carnot efficiency.
+% FROM: Clausius inequality (Section 3).
+\begin{equation}
+    \boxed{\eta\leq\eta_{\text{C}},\qquad
+    \oint\frac{\delta Q}{T}\leq0.}
+\end{equation}
+
+\paragraph{Refrigerators and heat pumps.}
+A Carnot cycle run backward moves heat from the cold to the hot reservoir
+with the work $W$. The \textcolor{blue}{coefficient of performance} measures
+the useful heat per unit work.
+\begin{equation}
+    \boxed{\mathrm{COP}_{\text{ref}}=\frac{Q_{\text{l}}}{W}\leq\frac{T_{\text{l}}}{T_{\text{h}}-T_{\text{l}}},
+    \qquad
+    \mathrm{COP}_{\text{hp}}=\frac{Q_{\text{h}}}{W}\leq\frac{T_{\text{h}}}{T_{\text{h}}-T_{\text{l}}}.}
+\end{equation}
+
+\paragraph{Thermodynamic temperature.}
+The ratio $Q_{\text{l}}/Q_{\text{h}}$ of a reversible engine depends on the
+two reservoir temperatures only. This ratio defines a temperature scale
+independent of any substance, and the scale coincides with the $T$ of
+Section~3.
+% TODO: link to beta = 1/(k_B T) as an empirical correspondence (Section 3).
+
+\paragraph{Other cycles.}
+Real engines use other cycles. Each cycle combines the elementary processes
+and has an efficiency below the Carnot bound.
+% TODO: Otto (two adiabats, two isochores) and Stirling cycles as exercises.
+
+\subsection{Free Expansion and Throttling}
+
+\paragraph{Free expansion.}
+In a \textcolor{blue}{free expansion}, a gas expands into vacuum inside an
+insulated container, so neither heat nor work is exchanged and $U$ stays
+constant. The process is irreversible, and the temperature change measures
+the deviation from ideal behavior.
+% TODO: derive with the second Maxwell relation; Delta S = N k_B ln(V_2/V_1)
+%       for an ideal gas; cooling of a van der Waals gas.
+\begin{equation}
+    \boxed{\left(\frac{\partial T}{\partial V}\right)_{\!U}
+    =-\frac{1}{C_V}\left[T\left(\frac{\partial P}{\partial T}\right)_{\!V}-P\right].}
+\end{equation}
+
+\paragraph{Throttling.}
+In a \textcolor{blue}{throttling process}, a gas flows steadily through a
+porous plug from high to low pressure. The enthalpy stays constant, and the
+\textcolor{blue}{Joule--Thomson coefficient} gives the temperature change.
+The coefficient vanishes for an ideal gas.
+% TODO: H = const from the work balance on the two sides of the plug;
+%       derive with the fourth Maxwell relation.
+\begin{equation}
+    \boxed{\mu_{\text{JT}}\equiv\left(\frac{\partial T}{\partial P}\right)_{\!H}
+    =\frac{V}{C_P}\left(T\alpha_P-1\right).}
+\end{equation}
+
+\paragraph{Joule--Thomson inversion.}
+The attraction cools a throttled gas, and the hard core heats the gas. At
+low density, the van der Waals gas of Section~8 cools on throttling below
+the \textcolor{blue}{inversion temperature}. Gas liquefaction relies on
+this cooling.
+% TODO: mu_JT ~ (2a/(k_B T) - b)/c_P from B_2.
+\begin{equation}
+    \boxed{k_BT_{\text{inv}}=\frac{2a}{b}=\frac{27}{4}\,k_BT_c.}
+\end{equation}

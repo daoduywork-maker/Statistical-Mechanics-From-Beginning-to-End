@@ -1,0 +1,100 @@
+% ============================================================
+% SKELETON -- Part II, Section 7: The Ideal Gas
+% ============================================================
+
+\section{The Ideal Gas}
+
+\paragraph{Scope of this section.}
+The \textcolor{blue}{ideal gas} is the first explicit model of the notes.
+The model consists of point particles without interactions. The canonical
+ensemble of Section~3 gives every property of the model, so the ideal gas
+is a result of the assumptions rather than an empirical law.
+
+\subsection{The Classical Partition Function}
+
+\paragraph{From a sum over microstates to a phase-space integral.}
+Classical particles have continuous positions and momenta, so the sum over
+microstates becomes an integral over phase space. Two assumptions enter.
+Each microstate occupies a phase-space volume $h^{3N}$, and the factor
+$1/N!$ removes the permutations of identical particles.
+% FROM: 1/N! and extensivity (Section 5, Gibbs paradox).
+% TODO: state the h^{3N} cell as an assumption, justified by quantum
+%       statistics in Part V.
+\begin{equation}
+    \boxed{Z=\frac{1}{N!\,h^{3N}}\int d^{3N}q\,d^{3N}p\;e^{-\beta\mathcal{H}(q,p)}.}
+\end{equation}
+
+\paragraph{Partition function of non-interacting particles.}
+The Hamiltonian contains the kinetic energy only. The momentum integrals
+are Gaussian, and the position integrals give the volume.
+\textcolor{red}{Here, $\lambda\equiv h/\sqrt{2\pi mk_BT}$ denotes the
+thermal wavelength.}
+\begin{equation}
+    \boxed{Z=\frac{V^N}{N!\,\lambda^{3N}}.}
+\end{equation}
+
+\subsection{Thermodynamics of the Ideal Gas}
+
+\paragraph{Equation of state, energy and heat capacity.}
+The free energy $F=-k_BT\ln Z$ gives the pressure, and
+$U=-\partial\ln Z/\partial\beta$ gives the energy.
+% FROM: F = -k_B T ln Z and P = -dF/dV (Section 4).
+\begin{equation}
+    \boxed{PV=Nk_BT,\qquad U=\tfrac{3}{2}Nk_BT,\qquad C_V=\tfrac{3}{2}Nk_B.}
+\end{equation}
+
+\paragraph{Entropy and chemical potential.}
+The entropy of the ideal gas is the \textcolor{blue}{Sackur--Tetrode
+equation}. The entropy is extensive only with the factor $1/N!$.
+\begin{equation}
+    \boxed{S=Nk_B\left[\ln\frac{V}{N\lambda^3}+\frac{5}{2}\right],\qquad
+    \mu=k_BT\ln\!\left(n\lambda^3\right).}
+\end{equation}
+
+\paragraph{Absolute activity.}
+The grand canonical weight $e^{\beta\mu N}$ defines the
+\textcolor{blue}{absolute activity} $z\equiv e^{\beta\mu}$. For the ideal
+gas, the absolute activity is the number of particles in a volume
+$\lambda^3$.
+% FROM: Xi(beta, mu) (Section 5).
+% TODO: Xi = exp(zV/lambda^3); N = zV/lambda^3.
+\begin{equation}
+    \boxed{z=e^{\beta\mu}=n\lambda^3.}
+\end{equation}
+
+\paragraph{Chemical potential and pressure.}
+At fixed temperature, the chemical potential of the ideal gas depends on
+the pressure through a logarithm. This form is the reference for the
+fugacity of a real gas in Section~8.
+\textcolor{red}{Here, $P^\circ$ denotes a reference pressure, usually
+1~bar, and $\mu^\circ(T)$ the chemical potential at $P^\circ$.}
+\begin{equation}
+    \boxed{\mu(T,P)=\mu^\circ(T)+k_BT\ln\frac{P}{P^\circ}.}
+\end{equation}
+
+\paragraph{Response functions of the ideal gas.}
+The general results of Section~6 take simple forms. The particle-number
+fluctuation equals the mean, as for a Poisson distribution.
+% TODO: kappa_S = 3/(5P); C_P = 5/2 N k_B; gamma = C_P/C_V = 5/3.
+\begin{equation}
+    \boxed{\alpha_P=\frac{1}{T},\qquad\kappa_T=\frac{1}{P},\qquad
+    C_P-C_V=Nk_B,\qquad\frac{\mathrm{Var}(N)}{N}=1.}
+\end{equation}
+
+\paragraph{Mixtures of ideal gases.}
+In a mixture of ideal gases, each species behaves as if alone in the
+volume. The \textcolor{blue}{partial pressure} $P_i=x_iP$ then replaces $P$
+in the chemical potential of species $i$.
+\textcolor{red}{Here, $x_i\equiv N_i/N$ denotes the mole fraction.}
+% FROM: mixing entropy (Section 5).
+% TODO: Dalton's law; mixing entropy -N k_B sum x_i ln x_i.
+\begin{equation}
+    \boxed{P=\sum_iP_i,\qquad
+    \mu_i=\mu_i^\circ(T)+k_BT\ln\frac{x_iP}{P^\circ}.}
+\end{equation}
+
+\paragraph{Validity of the ideal gas.}
+The ideal gas requires two conditions. The gas must be dilute, so that the
+interactions are negligible, and the thermal wavelength must be small
+compared with the particle spacing, $n\lambda^3\ll1$, so that the classical
+limit holds.
