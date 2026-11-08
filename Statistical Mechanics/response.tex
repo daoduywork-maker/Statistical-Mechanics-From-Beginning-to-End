@@ -1,0 +1,120 @@
+% ============================================================
+% SKELETON -- Part II, Section 6: Response Functions and Stability
+% Each \paragraph states the goal and the boxed target result.
+% "% TODO" lists the derivation still to write.
+% "% FROM" names the result of Sections 1-5 that a step reuses.
+% ============================================================
+
+\section{Response Functions and Stability}
+
+\paragraph{Scope of this section.}
+Sections~3--5 derive the laws of thermodynamics, the potentials and the
+fluctuation formulas from entropy maximization. Experiments measure how one
+variable responds to a change of another, not the potentials themselves.
+This section defines these responses, relates them through exact identities
+and collects the conditions that stability imposes on them.
+
+\subsection{Response Functions}
+
+\paragraph{Measurable second derivatives.}
+Each \textcolor{blue}{response function} is a second derivative of a
+potential. The heat capacities measure the response of the entropy to the
+temperature, the thermal expansion coefficient measures the response of the
+volume to the temperature, and the compressibilities measure the response
+of the volume to the pressure.
+% FROM: C_V (Section 3); delta Q = dH at fixed P (Section 4); G(T, P, N) (Section 5).
+% TODO: define C_P = T (dS/dT)_P = (dH/dT)_P, alpha_P, kappa_T and
+%       kappa_S = -(1/V)(dV/dP)_S. The subscript P in alpha_P avoids a clash
+%       with the phase label alpha of Part III.
+\begin{equation}
+    \boxed{C_P=-T\frac{\partial^2G}{\partial T^2},\qquad
+    \alpha_P=\frac{1}{V}\frac{\partial^2G}{\partial T\,\partial P},\qquad
+    \kappa_T=-\frac{1}{V}\frac{\partial^2G}{\partial P^2}.}
+\end{equation}
+
+\paragraph{Maxwell relations.}
+The mixed second derivatives of a potential do not depend on the order of
+differentiation. Each potential therefore gives one
+\textcolor{blue}{Maxwell relation}.
+% TODO: derive from dU, dF, dH and dG; show how a relation turns an
+%       unmeasurable entropy derivative into a measurable one.
+\begin{equation}
+    \boxed{
+    \begin{aligned}
+        \left(\frac{\partial T}{\partial V}\right)_{\!S,N}&=-\left(\frac{\partial P}{\partial S}\right)_{\!V,N}, &
+        \left(\frac{\partial S}{\partial V}\right)_{\!T,N}&=\left(\frac{\partial P}{\partial T}\right)_{\!V,N},\\
+        \left(\frac{\partial T}{\partial P}\right)_{\!S,N}&=\left(\frac{\partial V}{\partial S}\right)_{\!P,N}, &
+        \left(\frac{\partial S}{\partial P}\right)_{\!T,N}&=-\left(\frac{\partial V}{\partial T}\right)_{\!P,N}.
+    \end{aligned}}
+\end{equation}
+
+\paragraph{The cyclic relation.}
+Three variables linked by one equation of state satisfy the cyclic
+relation. The slope of an isochore in the $P$--$T$ plane then follows from
+$\alpha_P$ and $\kappa_T$.
+% FROM: the implicit-function result dU/dX|_S = -(dS/dX)/(dS/dU) (Section 4).
+\begin{equation}
+    \boxed{\left(\frac{\partial P}{\partial T}\right)_{\!V}
+    \left(\frac{\partial T}{\partial V}\right)_{\!P}
+    \left(\frac{\partial V}{\partial P}\right)_{\!T}=-1,
+    \qquad
+    \left(\frac{\partial P}{\partial T}\right)_{\!V}=\frac{\alpha_P}{\kappa_T}.}
+\end{equation}
+
+\paragraph{Relations between the response functions.}
+The response functions are not independent. Two exact relations connect
+the heat capacities and the compressibilities.
+% TODO: C_P - C_V from S(T, V(T, P)) and the second Maxwell relation;
+%       C_P / C_V = kappa_T / kappa_S from the cyclic relation.
+\begin{equation}
+    \boxed{C_P-C_V=\frac{TV\alpha_P^2}{\kappa_T},\qquad
+    \frac{C_P}{C_V}=\frac{\kappa_T}{\kappa_S}.}
+\end{equation}
+
+\subsection{Response Functions as Fluctuations}
+
+\paragraph{Heat capacity and energy fluctuation.}
+Section~3 relates $C_V$ to the energy fluctuation of the canonical
+ensemble. The relation is recalled here as the first member of a family.
+% FROM: Var(U) = k_B T^2 C_V (Section 3).
+\begin{equation}
+    \boxed{\mathrm{Var}(U)=k_BT^2C_V.}
+\end{equation}
+
+\paragraph{Compressibility and particle-number fluctuation.}
+The fluctuation formula of the grand canonical ensemble and the Gibbs--Duhem
+relation give $\kappa_T$ the same statistical meaning.
+\textcolor{red}{Here, $n\equiv N/V$ denotes the number density.}
+% FROM: Var(N) = k_B T (dN/dmu)_{T,V} and Gibbs--Duhem, N dmu = V dP at
+%       fixed T (Section 5).
+\begin{equation}
+    \boxed{\frac{\mathrm{Var}(N)}{N}=n\,k_BT\,\kappa_T.}
+\end{equation}
+
+\subsection{Thermodynamic Stability Revisited}
+
+\paragraph{What Sections 3 and 4 already establish.}
+Section~3 shows that the concavity of $S(U)$ is equivalent to $C_V>0$.
+Section~4 shows that $U(S,V,N)$ is convex, so $F$ is convex in $V$ and $G$
+is concave in $P$. This subsection translates these statements into signs
+of the response functions and adds the conditions that Sections~3 and 4 do
+not state.
+% FROM: d^2S/dU^2 = -1/(C_V T^2) (Section 3); convexity of partial
+%       transforms (Section 4).
+
+\paragraph{Positive heat capacities and compressibilities.}
+The convexity of $F$ in $V$ gives $\partial^2F/\partial V^2=1/(V\kappa_T)>0$,
+and the fluctuation formula gives $\kappa_T>0$ independently. The relations
+between the response functions then order the two heat capacities and the
+two compressibilities.
+% TODO: both routes to kappa_T > 0; C_P >= C_V and kappa_T >= kappa_S.
+\begin{equation}
+    \boxed{C_P\geq C_V>0,\qquad\kappa_T\geq\kappa_S>0.}
+\end{equation}
+
+\paragraph{The principle of Le Chatelier.}
+A stable system responds to an imposed change in the direction that reduces
+the effect of the change. The positive response functions state this
+principle quantitatively.
+% TODO: heating at fixed V raises T by dU/C_V; compression at fixed T
+%       raises P by dV/(V kappa_T).
