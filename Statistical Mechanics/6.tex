@@ -261,11 +261,72 @@ $\ell_{\text{sub}}>\ell_{\text{vap}}$ and $\Delta v$ is nearly the same for
 both, the solid--vapor curve is steeper than the liquid--vapor curve at the
 triple point.
 
+\paragraph{Thermal expansion and compressibility.}
+The volume per particle of one phase is a function $v(T,P)$, so a change of
+state changes $v$ by
+\begin{equation}
+    dv=\left(\frac{\partial v}{\partial T}\right)_{\!P}dT
+      +\left(\frac{\partial v}{\partial P}\right)_{\!T}dP.
+\end{equation}
+The two partial derivatives, divided by $v$, define the
+\textcolor{blue}{thermal expansion coefficient} $\alpha_P$ and the
+\textcolor{blue}{isothermal compressibility} $\kappa_T$,
+\begin{equation}
+    \boxed{\alpha_P\equiv\frac{1}{v}\left(\frac{\partial v}{\partial T}\right)_{\!P},
+    \qquad
+    \kappa_T\equiv-\frac{1}{v}\left(\frac{\partial v}{\partial P}\right)_{\!T}.}
+\end{equation}
+The subscript $P$ distinguishes $\alpha_P$ from the phase label $\alpha$.
+The minus sign makes $\kappa_T$ positive, because stability requires the
+volume to decrease when the pressure rises. For an ideal gas, $v=k_BT/P$
+gives
+\begin{equation}
+    \boxed{\alpha_P=\frac{1}{T},\qquad\kappa_T=\frac{1}{P}.}
+\end{equation}
+A liquid expands and compresses far less. For water at
+$100~^\circ$C, $\alpha_P\approx7.5\times10^{-4}$~K$^{-1}$, against
+$1/T=2.7\times10^{-3}$~K$^{-1}$ for the vapor, and
+$\kappa_T\approx4.9\times10^{-10}$~Pa$^{-1}$, against
+$1/P\approx10^{-5}$~Pa$^{-1}$ for the vapor at 1~atm.
+
 \paragraph{The critical point.}
-The liquid--vapor curve does not continue indefinitely. As $T$ rises along
-the curve, the saturation pressure rises steeply, so the vapor becomes
-denser while the liquid expands, until $\Delta v$ and $\Delta s$ both vanish at the \textcolor{blue}{critical point} $(T_c,P_c)$,
-where the curve ends. Above $T_c$, liquid and vapor can no longer be
+The liquid--vapor curve does not continue indefinitely. Along the curve,
+$T$ and $P$ change together, $dP=(dP_{\text{sat}}/dT)\,dT$, so the volume
+of each coexisting phase changes as
+\begin{equation}
+    \boxed{\frac{1}{v}\frac{dv}{dT}\bigg|_{\text{coex}}
+    =\alpha_P-\kappa_T\,\frac{dP_{\text{sat}}}{dT}.}
+\end{equation}
+Heating expands each phase through $\alpha_P$, and the rising saturation
+pressure compresses each phase through $\kappa_T$. For the vapor, the
+ideal-gas values and the Clausius--Clapeyron equation give
+\begin{equation}
+    \boxed{\frac{1}{v_g}\frac{dv_g}{dT}\bigg|_{\text{coex}}
+    =\frac{1}{T}\left(1-\frac{\ell}{k_BT}\right).}
+\end{equation}
+The latent heat per particle exceeds $k_BT$, so the compression wins and
+the vapor becomes denser along the curve. For water at $100~^\circ$C,
+$\ell/k_BT\approx13$, and $v_g$ decreases by about 3\% per kelvin. For
+the liquid, the compression term is negligible, because
+$\kappa_T\,dP_{\text{sat}}/dT\approx1.8\times10^{-6}$~K$^{-1}$ is far
+below $\alpha_P$. The liquid therefore expands along the curve,
+$(1/v_l)\,dv_l/dT\approx\alpha_P>0$. The volume difference $\Delta
+v=v_g-v_l$ shrinks from both sides as $T$ rises.
+
+The ideal-gas
+approximation fails near the end of the curve, where the vapor is dense,
+but experiment and models such as the van der Waals equation show that
+$\Delta v$ keeps shrinking and reaches zero at a finite temperature. The
+Clapeyron equation, $\Delta s=\Delta v\,dP/dT$, then gives $\Delta s=0$
+and $\ell=0$. The two coexisting phases have the same $v$, the same $s$
+and the same $\mu$, so the two phases become identical, and no
+coexistence curve can continue beyond this
+\textcolor{blue}{critical point} $(T_c,P_c)$. The flat two-phase segment of
+the isotherms in the $P$--$v$ plane (Fig.~\ref{fig:unary-Pv}) shrinks to a
+single point at the critical volume $v_c$, so the critical isotherm has
+$(\partial P/\partial v)_T=0$ at $v_c$. The compressibility,
+$\kappa_T=-1/[v(\partial P/\partial v)_T]$, therefore diverges at the
+critical point. Above $T_c$, liquid and vapor can no longer be
 distinguished, and the fluid is called \textcolor{blue}{supercritical}. A
 path that circles around the critical point connects the liquid to the vapor
 without crossing any coexistence curve, so the potential stays analytic
@@ -435,9 +496,3 @@ solid--vapor tangent (convex hull). Dashed line: liquid--vapor tangent above
 the solid curve (metastable coexistence).}
 \label{fig:unary-fv-triple}
 \end{figure}
-
-\paragraph{Outlook to the binary system.}
-The binary system uses both tools with the composition $x$ in place of $v$.
-A tie line joins the two coexisting phases, the lever rule gives the phase
-fractions along it, and the common tangent of $g(x)$ at fixed $(T,P)$ gives
-the compositions of the coexisting phases.
