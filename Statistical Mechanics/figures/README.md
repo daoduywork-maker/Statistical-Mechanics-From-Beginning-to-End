@@ -33,3 +33,9 @@ from the equal-area rule (the common tangent of f(v)).
 
     python3 make_unary_Pv.py > unary-Pv.tex   # needs numpy, scipy
     ./build.sh unary-Pv
+
+`unary-fv-triple.pdf` shows model free energy curves of a solid, a liquid and a vapor at the
+triple point and below the triple point, with the common tangents computed numerically.
+
+    python3 make_unary_fv_triple.py > unary-fv-triple.tex
+    ./build.sh unary-fv-triple
