@@ -25,3 +25,11 @@ Regenerate the data (needs numpy, scipy, contourpy), then rebuild the PDFs:
     python3 make_gallery.py  > binary_gallery.tex
     python3 make_pressure.py > binary_pressure.tex
     ./build.sh gallery pressure
+
+## Computed unary figures
+
+`unary-Pv.pdf` shows van der Waals isotherms in reduced units, with the coexisting volumes
+from the equal-area rule (the common tangent of f(v)).
+
+    python3 make_unary_Pv.py > unary-Pv.tex   # needs numpy, scipy
+    ./build.sh unary-Pv
