@@ -1,0 +1,307 @@
+% ============================================================
+% SKELETON: Classical Thermodynamics of Simple Fluids
+% ------------------------------------------------------------
+% Planned position: a new part between "Statistical Derivation of
+% Ensembles" (Sections 1-5) and "Phase Transitions" (Sections 6-7).
+% Not yet included in main.tex. To preview, add \include{thermo.tex}
+% under \part{Classical Thermodynamics} and move that part in front of
+% \part{Phase Transitions}.
+%
+% Conventions of this skeleton:
+%   - Each \paragraph has one or two sentences that state the goal of the
+%     paragraph, followed by the boxed target result where one exists.
+%   - "% TODO" comments list the derivation steps still to be written.
+%   - "% FROM" comments name the earlier result that a step reuses, so the
+%     chapter does not repeat Sections 1-5.
+% ============================================================
+
+\section{Classical Thermodynamics of Simple Fluids}
+
+\paragraph{Scope of this section.}
+Sections~3--5 derive the laws of thermodynamics, the potentials and the
+fluctuation formulas from entropy maximization. This section turns these
+results into measurable quantities and applies them to model fluids. The
+response functions and the stability conditions of this section are the
+tools of the phase-transition sections, and the ideal gas and the van der
+Waals gas are the first explicit models of the notes.
+
+% ============================================================
+\subsection{Response Functions}
+% ============================================================
+
+\paragraph{Measurable second derivatives.}
+Experiments measure how one variable responds to a change of another,
+not the potentials themselves. Each \textcolor{blue}{response function} is a
+second derivative of a potential.
+% FROM: C_V and Var(U) = k_B T^2 C_V (Section 3); delta Q = dH at fixed P
+%       (Section 4); G(T, P, N) and its derivatives (Section 5).
+% TODO: define C_P = T (dS/dT)_P = (dH/dT)_P, alpha_P, kappa_T,
+%       kappa_S = -(1/V)(dV/dP)_S; write each as a second derivative of G.
+\begin{equation}
+    \boxed{C_P=-T\frac{\partial^2G}{\partial T^2},\qquad
+    \alpha_P=\frac{1}{V}\frac{\partial^2G}{\partial T\,\partial P},\qquad
+    \kappa_T=-\frac{1}{V}\frac{\partial^2G}{\partial P^2}.}
+\end{equation}
+
+\paragraph{Maxwell relations.}
+The mixed second derivatives of a potential do not depend on the order of
+differentiation. Each potential therefore gives one
+\textcolor{blue}{Maxwell relation} between two response-type derivatives.
+% TODO: derive from dU, dF, dH, dG (Sections 3-5); note which relation turns
+%       an unmeasurable entropy derivative into a measurable one.
+\begin{equation}
+    \boxed{
+    \begin{aligned}
+        \left(\frac{\partial T}{\partial V}\right)_{\!S,N}&=-\left(\frac{\partial P}{\partial S}\right)_{\!V,N}, &
+        \left(\frac{\partial S}{\partial V}\right)_{\!T,N}&=\left(\frac{\partial P}{\partial T}\right)_{\!V,N},\\
+        \left(\frac{\partial T}{\partial P}\right)_{\!S,N}&=\left(\frac{\partial V}{\partial S}\right)_{\!P,N}, &
+        \left(\frac{\partial S}{\partial P}\right)_{\!T,N}&=-\left(\frac{\partial V}{\partial T}\right)_{\!P,N}.
+    \end{aligned}}
+\end{equation}
+
+\paragraph{The cyclic relation.}
+Three variables linked by one equation of state satisfy the cyclic
+relation. The slope of an isochore in the $P$--$T$ plane then follows from
+$\alpha_P$ and $\kappa_T$.
+% FROM: the implicit-function result dU/dX|_S = -(dS/dX)/(dS/dU) (Section 4).
+\begin{equation}
+    \boxed{\left(\frac{\partial P}{\partial T}\right)_{\!V}
+    \left(\frac{\partial T}{\partial V}\right)_{\!P}
+    \left(\frac{\partial V}{\partial P}\right)_{\!T}=-1,
+    \qquad
+    \left(\frac{\partial P}{\partial T}\right)_{\!V}=\frac{\alpha_P}{\kappa_T}.}
+\end{equation}
+
+\paragraph{Relations between the response functions.}
+The response functions are not independent. Two exact relations connect
+the heat capacities and the compressibilities.
+% TODO: derive C_P - C_V from S(T, V(T, P)) and the second Maxwell relation;
+%       derive C_P / C_V = kappa_T / kappa_S from the cyclic relation.
+\begin{equation}
+    \boxed{C_P-C_V=\frac{TV\alpha_P^2}{\kappa_T},\qquad
+    \frac{C_P}{C_V}=\frac{\kappa_T}{\kappa_S}.}
+\end{equation}
+
+\paragraph{Compressibility from particle-number fluctuations.}
+The fluctuation formula of the grand canonical ensemble gives the
+compressibility a statistical meaning, as the energy fluctuation does for
+$C_V$. \textcolor{red}{Here, $n\equiv N/V$ denotes the number density.}
+% FROM: Var(N) = k_B T (dN/dmu)_{T,V} (Section 5) and the Gibbs--Duhem
+%       relation at fixed T, N dmu = V dP (Section 5).
+\begin{equation}
+    \boxed{\frac{\mathrm{Var}(N)}{N}=n\,k_BT\,\kappa_T.}
+\end{equation}
+
+% ============================================================
+\subsection{Thermodynamic Stability}
+% ============================================================
+
+\paragraph{Positive heat capacities and compressibilities.}
+Stability requires every response function that pairs a variable with the
+conjugate of that variable to be positive.
+% FROM: d^2S/dU^2 = -1/(C_V T^2) < 0 (Section 3); F convex in V (Section 4);
+%       Var(N) >= 0 and the fluctuation formula above.
+% TODO: show kappa_T > 0 from d^2F/dV^2 = 1/(V kappa_T) and from Var(N);
+%       combine with the relations above to order C_P >= C_V and
+%       kappa_T >= kappa_S.
+\begin{equation}
+    \boxed{C_P\geq C_V>0,\qquad\kappa_T\geq\kappa_S>0.}
+\end{equation}
+
+\paragraph{The principle of Le Chatelier.}
+A stable system responds to an imposed change in a direction that reduces
+the effect of the change. The positive response functions state this
+principle quantitatively.
+% TODO: one example each for heating at fixed V and compression at fixed T.
+
+% ============================================================
+\subsection{Thermodynamic Processes}
+% ============================================================
+
+\paragraph{Quasi-static processes and the path dependence of heat and work.}
+A \textcolor{blue}{quasi-static process} passes through equilibrium states
+only, so the state variables are defined along the whole path. Heat and work
+then follow from integrals along the path.
+% FROM: delta Q and delta W are path-dependent; delta Q <= T dS (Section 3).
+
+\paragraph{Isothermal, isobaric, isochoric and adiabatic processes.}
+Each elementary process fixes one variable. The heat and the work of each
+process follow from the response functions.
+% TODO: table of the four processes with delta Q, delta W and the response
+%       function involved; adiabat versus isotherm in the P--V plane.
+\begin{equation}
+    \boxed{\left(\frac{\partial P}{\partial V}\right)_{\!S}
+    =\frac{C_P}{C_V}\left(\frac{\partial P}{\partial V}\right)_{\!T}.}
+\end{equation}
+
+\paragraph{Free expansion.}
+In a \textcolor{blue}{free expansion}, a gas expands into vacuum inside an
+insulated container, so neither heat nor work is exchanged and $U$ stays
+constant. The temperature change measures the deviation from ideal
+behavior.
+% TODO: derive with the second Maxwell relation; irreversible, so Delta S > 0.
+\begin{equation}
+    \boxed{\left(\frac{\partial T}{\partial V}\right)_{\!U}
+    =-\frac{1}{C_V}\left[T\left(\frac{\partial P}{\partial T}\right)_{\!V}-P\right].}
+\end{equation}
+
+\paragraph{Throttling.}
+In a \textcolor{blue}{throttling process}, a gas flows steadily through a
+porous plug from high to low pressure. The enthalpy stays constant, and the
+\textcolor{blue}{Joule--Thomson coefficient} gives the temperature change.
+% TODO: show H = const from the work balance on both sides of the plug;
+%       derive with the fourth Maxwell relation.
+\begin{equation}
+    \boxed{\mu_{\text{JT}}\equiv\left(\frac{\partial T}{\partial P}\right)_{\!H}
+    =\frac{V}{C_P}\left(T\alpha_P-1\right).}
+\end{equation}
+
+\paragraph{Heat engines and the Carnot bound.}
+A cyclic process returns to the initial state, so the net work equals the
+net heat. The second law bounds the fraction of the absorbed heat that a
+cycle converts into work.
+% OPTIONAL: Carnot cycle; efficiency bound from the Clausius inequality.
+\begin{equation}
+    \boxed{\eta\leq1-\frac{T_{\text{low}}}{T_{\text{high}}}.}
+\end{equation}
+
+% ============================================================
+\subsection{The Ideal Gas}
+% ============================================================
+
+\paragraph{Classical limit of the partition function.}
+The sum over microstates becomes an integral over phase space for classical
+particles. Two assumptions enter. Each microstate occupies a phase-space
+volume $h^{3N}$, and the factor $1/N!$ removes the permutations of identical
+particles.
+% FROM: 1/N! and extensivity (Section 5, Gibbs paradox).
+% TODO: state the h^{3N} cell as an assumption, justified later by quantum
+%       statistics.
+\begin{equation}
+    \boxed{Z=\frac{1}{N!\,h^{3N}}\int d^{3N}q\,d^{3N}p\;e^{-\beta\mathcal{H}(q,p)}.}
+\end{equation}
+
+\paragraph{Partition function of non-interacting particles.}
+The \textcolor{blue}{ideal gas} consists of point particles without
+interactions, so the Hamiltonian contains the kinetic energy only. The
+momentum integrals are Gaussian, and the position integrals give the
+volume. \textcolor{red}{Here, $\lambda\equiv h/\sqrt{2\pi mk_BT}$ denotes the
+thermal wavelength.}
+\begin{equation}
+    \boxed{Z=\frac{V^N}{N!\,\lambda^{3N}}.}
+\end{equation}
+
+\paragraph{Equation of state, energy and heat capacity.}
+The free energy $F=-k_BT\ln Z$ gives the pressure, and
+$U=-\partial\ln Z/\partial\beta$ gives the energy.
+% FROM: F = -k_B T ln Z, P = -dF/dV (Section 4).
+\begin{equation}
+    \boxed{PV=Nk_BT,\qquad U=\tfrac{3}{2}Nk_BT,\qquad C_V=\tfrac{3}{2}Nk_B.}
+\end{equation}
+
+\paragraph{Entropy and chemical potential.}
+The entropy of the ideal gas is the \textcolor{blue}{Sackur--Tetrode
+equation}. The entropy is extensive only with the factor $1/N!$.
+\begin{equation}
+    \boxed{S=Nk_B\left[\ln\frac{V}{N\lambda^3}+\frac{5}{2}\right],\qquad
+    \mu=k_BT\ln\!\left(n\lambda^3\right).}
+\end{equation}
+
+\paragraph{Response functions and processes of the ideal gas.}
+The general results of this section take simple forms for the ideal gas.
+Free expansion and throttling leave the temperature of an ideal gas
+unchanged, because the particles do not interact.
+% TODO: kappa_S, adiabat P V^gamma = const with gamma = 5/3; Var(N)/N = 1.
+\begin{equation}
+    \boxed{\alpha_P=\frac{1}{T},\qquad\kappa_T=\frac{1}{P},\qquad
+    C_P-C_V=Nk_B,\qquad\mu_{\text{JT}}=0.}
+\end{equation}
+
+\paragraph{Validity of the ideal gas.}
+The ideal gas requires two conditions. The gas must be dilute, so that the
+interactions are negligible, and the thermal wavelength must be small
+compared with the particle spacing, $n\lambda^3\ll1$, so that the classical
+limit holds.
+
+% ============================================================
+\subsection{Interacting Gases}
+% ============================================================
+
+\paragraph{The configurational integral.}
+Pair interactions $\phi(r)$ leave the momentum integrals unchanged. The
+partition function then splits into the ideal-gas part and a
+\textcolor{blue}{configurational integral} $Q_N$.
+\begin{equation}
+    \boxed{Z=\frac{Q_N}{N!\,\lambda^{3N}},\qquad
+    Q_N=\int d^{3N}r\;\exp\!\Big[-\beta\sum_{i<j}\phi(r_{ij})\Big].}
+\end{equation}
+
+\paragraph{The virial expansion.}
+At low density, the equation of state is a power series in $1/v$. The
+\textcolor{blue}{second virial coefficient} $B_2(T)$ follows exactly from
+the pair potential through the \textcolor{blue}{Mayer function}
+$f(r)=e^{-\beta\phi(r)}-1$. This expansion is the rigorous link between the
+interactions and the deviation from ideal behavior.
+% TODO: derive B_2 from Q_N to first order in the density.
+\begin{equation}
+    \boxed{\frac{Pv}{k_BT}=1+\frac{B_2(T)}{v}+\cdots,\qquad
+    B_2(T)=-\frac{1}{2}\int d^3r\,f(r).}
+\end{equation}
+
+\paragraph{The van der Waals equation.}
+Two assumptions turn $Q_N$ into a closed form. A hard core excludes the
+volume $b$ per particle, and the attraction acts on each particle as a
+uniform mean field proportional to the density, with strength $a$.
+% TODO: Q_N ~ (V - Nb)^N exp(beta a N^2 / V); compare B_2 = b - a/(k_B T)
+%       with the virial result.
+\begin{equation}
+    \boxed{P=\frac{k_BT}{v-b}-\frac{a}{v^2}.}
+\end{equation}
+
+\paragraph{Critical point and corresponding states.}
+Below a critical temperature, each van der Waals isotherm has a loop, and
+the middle part of the loop has $\kappa_T<0$, which violates stability. The loop shrinks to a horizontal
+inflection at the critical point, and the reduced variables
+$P_r=P/P_c$, $v_r=v/v_c$ and $T_r=T/T_c$ remove the material constants.
+\begin{equation}
+    \boxed{v_c=3b,\quad k_BT_c=\frac{8a}{27b},\quad P_c=\frac{a}{27b^2},
+    \qquad
+    \left(P_r+\frac{3}{v_r^2}\right)\left(3v_r-1\right)=8T_r.}
+\end{equation}
+% TODO: law of corresponding states; the loop is resolved by phase
+%       coexistence in the phase-transition sections (Maxwell construction).
+
+\paragraph{The Dieterici equation.}
+The \textcolor{blue}{Dieterici equation} replaces the mean-field attraction
+by a Boltzmann factor and has the same second virial coefficient as the
+van der Waals equation. The critical compressibility factor
+$Z_c=P_cv_c/(k_BT_c)$ tests both models, because $Z_c$ is the same for all
+substances in either model. Table~\ref{tab:Zc} compares the models with
+experiment.
+\begin{equation}
+    \boxed{P=\frac{k_BT}{v-b}\exp\!\left(-\frac{a}{k_BTv}\right).}
+\end{equation}
+\begin{table}[h]
+\centering
+\caption{Critical compressibility factor $Z_c$ of two model equations and
+four fluids.}
+\label{tab:Zc}
+\begin{tabular}{lc}
+    Equation or fluid & $Z_c$ \\ \hline
+    van der Waals & $3/8=0.375$ \\
+    Dieterici & $2/e^2\approx0.271$ \\
+    Argon & 0.291 \\
+    Nitrogen & 0.289 \\
+    Carbon dioxide & 0.274 \\
+    Water & 0.229 \\
+\end{tabular}
+\end{table}
+
+\paragraph{Joule--Thomson inversion.}
+The attraction cools a throttled gas, and the hard core heats the gas. At
+low density, the van der Waals gas cools on throttling below the
+\textcolor{blue}{inversion temperature}.
+% TODO: derive mu_JT ~ (2a/(k_B T) - b)/c_P from B_2.
+\begin{equation}
+    \boxed{k_BT_{\text{inv}}=\frac{2a}{b}=\frac{27}{4}\,k_BT_c.}
+\end{equation}
