@@ -278,16 +278,14 @@ The two partial derivatives, divided by $v$, define the
 \end{equation}
 The subscript $P$ distinguishes $\alpha_P$ from the phase label $\alpha$.
 The minus sign makes $\kappa_T$ positive, because stability requires the
-volume to decrease when the pressure rises. For an ideal gas, $v=k_BT/P$
-gives
-\begin{equation}
-    \boxed{\alpha_P=\frac{1}{T},\qquad\kappa_T=\frac{1}{P}.}
-\end{equation}
-A liquid expands and compresses far less. For water at
-$100~^\circ$C, $\alpha_P\approx7.5\times10^{-4}$~K$^{-1}$, against
-$1/T=2.7\times10^{-3}$~K$^{-1}$ for the vapor, and
-$\kappa_T\approx4.9\times10^{-10}$~Pa$^{-1}$, against
-$1/P\approx10^{-5}$~Pa$^{-1}$ for the vapor at 1~atm.
+volume to decrease when the pressure rises. A liquid expands and compresses
+far less than a vapor. For water at $100~^\circ$C, the liquid has
+$\alpha_P\approx7.5\times10^{-4}$~K$^{-1}$ and
+$\kappa_T\approx4.9\times10^{-10}$~Pa$^{-1}$, while the vapor at the same
+temperature and 1~atm has $\alpha_P\approx3\times10^{-3}$~K$^{-1}$ and
+$\kappa_T\approx1\times10^{-5}$~Pa$^{-1}$. The vapor is thus about four
+times more expandable and about $2\times10^{4}$ times more compressible than
+the liquid.
 
 \paragraph{The critical point.}
 The liquid--vapor curve does not continue indefinitely. Along the curve,
@@ -298,25 +296,37 @@ of each coexisting phase changes as
     =\alpha_P-\kappa_T\,\frac{dP_{\text{sat}}}{dT}.}
 \end{equation}
 Heating expands each phase through $\alpha_P$, and the rising saturation
-pressure compresses each phase through $\kappa_T$. For the vapor, the
-ideal-gas values and the Clausius--Clapeyron equation give
+pressure compresses each phase through $\kappa_T$. The cyclic relation
+among the partial derivatives of $v(T,P)$ gives the slope of an
+\textcolor{blue}{isochore}, a line of constant $v$, in the $P$--$T$ plane,
 \begin{equation}
-    \boxed{\frac{1}{v_g}\frac{dv_g}{dT}\bigg|_{\text{coex}}
-    =\frac{1}{T}\left(1-\frac{\ell}{k_BT}\right).}
+    \left(\frac{\partial P}{\partial T}\right)_{\!v}
+    =-\frac{(\partial v/\partial T)_P}{(\partial v/\partial P)_T}
+    =\frac{\alpha_P}{\kappa_T}.
 \end{equation}
-The latent heat per particle exceeds $k_BT$, so the compression wins and
-the vapor becomes denser along the curve. For water at $100~^\circ$C,
-$\ell/k_BT\approx13$, and $v_g$ decreases by about 3\% per kelvin. For
-the liquid, the compression term is negligible, because
-$\kappa_T\,dP_{\text{sat}}/dT\approx1.8\times10^{-6}$~K$^{-1}$ is far
-below $\alpha_P$. The liquid therefore expands along the curve,
-$(1/v_l)\,dv_l/dT\approx\alpha_P>0$. The volume difference $\Delta
-v=v_g-v_l$ shrinks from both sides as $T$ rises.
+Hence
+\begin{equation}
+    \boxed{\frac{1}{v}\frac{dv}{dT}\bigg|_{\text{coex}}
+    =\kappa_T\left[\left(\frac{\partial P}{\partial T}\right)_{\!v}
+    -\frac{dP_{\text{sat}}}{dT}\right].}
+\end{equation}
+Since $\kappa_T>0$, a phase becomes denser along the curve when the
+coexistence curve is steeper than the isochore of that phase, and less dense
+when the curve is flatter. The liquid barely compresses, so the isochores of
+the liquid are steep. For water at $100~^\circ$C,
+$\alpha_P/\kappa_T\approx1.5$~MPa/K for the liquid, while
+$dP_{\text{sat}}/dT\approx3.6$~kPa/K. The vapor compresses easily, so the
+isochores of the vapor are flat, with $\alpha_P/\kappa_T\approx0.3$~kPa/K.
+The coexistence curve thus lies between the two isochore slopes. The liquid
+expands and the vapor becomes denser along the curve. Steam tables confirm
+the result. Between $100~^\circ$C and $105~^\circ$C, $v_l$ rises by about
+0.08\% per kelvin, and $v_g$ falls by about 3\% per kelvin. The volume
+difference $\Delta v=v_g-v_l$ therefore shrinks from both sides as $T$
+rises.
 
-The ideal-gas
-approximation fails near the end of the curve, where the vapor is dense,
-but experiment and models such as the van der Waals equation show that
-$\Delta v$ keeps shrinking and reaches zero at a finite temperature. The
+Thermodynamics alone does not fix where this trend ends, but experiment and
+models such as the van der Waals equation show that $\Delta v$ keeps
+shrinking and reaches zero at a finite temperature. The
 Clapeyron equation, $\Delta s=\Delta v\,dP/dT$, then gives $\Delta s=0$
 and $\ell=0$. The two coexisting phases have the same $v$, the same $s$
 and the same $\mu$, so the two phases become identical, and no
