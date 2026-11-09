@@ -16,27 +16,32 @@ structure gains one dimension:
     each volume changes with $X$.
     \item \textcolor{blue}{Bivariant surface} ($\mathcal{P}=2$, $F=2$). The
     univariant curves become surfaces. Two coexisting phases generally have
-    different compositions, so each phase has its own bivariant surface, and
-    tie lines join the two surfaces. The region between the surfaces is the
-    two-phase region, in which the overall composition fixes the amount of
-    each phase.
+    different compositions, so each phase has its own bivariant surface.
+    The segment that joins the compositions of the two coexisting phases at
+    one $(P,T)$ is a \textcolor{blue}{tie line}, and the tie lines connect
+    the two surfaces. The unary system has no tie lines, because coexisting
+    phases of one component have the same composition. The region between
+    the surfaces is the two-phase region, in which the overall composition
+    fixes the amount of each phase.
     \item \textcolor{blue}{Univariant equilibrium} ($\mathcal{P}=3$,
     $F=1$). The invariant points become univariant equilibria, along which
     only one variable varies freely. At each $(P,T)$ of such an equilibrium,
-    the three phases have three different compositions, joined by a
-    \textcolor{blue}{tie triangle}. As $(P,T)$ moves along the equilibrium,
-    the tie triangles sweep a ruled surface in the $X$--$P$--$T$ space.
+    the three phases have three different compositions. All three
+    compositions share the same $P$ and $T$, so the three points lie on one
+    isobaric and isothermal line, the \textcolor{blue}{three-phase tie
+    line}. As $(P,T)$ moves along the equilibrium, the three-phase tie lines
+    sweep a ruled surface in the $X$--$P$--$T$ space.
     \item \textcolor{blue}{Invariant equilibrium} ($\mathcal{P}=4$, $F=0$).
     A new kind of invariant equilibrium appears, at which none of $P$, $T$
     or the four phase compositions varies. The four phases lie on a single
-    isobaric and isothermal tie line. Every subset of the four phases
+    isobaric and isothermal four-phase tie line. Every subset of the four phases
     coexists nearby, so $\binom{4}{3}=4$ three-phase, $\binom{4}{2}=6$
     two-phase and $\binom{4}{1}=4$ one-phase equilibria meet at this
     equilibrium, which is called the \textcolor{blue}{quadruple point}.
 \end{itemize}
 
 \paragraph{The $P$--$T$ projection.}
-Every tie line, tie triangle and four-phase tie line is isobaric and
+Every two-phase, three-phase and four-phase tie line is isobaric and
 isothermal, so each one projects to a single point of the $P$--$T$ plane.
 The two-phase curves of the pure components lie on the faces $X=0$ and
 $X=1$ and project unchanged. A three-phase ruled surface projects to a
@@ -94,12 +99,14 @@ Eq.~\eqref{eq:binary-euler} returns $g$, as required.
 
 \paragraph{Equal chemical potentials as a common tangent.}
 Two phases, $\alpha$ and $\beta$, at the same $(T,P)$ have separate curves
-$g^\alpha(X)$ and $g^\beta(X)$. The phases coexist with compositions
-$X^\alpha$ and $X^\beta$ when both chemical potentials match,
-$\mu_1^\alpha=\mu_1^\beta$ and $\mu_2^\alpha=\mu_2^\beta$. By
-Eq.~\eqref{eq:tangent-intercepts}, the tangent lines at $X^\alpha$ and
-$X^\beta$ then have the same intercepts at $X=0$ and at $X=1$, so the two
-lines coincide:
+$g^\alpha(X)$ and $g^\beta(X)$. Equilibrium requires equal chemical
+potentials for each component, so a binary system imposes two conditions,
+$\mu_1^\alpha=\mu_1^\beta$ and $\mu_2^\alpha=\mu_2^\beta$. The number of
+conditions equals the number of components, not the number of phases. By
+Eq.~\eqref{eq:tangent-intercepts}, the condition for component 1 equates
+the intercepts at $X=0$ of the tangent lines at $X^\alpha$ and $X^\beta$,
+and the condition for component 2 equates the intercepts at $X=1$. Two
+intercepts fix a straight line, so the two tangent lines coincide:
 \begin{equation}
     \boxed{g^{\alpha\prime}(X^\alpha)=g^{\beta\prime}(X^\beta)
     =\frac{g^\beta(X^\beta)-g^\alpha(X^\alpha)}{X^\beta-X^\alpha}.}
@@ -124,8 +131,8 @@ $X^\alpha$ and $X^\beta$ are fixed.
 \paragraph{The lever rule on a tie line.}
 \textcolor{red}{Here, $n_\alpha\equiv N^\alpha/N$ denotes the fraction of all
 particles in phase $\alpha$, with $N^\alpha=N_1^\alpha+N_2^\alpha$.}
-In a phase diagram, the segment between $X^\alpha$ and $X^\beta$ at fixed
-$(T,P)$ is a \textcolor{blue}{tie line}. Conservation of the particle number
+The segment between $X^\alpha$ and $X^\beta$ at fixed $(T,P)$ is the tie
+line of the two phases. Conservation of the particle number
 and of component 2 gives
 \begin{equation*}
     n_\alpha+n_\beta=1,\qquad n_\alpha X^\alpha+n_\beta X^\beta=X,
