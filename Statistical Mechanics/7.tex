@@ -172,7 +172,10 @@ the line $\lambda(X)=(1-X)\mu_1+X\mu_2$ touches all three curves:
 These six conditions contain the five unknowns $\mu_1$, $\mu_2$ and the
 three compositions, so at a fixed pressure they also fix the temperature.
 The phase rule agrees, because $F=4-3=1$, and a fixed $P$ leaves no freedom.
-Figure~\ref{fig:binary-three-phase} shows the mechanism for a eutectic.
+Figure~\ref{fig:binary-three-phase} shows the mechanism for the simplest
+example, the \textcolor{blue}{eutectic}, in which a liquid $L$ coexists with
+two solids $\alpha$ and $\beta$, and the liquid lies between the two solids in
+composition. \textcolor{red}{Here, $T_e$ denotes the eutectic temperature.}
 Above $T_e$, the convex hull contains two separate common tangents,
 $\alpha$--$L$ and $L$--$\beta$. On cooling, the two tangents rotate toward
 each other and merge at $T_e$ into one line that touches all three curves.
@@ -198,34 +201,55 @@ three-phase isotherm.}
 \label{fig:binary-three-phase}
 \end{figure}
 
-\paragraph{Which assemblage is stable above and below the isotherm.}
-Let $T_3$ denote the temperature of the isotherm. The free energy change of
-forming the middle phase from the two outer phases at the fixed overall
-composition $X^{(2)}$ is
+\paragraph{The middle phase: above or below the isotherm.}
+\textcolor{red}{Here, $T^\ast$ denotes the temperature of a three-phase
+isotherm.}
+Just above and just below $T^\ast$, at most two of the three phases coexist,
+and the middle phase $(2)$ exists on one side of the isotherm only. Two cases
+are possible. In the first case, the middle phase exists above the isotherm
+and splits into the two outer phases on cooling. The liquid of the eutectic
+in Fig.~\ref{fig:binary-three-phase} behaves in this way. In the second
+case, the two outer phases react on cooling and form the middle phase, which
+exists below the isotherm only.
+
+The entropy decides between the two cases, because $\partial g/\partial
+T=-s$, so a rise in temperature favors the state with the larger entropy.
+The comparison is between the middle phase and a mixture of the two outer
+phases with the same overall composition $X^{(2)}$. The lever rule gives the
+fractions $n_1$ and $n_3$ of the outer phases in this mixture, and the free
+energy of the middle phase relative to the mixture is
 \begin{equation*}
     \Delta g(T)\equiv g^{(2)}\big(X^{(2)}\big)
     -n_1\,g^{(1)}\big(X^{(1)}\big)-n_3\,g^{(3)}\big(X^{(3)}\big),
     \qquad
-    n_1=\frac{X^{(3)}-X^{(2)}}{X^{(3)}-X^{(1)}},\quad n_3=1-n_1,
+    n_1=\frac{X^{(3)}-X^{(2)}}{X^{(3)}-X^{(1)}},\quad n_3=1-n_1.
 \end{equation*}
-with $\Delta g(T_3)=0$. The derivative of $\Delta g$ contains the entropies
+All three phases lie on the common tangent at $T^\ast$, so $\Delta
+g(T^\ast)=0$. The derivative of $\Delta g$ contains the entropies
 $-s^{(k)}=\partial g^{(k)}/\partial T$ and terms from the temperature
 dependence of the compositions and of $n_1$. With the common slope
 $m=\mu_2-\mu_1$ and the lever relation $n_1X^{(1)}+n_3X^{(3)}=X^{(2)}$, the
 composition terms sum to $m\,(X^{(1)}-X^{(3)})\,dn_1/dT$, and the terms from
 $n_1$ sum to $-(g^{(1)}-g^{(3)})\,dn_1/dT$. These two contributions cancel,
-because $m=(g^{(3)}-g^{(1)})/(X^{(3)}-X^{(1)})$. Hence
+because $m=(g^{(3)}-g^{(1)})/(X^{(3)}-X^{(1)})$. Only the entropy difference
+remains,
 \begin{equation}
-    \boxed{\frac{d\Delta g}{dT}\bigg|_{T_3}=-\Delta s_r,\qquad
+    \boxed{\frac{d\Delta g}{dT}\bigg|_{T^\ast}=-\Delta s_r,\qquad
     \Delta s_r\equiv s^{(2)}-n_1s^{(1)}-n_3s^{(3)}.}
 \end{equation}
-If $\Delta s_r>0$, the middle phase has the larger entropy, $\Delta g<0$ above
-$T_3$, and the middle phase is stable above the isotherm. On cooling, it
-decomposes into the two outer phases. This case is the
-\textcolor{blue}{eutectic type}, $(2)\to(1)+(3)$. If $\Delta s_r<0$, the middle
-phase is stable below the isotherm and forms on cooling from the two outer
-phases. This case is the \textcolor{blue}{peritectic type}, $(1)+(3)\to(2)$.
-In both cases, the reaction releases the latent heat $T_3|\Delta s_r|$ per
+The sign of $\Delta s_r$ therefore decides the case.
+\begin{itemize}
+    \item If $\Delta s_r>0$, the middle phase has more entropy than the
+    mixture of the outer phases. Then $\Delta g<0$ above $T^\ast$, so the
+    middle phase is stable above the isotherm and splits into the outer
+    phases on cooling. This case is the \textcolor{blue}{eutectic type},
+    $(2)\to(1)+(3)$, named after the eutectic.
+    \item If $\Delta s_r<0$, the mixture of the outer phases has more
+    entropy. Then $\Delta g<0$ below $T^\ast$, so the middle phase is stable
+    below the isotherm and forms from the outer phases on cooling. This case
+    is the \textcolor{blue}{peritectic type}, $(1)+(3)\to(2)$.
+\end{itemize}
+In both cases, the reaction releases the latent heat $T^\ast|\Delta s_r|$ per
 particle on cooling. Three two-phase regions end on every isotherm, one for
 each pair of the three phases. For the eutectic type, two of them lie above
 the isotherm and one below. For the peritectic type, one lies above and two
