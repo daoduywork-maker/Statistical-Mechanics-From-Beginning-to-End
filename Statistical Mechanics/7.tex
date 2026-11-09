@@ -160,7 +160,9 @@ Intercepts: the common chemical potentials $\mu_1$ and $\mu_2$.}
 \paragraph{One tangent line touching three curves.}
 \textcolor{red}{Here, the superscripts $(1)$, $(2)$ and $(3)$ label three
 phases in order of composition, $X^{(1)}<X^{(2)}<X^{(3)}$.}
-Three phases coexist when all three share the same $\mu_1$ and $\mu_2$. By
+Each of the three phases contains both components, so each phase has a curve
+$g^{(k)}(X)$ over the whole composition range. Three phases coexist when all
+three share the same $\mu_1$ and $\mu_2$. By
 Eq.~\eqref{eq:tangent-intercepts}, the three tangent lines then coincide, so
 the line $\lambda(X)=(1-X)\mu_1+X\mu_2$ touches all three curves:
 \begin{equation}
@@ -170,11 +172,31 @@ the line $\lambda(X)=(1-X)\mu_1+X\mu_2$ touches all three curves:
 These six conditions contain the five unknowns $\mu_1$, $\mu_2$ and the
 three compositions, so at a fixed pressure they also fix the temperature.
 The phase rule agrees, because $F=4-3=1$, and a fixed $P$ leaves no freedom.
+Figure~\ref{fig:binary-three-phase} shows the mechanism for a eutectic.
+Above $T_e$, the convex hull contains two separate common tangents,
+$\alpha$--$L$ and $L$--$\beta$. On cooling, the two tangents rotate toward
+each other and merge at $T_e$ into one line that touches all three curves.
+Below $T_e$, the liquid curve lies above the $\alpha$--$\beta$ tangent. The
+three phases therefore coexist at the single temperature $T_e$, and the
+three compositions share this temperature.
 In an isobaric $T$--$X$ diagram, a three-phase equilibrium is therefore a
 horizontal line, the \textcolor{blue}{three-phase isotherm}, with three
 fixed compositions. For an overall composition on this line, two
 conservation laws cannot fix three phase fractions, so the amounts of the
 three phases depend on the heat exchanged, not on the composition alone.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/binary-three-phase}
+\caption{Eutectic computed from regular-solution free energies. (a)--(c)
+Free energy per particle of the solids $\alpha$ and $\beta$ and of the
+liquid $L$ at $T_1>T_e$, at $T_e$ and at $T_3<T_e$, with the convex hull
+(thick lines and dots). $\tilde g$: $g$ minus a straight line, with all
+tangent lines still straight. (d) Isobaric $T$--$X$ diagram with the tie
+lines at the three temperatures. Thick horizontal line at $T_e$:
+three-phase isotherm.}
+\label{fig:binary-three-phase}
+\end{figure}
 
 \paragraph{Which assemblage is stable above and below the isotherm.}
 Let $T_3$ denote the temperature of the isotherm. The free energy change of
