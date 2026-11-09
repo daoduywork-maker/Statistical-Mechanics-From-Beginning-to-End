@@ -39,3 +39,9 @@ triple point and below the triple point, with the common tangents computed numer
 
     python3 make_unary_fv_triple.py > unary-fv-triple.tex
     ./build.sh unary-fv-triple
+
+`binary-three-phase.pdf` shows a eutectic from regular-solution free energies: g(X) with the
+convex hull above, at and below T_e, and the T-X diagram computed from the same hull.
+
+    python3 make_binary_three_phase.py > binary-three-phase.tex
+    ./build.sh binary-three-phase
