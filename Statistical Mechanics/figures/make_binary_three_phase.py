@@ -85,7 +85,7 @@ def path(pts):
 
 
 # ---------------------------------------------------------------- g(X) panels
-PW, PHT = 4.6, 3.4
+PW, PHT = 4.3, 3.4
 
 
 def panel(T, xshift, tag):
@@ -132,8 +132,8 @@ print(r"""% Standalone figure for the Statistical Mechanics notes.
 \begin{document}
 \begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]""")
 print(panel(T_ABOVE, 0.0, r"(a) $T_1>T_e$"))
-print(panel(TE + 1e-6, 5.6, r"(b) $T_e$"))
-print(panel(T_BELOW, 11.2, r"(c) $T_3<T_e$"))
+print(panel(TE + 1e-6, 5.35, r"(b) $T_e$"))
+print(panel(T_BELOW, 10.7, r"(c) $T_3<T_e$"))
 # T--X diagram, centered below
 print(r"\begin{scope}[xshift=4.0cm]")
 print(rf"    \draw[->] (0,0) -- ({W + 0.3:.2f},0) node[right] {{$X$}};")
