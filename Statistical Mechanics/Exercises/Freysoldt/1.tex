@@ -1,0 +1,26 @@
+\section{The formation energy as grand potential}
+
+A crystal supercell exchanges atoms/molecules of specie $i$ with reservoirs at the chemical potential $mu_i$ and exchanges electrons with a reservoir at the chemical potential (fermi level) $E_F$. 
+
+The reservoir can be understood as the surroundings of the supercell. The supercell exchange energy at fixed temperature $T$ and also has fixed volume. The Legendre transformation of the internal energy $U$ that has $\mu,V,T$ as natural variables is the grand potential. The grand potential of the pristine system is
+\begin{align}
+    \Phi_{bulk}=\Phi_{bulk}(\{\mu_i\},V,T)&=U_{bulk}(\{N_i\},V,S)-TS-\sum_i\mu_i N_i \\ &= F_{bulk}(\{N_i\},V,T)-\sum_i\mu_i N_i. 
+\end{align}
+$n_i$ is the particle  number of specie $i$ that enters the supercell. $n_i>0$ means particles enter the supercell to create interstials. $n_i<0$ means particles leave the supercell to create vacancies.
+The grand potential of the system with defect $X$ consisting of $n_i$ enters/exits of specie $i$ is
+\begin{align}
+    \Phi[X]=\Phi[X](\{\mu_i\},V,T)&=U[X](\{N_i+n_i\},V,S)-TS-\sum_i\mu_i (N_i-n_i) \\ &= F[X](\{N_i+n_i\},V,T)-\sum_i\mu_i (N_i-n_i). 
+\end{align}
+The defect formation energy of the defect $X$ is defined as 
+\begin{align}
+    E^f[X] = \Phi[X] - \Phi_{bulk}.
+\end{align}
+A defect can also carry charge. A defect $X$ with charge state $q$, denoted as $X^q$, mean $q$ electrons have left the crystal for the electron reservoir. Therefore, 
+\begin{align}
+    \Phi[X^q]=\Phi[X^q](\{\mu_i\},V,T)&=U[X^q](\{N_i-n_i\},V,S)-TS-\sum_i\mu_i (N_i+n_i) +qE_F \\ &= F[X^q](\{N_i+n_i\},V,T)-\sum_i\mu_i (N_i-n_i)+qE_f. 
+\end{align}
+In $0\,K$ DFT calculation, 
+\begin{align}
+    E^f[X^q] = U[X^q]-U_{bulk}-\sum_i\mu_in_i +qE_F,
+\end{align}
+where $U[X^q]$ and $U_{bulk}$ are the two reading from DFT calculation, $\mu_i$ and $E_f$ are variables. 
