@@ -50,13 +50,22 @@ formation energy is
 
 \paragraph{Formation energy from DFT at 0~K.}
 At $T=0$, the free energy equals the internal energy, $F=U$. A DFT
-calculation gives $U$ as the total energy $E_{\text{tot}}$ of the supercell
-with the nuclei at rest, without the zero-point energy. The formation energy
-then reads
+calculation gives the total energy $E_{\text{tot}}$ of the supercell with
+the nuclei at rest. The nuclei still vibrate at $T=0$, so the internal energy
+also contains the \textcolor{blue}{zero-point energy} of the phonon modes.
+\textcolor{red}{Here, $E_{\text{ZPE}}=\frac{1}{2}\sum_k\hbar\omega_k$ denotes
+the zero-point energy of a supercell with the phonon frequencies
+$\omega_k$.} With $U=E_{\text{tot}}+E_{\text{ZPE}}$, the formation energy
+reads
 \begin{equation}
-    \boxed{E^f[X^q]=(E_{\text{tot}}[X^q]+ZPE[X^q])-(E_{\text{tot}}+ZPE[\text{bulk}])
+    \boxed{E^f[X^q]=\big(E_{\text{tot}}[X^q]+E_{\text{ZPE}}[X^q]\big)
+    -\big(E_{\text{tot}}[\text{bulk}]+E_{\text{ZPE}}[\text{bulk}]\big)
     -\sum_i\mu_in_i+qE_F.}
 \end{equation}
-The two total energies come from the DFT calculations. For sufficiently heavy nuclei, the zero-point energies are neglegible. The chemical
-potentials $\mu_i$ and the Fermi level $E_F$ describe the reservoirs and
-enter as parameters.
+The total energies come from the DFT calculations, and the zero-point
+energies from the phonon frequencies of the two supercells. The phonon
+frequencies scale as $M^{-1/2}$ with the nuclear mass $M$, and most modes are
+the same in both supercells, so the difference of the zero-point energies is
+negligible for heavy nuclei and matters mainly for light atoms such as
+hydrogen. The chemical potentials $\mu_i$ and the Fermi level $E_F$ describe
+the reservoirs and enter as parameters.
