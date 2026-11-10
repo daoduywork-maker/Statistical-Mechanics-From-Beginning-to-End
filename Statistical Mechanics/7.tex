@@ -16,27 +16,32 @@ structure gains one dimension:
     each volume changes with $X$.
     \item \textcolor{blue}{Bivariant surface} ($\mathcal{P}=2$, $F=2$). The
     univariant curves become surfaces. Two coexisting phases generally have
-    different compositions, so each phase has its own bivariant surface, and
-    tie lines join the two surfaces. The region between the surfaces is the
-    two-phase region, in which the overall composition fixes the amount of
-    each phase.
+    different compositions, so each phase has its own bivariant surface.
+    The segment that joins the compositions of the two coexisting phases at
+    one $(P,T)$ is a \textcolor{blue}{tie line}, and the tie lines connect
+    the two surfaces. The unary system has no tie lines, because coexisting
+    phases of one component have the same composition. The region between
+    the surfaces is the two-phase region, in which the overall composition
+    fixes the amount of each phase.
     \item \textcolor{blue}{Univariant equilibrium} ($\mathcal{P}=3$,
     $F=1$). The invariant points become univariant equilibria, along which
     only one variable varies freely. At each $(P,T)$ of such an equilibrium,
-    the three phases have three different compositions, joined by a
-    \textcolor{blue}{tie triangle}. As $(P,T)$ moves along the equilibrium,
-    the tie triangles sweep a ruled surface in the $X$--$P$--$T$ space.
+    the three phases have three different compositions. All three
+    compositions share the same $P$ and $T$, so the three points lie on one
+    isobaric and isothermal line, the \textcolor{blue}{three-phase tie
+    line}. As $(P,T)$ moves along the equilibrium, the three-phase tie lines
+    sweep a ruled surface in the $X$--$P$--$T$ space.
     \item \textcolor{blue}{Invariant equilibrium} ($\mathcal{P}=4$, $F=0$).
     A new kind of invariant equilibrium appears, at which none of $P$, $T$
     or the four phase compositions varies. The four phases lie on a single
-    isobaric and isothermal tie line. Every subset of the four phases
+    isobaric and isothermal four-phase tie line. Every subset of the four phases
     coexists nearby, so $\binom{4}{3}=4$ three-phase, $\binom{4}{2}=6$
     two-phase and $\binom{4}{1}=4$ one-phase equilibria meet at this
     equilibrium, which is called the \textcolor{blue}{quadruple point}.
 \end{itemize}
 
 \paragraph{The $P$--$T$ projection.}
-Every tie line, tie triangle and four-phase tie line is isobaric and
+Every two-phase, three-phase and four-phase tie line is isobaric and
 isothermal, so each one projects to a single point of the $P$--$T$ plane.
 The two-phase curves of the pure components lie on the faces $X=0$ and
 $X=1$ and project unchanged. A three-phase ruled surface projects to a
@@ -94,12 +99,14 @@ Eq.~\eqref{eq:binary-euler} returns $g$, as required.
 
 \paragraph{Equal chemical potentials as a common tangent.}
 Two phases, $\alpha$ and $\beta$, at the same $(T,P)$ have separate curves
-$g^\alpha(X)$ and $g^\beta(X)$. The phases coexist with compositions
-$X^\alpha$ and $X^\beta$ when both chemical potentials match,
-$\mu_1^\alpha=\mu_1^\beta$ and $\mu_2^\alpha=\mu_2^\beta$. By
-Eq.~\eqref{eq:tangent-intercepts}, the tangent lines at $X^\alpha$ and
-$X^\beta$ then have the same intercepts at $X=0$ and at $X=1$, so the two
-lines coincide:
+$g^\alpha(X)$ and $g^\beta(X)$. Equilibrium requires equal chemical
+potentials for each component, so a binary system imposes two conditions,
+$\mu_1^\alpha=\mu_1^\beta$ and $\mu_2^\alpha=\mu_2^\beta$. The number of
+conditions equals the number of components, not the number of phases. By
+Eq.~\eqref{eq:tangent-intercepts}, the condition for component 1 equates
+the intercepts at $X=0$ of the tangent lines at $X^\alpha$ and $X^\beta$,
+and the condition for component 2 equates the intercepts at $X=1$. Two
+intercepts fix a straight line, so the two tangent lines coincide:
 \begin{equation}
     \boxed{g^{\alpha\prime}(X^\alpha)=g^{\beta\prime}(X^\beta)
     =\frac{g^\beta(X^\beta)-g^\alpha(X^\alpha)}{X^\beta-X^\alpha}.}
@@ -124,8 +131,8 @@ $X^\alpha$ and $X^\beta$ are fixed.
 \paragraph{The lever rule on a tie line.}
 \textcolor{red}{Here, $n_\alpha\equiv N^\alpha/N$ denotes the fraction of all
 particles in phase $\alpha$, with $N^\alpha=N_1^\alpha+N_2^\alpha$.}
-In a phase diagram, the segment between $X^\alpha$ and $X^\beta$ at fixed
-$(T,P)$ is a \textcolor{blue}{tie line}. Conservation of the particle number
+The segment between $X^\alpha$ and $X^\beta$ at fixed $(T,P)$ is the tie
+line of the two phases. Conservation of the particle number
 and of component 2 gives
 \begin{equation*}
     n_\alpha+n_\beta=1,\qquad n_\alpha X^\alpha+n_\beta X^\beta=X,
@@ -153,7 +160,9 @@ Intercepts: the common chemical potentials $\mu_1$ and $\mu_2$.}
 \paragraph{One tangent line touching three curves.}
 \textcolor{red}{Here, the superscripts $(1)$, $(2)$ and $(3)$ label three
 phases in order of composition, $X^{(1)}<X^{(2)}<X^{(3)}$.}
-Three phases coexist when all three share the same $\mu_1$ and $\mu_2$. By
+Each of the three phases contains both components, so each phase has a curve
+$g^{(k)}(X)$ over the whole composition range. Three phases coexist when all
+three share the same $\mu_1$ and $\mu_2$. By
 Eq.~\eqref{eq:tangent-intercepts}, the three tangent lines then coincide, so
 the line $\lambda(X)=(1-X)\mu_1+X\mu_2$ touches all three curves:
 \begin{equation}
@@ -163,40 +172,84 @@ the line $\lambda(X)=(1-X)\mu_1+X\mu_2$ touches all three curves:
 These six conditions contain the five unknowns $\mu_1$, $\mu_2$ and the
 three compositions, so at a fixed pressure they also fix the temperature.
 The phase rule agrees, because $F=4-3=1$, and a fixed $P$ leaves no freedom.
+Figure~\ref{fig:binary-three-phase} shows the mechanism for the simplest
+example, the \textcolor{blue}{eutectic}, in which a liquid $L$ coexists with
+two solids $\alpha$ and $\beta$, and the liquid lies between the two solids in
+composition. \textcolor{red}{Here, $T_e$ denotes the eutectic temperature.}
+Above $T_e$, the convex hull contains two separate common tangents,
+$\alpha$--$L$ and $L$--$\beta$. On cooling, the two tangents rotate toward
+each other and merge at $T_e$ into one line that touches all three curves.
+Below $T_e$, the liquid curve lies above the $\alpha$--$\beta$ tangent. The
+three phases therefore coexist at the single temperature $T_e$, and the
+three compositions share this temperature.
 In an isobaric $T$--$X$ diagram, a three-phase equilibrium is therefore a
 horizontal line, the \textcolor{blue}{three-phase isotherm}, with three
 fixed compositions. For an overall composition on this line, two
 conservation laws cannot fix three phase fractions, so the amounts of the
 three phases depend on the heat exchanged, not on the composition alone.
 
-\paragraph{Which assemblage is stable above and below the isotherm.}
-Let $T_3$ denote the temperature of the isotherm. The free energy change of
-forming the middle phase from the two outer phases at the fixed overall
-composition $X^{(2)}$ is
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/binary-three-phase}
+\caption{Eutectic computed from regular-solution free energies. (a)--(c)
+Free energy per particle of the solids $\alpha$ and $\beta$ and of the
+liquid $L$ at $T_1>T_e$, at $T_e$ and at $T_3<T_e$, with the convex hull
+(thick lines and dots). $\tilde g$: $g$ minus a straight line, with all
+tangent lines still straight. (d) Isobaric $T$--$X$ diagram with the tie
+lines at the three temperatures. Thick horizontal line at $T_e$:
+three-phase isotherm.}
+\label{fig:binary-three-phase}
+\end{figure}
+
+\paragraph{The middle phase: above or below the isotherm.}
+\textcolor{red}{Here, $T^\ast$ denotes the temperature of a three-phase
+isotherm.}
+Just above and just below $T^\ast$, at most two of the three phases coexist,
+and the middle phase $(2)$ exists on one side of the isotherm only. Two cases
+are possible. In the first case, the middle phase exists above the isotherm
+and splits into the two outer phases on cooling. The liquid of the eutectic
+in Fig.~\ref{fig:binary-three-phase} behaves in this way. In the second
+case, the two outer phases react on cooling and form the middle phase, which
+exists below the isotherm only.
+
+The entropy decides between the two cases, because $\partial g/\partial
+T=-s$, so a rise in temperature favors the state with the larger entropy.
+The comparison is between the middle phase and a mixture of the two outer
+phases with the same overall composition $X^{(2)}$. The lever rule gives the
+fractions $n_1$ and $n_3$ of the outer phases in this mixture, and the free
+energy of the middle phase relative to the mixture is
 \begin{equation*}
     \Delta g(T)\equiv g^{(2)}\big(X^{(2)}\big)
     -n_1\,g^{(1)}\big(X^{(1)}\big)-n_3\,g^{(3)}\big(X^{(3)}\big),
     \qquad
-    n_1=\frac{X^{(3)}-X^{(2)}}{X^{(3)}-X^{(1)}},\quad n_3=1-n_1,
+    n_1=\frac{X^{(3)}-X^{(2)}}{X^{(3)}-X^{(1)}},\quad n_3=1-n_1.
 \end{equation*}
-with $\Delta g(T_3)=0$. The derivative of $\Delta g$ contains the entropies
+All three phases lie on the common tangent at $T^\ast$, so $\Delta
+g(T^\ast)=0$. The derivative of $\Delta g$ contains the entropies
 $-s^{(k)}=\partial g^{(k)}/\partial T$ and terms from the temperature
 dependence of the compositions and of $n_1$. With the common slope
 $m=\mu_2-\mu_1$ and the lever relation $n_1X^{(1)}+n_3X^{(3)}=X^{(2)}$, the
 composition terms sum to $m\,(X^{(1)}-X^{(3)})\,dn_1/dT$, and the terms from
 $n_1$ sum to $-(g^{(1)}-g^{(3)})\,dn_1/dT$. These two contributions cancel,
-because $m=(g^{(3)}-g^{(1)})/(X^{(3)}-X^{(1)})$. Hence
+because $m=(g^{(3)}-g^{(1)})/(X^{(3)}-X^{(1)})$. Only the entropy difference
+remains,
 \begin{equation}
-    \boxed{\frac{d\Delta g}{dT}\bigg|_{T_3}=-\Delta s_r,\qquad
+    \boxed{\frac{d\Delta g}{dT}\bigg|_{T^\ast}=-\Delta s_r,\qquad
     \Delta s_r\equiv s^{(2)}-n_1s^{(1)}-n_3s^{(3)}.}
 \end{equation}
-If $\Delta s_r>0$, the middle phase has the larger entropy, $\Delta g<0$ above
-$T_3$, and the middle phase is stable above the isotherm. On cooling, it
-decomposes into the two outer phases. This case is the
-\textcolor{blue}{eutectic type}, $(2)\to(1)+(3)$. If $\Delta s_r<0$, the middle
-phase is stable below the isotherm and forms on cooling from the two outer
-phases. This case is the \textcolor{blue}{peritectic type}, $(1)+(3)\to(2)$.
-In both cases, the reaction releases the latent heat $T_3|\Delta s_r|$ per
+The sign of $\Delta s_r$ therefore decides the case.
+\begin{itemize}
+    \item If $\Delta s_r>0$, the middle phase has more entropy than the
+    mixture of the outer phases. Then $\Delta g<0$ above $T^\ast$, so the
+    middle phase is stable above the isotherm and splits into the outer
+    phases on cooling. This case is the \textcolor{blue}{eutectic type},
+    $(2)\to(1)+(3)$, named after the eutectic.
+    \item If $\Delta s_r<0$, the mixture of the outer phases has more
+    entropy. Then $\Delta g<0$ below $T^\ast$, so the middle phase is stable
+    below the isotherm and forms from the outer phases on cooling. This case
+    is the \textcolor{blue}{peritectic type}, $(1)+(3)\to(2)$.
+\end{itemize}
+In both cases, the reaction releases the latent heat $T^\ast|\Delta s_r|$ per
 particle on cooling. Three two-phase regions end on every isotherm, one for
 each pair of the three phases. For the eutectic type, two of them lie above
 the isotherm and one below. For the peritectic type, one lies above and two

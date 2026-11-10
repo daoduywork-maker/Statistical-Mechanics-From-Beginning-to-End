@@ -51,3 +51,23 @@ Freysoldt et al. (2014).
 
     python3 make_ex24_arrhenius.py > ex24-arrhenius.tex   # needs numpy, scipy
     ./build.sh ex24-arrhenius
+
+## Computed unary figures
+
+`unary-Pv.pdf` shows van der Waals isotherms in reduced units, with the coexisting volumes
+from the equal-area rule (the common tangent of f(v)).
+
+    python3 make_unary_Pv.py > unary-Pv.tex   # needs numpy, scipy
+    ./build.sh unary-Pv
+
+`unary-fv-triple.pdf` shows model free energy curves of a solid, a liquid and a vapor at the
+triple point and below the triple point, with the common tangents computed numerically.
+
+    python3 make_unary_fv_triple.py > unary-fv-triple.tex
+    ./build.sh unary-fv-triple
+
+`binary-three-phase.pdf` shows a eutectic from regular-solution free energies: g(X) with the
+convex hull above, at and below T_e, and the T-X diagram computed from the same hull.
+
+    python3 make_binary_three_phase.py > binary-three-phase.tex
+    ./build.sh binary-three-phase

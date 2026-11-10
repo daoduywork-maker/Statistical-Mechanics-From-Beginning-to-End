@@ -212,10 +212,28 @@ therefore lies inside the field of the phase that does not take part in that
 curve. Equivalently, two neighboring triple curves never enclose an angle
 larger than $180^\circ$ at the triple point. For example, an undercooled
 liquid below the triple point coexists with its vapor along the extension of
-the liquid--vapor curve. Since at most three phases coexist in a unary
-system, every additional polymorph adds further triple points, such as
-points where two solids and the liquid or two solids and the vapor
-coexist.
+the liquid--vapor curve. Four phases cannot coexist in a unary system, so
+the boundary of each additional polymorph meets the existing boundaries at
+new triple points, such as points where two solids and the liquid or two
+solids and the vapor coexist (Fig.~\ref{fig:unary-polymorph}). In
+Fig.~\ref{fig:unary-polymorph}(b), the metastable extensions of the
+$\alpha$--vapor and liquid--vapor curves cross inside the $\beta$ field at
+a metastable triple point $\alpha+L+V$. From this point, the metastable
+melting curve of $\alpha$ runs through the $\beta$ field to the stable
+triple point $\alpha+\beta+L$ and continues above that point as the stable
+melting curve of $\alpha$. Sulfur, with rhombic $\alpha$ and monoclinic
+$\beta$, has this diagram.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/unary-polymorph}
+\caption{Schematic $P$--$T$ diagrams of a unary system with two solid
+polymorphs $\alpha$ and $\beta$. (a) Triple point $\alpha+\beta+L$ on the
+melting curve. (b) Triple point $\alpha+\beta+V$ on the sublimation curve,
+with a closed $\beta$ field. Dashed lines: metastable extensions. Open
+circle: metastable triple point.}
+\label{fig:unary-polymorph}
+\end{figure}
 
 \paragraph{Slopes of the coexistence curves.}
 The Clapeyron equation fixes the slope of each univariant curve in the
@@ -224,30 +242,95 @@ change, so the solid--liquid curve is steep. For most substances, $\Delta
 v>0$ on melting, and the slope is positive. Water is an exception, because
 ice is less dense than liquid water, so $\Delta v<0$ and the melting curve
 has a negative slope. On the liquid--vapor and solid--vapor curves, the
-vapor volume dominates, $\Delta v\approx v_{\text{vapor}}$. If the vapor
-behaves as an ideal gas, $Pv=k_BT$, and the Clapeyron equation becomes the
-\textcolor{blue}{Clausius--Clapeyron equation}
-\begin{equation}
-    \boxed{\frac{dP}{dT}=\frac{\ell P}{k_BT^2}.}
-\end{equation}
-For a constant latent heat, integration from a reference point $(T_0,P_0)$
-on the curve gives
-\begin{equation}
-    \boxed{P(T)=P_0\exp\!\left[-\frac{\ell}{k_B}\left(\frac{1}{T}-\frac{1}{T_0}\right)\right].}
-\end{equation}
-The vapor pressure therefore rises exponentially with temperature. At the
-triple point, the entropy changes around a closed cycle of the three phases
-sum to zero, so the latent heats satisfy
+vapor volume dominates, $\Delta v\approx v_{\text{vapor}}$. Both $\ell$ and
+$\Delta v$ are positive there, so the vapor pressure rises with
+temperature. At the triple point, the entropy changes around a closed cycle
+of the three phases sum to zero, so the latent heats satisfy
 $\ell_{\text{sub}}=\ell_{\text{fus}}+\ell_{\text{vap}}$. Since
 $\ell_{\text{sub}}>\ell_{\text{vap}}$ and $\Delta v$ is nearly the same for
 both, the solid--vapor curve is steeper than the liquid--vapor curve at the
 triple point.
 
+\paragraph{Thermal expansion and compressibility.}
+The volume per particle of one phase is a function $v(T,P)$, so a change of
+state changes $v$ by
+\begin{equation}
+    dv=\left(\frac{\partial v}{\partial T}\right)_{\!P}dT
+      +\left(\frac{\partial v}{\partial P}\right)_{\!T}dP.
+\end{equation}
+The two partial derivatives, divided by $v$, define the
+\textcolor{blue}{thermal expansion coefficient} $\alpha_P$ and the
+\textcolor{blue}{isothermal compressibility} $\kappa_T$,
+\begin{equation}
+    \boxed{\alpha_P\equiv\frac{1}{v}\left(\frac{\partial v}{\partial T}\right)_{\!P},
+    \qquad
+    \kappa_T\equiv-\frac{1}{v}\left(\frac{\partial v}{\partial P}\right)_{\!T}.}
+\end{equation}
+The subscript $P$ distinguishes $\alpha_P$ from the phase label $\alpha$.
+The minus sign makes $\kappa_T$ positive, because stability requires the
+volume to decrease when the pressure rises. A liquid is a condensed phase.
+The particles of a liquid are already packed at contact distance, and the
+strong short-range repulsion between them resists any further decrease of
+the volume. A rise in pressure therefore barely changes the volume of a
+liquid, so $(\partial v/\partial P)_T$ and $\kappa_T$ of a liquid are tiny.
+A vapor, with particles far apart, compresses easily. For water at $100~^\circ$C, the liquid has
+$\alpha_P\approx7.5\times10^{-4}$~K$^{-1}$ and
+$\kappa_T\approx4.9\times10^{-10}$~Pa$^{-1}$, while the vapor at the same
+temperature and 1~atm has $\alpha_P\approx3\times10^{-3}$~K$^{-1}$ and
+$\kappa_T\approx1\times10^{-5}$~Pa$^{-1}$. The vapor is thus about four
+times more expandable and about $2\times10^{4}$ times more compressible than
+the liquid.
+
 \paragraph{The critical point.}
-The liquid--vapor curve does not continue indefinitely. As $T$ rises along
-the curve, the liquid expands and the vapor compresses until $\Delta v$ and
-$\Delta s$ both vanish at the \textcolor{blue}{critical point} $(T_c,P_c)$,
-where the curve ends. Above $T_c$, liquid and vapor can no longer be
+The liquid--vapor curve does not continue indefinitely. Along the curve,
+$T$ and $P$ change together, $dP=(dP_{\text{sat}}/dT)\,dT$, so the volume
+of each coexisting phase changes as
+\begin{equation}
+    \boxed{\frac{1}{v}\frac{dv}{dT}\bigg|_{\text{coex}}
+    =\alpha_P-\kappa_T\,\frac{dP_{\text{sat}}}{dT}.}
+\end{equation}
+Heating expands each phase through $\alpha_P$, and the rising saturation
+pressure compresses each phase through $\kappa_T$. The cyclic relation
+among the partial derivatives of $v(T,P)$ gives the slope of an
+\textcolor{blue}{isochore}, a line of constant $v$, in the $P$--$T$ plane,
+\begin{equation}
+    \left(\frac{\partial P}{\partial T}\right)_{\!v}
+    =-\frac{(\partial v/\partial T)_P}{(\partial v/\partial P)_T}
+    =\frac{\alpha_P}{\kappa_T}.
+\end{equation}
+Hence
+\begin{equation}
+    \boxed{\frac{1}{v}\frac{dv}{dT}\bigg|_{\text{coex}}
+    =\kappa_T\left[\left(\frac{\partial P}{\partial T}\right)_{\!v}
+    -\frac{dP_{\text{sat}}}{dT}\right].}
+\end{equation}
+Since $\kappa_T>0$, a phase becomes denser along the curve when the
+coexistence curve is steeper than the isochore of that phase, and less dense
+when the curve is flatter. The liquid barely compresses, so the isochores of
+the liquid are steep. For water at $100~^\circ$C,
+$\alpha_P/\kappa_T\approx1.5$~MPa/K for the liquid, while
+$dP_{\text{sat}}/dT\approx3.6$~kPa/K. The vapor compresses easily, so the
+isochores of the vapor are flat, with $\alpha_P/\kappa_T\approx0.3$~kPa/K.
+The coexistence curve thus lies between the two isochore slopes. The liquid
+expands and the vapor becomes denser along the curve. Steam tables confirm
+the result. Between $100~^\circ$C and $105~^\circ$C, $v_l$ rises by about
+0.08\% per kelvin, and $v_g$ falls by about 3\% per kelvin. The volume
+difference $\Delta v=v_g-v_l$ therefore shrinks from both sides as $T$
+rises.
+
+Thermodynamics alone does not fix where this trend ends, but experiment and
+models such as the van der Waals equation show that $\Delta v$ keeps
+shrinking and reaches zero at a finite temperature. The
+Clapeyron equation, $\Delta s=\Delta v\,dP/dT$, then gives $\Delta s=0$
+and $\ell=0$. The two coexisting phases have the same $v$, the same $s$
+and the same $\mu$, so the two phases become identical, and no
+coexistence curve can continue beyond this
+\textcolor{blue}{critical point} $(T_c,P_c)$. The flat two-phase segment of
+the isotherms in the $P$--$v$ plane (Fig.~\ref{fig:unary-Pv}) shrinks to a
+single point at the critical volume $v_c$, so the critical isotherm has
+$(\partial P/\partial v)_T=0$ at $v_c$. The compressibility,
+$\kappa_T=-1/[v(\partial P/\partial v)_T]$, therefore diverges at the
+critical point. Above $T_c$, liquid and vapor can no longer be
 distinguished, and the fluid is called \textcolor{blue}{supercritical}. A
 path that circles around the critical point connects the liquid to the vapor
 without crossing any coexistence curve, so the potential stays analytic
@@ -272,7 +355,7 @@ volume and the Helmholtz free energy per particle, $n_\alpha\equiv
 N_\alpha/N$ denotes the fraction of particles in phase $\alpha$, and the
 subscripts $l$ and $g$ label the liquid and the vapor (gas).}
 The $P$--$T$ diagram does not show the amount of each phase. An isotherm in
-the $P$--$v$ plane below $T_c$ does. As the vapor is compressed, the
+the $P$--$v$ plane below $T_c$ does (Fig.~\ref{fig:unary-Pv}). As the vapor is compressed, the
 pressure rises until the vapor pressure $P_{\text{sat}}(T)$ is reached at
 $v=v_g$. Further compression converts vapor into liquid at constant pressure
 until $v=v_l$, and only then is the liquid compressed. Between $v_l$ and
@@ -280,6 +363,18 @@ $v_g$, the system is a mixture of liquid and vapor at the same
 $(T,P_{\text{sat}})$. The phase rule allows exactly this mixture, because
 coexistence fixes $P$ at fixed $T$ but leaves the amounts of the two phases
 free.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/unary-Pv}
+\caption{Isotherms in the $P$--$v$ plane, computed from the van der Waals
+equation with the coexisting volumes from the common tangent. Thick line:
+isotherm below $T_c$, with the two-phase segment at $P_{\text{sat}}$
+between $v_l$ and $v_g$. Open circle: overall state $v$ of a liquid--vapor
+mixture. Dashed curve: boundary of the two-phase region, with the critical
+point at the top.}
+\label{fig:unary-Pv}
+\end{figure}
 
 \paragraph{The lever rule.}
 Particle number and volume are conserved:
@@ -349,8 +444,59 @@ the common tangent gives $f(v_l)-f(v_g)=P_{\text{sat}}(v_g-v_l)$. Hence
 The horizontal line $P=P_{\text{sat}}$ therefore cuts the loop into two
 regions of equal area.
 
-\paragraph{Outlook to the binary system.}
-The binary system uses both tools with the composition $x$ in place of $v$.
-A tie line joins the two coexisting phases, the lever rule gives the phase
-fractions along it, and the common tangent of $g(x)$ at fixed $(T,P)$ gives
-the compositions of the coexisting phases.
+\paragraph{Metastable and unstable uniform states.}
+Between $v_l$ and $v_g$, the single-phase curve is a bookkeeping curve. The
+curve gives the free energy of a system forced to stay uniform at the
+density $1/v$, and the comparison with the common tangent shows that
+splitting into two phases lowers $F$. The uniform state is therefore never
+the equilibrium state in this range, and below $T_c$ the equilibrium
+transition from liquid to vapor always passes through a two-phase mixture.
+The inflection points of $f$, where $\partial^2 f/\partial
+v^2=-\partial P/\partial v=0$, are the \textcolor{blue}{spinodal points}.
+On a van der Waals isotherm, the spinodal points are the minimum and the
+maximum of the loop. Between $v_l$ and the first spinodal point, and between
+the second spinodal point and $v_g$, $f$ is convex. A small density
+fluctuation raises $F$, so the uniform phase is metastable. The mixture
+forms only after a large fluctuation creates a nucleus of the other phase,
+because the interface of the nucleus costs free energy. Superheated water in
+a smooth container and supercooled vapor in a cloud chamber are examples.
+Between the two spinodal points, $f$ is concave. A small fluctuation splits
+the region into a denser and a thinner part with an average free energy
+below the curve, so the uniform state is \textcolor{blue}{unstable} and
+separates at once by \textcolor{blue}{spinodal decomposition}. Only a model
+that enforces uniformity, such as the van der Waals equation, produces a
+single-phase curve with such a stretch. The exact free energy of a large
+system already includes the mixed states and equals the convex hull. A
+continuous path from liquid to vapor without a two-phase mixture exists
+only around the critical point.
+
+\paragraph{Metastable coexistence in the presence of a third phase.}
+A common tangent never lies above the two single-phase curves that the
+tangent touches, because the convex hull selects the lowest line. A chord
+between two points on a convex stretch of one curve lies above that curve,
+so a stable single phase does not split. With a third phase, however, the
+common tangent of two phases may lie above the curve of the third phase
+(Fig.~\ref{fig:unary-fv-triple}). At the triple point, a single line
+touches the curves of the solid, the liquid and the vapor, so the three
+phases have the same $P$ and the same $\mu$. Below the triple point, the
+solid curve drops below this line. The solid--vapor tangent then forms the
+convex hull, and the liquid--vapor tangent lies above the solid curve.
+Liquid and vapor still have equal pressures and equal chemical potentials
+on this tangent. The tangent to the solid curve with the same slope,
+however, has a lower intercept, so the solid has a lower chemical potential
+at the same pressure. The liquid--vapor equilibrium is therefore metastable.
+This equilibrium is the supercooled liquid with the vapor on the extension
+of the liquid--vapor curve below the triple point. A metastable two-phase
+equilibrium is thus a common tangent that lies above the curve of another
+phase.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{figures/unary-fv-triple}
+\caption{Free energy per particle of the solid ($f_s$), the liquid ($f_l$)
+and the vapor ($f_g$) at fixed $T$. (a) Triple point $T_t$, with one
+tangent to all three curves. (b) Below the triple point. Thick line:
+solid--vapor tangent (convex hull). Dashed line: liquid--vapor tangent above
+the solid curve (metastable coexistence).}
+\label{fig:unary-fv-triple}
+\end{figure}

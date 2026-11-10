@@ -1,0 +1,84 @@
+% Standalone figure for the Statistical Mechanics notes.
+% Unary P--T diagrams with two solid polymorphs alpha and beta.
+% (a) alpha/beta line ends on the melting curve: triple point alpha+beta+L.
+% (b) alpha/beta line starts on the sublimation curve (alpha+beta+V) and closes the
+%     beta field at alpha+beta+L (sulfur type); the metastable triple point alpha+L+V
+%     lies inside the beta field.
+% Build: pdflatex unary-polymorph.tex  (or run build.sh in this folder)
+\documentclass[11pt,tikz,border=2pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{arrows.meta, positioning}
+\begin{document}
+\begin{tikzpicture}[font=\small, >=Latex, line width=0.8pt]
+% ------------------------------------------------------------ (a)
+\begin{scope}
+    \draw[->] (0,0) -- (6.4,0) node[right] {$T$};
+    \draw[->] (0,0) -- (0,5.4) node[above] {$P$};
+    \node[anchor=north west] at (-0.1,-0.35) {(a)};
+    % alpha--vapor (sublimation)
+    \draw (0.4,0.1) .. controls (1.4,0.3) and (2.1,0.65) .. (2.6,1.1);
+    % liquid--vapor, ending at the critical point
+    \draw (2.6,1.1) .. controls (3.8,1.6) and (4.9,2.4) .. (5.6,3.4);
+    \fill (5.6,3.4) circle (2pt);
+    % alpha--liquid (melting) up to the alpha+beta+L point
+    \draw (2.6,1.1) -- (3.0,3.0);
+    % beta--liquid
+    \draw (3.0,3.0) -- (3.6,5.0);
+    % alpha/beta transition line
+    \draw (3.0,3.0) .. controls (2.0,3.15) and (1.0,3.35) .. (0,3.55);
+    % metastable extensions beyond alpha+beta+L
+    \draw[dashed, line width=0.6pt] (3.0,3.0) -- ++(0.17,0.81);   % alpha--L into beta
+    \draw[dashed, line width=0.6pt] (3.0,3.0) -- ++(0.85,-0.13);  % alpha/beta into L
+    \draw[dashed, line width=0.6pt] (3.0,3.0) -- ++(-0.24,-0.8);  % beta--L into alpha
+    % triple points
+    \fill (2.6,1.1) circle (2pt);
+    \fill (3.0,3.0) circle (2pt);
+    \node[right] at (2.62,0.72) {$\alpha{+}L{+}V$};
+    \node[right] at (3.28,3.38) {$\alpha{+}\beta{+}L$};
+    % phase labels
+    \node at (1.3,1.9) {$\alpha$};
+    \node at (1.6,4.4) {$\beta$};
+    \node at (5.0,4.6) {$L$};
+    \node at (4.8,0.9) {$V$};
+\end{scope}
+% ------------------------------------------------------------ (b)
+\begin{scope}[xshift=7.6cm]
+    \draw[->] (0,0) -- (6.4,0) node[right] {$T$};
+    \draw[->] (0,0) -- (0,5.4) node[above] {$P$};
+    \node[anchor=north west] at (-0.1,-0.35) {(b)};
+    % alpha--vapor (sublimation) up to alpha+beta+V
+    \draw (0.3,0.1) .. controls (0.9,0.2) and (1.4,0.36) .. (1.8,0.6);
+    % beta--vapor
+    \draw (1.8,0.6) -- (4.6,1.75);
+    % liquid--vapor, ending at the critical point
+    \draw (4.6,1.75) .. controls (5.2,1.87) and (5.7,2.4) .. (6.0,3.3);
+    \fill (6.0,3.3) circle (2pt);
+    % beta--liquid (melting of beta) up to alpha+beta+L
+    \draw (4.6,1.75) -- (4.7,4.2);
+    % alpha/beta transition line, closing the beta field
+    \draw (1.8,0.6) -- (4.7,4.2);
+    % alpha--liquid (stable melting of alpha) above alpha+beta+L
+    \draw (4.7,4.2) -- (5.16,5.0);
+    % metastable extensions: alpha--V and L--V meet at alpha+L+V,
+    % from which the metastable melting curve of alpha runs to alpha+beta+L
+    \draw[dashed, line width=0.6pt] (1.8,0.6) -- (3.086,1.371);
+    \draw[dashed, line width=0.6pt] (4.6,1.75) -- (3.086,1.371);
+    \draw[dashed, line width=0.6pt] (3.086,1.371) -- (4.7,4.2);
+    % triple points
+    \fill (1.8,0.6) circle (2pt);
+    \fill (4.6,1.75) circle (2pt);
+    \fill (4.7,4.2) circle (2pt);
+    \filldraw[fill=white, line width=0.6pt] (3.086,1.371) circle (2pt);
+    \node[left] at (1.72,0.95) {$\alpha{+}\beta{+}V$};
+    \node[right] at (4.65,1.48) {$\beta{+}L{+}V$};
+    \node[right] at (4.82,3.98) {$\alpha{+}\beta{+}L$};
+    \node[right] at (3.25,0.5) {$\alpha{+}L{+}V$};
+    \draw[line width=0.5pt] (3.42,0.66) -- (3.12,1.30);
+    % phase labels
+    \node at (1.2,3.2) {$\alpha$};
+    \node at (4.4,3.0) {$\beta$};
+    \node at (5.8,4.7) {$L$};
+    \node at (5.6,0.75) {$V$};
+\end{scope}
+\end{tikzpicture}
+\end{document}
