@@ -1,26 +1,62 @@
-\section{The formation energy as grand potential}
+\section{The Formation Energy as a Grand Potential}
 
-A crystal supercell exchanges atoms/molecules of specie $i$ with reservoirs at the chemical potential $mu_i$ and exchanges electrons with a reservoir at the chemical potential (fermi level) $E_F$. 
+\paragraph{Reservoirs and the grand potential.}
+A crystal supercell exchanges atoms of each species $i$ with a reservoir at
+the chemical potential $\mu_i$, and exchanges electrons with a reservoir at
+the electron chemical potential, the \textcolor{blue}{Fermi level} $E_F$.
+The reservoirs represent the surroundings of the supercell. They fix the
+temperature $T$ and the chemical potentials, and the supercell has a fixed
+volume $V$. The Legendre transform of the internal energy $U$ with the
+natural variables $(T,V,\{\mu_i\},E_F)$ is the
+\textcolor{blue}{grand potential} $\Phi$.
+\textcolor{red}{Here, $N_i$ denotes the number of atoms of species $i$ and
+$N_e$ the number of electrons in the pristine supercell.}
+The grand potential of the pristine supercell is
+\begin{equation*}
+    \Phi_{\text{bulk}}=U_{\text{bulk}}-TS_{\text{bulk}}-\sum_i\mu_iN_i-E_FN_e
+    =F_{\text{bulk}}-\sum_i\mu_iN_i-E_FN_e.
+\end{equation*}
 
-The reservoir can be understood as the surroundings of the supercell. The supercell exchange energy at fixed temperature $T$ and also has fixed volume. The Legendre transformation of the internal energy $U$ that has $\mu,V,T$ as natural variables is the grand potential. The grand potential of the pristine system is
-\begin{align}
-    \Phi_{bulk}=\Phi_{bulk}(\{\mu_i\},V,T)&=U_{bulk}(\{N_i\},V,S)-TS-\sum_i\mu_i N_i \\ &= F_{bulk}(\{N_i\},V,T)-\sum_i\mu_i N_i. 
-\end{align}
-$n_i$ is the particle  number of specie $i$ that enters the supercell. $n_i>0$ means particles enter the supercell to create interstials. $n_i<0$ means particles leave the supercell to create vacancies.
-The grand potential of the system with defect $X$ consisting of $n_i$ enters/exits of specie $i$ is
-\begin{align}
-    \Phi[X]=\Phi[X](\{\mu_i\},V,T)&=U[X](\{N_i+n_i\},V,S)-TS-\sum_i\mu_i (N_i-n_i) \\ &= F[X](\{N_i+n_i\},V,T)-\sum_i\mu_i (N_i-n_i). 
-\end{align}
-The defect formation energy of the defect $X$ is defined as 
-\begin{align}
-    E^f[X] = \Phi[X] - \Phi_{bulk}.
-\end{align}
-A defect can also carry charge. A defect $X$ with charge state $q$, denoted as $X^q$, mean $q$ electrons have left the crystal for the electron reservoir. Therefore, 
-\begin{align}
-    \Phi[X^q]=\Phi[X^q](\{\mu_i\},V,T)&=U[X^q](\{N_i-n_i\},V,S)-TS-\sum_i\mu_i (N_i+n_i) +qE_F \\ &= F[X^q](\{N_i+n_i\},V,T)-\sum_i\mu_i (N_i-n_i)+qE_f. 
-\end{align}
-In $0\,K$ DFT calculation, 
-\begin{align}
-    E^f[X^q] = U[X^q]-U_{bulk}-\sum_i\mu_in_i +qE_F,
-\end{align}
-where $U[X^q]$ and $U_{bulk}$ are the two reading from DFT calculation, $\mu_i$ and $E_f$ are variables. 
+\paragraph{Neutral defects.}
+\textcolor{red}{Here, $n_i$ denotes the number of atoms of species $i$ that
+enter the supercell to form the defect $X$.} A positive $n_i$ adds atoms,
+for example an interstitial, and a negative $n_i$ removes atoms, for example
+a vacancy. The grand potential of the supercell with the defect is
+\begin{equation*}
+    \Phi[X]=F[X]-\sum_i\mu_i\,(N_i+n_i)-E_FN_e.
+\end{equation*}
+The \textcolor{blue}{formation energy} of the defect is the change of the
+grand potential at fixed $(T,V,\{\mu_i\},E_F)$,
+\begin{equation}
+    \boxed{E^f[X]\equiv\Phi[X]-\Phi_{\text{bulk}}
+    =F[X]-F_{\text{bulk}}-\sum_i\mu_in_i.}
+\end{equation}
+The natural variables are the same before and after the defect forms, but
+$\Phi[X]$ and $\Phi_{\text{bulk}}$ describe two different systems, so the
+two values differ.
+
+\paragraph{Charged defects.}
+A defect in the \textcolor{blue}{charge state} $q$, written $X^q$, has
+released $q$ electrons to the electron reservoir, so the supercell holds
+$N_e-q$ electrons,
+\begin{equation*}
+    \Phi[X^q]=F[X^q]-\sum_i\mu_i\,(N_i+n_i)-E_F\,(N_e-q).
+\end{equation*}
+The terms in $N_i$ and $N_e$ cancel against $\Phi_{\text{bulk}}$, and the
+formation energy is
+\begin{equation}
+    \boxed{E^f[X^q]=F[X^q]-F_{\text{bulk}}-\sum_i\mu_in_i+qE_F.}
+\end{equation}
+
+\paragraph{Formation energy from DFT at 0~K.}
+At $T=0$, the free energy equals the internal energy, $F=U$. A DFT
+calculation gives $U$ as the total energy $E_{\text{tot}}$ of the supercell
+with the nuclei at rest, without the zero-point energy. The formation energy
+then reads
+\begin{equation}
+    \boxed{E^f[X^q]=E_{\text{tot}}[X^q]-E_{\text{tot}}[\text{bulk}]
+    -\sum_i\mu_in_i+qE_F.}
+\end{equation}
+The two total energies come from the DFT calculations. The chemical
+potentials $\mu_i$ and the Fermi level $E_F$ describe the reservoirs and
+enter as parameters.
