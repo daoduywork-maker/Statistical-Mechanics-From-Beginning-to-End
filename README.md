@@ -67,8 +67,7 @@ Statistical Mechanics/
 │   └── figures/          pre-built figures of the notes and their generators
 └── Exercises/            exercise sheet (exercise.tex) and Quiz 1 solutions (quiz1.tex)
     ├── figures/          figures of the exercise sheet and the quiz
-    └── Freysoldt/        guided exercises on point defects (freysoldt.tex)
-        └── figures/
+    └── Freysoldt/        freysoldt.tex (preamble only, for new material)
 ```
 
 ### Conventions
