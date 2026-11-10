@@ -428,15 +428,23 @@ A crystal has $N$ sites, and $n$ identical defects occupy them. Each defect has 
 \textit{Answer.} (b) $\ln W \approx n\ln(g_XN) - n\ln n + n$. (c) The expansion $-(1 - c)\ln(1 - c) \approx c$ gives the term $c$, and only terms of order $c^2$ are dropped. (d) $G^f + k_BT\ln(c/g_X) = 0$. (e) $dS^{\text{conf}}/dc = -k_B\ln(c/g_X) \to +\infty$ as $c \to 0$. (f) Vacancies form by moving atoms to the surface, so their number is not conserved. Phonons, with $\mu = 0$, behave in the same way.\\
 \textit{Related:} Sections~2, 4.5, 5.6 and~7.7 of the note. \textit{Source:} [F], Secs.~II.A.1 and~II.B.3, Eqs.~(4)--(8), (39)--(41).
 
+\needspace{14\baselineskip}
 \paragraph{Exercise 24: Arrhenius plots and their extrapolation.}
-Table~I of [F] lists, for the vacancy in Al, $H^f = 0.76$~eV and $S^f = 2.4\,k_B$ from experiment at the melting temperature $T^m = 933$~K, and DFT values at $0$~K and at $T^m$.
+Table~I of [F] lists, for the vacancy in Al, $H^f = 0.76$~eV and $S^f = 2.4\,k_B$ from experiment at the melting temperature $T^m = 933$~K, and DFT values at $0$~K and at $T^m$. The DFT values at $T^m$ are not a single calculation at 933~K. They come from DFT free energies $G^f(T)$ with phonons and anharmonicity, fitted in the high-temperature range by a straight line exactly as the experimental data. Figure~\ref{fig:ex24} shows the idea with a model $G^f(T)$ that reproduces the GGA values of Table~I.
+\begin{figure}[H]
+\centering
+\includegraphics{figures/ex24-arrhenius}
+\caption{Vacancy formation in Al from a model that reproduces the GGA values of Table~I of [F]. (a) Gibbs energy of formation $G^f(T)$ (solid), the $0$~K enthalpy (dashed) and the tangent at $T^m$ extrapolated to $T = 0$ (dotted). (b) Equilibrium concentration against $T^m/T$ for the model, for the experimental straight line of Table~I and for $H^f(0)$ with $S^f = 0$. Gray: temperatures above $0.55\,T^m$, the range of the experiments.}
+\label{fig:ex24}
+\end{figure}
 \begin{parts}
-    \item If $H^f$ and $S^f$ do not depend on $T$, what does a plot of $\ln c^{\text{eq}}$ against $1/T$ look like? Which feature of the plot gives $H^f$, and which gives $S^f$? This is Eq.~(42) of [F].
+    \item If $H^f$ and $S^f$ do not depend on $T$, what does a plot of $\ln c^{\text{eq}}$ against $1/T$ look like? Which feature of the plot gives $H^f$, and which gives $S^f$? This is Eq.~(42) of [F]. Which line in Fig.~\ref{fig:ex24}(b) has this form, and why does the model curve bend toward the dashed line at low temperature?
     \item Evaluate $c^{\text{eq}}(T^m)$ with $g_X = 1$. By what factor would $c^{\text{eq}}$ be smaller if the vibrational formation entropy were zero?
     \item Use $\partial^2G^f/\partial T^2 = -C_P^f/T$, with the formation heat capacity $C_P^f$, as in Section~4 of the note. If $C_P^f > 0$, is $G^f(T)$ concave or convex?
-    \item An experiment measures $G^f$ only near $T^m$ and extrapolates the tangent line to $T = 0$. Show that the intercept equals $H^f(T^m)$. For a concave $G^f(T)$, which is larger, $H^f(T^m)$ or $H^f(0)$? Check the answer against Table~I of [F].
+    \item An experiment measures $G^f$ only in the gray range of Fig.~\ref{fig:ex24}(a) and extrapolates the tangent line, the dotted line, to $T = 0$. Show that the intercept equals $H^f(T^m)$ and that the slope equals $-S^f(T^m)$. For a concave $G^f(T)$, which is larger, $H^f(T^m)$ or $H^f(0)$? Check the answer against the figure and against Table~I of [F].
+    \item In Fig.~\ref{fig:ex24}(b), the model and the straight experimental line nearly agree in the gray range but differ by about an order of magnitude at $T^m/T = 3$. What does this difference say about predicting defect concentrations at room temperature from high-temperature data?
 \end{parts}
-\textit{Answer.} (a) A straight line with the slope $-H^f/k_B$ and the intercept $\ln g_X + S^f/k_B$. (b) $H^f/k_BT^m = 9.45$ and $c^{\text{eq}} = 8.7\times10^{-4}$. Without $S^f$, it would be $e^{2.4} = 11$ times smaller. (c) Concave. (d) The tangent of a concave function lies above it, so $H^f(T^m) \ge H^f(0)$. Table~I gives $0.68 > 0.63$~eV (GGA) and $0.78 > 0.68$~eV (LDA), both with anharmonicity.\\
+\textit{Answer.} (a) A straight line with the slope $-H^f/k_B$ and the intercept $\ln g_X + S^f/k_B$, the dash-dotted line. The model entropy falls to zero as $T \to 0$, so the model approaches the line with $H^f(0)$ and $S^f = 0$. (b) $H^f/k_BT^m = 9.45$ and $c^{\text{eq}} = 8.7\times10^{-4}$. Without $S^f$, it would be $e^{2.4} = 11$ times smaller. (c) Concave. (d) The tangent of a concave function lies above it, so $H^f(T^m) \ge H^f(0)$. Table~I gives $0.68 > 0.63$~eV (GGA) and $0.78 > 0.68$~eV (LDA), both with anharmonicity. (e) An Arrhenius line fixed in the measured range does not predict the low-temperature concentration, because $S^f$ and $H^f$ change with $T$. The $0$~K values with the temperature dependence of $G^f$ are needed.\\
 \textit{Related:} Sections~3.3, 4.5 and~5.3 of the note. \textit{Source:} [F], Secs.~II.B.3 and~II.C.1, Eq.~(42), Table~I.
 
 \paragraph{Exercise 25: Electronic entropy and the Fermi--Dirac distribution.}
