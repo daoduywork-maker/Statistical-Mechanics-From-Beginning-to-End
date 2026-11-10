@@ -56,10 +56,10 @@ and D.~A.~R.~Dalvit, J.~Frastai and I.~D.~Lawrie, \textit{Problems on Statistica
 Only problems that the note covers and that require more than a substitution into one formula are included.
 The problems are rewritten in the notation of the note, and some are merged or extended.
 Problems on quantum gases, kinetic theory, interacting lattice models and continuous transitions are left out, because the note does not cover them yet.
-The collections contain no problems on binary phase diagrams, so Section~7 of the note has no exercises here.
+The collections contain no problems on binary phase diagrams, so Section~11 of the note has no exercises here.
 Each exercise names the related sections of the note and the source, and ends with an answer for checking.
 Section~7 of this sheet adds guided exercises on point defects, built from the equations of a review article (see the start of that section).
-Section~8 adds the five problems of Quiz~1 of the phase-diagram course, which cover Section~7 of the note and one ternary system. Full solutions with figures are in the separate file \texttt{quiz1.pdf}.
+Section~8 adds the five problems of Quiz~1 of the phase-diagram course, which cover Section~11 of the note and one ternary system. Full solutions with figures are in the separate file \texttt{quiz1.pdf}.
 
 \paragraph{Units and notation.}
 \textcolor{red}{The Boltzmann constant $k_B$ is kept explicit, and $\beta = 1/(k_BT)$.
@@ -154,7 +154,7 @@ A double-stranded molecule has $N$ links that open only in sequence from one end
     \item Explain why the free energy is analytic in $T$ for every finite $N$, and why a transition nevertheless appears in the limit. Which order is the transition?
 \end{parts}
 \textit{Answer.} (b) $\langle p\rangle = x/(1 - x) - Nx^N/(1 - x^N)$. For $N = 500$, $\langle p\rangle/N = 0.04$, $0.50$ and $0.96$ at $x = 0.95$, $1$ and $1.05$. (c) $T_c = \varepsilon/(k_B\ln g)$. The slope is the variance $(N^2 - 1)/12$ of a uniform distribution. (d) $C = k_B(\ln g)^2(N^2 - 1)/12$. (e) $Z$ is a polynomial in $x$, so $\ln Z$ is analytic for finite $N$. In the limit, the fraction of open links jumps from $0$ to $1$ with the latent heat $\varepsilon$ per link, a first-order transition.\\
-\textit{Related:} Sections~3 and~6 of the note. \textit{Source:} [C]~2360.
+\textit{Related:} Sections~3 and~10 of the note. \textit{Source:} [C]~2360.
 
 \paragraph{Exercise 7: Free energy of a perturbed Hamiltonian.}
 A classical system has the Hamiltonian $\mathcal{H} = \mathcal{H}_0 + \lambda\mathcal{H}_1$. Let $F_0$ and $\langle\cdot\rangle_0$ denote the free energy and the averages at $\lambda = 0$.
@@ -286,14 +286,14 @@ Two such gases, with equal particle masses, occupy the volumes $V_1$ and $V_2$, 
         \qquad x_i = N_i/N,
     \end{equation*}
     independent of $T_1$, $T_2$, $V_1$ and $V_2$.
-    \item Relate the result of part~(c) to $\Delta S_{\text{mix}} \ge 0$ in Section~5.6 of the note and to the ideal-solution model of Section~7.7.
+    \item Relate the result of part~(c) to $\Delta S_{\text{mix}} \ge 0$ in Section~5.6 of the note and to the ideal-solution model of Section~11.7.
 \end{parts}
 \textit{Answer.} (a) $T_f = (N_1T_1 + N_2T_2)/N$. (b)
 \begin{equation*}
     \Delta S_{\text{ident}} = \tfrac32k_B\left[N\ln T_f - N_1\ln T_1 - N_2\ln T_2\right] + k_B\left[N\ln\frac{V}{N} - N_1\ln\frac{V_1}{N_1} - N_2\ln\frac{V_2}{N_2}\right],
 \end{equation*}
 and $\Delta S_{\text{diff}}$ has $k_B[N_1\ln(V/V_1) + N_2\ln(V/V_2)]$ as the second bracket. (d) The difference is the ideal mixing entropy, which the ideal-solution model assumes for the composition dependence of $g$.\\
-\textit{Related:} Sections~5.6 and~7.7 of the note. \textit{Source:} [C]~1045; [S]~5.6.
+\textit{Related:} Sections~5.6 and~11.7 of the note. \textit{Source:} [C]~1045; [S]~5.6.
 
 % ============================================================
 \section{First-Order Phase Transitions and the Unary System}
@@ -301,7 +301,7 @@ and $\Delta S_{\text{diff}}$ has $k_B[N_1\ln(V/V_1) + N_2\ln(V/V_2)]$ as the sec
 
 \paragraph{Exercise 16: Critical point of a model fluid.}
 \begin{parts}
-    \item Below $T_c$, a model isotherm $P(v)$ has a region with $\partial P/\partial v > 0$. Use the convexity of $f(v)$ in Section~6.3 of the note to explain why this region is unstable. Show that the region shrinks to one point at $T_c$, so that the critical point satisfies
+    \item Below $T_c$, a model isotherm $P(v)$ has a region with $\partial P/\partial v > 0$. Use the convexity of $f(v)$ in Section~10.3 of the note to explain why this region is unstable. Show that the region shrinks to one point at $T_c$, so that the critical point satisfies
     \begin{equation*}
         \left(\frac{\partial P}{\partial v}\right)_T = 0,
         \qquad
@@ -312,18 +312,18 @@ and $\Delta S_{\text{diff}}$ has $k_B[N_1\ln(V/V_1) + N_2\ln(V/V_2)]$ as the sec
     \item Compare the critical ratio $P_cv_c/k_BT_c$ with the van der Waals value $3/8$ and with the measured values of about $0.29$ for simple gases.
 \end{parts}
 \textit{Answer.} (a) $\partial P/\partial v = -\partial^2f/\partial v^2$, which must be $\le 0$. At $T_c$, the minimum and the maximum of $P(v)$ merge into an inflection point. (b) $T_c = a/(4k_Bb)$, $v_c = 2b$ and $P_c = a/(4e^2b^2)$. (d) $P_cv_c/k_BT_c = 2/e^2 = 0.271$.\\
-\textit{Related:} Section~6.3 of the note. \textit{Source:} [S]~8.2.
+\textit{Related:} Section~10.3 of the note. \textit{Source:} [S]~8.2.
 
 \paragraph{Exercise 17: Van der Waals coexistence near the critical point.}
 The reduced van der Waals equation of state is $\tilde P = 8\tilde T/(3\tilde v - 1) - 3/\tilde v^2$.
 \begin{parts}
     \item Show that the critical isotherm satisfies $\tilde P - 1 \approx -\tfrac32(\tilde v - 1)^3$.
     \item On the critical isochore $\tilde v = 1$ above $T_c$, show that $P_c\kappa_T = [6(\tilde T - 1)]^{-1}$.
-    \item Below $T_c$, apply Maxwell's equal-area rule from Section~6.3 of the note to show that $\tilde v_g - \tilde v_l \approx 4(1 - \tilde T)^{1/2}$.
+    \item Below $T_c$, apply Maxwell's equal-area rule from Section~10.3 of the note to show that $\tilde v_g - \tilde v_l \approx 4(1 - \tilde T)^{1/2}$.
     \item Use the Clapeyron equation to show that the latent heat per particle vanishes as $\ell \approx 6k_BT_c(1 - \tilde T)^{1/2}$.
 \end{parts}
-\textit{Answer.} (c) A numerical Maxwell construction gives $(\tilde v_g - \tilde v_l)/(1 - \tilde T)^{1/2} = 4.12$, $4.01$ and $4.001$ for $1 - \tilde T = 10^{-2}$, $10^{-3}$ and $10^{-4}$. (d) $d\tilde P/d\tilde T \to 4$ on the coexistence curve at $T_c$, and $P_cv_c = \tfrac38k_BT_c$. The latent heat and $\Delta v$ vanish together at $T_c$, as Section~6.3 of the note states.\\
-\textit{Related:} Sections~6.2 and~6.3 of the note. \textit{Source:} [D]~5.8.
+\textit{Answer.} (c) A numerical Maxwell construction gives $(\tilde v_g - \tilde v_l)/(1 - \tilde T)^{1/2} = 4.12$, $4.01$ and $4.001$ for $1 - \tilde T = 10^{-2}$, $10^{-3}$ and $10^{-4}$. (d) $d\tilde P/d\tilde T \to 4$ on the coexistence curve at $T_c$, and $P_cv_c = \tfrac38k_BT_c$. The latent heat and $\Delta v$ vanish together at $T_c$, as Section~10.3 of the note states.\\
+\textit{Related:} Sections~10.2 and~10.3 of the note. \textit{Source:} [D]~5.8.
 
 \paragraph{Exercise 18: Latent heat along the vaporization curve.}
 A liquid is incompressible and does not expand with temperature. The vapor volume per particle $v_g$ is much larger than $v_l$.
@@ -341,7 +341,7 @@ A liquid is incompressible and does not expand with temperature. The vapor volum
     \item Check the condition for water at $100\,^\circ$C, with $c_{P,l} = 75.3$, $c_{P,g} = 33.6$~J~mol$^{-1}$~K$^{-1}$ and $\ell = 40.7$~kJ~mol$^{-1}$.
 \end{parts}
 \textit{Answer.} (a) $(\partial s/\partial P)_T = -(\partial v/\partial T)_P$ and $dP/dT = \ell/(Tv_g)$. (c) The entropy of the saturated vapor along the curve is $s_l + \ell/T$, with $ds_l/dT = c_{P,l}/T$. If this entropy decreases with $T$, an adiabat that starts on the curve enters the two-phase region on cooling. (d) The left side equals $-75$~J~mol$^{-1}$~K$^{-1}$, so expanding water vapor condenses, as in cloud formation.\\
-\textit{Related:} Sections~4.5, 6.2 and~6.3 of the note. \textit{Source:} [S]~8.8.
+\textit{Related:} Sections~4.5, 10.2 and~10.3 of the note. \textit{Source:} [S]~8.8.
 
 \paragraph{Exercise 19: Boiling point and altitude.}
 An isothermal atmosphere at $T_A = 300.15$~K consists of an ideal gas with the molar mass $30$~g~mol$^{-1}$, and the pressure at sea level is $P_0$. A liquid with the molar latent heat $1000$~cal~mol$^{-1}$ boils at $105\,^\circ$C at sea level and at $95\,^\circ$C on the top of a mountain.
@@ -351,7 +351,7 @@ An isothermal atmosphere at $T_A = 300.15$~K consists of an ideal gas with the m
     \item Find the height of the mountain.
 \end{parts}
 \textit{Answer.} (a) $P_A = P_0\exp(-Mgh/RT_A)$. (b) $P_{\text{vap}} = P_0\exp[-(\ell_m/R)(1/T - 1/378.15~\text{K})]$, with the molar latent heat $\ell_m$. (c) $h = (\ell_mT_A/Mg)(1/368.15 - 1/378.15)~\text{K}^{-1} = 307$~m.\\
-\textit{Related:} Sections~3 and~6.3 of the note. \textit{Source:} [C]~5955.
+\textit{Related:} Sections~3 and~10.3 of the note. \textit{Source:} [C]~5955.
 
 \paragraph{Exercise 20: Cooling by solidification in helium-3.}
 Below about $1$~K, the entropy per particle of liquid $^3$He is $s_l = (\pi^2/2)k_BT/T_F$ with $T_F \approx 5$~K. In the solid, the nuclear spins $1/2$ are disordered and independent, so that $s_s = k_B\ln 2$. The solid is denser, and $\Delta v = v_l - v_s > 0$ is independent of $T$.
@@ -367,7 +367,7 @@ Below about $1$~K, the entropy per particle of liquid $^3$He is $s_l = (\pi^2/2)
     \item Further compression converts liquid to solid at fixed total entropy. Show that the system moves down the melting curve to lower $T$, with the solid fraction $n_s(T) = (T_0 - T)/(T^* - T)$.
 \end{parts}
 \textit{Answer.} (a) $T^* = (2\ln 2/\pi^2)\,T_F = 0.70$~K for $T_F = 5$~K (measured: $0.32$~K). (b) $s_l - s_s = (\pi^2k_B/2T_F)(T - T^*)$. (c) First order, with $\Delta c = (\pi^2/2)k_BT/T_F$ and $c_s = 0$. (e) The solid has the larger entropy below $T^*$, so freezing at fixed $S$ absorbs heat from the liquid. This effect is Pomeranchuk cooling.\\
-\textit{Related:} Sections~6.2 and~6.3 of the note. \textit{Source:} [C]~4552.
+\textit{Related:} Sections~10.2 and~10.3 of the note. \textit{Source:} [C]~4552.
 
 % ============================================================
 \section{Point Defects in Crystals}
@@ -395,11 +395,11 @@ A supercell of a crystal contains one defect $X^q$. The crystal exchanges atoms 
     \begin{equation*}
         E^f[X^q] = E_{\text{tot}}[X^q] - E_{\text{tot}}[\text{bulk}] - \sum_i n_i\mu_i + qE_F.
     \end{equation*}
-    \item Why is $E^f$ a straight line in $E_F$, and what sets its slope? For a defect with several charge states, which charge state does the crystal choose at a given $E_F$? Compare this rule with the lower envelope $\mu = \min_\alpha\mu_\alpha$ of Section~6.3 of the note.
+    \item Why is $E^f$ a straight line in $E_F$, and what sets its slope? For a defect with several charge states, which charge state does the crystal choose at a given $E_F$? Compare this rule with the lower envelope $\mu = \min_\alpha\mu_\alpha$ of Section~10.3 of the note.
     \item Two defects $A$ and $B$ can bind into a complex $AB$. Show that the binding energy $E_b = E^f[A] + E^f[B] - E^f[AB]$, Eq.~(2) of [F], does not depend on any $\mu_i$. Why can a positive $E_b$ still give few complexes in equilibrium? (Hint: compare the number of ways to place one complex with the number of ways to place two separate defects.)
 \end{parts}
 \textit{Answer.} (a) $T$, $P$, every $\mu_i$ and $E_F$ are fixed, and the atom numbers and the electron number fluctuate. The potential is $\Phi$ generalized to several species and to electrons. (b) The reservoirs lose $\sum_i n_i\mu_i$, the free energy per atom of the reservoir phase. (c) The reservoir gains $qE_F$. (d) The slope is $q$, and the stable charge state has the lowest $E^f$, as in Fig.~1 of [F]. (e) Every $n_i$ of $AB$ equals the sum of those of $A$ and $B$. Two separate defects have about $N^2$ placements, but a complex has only about $zN$, where $z$ is the number of neighbor sites.\\
-\textit{Related:} Sections~4.2, 5.2, 5.5 and~6.3 of the note. \textit{Source:} [F], Secs.~I.B.1--2, Eqs.~(1)--(2).
+\textit{Related:} Sections~4.2, 5.2, 5.5 and~10.3 of the note. \textit{Source:} [F], Secs.~I.B.1--2, Eqs.~(1)--(2).
 
 \paragraph{Exercise 22: Charge-state transition levels and the $U$ parameter.}
 \begin{parts}
@@ -409,24 +409,24 @@ A supercell of a crystal contains one defect $X^q$. The crystal exchanges atoms 
     \end{equation*}
     \item For three charge states $+1$, $0$ and $-1$, write $\varepsilon(+/0)$ and $\varepsilon(0/-)$ in terms of $E^f_q \equiv E^f(X^q; E_F = 0)$. Show that $U = E^f_{+1} + E^f_{-1} - 2E^f_0$, Eq.~(43) of [F], equals $\varepsilon(0/-) - \varepsilon(+/0)$.
     \item If $U < 0$, is the neutral state ever the lowest line? At which Fermi level does the defect then switch directly from $+1$ to $-1$?
-    \item In Section~6.3 of the note, a phase whose curve never touches the lower envelope is metastable everywhere. What plays the role of the temperature, and what the role of the phases, in the defect diagram?
+    \item In Section~10.3 of the note, a phase whose curve never touches the lower envelope is metastable everywhere. What plays the role of the temperature, and what the role of the phases, in the defect diagram?
     \item Why must $E^f(X^q)$ be computed with the atomic structure relaxed separately in each charge state for $\varepsilon(q_1/q_2)$ to be a thermodynamic level? (Exercise~31 contrasts this with optical levels.)
 \end{parts}
 \textit{Answer.} (a) Set $E^f(X^{q_1}) + q_1E_F = E^f(X^{q_2}) + q_2E_F$. (b) $\varepsilon(+/0) = E^f_0 - E^f_{+1}$ and $\varepsilon(0/-) = E^f_{-1} - E^f_0$. (c) No. The switch occurs at $\varepsilon(+/-) = [\varepsilon(+/0) + \varepsilon(0/-)]/2$. (d) $E_F$ plays the role of $T$, and the charge states play the role of the phases. A transition level is a ``melting point'' of the charge state. (e) A thermodynamic level compares two equilibrium states, each at the minimum of its own energy surface.\\
-\textit{Related:} Sections~6 and~6.3 of the note. \textit{Source:} [F], Secs.~I.B.3 and~II.D, Eqs.~(3), (43).
+\textit{Related:} Sections~10 and~10.3 of the note. \textit{Source:} [F], Secs.~I.B.3 and~II.D, Eqs.~(3), (43).
 
 \paragraph{Exercise 23: Configurational entropy and the equilibrium concentration.}
 A crystal has $N$ sites, and $n$ identical defects occupy them. Each defect has $g_X$ internal orientations.
 \begin{parts}
     \item Why does the number of arrangements equal $W = (g_XN)!/[(g_XN - n)!\,n!]$? Which factorial removes the distinction between identical defects, and which approximation gives $W \approx (g_XN)^n/n!$ for $n \ll N$?
     \item Apply Stirling's formula to $S^{\text{conf}} = k_B\ln W$ and show that, per site, $S^{\text{conf}}(c) = k_B[c - c\ln c + c\ln g_X]$, Eq.~(7) of [F].
-    \item Compare this entropy with the ideal mixing entropy $-k_B[c\ln c + (1 - c)\ln(1 - c)]$ of Section~7.7 of the note. Which term does the dilute limit drop?
+    \item Compare this entropy with the ideal mixing entropy $-k_B[c\ln c + (1 - c)\ln(1 - c)]$ of Section~11.7 of the note. Which term does the dilute limit drop?
     \item The Gibbs energy per site is $G(c) = G[\text{bulk}] + cG^f - TS^{\text{conf}}(c)$, Eq.~(39) of [F]. What does $\partial G/\partial c = 0$ give? Derive $c^{\text{eq}} = g_X\exp(-G^f/k_BT)$, Eq.~(41).
     \item Show that $G$ at equilibrium is $G[\text{bulk}] - k_BTc^{\text{eq}}$, Eq.~(40). Why does the crystal always gain free energy by forming some defects, however large $G^f$ is? Look at the slope of $S^{\text{conf}}$ at $c \to 0$.
     \item Define the defect chemical potential $\mu_X = \partial G/\partial c$. Why is $\mu_X = 0$ at equilibrium? Which conservation law that holds for atoms fails for vacancies, and which other ``particles'' of Exercise~26 share this property?
 \end{parts}
 \textit{Answer.} (b) $\ln W \approx n\ln(g_XN) - n\ln n + n$. (c) The expansion $-(1 - c)\ln(1 - c) \approx c$ gives the term $c$, and only terms of order $c^2$ are dropped. (d) $G^f + k_BT\ln(c/g_X) = 0$. (e) $dS^{\text{conf}}/dc = -k_B\ln(c/g_X) \to +\infty$ as $c \to 0$. (f) Vacancies form by moving atoms to the surface, so their number is not conserved. Phonons, with $\mu = 0$, behave in the same way.\\
-\textit{Related:} Sections~2, 4.5, 5.6 and~7.7 of the note. \textit{Source:} [F], Secs.~II.A.1 and~II.B.3, Eqs.~(4)--(8), (39)--(41).
+\textit{Related:} Sections~2, 4.5, 5.6 and~11.7 of the note. \textit{Source:} [F], Secs.~II.A.1 and~II.B.3, Eqs.~(4)--(8), (39)--(41).
 
 \needspace{14\baselineskip}
 \paragraph{Exercise 24: Arrhenius plots and their extrapolation.}
@@ -455,7 +455,7 @@ Electrons are fermions, so each single-particle orbital holds either $0$ or $1$ 
     \begin{equation*}
         S^{\text{el}} = -k_B\sum_i\left[(1 - f_i)\ln(1 - f_i) + f_i\ln f_i\right].
     \end{equation*}
-    \item Compare part~(b) with the ideal mixing entropy of Section~7.7 of the note. What is ``mixed'' here?
+    \item Compare part~(b) with the ideal mixing entropy of Section~11.7 of the note. What is ``mixed'' here?
     \item Near $E_F$, let the density of states be a constant $D_F$, counting both spins. Turn the sum into an integral with $x = \beta(\epsilon - E_F)$ and use
     \begin{equation*}
         \int_{-\infty}^{\infty}dx\left[-f\ln f - (1 - f)\ln(1 - f)\right] = \frac{\pi^2}{3},\qquad f = \frac{1}{e^x + 1},
@@ -465,7 +465,7 @@ Electrons are fermions, so each single-particle orbital holds either $0$ or $1$ 
     \item A neutral defect has one unpaired electron in a localized gap orbital that holds either spin. Which part of $S^{\text{el}}$ survives as $T \to 0$, and where does it reappear in Exercise~23?
 \end{parts}
 \textit{Answer.} (a) $\Xi_i = 1 + e^{-\beta(\epsilon_i - E_F)}$ and $f_i = -\partial\ln\Xi_i/\partial(\beta\epsilon_i)$. (b) $-k_B[f\ln f + (1 - f)\ln(1 - f)]$, and independent systems have additive entropies (Section~3.2 of the note). (c) Occupied and empty orbitals are ``mixed''. (d) The integral is $\pi^2/3 = 3.290$. (e) $D_F \approx 0$ in the band gap of a semiconductor. (f) $k_B\ln 2$, which is the spin degeneracy $g_X = 2$ in $S^{\text{conf}}$.\\
-\textit{Related:} Sections~1.1, 3.2, 5 and~7.7 of the note. \textit{Source:} [F], Sec.~II.A.2, Eqs.~(10)--(13).
+\textit{Related:} Sections~1.1, 3.2, 5 and~11.7 of the note. \textit{Source:} [F], Sec.~II.A.2, Eqs.~(10)--(13).
 
 \paragraph{Exercise 26: Vibrational free energy and the Bose--Einstein distribution.}
 Near equilibrium, the energy of the ions is quadratic in the displacements $u_k = R_k - R_k^0$, Eq.~(9) of [F].
@@ -499,7 +499,7 @@ A nitrogen vacancy $V_{\text{N}}$ forms in GaN, which coexists either with Ga me
         \Delta_fG^0(\text{GaN}) \le \Delta\mu_{\text{Ga}} \le 0,\qquad \Delta\mu_{\text{N}} = \Delta_fG^0(\text{GaN}) - \Delta\mu_{\text{Ga}},
     \end{equation*}
     in the notation of Eqs.~(31)--(34).
-    \item Draw $g(X)$ for the Ga--N system at fixed $(T, P)$, with three line phases at $X = 0$ (Ga), $X = 1/2$ (GaN) and $X = 1$ (N$_2$), and construct the convex hull of Section~7.4 of the note. Which tangent lines touch the GaN point? Show that their intercepts at $X = 0$ and $X = 1$ sweep exactly the window of part~(b).
+    \item Draw $g(X)$ for the Ga--N system at fixed $(T, P)$, with three line phases at $X = 0$ (Ga), $X = 1/2$ (GaN) and $X = 1$ (N$_2$), and construct the convex hull of Section~11.4 of the note. Which tangent lines touch the GaN point? Show that their intercepts at $X = 0$ and $X = 1$ sweep exactly the window of part~(b).
     \item The formation of $V_{\text{N}}$ removes one N atom, $n_{\text{N}} = -1$. How much larger is $E^f(V_{\text{N}})$ under N-rich than under Ga-rich conditions?
     \item For N$_2$ gas, the molecule has the ground energy $E(\text{N}_2)$ and the rotational partition function $z_{\text{rot}} = k_BT/(\sigma B_0)$ for $k_BT \gg B_0$. Start from $\mu = k_BT\ln(P\lambda_{\text{th}}^3/k_BT)$ of Exercise~13 and multiply $Z_N$ by $z_{\text{int}}^N$. Derive Eq.~(35) of [F]:
     \begin{equation*}
@@ -508,7 +508,7 @@ A nitrogen vacancy $V_{\text{N}}$ forms in GaN, which coexists either with Ga me
     \item Raising $P(\text{N}_2)$ at fixed $T$ moves $\mu_{\text{N}}$ in which direction? How does $c(V_{\text{N}})$ respond?
 \end{parts}
 \textit{Answer.} (b) Excess Ga would precipitate as metal, and excess N would leave as N$_2$. (c) The tangents through the GaN point rotate between the slopes of the Ga--GaN and GaN--N$_2$ segments of the hull. (d) By $|\Delta_fG^0(\text{GaN})|$, about $1$~eV. (e) $\mu = -k_BT\ln z_{\text{int}} + k_BT\ln(P\lambda_{\text{th}}^3/k_BT)$, with $z_{\text{int}} = e^{-\beta E(\text{N}_2)}z_{\text{rot}}z_{\text{vib}}$. (f) $\mu_{\text{N}}$ rises by $\tfrac12k_BT\,\Delta\ln P$, and $c(V_{\text{N}}) \propto P^{-1/2}$.\\
-\textit{Related:} Sections~5.5, 5.7, 7.3 and~7.4 of the note. \textit{Source:} [F], Sec.~II.B.2, Eqs.~(26)--(35).
+\textit{Related:} Sections~5.5, 5.7, 11.3 and~11.4 of the note. \textit{Source:} [F], Sec.~II.B.2, Eqs.~(26)--(35).
 
 \paragraph{Exercise 29: Charge neutrality and the Fermi level.}
 A semiconductor has the band gap $E_g$, parabolic bands with the effective masses $m_e$ and $m_h$, and dilute charged defects. Electrons and holes follow Exercise~25.
@@ -525,7 +525,7 @@ A semiconductor has the band gap $E_g$, parabolic bands with the effective masse
     \item Raising the dopant chemical potential $\mu_D$ lowers $E_D$ by the same amount. Show that $E_F$ then rises only by half of the increase of $\mu_D$. Why does this effect, self-compensation, limit doping (Sec.~I.A.2 of [F])?
 \end{parts}
 \textit{Answer.} (a) The crystal has no external source of charge, so neutrality fixes $E_F$. (b) $f \approx e^{-\beta(E - E_F)}$, and the integral is a Gaussian integral. (c) $N_c = 2.5\times10^{19}$~cm$^{-3}$. (d) $N_c/N_v = (m_e/m_h)^{3/2}$. (e) $c(D^+) = c(A^-)$ gives $E_F = (E_A - E_D)/2$, where the two lines cross. (f) $E_F = (E_A - E_D)/2$ rises by $\Delta\mu_D/2$. Each added donor is compensated by a new acceptor, so the carrier density barely grows.\\
-\textit{Related:} Sections~5, 5.5 and~6.3 of the note. \textit{Source:} [F], Secs.~I.A.2 and~II.B.2c, Eqs.~(36)--(38).
+\textit{Related:} Sections~5, 5.5 and~10.3 of the note. \textit{Source:} [F], Secs.~I.A.2 and~II.B.2c, Eqs.~(36)--(38).
 
 \paragraph{Exercise 30: Vacancies close to the melting point.}
 Section~V.B of [F] asks whether vacancies cause the rise of the heat capacity of Al close to $T^m$.
@@ -549,7 +549,7 @@ In Fig.~8 of [F], the substitutional acceptor $\text{N}_{\text{O}}$ in ZnO has t
     \item For a typical phonon energy $\hbar\omega = 40$~meV, how many phonons does the relaxation emit? Why does this number broaden the emission band?
 \end{parts}
 \textit{Answer.} (b) $E_{\text{rel}} = 0.35$~eV, the Stokes shift is $0.7$~eV, and $E_{\text{ZPL}} = 2.05$~eV. (c) $\varepsilon(0/-) = 1.35$~eV. (d) Electronic transitions take about $10^{-15}$~s, ionic relaxation about $10^{-13}$~s. (e) About $E_{\text{rel}}/\hbar\omega \approx 9$ phonons.\\
-\textit{Related:} Sections~3 and~6 of the note. \textit{Source:} [F], Sec.~II.E, Fig.~8, Eq.~(43).
+\textit{Related:} Sections~3 and~10 of the note. \textit{Source:} [F], Sec.~II.E, Fig.~8, Eq.~(43).
 
 \paragraph{Exercise 32: Diffusion by vacancy hopping.}
 Section~I.A.3 of [F] states that impurities usually diffuse with the help of vacancies or interstitials. This exercise builds the diffusion coefficient from the canonical ensemble.
@@ -564,10 +564,10 @@ Section~I.A.3 of [F] states that impurities usually diffuse with the help of vac
     where the correlation factor $f_c$ ($0.78$ for fcc) corrects for jumps straight back into the same vacancy.
     \item Which energy does an Arrhenius plot of $D$ measure? For Al, with $H^f = 0.67$~eV and $E_m = 0.61$~eV, compare with the measured activation energy of about $1.3$~eV.
     \item Section~I.A.3 of [F] says that interstitials move more readily than vacancies but are less abundant. Which sum decides the mechanism that dominates diffusion?
-    \item In a non-uniform crystal, the flux is $J = -(Dc/k_BT)\,\partial\mu/\partial x$. For a dilute species with $\mu = k_BT\ln c + \text{const}$, recover Fick's law. Why does this result agree with the statement of Section~7.11 of the note that no flux flows through a two-phase zone?
+    \item In a non-uniform crystal, the flux is $J = -(Dc/k_BT)\,\partial\mu/\partial x$. For a dilute species with $\mu = k_BT\ln c + \text{const}$, recover Fick's law. Why does this result agree with the statement of Section~11.11 of the note that no flux flows through a two-phase zone?
 \end{parts}
 \textit{Answer.} (a) Independent jumps have zero mean. (c) The density at the barrier top, normalized over the well, is $\sqrt{K/2\pi k_BT}\,e^{-\beta E_m}$, and $\langle v\,\theta(v)\rangle = \sqrt{k_BT/2\pi m}$. (e) $H^f + E_m = 1.28$~eV. (f) $H^f + E_m$ for each mechanism. (g) $J = -D\,\partial c/\partial x$. Inside a two-phase zone $\mu$ is uniform, so $J = 0$.\\
-\textit{Related:} Sections~3, 7.4 and~7.11 of the note. \textit{Source:} [F], Secs.~I.A.3 and~II.B.3, Eq.~(41).
+\textit{Related:} Sections~3, 11.4 and~11.11 of the note. \textit{Source:} [F], Secs.~I.A.3 and~II.B.3, Eq.~(41).
 
 \paragraph{Exercise 33: Charged defects in a periodic supercell.}
 A supercell calculation repeats one charged defect $q$ on a cubic lattice of period $L$ in a medium of dielectric constant $\varepsilon$.
@@ -594,7 +594,7 @@ The system $A$--$B$ forms the congruently melting compound $A_xB_y$, denoted $\g
     \item The eutectic point moves slightly to the left or to the right. Describe the change in the total amounts of $\alpha$ and $\gamma$ and in the amounts of primary crystals and eutectic for an alloy between $X_\alpha$ and $X_\gamma$.
 \end{parts}
 \textit{Answer.} (b) $\gamma$ lies in the middle, so the liquid lies between $X_\gamma$ and the $\gamma$ boundary, which requires $T_P > T_\gamma$. (c) The liquidus is horizontal at $X_\gamma$, a horizontal inflection between $E$ and $P$. (d) The total fractions $n_\alpha = (X_\gamma - X_0)/(X_\gamma - X_\alpha)$ do not change. For a hypoeutectic alloy, a shift to the right gives more primary $\alpha$, $(X_E - X_0)/(X_E - X_\alpha)$, and less eutectic. A shift to the left has the opposite effect.\\
-\textit{Related:} Sections~7.4, 7.6, 7.10 and~7.11 of the note. \textit{Source:} Quiz~1, Problem~1.
+\textit{Related:} Sections~11.4, 11.6, 11.10 and~11.11 of the note. \textit{Source:} Quiz~1, Problem~1.
 
 \needspace{302pt}
 \paragraph{Exercise 35: Isothermal diffusion in an isomorphous system.}
@@ -611,7 +611,7 @@ In Fig.~\ref{fig:ex-lens}, a bar of $A$ and a bar of $B$ are joined and heated t
     \item Which phases remain, and with which compositions, for the average compositions $x_1$ and $x_2$?
 \end{parts}
 \textit{Answer.} (a) Liquid, because $T_2$ lies above the melting point of $B$. (b) Both chemical potentials are uniform across a two-phase mixture, so no flux crosses the mixture. The profile runs from $0$ to $y$ in solid $\alpha$, jumps from $y$ to $z$ at the interface, and runs from $z$ to $1$ in the liquid. (c) For $x_1 < y$, a single solid $\alpha$ of composition $x_1$. For $x_2 > z$, a single liquid of composition $x_2$.\\
-\textit{Related:} Sections~7.4, 7.8 and~7.11 of the note. \textit{Source:} Quiz~1, Problem~2.
+\textit{Related:} Sections~11.4, 11.8 and~11.11 of the note. \textit{Source:} Quiz~1, Problem~2.
 
 \needspace{356pt}
 \paragraph{Exercise 36: From a $P$--$T$ projection to a $T$--$X$ section.}
@@ -628,7 +628,7 @@ Figure~\ref{fig:ex-pt} shows the $P$--$T$ projection of a binary system with a e
     \item Draw the $T$--$X$ diagram at $p_0$.
 \end{parts}
 \textit{Answer.} (a) $\alpha\beta\gamma$, $G\alpha\gamma$, $G\alpha_A$, $\beta\gamma_B$, $GL\gamma$, $L\gamma_B$ and $GL_B$. The curves $\alpha\beta\gamma$, $G\alpha\gamma$ and $GL\gamma$ are binary. Pure $A$ sublimes directly at $p_0$. (b) $\gamma \to \alpha + \beta$, $G \to \alpha + \gamma$ and $L \to G + \gamma$, all of the eutectic type. (c) The two-phase regions $\alpha + G$, $\gamma + \beta$, $L + \gamma$ and $G + L$ close at the transition points of the pure components. See \texttt{quiz1.pdf}, Fig.~7.\\
-\textit{Related:} Sections~7.5, 7.12 and~7.13 of the note. \textit{Source:} Quiz~1, Problem~3.
+\textit{Related:} Sections~11.5, 11.12 and~11.13 of the note. \textit{Source:} Quiz~1, Problem~3.
 
 \needspace{334pt}
 \paragraph{Exercise 37: Three-phase reactions in the Ag--Pr system.}
@@ -640,7 +640,7 @@ List all the three-phase reactions with liquid in Fig.~\ref{fig:ex-agpr}, with t
 \label{fig:ex-agpr}
 \end{figure}
 \textit{Answer.} $L \to$ Fcc $+$ Ag$_5$Pr (eutectic, 1072~K, $x_L = 0.08$). $L +$ Ag$_{51}$Pr$_{14} \to$ Ag$_5$Pr (peritectic, 1102~K, $0.10$). $L +$ Ag$_{51}$Pr$_{14} \to$ Ag$_2$Pr (peritectic, 1107~K, $0.36$). $L \to$ Ag$_2$Pr $+$ AgPr (eutectic, 1091~K, $0.39$). Bcc $\to L +$ DHCP (metatectic, 890~K, $0.79$). $L \to$ AgPr $+$ DHCP (eutectic, 848~K, $0.77$). The congruent melting of Ag$_{51}$Pr$_{14}$ and AgPr involves only two phases.\\
-\textit{Related:} Sections~7.5 and~7.10 of the note, Table~3. \textit{Source:} Quiz~1, Problem~4.
+\textit{Related:} Sections~11.5 and~11.10 of the note, Table~5. \textit{Source:} Quiz~1, Problem~4.
 
 \needspace{359pt}
 \paragraph{Exercise 38: The diopside--anorthite--albite system.}
@@ -659,6 +659,6 @@ Figure~\ref{fig:ex-tern} shows the Di--An--Ab system, with binary eutectics on t
     \item Read the composition of $A$, and trace the path of the liquid during equilibrium cooling of $A$. Where does crystallization end, and which plagioclase remains?
 \end{parts}
 \textit{Answer.} (a) $E_1$ at 58~wt\% Di on the Di--An side and $E_2$ at 7~wt\% Di on the Di--Ab side. The Ab--An loop has no minimum. (b) Along the cotectic from $E_1$ to $E_2$, along the Ab--An side from An to Ab, and in each primary field toward the cotectic. (c) Cotectic ($L$ + Di + Pl), diopside--liquid tie lines, liquid--plagioclase tie lines labeled by the An content of the plagioclase, path of the liquid, and the tie line $l_2$--$A$--$s_2$. (d) $L$ + Di + Pl. At $l_4$, the triangle Di--$l_4$--An$_{55}$. The isotherm has two branches that meet at $l_4$ in a V pointing up the cotectic. (e) $A$ = 20~wt\% Di, 44~wt\% An, 36~wt\% Ab. The path runs $A \to l_1 \to l_2$ with plagioclase alone, then along the cotectic $l_2 \to l_3 \to l_4$ with diopside and plagioclase. Crystallization ends at $l_4$ with plagioclase An$_{55}$.\\
-\textit{Related:} Sections~7.4 and~7.5 of the note (ternary systems lie beyond the note). \textit{Source:} Quiz~1, Problem~5.
+\textit{Related:} Sections~11.4 and~11.5 of the note (ternary systems lie beyond the note). \textit{Source:} Quiz~1, Problem~5.
 
 \end{document}
