@@ -1,0 +1,59 @@
+\section{Configurational entropy and the equilibrium concentration}
+
+A crystal  has $N$ sites and $n$ defects to occupy them. Each defect has $g_x$ internal orientation. The problem is essentially counting how many way to put $n$ defects into $g_xN$ orientational sites. 
+
+There are $g_xN-(i-1)$ way to place the $i$ th defect. Therefore, there are 
+\begin{align}
+    W = \prod_{i=1}^n(g_xN-i+1)=\frac{(g_xN)!}{(g_xN-n)!}
+\end{align}
+way to place $n$ defects into the supercell. At large $N$, we can use the Stirling approximation
+\begin{align}
+    x! = \sqrt{2\pi x}\bigg(\frac{x}{e}\bigg)^x
+\end{align}
+\begin{align}
+    \frac{(g_xN)!}{(g_xN-n)!}\approx \sqrt{\frac{N}{N-n}}\frac{(g_xN)^{g_xN}}{(g_xN-n)^{g_xN-n}}e^{1-n/(g_xN)}
+\end{align}
+We are interested in the limit where the defects concentration is very diluted or $n<<N$. 
+\begin{align}
+    \lim_{n/N\rightarrow 0} \sqrt{\frac{N}{N-n}}\frac{(g_xN)^{g_xN}}{(g_xN-n)^{g_xN-n}}e^{1-n/(g_xN)}= (g_xN)^n
+\end{align}
+
+ If the defects are identical, then we can permute the arrangement and the configuration still remains the same. There are $n!$ permutation of one distinct configuration, thus, the number of way to put $n$ indistinguishable into a crystall is 
+\begin{align}
+    W =\frac{(g_xN)!}{(g_xN-n)!n!}\approx \frac{(g_xN)^n}{n!}
+\end{align}
+
+We define the Configurational entropy of the defect system at fixed interal energy, crystal volume and particle number
+\begin{align}
+    S[\text{conf}]&= k_B\ln W
+\end{align}
+Using Stirling formula 
+\begin{align}
+    n! = n\ln n - n 
+\end{align}
+we obtain 
+\begin{align}
+    S[\text{conf}] &= k_B [n\ln (g_xN)-n\ln n +n]
+\end{align}
+We can rewrite it as a function of defect concentration $c=n/N$ 
+\begin{align}
+    S[conf] &= k_B [cN\ln (g_xN)-cN\ln cN +cN] \\ 
+    &= Nk_B [c\ln g_x - c \ln c + c]
+\end{align}
+Assuming that each defect site is independent so that entropy is additive, the Configurational entropy per site is 
+\begin{align}
+    S[c]^\text{conf} &= k_B [c\ln g_x - c \ln c + c]
+\end{align}. 
+
+In the first section, in DFT calculation, we have neglected the temperature dependence of the defects formation energy by setting temperature equal to $0\,K$. Here we will restore it, with the assumption that $\delta U$ is independent to temperature. 
+
+We also want a ensemble that can be compared to realistic experimental set-up. Although theoretically, $mu,V,T$ is the correct ensemble, but experiments are done in $N,P,T$, so the chemical potential is set by the reservoir, not something we can tune. The natural thermodynamic potential would therefore be the Gibbs free energy 
+\begin{align}
+    G[\text{bulk}] &= \Phi[\text{bulk}] +\sum_i \mu_i N_i + E_FN_e + PV  \\ 
+    G[X^q] &= \Phi[X^q] +\sum_i \mu_i (N_i+n_i) +E_F(N_e+q) + PV 
+\end{align}
+At finite temperature, the change in Gibbs free energy include the change in entropy of the defect and bulk system. There are actually 3 contribution - the electronic, the vibrational, and the Configurational entropy. For now, we consider only the configurational entropy contribution. 
+\begin{align}
+    nG^f = U[X^q] - U[\text{bulk}] +TS[conf]
+\end{align}
+where $G^f$ is the defect formation gibbs energy per defect
