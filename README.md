@@ -43,16 +43,33 @@ These notes take the opposite route. They start from a single mathematical princ
    6. Mixing Entropy and the Gibbs Paradox
    7. Gibbs-Duhem Relation
 
-**Part II: Phase Transition**
+**Part II: Classical Thermodynamics** *(skeleton)*
 
-6. *(in preparation)*
-7. *(in preparation)*
+6. **Response Functions and Stability**
+7. **The Ideal Gas**
+8. **Interacting Gases**
+9. **Thermodynamic Processes**
 
-**Part III: Classical Thermodynamics** *(planned)*
+**Part III: Phase Transitions**
+
+10. **First-Order Phase Transitions and Phase Diagrams**
+11. **Binary System**
 
 **Part IV: Physical Chemistry** *(planned)*
 
 **Part V: Quantum Statistical Mechanics** *(planned)*
+
+### Repository layout
+
+```
+Statistical Mechanics/
+├── Lecture Note/         main.tex, main.pdf and one file per section (1.tex ... 11.tex)
+│   └── figures/          pre-built figures of the notes and their generators
+└── Exercises/            exercise sheet (exercise.tex) and Quiz 1 solutions (quiz1.tex)
+    ├── figures/          figures of the exercise sheet and the quiz
+    └── Freysoldt/        guided exercises on point defects (freysoldt.tex)
+        └── figures/
+```
 
 ### Conventions
 
