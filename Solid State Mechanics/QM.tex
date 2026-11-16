@@ -158,17 +158,11 @@ The map from $|\Phi\rangle$ to $\Phi(x)$ keeps sums, complex multiples and inner
     \label{fig:bases}
 \end{figure}
 
-\paragraph{Orthogonality is defined by the inner product, not by the picture.} A right angle is the usual picture of orthogonality, but the picture already assumes the Euclidean inner product of the drawing plane. Two vectors $|u\rangle$ and $|w\rangle$ are orthogonal when $\langle u | w \rangle = 0$, and a basis $\{|g_i\rangle\}$ is orthonormal when $\langle g_i | g_j \rangle = \delta_{ij}$. A basis is, therefore, orthonormal or skewed only with respect to a chosen inner product. The basis vectors $|g_1\rangle = (1, 0)$ and $|g_2\rangle = (-\tfrac{1}{2}, \tfrac{\sqrt{3}}{2})$, for example, are unit vectors at $120^\circ$ in the drawing plane. The Euclidean inner products between the basis vectors form the \textcolor{blue}{Gram matrix}
+\paragraph{Orthogonality is defined by the inner product, not by the picture.} A right angle is the usual picture of orthogonality, but the picture already assumes the Euclidean inner product of the drawing plane. Two vectors $|u\rangle$ and $|w\rangle$ are orthogonal when $\langle u | w \rangle = 0$, and a basis $\{|g_i\rangle\}$ is orthonormal when $\langle g_i | g_j \rangle = \delta_{ij}$. A basis is, therefore, orthonormal or skewed only with respect to a chosen inner product. The basis vectors $|g_1\rangle = (1, 0)$ and $|g_2\rangle = (-\tfrac{1}{2}, \tfrac{\sqrt{3}}{2})$, for example, are unit vectors at $120^\circ$ in the drawing plane. The Euclidean inner product of the two basis vectors is
 \begin{equation*}
-    G_{ij} = \langle g_i | g_j \rangle, \qquad
-    G = \begin{pmatrix} 1 & -\tfrac{1}{2} \\ -\tfrac{1}{2} & 1 \end{pmatrix}
+    \langle g_1 | g_2 \rangle = \cos 120^\circ = -\tfrac{1}{2}
 \end{equation*}
-The off-diagonal elements are not zero, so the basis is not orthogonal under the Euclidean inner product. For a vector $|v\rangle = \sum_i a_i |g_i\rangle$ with real coefficients $a_i$, the squared length carries the Gram matrix:
-\begin{align*}
-    \langle v | v \rangle &= \sum_{i,j} a_i\, a_j\, \langle g_i | g_j \rangle \\
-    &= \sum_{i,j} a_i\, G_{ij}\, a_j
-\end{align*}
-The same basis becomes orthonormal under a new inner product, defined by $\langle g_i | g_j \rangle' = \delta_{ij}$ and extended linearly. Under the new inner product, however, the Euclidean axes $|\hat x\rangle = (1,0)$ and $|\hat y\rangle = (0,1)$ are no longer orthogonal. The axes expanded in the skewed basis are
+The inner product is not zero, so the basis is not orthogonal under the Euclidean inner product. The same basis becomes orthonormal under a new inner product, defined by $\langle g_i | g_j \rangle' = \delta_{ij}$ and extended linearly. Under the new inner product, however, the Euclidean axes $|\hat x\rangle = (1,0)$ and $|\hat y\rangle = (0,1)$ are no longer orthogonal. The axes expanded in the skewed basis are
 \begin{equation*}
     |\hat x\rangle = |g_1\rangle, \qquad
     |\hat y\rangle = \tfrac{1}{\sqrt{3}}\,|g_1\rangle + \tfrac{2}{\sqrt{3}}\,|g_2\rangle
