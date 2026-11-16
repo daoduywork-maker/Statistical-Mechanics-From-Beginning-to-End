@@ -144,4 +144,18 @@ The delta function selects the entry at $x' = x$ in the same way that the Kronec
 \end{equation}
 The map from $|\Phi\rangle$ to $\Phi(x)$ keeps sums, complex multiples and inner products unchanged. The Hilbert space $\mathcal{H}$ and the function space $L^2$ are, therefore, two descriptions of the same vectors. The state vector is the basis-free description, and the wavefunction is the description in the position basis.
 
+\paragraph{The momentum eigenbasis gives another representation of the same state.} The state vector can also be expanded in the \textcolor{blue}{momentum eigenbasis}, in the same way as in the position eigenbasis. \textcolor{red}{The momentum representation is written as $\tilde{\Phi}(p)$, with a tilde, to distinguish it from the position representation $\Phi(x)$.} Each value $\tilde{\Phi}(p)$ is the component of $|\Phi\rangle$ along the momentum eigenstate $|p\rangle$:
+\begin{equation}
+    \boxed{\tilde{\Phi}(p) = \langle p | \Phi \rangle}
+\end{equation}
+
+\paragraph{A vector has no preferred basis.} Figure~\ref{fig:bases} shows two vectors $v$ and $w$ and two orthonormal bases, $\{e_1, e_2\}$ and $\{f_1, f_2\}$. Each basis is orthogonal within itself, but $f_1$ is not orthogonal to $e_1$ or $e_2$, and neither basis is singled out. The components of $v$ differ between the two bases, so $(v_1, v_2) \neq (v_1', v_2')$. The length of $v$ and the angle $\alpha$ between $v$ and $w$, however, are the same in both bases, because both quantities follow from the inner product alone. The vector, therefore, exists independently of any basis, and a basis is needed only to write the vector as a list of numbers. The position and momentum representations are two such lists for the same state $|\Phi\rangle$.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics{two_bases.pdf}
+    \caption{Two vectors $v$ and $w$ in two orthonormal bases, $\{e_1, e_2\}$ and the rotated basis $\{f_1, f_2\}$. The dashed lines project $v$ onto each basis vector. The components change from basis to basis, whereas the length of $v$ and the angle $\alpha$ do not.}
+    \label{fig:bases}
+\end{figure}
+
 \end{document}
