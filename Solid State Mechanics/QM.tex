@@ -158,4 +158,72 @@ The map from $|\Phi\rangle$ to $\Phi(x)$ keeps sums, complex multiples and inner
     \label{fig:bases}
 \end{figure}
 
+\paragraph{Orthogonality is defined by the inner product, not by the picture.} A right angle is the usual picture of orthogonality, but the picture already assumes the Euclidean inner product of the drawing plane. Two vectors $|u\rangle$ and $|w\rangle$ are orthogonal when $\langle u | w \rangle = 0$, and a basis $\{|g_i\rangle\}$ is orthonormal when $\langle g_i | g_j \rangle = \delta_{ij}$. A basis is, therefore, orthonormal or skewed only with respect to a chosen inner product. The basis vectors $|g_1\rangle = (1, 0)$ and $|g_2\rangle = (-\tfrac{1}{2}, \tfrac{\sqrt{3}}{2})$, for example, are unit vectors at $120^\circ$ in the drawing plane. The Euclidean inner products between the basis vectors form the \textcolor{blue}{Gram matrix}
+\begin{equation*}
+    G_{ij} = \langle g_i | g_j \rangle, \qquad
+    G = \begin{pmatrix} 1 & -\tfrac{1}{2} \\ -\tfrac{1}{2} & 1 \end{pmatrix}
+\end{equation*}
+The off-diagonal elements are not zero, so the basis is not orthogonal under the Euclidean inner product. For a vector $|v\rangle = \sum_i a_i |g_i\rangle$ with real coefficients $a_i$, the squared length carries the Gram matrix:
+\begin{align*}
+    \langle v | v \rangle &= \sum_{i,j} a_i\, a_j\, \langle g_i | g_j \rangle \\
+    &= \sum_{i,j} a_i\, G_{ij}\, a_j
+\end{align*}
+The same basis becomes orthonormal under a new inner product, defined by $\langle g_i | g_j \rangle' = \delta_{ij}$ and extended linearly. Under the new inner product, however, the Euclidean axes $|\hat x\rangle = (1,0)$ and $|\hat y\rangle = (0,1)$ are no longer orthogonal. The axes expanded in the skewed basis are
+\begin{equation*}
+    |\hat x\rangle = |g_1\rangle, \qquad
+    |\hat y\rangle = \tfrac{1}{\sqrt{3}}\,|g_1\rangle + \tfrac{2}{\sqrt{3}}\,|g_2\rangle
+\end{equation*}
+and the new inner product of the axes is
+\begin{align*}
+    \langle \hat x | \hat y \rangle' &= 1 \cdot \tfrac{1}{\sqrt{3}} + 0 \cdot \tfrac{2}{\sqrt{3}} \\
+    &= \tfrac{1}{\sqrt{3}} \neq 0
+\end{align*}
+Each basis is, therefore, orthonormal under its own inner product, and one inner product cannot make every basis orthonormal at the same time. Two orthonormal bases $\{|e_j\rangle\}$ and $\{|f_i\rangle\}$ under the same inner product are linked by a matrix $R$, with $|f_i\rangle = \sum_j R_{ji}\, |e_j\rangle$. The orthonormality of the new basis constrains $R$:
+\begin{align*}
+    \langle f_i | f_k \rangle &= \sum_{j,l} R_{ji}\, R_{lk}\, \langle e_j | e_l \rangle \\
+    &= \sum_{j} R_{ji}\, R_{jk} \\
+    &= (R^{T} R)_{ik}
+\end{align*}
+The condition $\langle f_i | f_k \rangle = \delta_{ik}$ then gives
+\begin{equation}
+    \boxed{R^{T} R = \mathbb{I}}
+\end{equation}
+A real matrix with $R^{T} R = \mathbb{I}$ is a rotation or a reflection. Two bases are, therefore, orthonormal under the same inner product only when one basis is a rotation or a reflection of the other, as in Fig.~\ref{fig:bases}. For complex coefficients, the transpose becomes the conjugate transpose, and the condition becomes $U^{\dagger} U = \mathbb{I}$ for a \textcolor{blue}{unitary} matrix $U$. The inner product of quantum mechanics is fixed, because $|\langle \Psi | \Phi \rangle|^2$ is a probability. The orthonormal bases of quantum mechanics are, therefore, all linked by unitary transformations, the complex version of rotations and reflections.
+
+\paragraph{The position and momentum eigenbases are linked by a unitary transformation.} The position and momentum eigenstates are both orthonormal under the same inner product, with $\langle x | x' \rangle = \delta(x - x')$ and $\langle p | p' \rangle = \delta(p - p')$. The change of basis is a matrix with continuous indices, $U(x, p) = \langle x | p \rangle$. The momentum operator acts as $-i\hbar\, d/dx$ in the position representation, so the eigenvalue equation $\hat p |p\rangle = p |p\rangle$ projected onto $\langle x|$ is a differential equation:
+\begin{align*}
+    \langle x | \hat p | p \rangle &= -i\hbar \frac{d}{dx} \langle x | p \rangle \\
+    &= p\, \langle x | p \rangle
+\end{align*}
+The solution is a plane wave, $\langle x | p \rangle = C\, e^{ipx/\hbar}$, with a constant $C$. The normalization $\langle p | p' \rangle = \delta(p - p')$ fixes $C$, with the completeness relation of the position eigenbasis and $\int dx\, e^{ikx} = 2\pi\, \delta(k)$:
+\begin{align*}
+    \langle p | p' \rangle &= \int dx\, \langle p | x \rangle \langle x | p' \rangle \\
+    &= |C|^2 \int dx\, e^{i(p' - p)x/\hbar} \\
+    &= |C|^2\, 2\pi\hbar\, \delta(p - p')
+\end{align*}
+The choice of a real, positive $C = 1/\sqrt{2\pi\hbar}$ gives
+\begin{equation}
+    \boxed{\langle x | p \rangle = \frac{1}{\sqrt{2\pi\hbar}}\, e^{ipx/\hbar}}
+\end{equation}
+The same calculation is the unitarity condition $U^{\dagger} U = \mathbb{I}$ written with continuous indices. The momentum representation then follows from the position representation by the completeness relation:
+\begin{align*}
+    \tilde{\Phi}(p) &= \int dx\, \langle p | x \rangle \langle x | \Phi \rangle \\
+    &= \int dx\, \langle x | p \rangle^{*}\, \Phi(x)
+\end{align*}
+\begin{equation}
+    \boxed{\tilde{\Phi}(p) = \frac{1}{\sqrt{2\pi\hbar}} \int dx\, e^{-ipx/\hbar}\, \Phi(x)}
+\end{equation}
+The change from the position to the momentum representation is, therefore, a \textcolor{blue}{Fourier transform}. The reverse change uses the completeness relation of the momentum eigenbasis, $\int dp\, |p\rangle\langle p| = \mathbb{I}$:
+\begin{align*}
+    \Phi(x) &= \int dp\, \langle x | p \rangle \langle p | \Phi \rangle \\
+    &= \frac{1}{\sqrt{2\pi\hbar}} \int dp\, e^{ipx/\hbar}\, \tilde{\Phi}(p)
+\end{align*}
+The unitary change of basis keeps the inner product unchanged, so the overlap of two states is the same in both representations:
+\begin{align*}
+    \langle \Psi | \Phi \rangle &= \int dp\, \langle \Psi | p \rangle \langle p | \Phi \rangle \\
+    &= \int dp\, \tilde{\Psi}^{*}(p)\, \tilde{\Phi}(p) \\
+    &= \int dx\, \Psi^{*}(x)\, \Phi(x)
+\end{align*}
+Every momentum eigenstate overlaps every position eigenstate with the same magnitude, $|\langle x | p \rangle| = 1/\sqrt{2\pi\hbar}$. The two bases are, therefore, as far from aligned as possible, and a state that is sharp in one representation is spread over the whole of the other.
+
 \end{document}
