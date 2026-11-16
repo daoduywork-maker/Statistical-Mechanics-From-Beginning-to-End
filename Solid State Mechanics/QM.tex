@@ -1,0 +1,95 @@
+%% ============================================================
+%%  STANDARD PREAMBLE (article, lecture notes)
+%% ============================================================
+
+% ---------- Document class and page layout ----------
+\documentclass[11pt]{article}      % Basic document type, 11pt body text
+\usepackage[margin=1in]{geometry}  % Sets page margins to 1 inch on all sides
+
+% ---------- Paragraph style ----------
+\usepackage{setspace}              % Lets you set the line spacing of the whole document
+\setstretch{1.2}                   % Line spacing factor: 1.0 = single (default), 1.2 = slightly airy, 1.5 = very loose
+\setlength{\parindent}{2em}        % First-line indent of each paragraph
+\setlength{\parskip}{1\baselineskip} % Extra vertical gap between paragraphs
+
+% ---------- Math ----------
+\usepackage{amsmath,amssymb}       % Core math: align, cases, \text{}, plus extra symbols (\mathbb, \hbar, ...)
+
+% ---------- Colors and boxes ----------
+\usepackage{xcolor}                % Lets you use colors (\textcolor{red}{...})
+\usepackage{mdframed}              % Boxes around text that can break across pages (theorems, key results)
+
+% ---------- Diagrams ----------
+\usepackage{tikz-cd}               % Commutative diagrams / arrow diagrams (also loads tikz)
+\usepackage{tikz}                  % General-purpose drawing: lines, shapes, plots
+\usetikzlibrary{arrows.meta, positioning} % arrows.meta: more arrow tip styles; positioning: place nodes "right=of A"
+
+% ---------- Text layout ----------
+\usepackage{multicol}              % Multi-column text (\begin{multicols}{2} ... \end{multicols})
+\usepackage{indentfirst}           % Indents the first paragraph after a heading (article class skips it by default)
+
+% ---------- Hyperlinks ----------
+\usepackage[hidelinks]{hyperref}   % Clickable TOC, \ref, \eqref, \cite; hidelinks = no colored text or boxes
+
+% ---------- Equation numbering ----------
+\numberwithin{equation}{section}   % Equation counter resets in each section
+\renewcommand{\theequation}{\thesection.\arabic{equation}} % Displays numbers as section.equation, e.g. (2.3)
+
+% ---------- Paragraph style ----------
+\setlength{\parindent}{2em}        % First-line indent of each paragraph
+\setlength{\parskip}{1\baselineskip} % Extra vertical gap between paragraphs
+
+% ---------- Title block ----------
+\title{Quantum Mechanics Review}
+\author{Duy M. Dao}
+\date{\today}                      % Compile date; replace with a fixed date if you prefer
+
+\begin{document}
+\maketitle                         % Prints title, author, date
+%\tableofcontents                   % Clickable table of contents
+
+\newpage
+
+\section{Representation of a Quantum State}
+
+\paragraph{The state is an abstract vector.} A quantum state $|\Phi\rangle$ of a system with Hamiltonian $\hat H$ is an abstract \textcolor{blue}{state vector}. The state vector belongs to a \textcolor{blue}{Hilbert space} $\mathcal{H}$, which is a complex vector space with an inner product. The state vector, therefore, obeys the rules of an ordinary vector:
+\begin{itemize}
+    \item closure under addition, so any superposition $|\Phi\rangle + |\Psi\rangle$ is also a state in $\mathcal{H}$;
+    \item closure under multiplication by any complex number $c$, so $c|\Phi\rangle$ is also in $\mathcal{H}$;
+    \item an inner product $\langle\Psi|\Phi\rangle$, which is a complex number, with $\langle\Phi|\Phi\rangle \geq 0$.
+\end{itemize}
+The state itself is not measured. Measurements give values of the \textcolor{blue}{observables}, such as momentum, energy and angular momentum, and the state determines the probability of each value.
+
+\paragraph{The wavefunction is the state written in the position basis.} The familiar wavefunction $\Phi(x)$ is not the state itself. The wavefunction is the \textcolor{blue}{position representation} of the state vector, and the other observables, such as momentum, can be calculated from it. Each value $\Phi(x)$ is the component of $|\Phi\rangle$ along the \textcolor{blue}{position eigenstate} $|x\rangle$:
+\begin{equation}
+    \boxed{\Phi(x) = \langle x | \Phi \rangle}
+\end{equation}
+The wavefunction is, therefore, a \textcolor{blue}{probability amplitude}. The value $\Phi(x)$ is a complex number, and the squared modulus $|\Phi(x)|^2$ is the probability density. The amplitude is the square root of the probability density, up to a phase $\theta(x)$:
+\begin{equation*}
+    \Phi(x) = \sqrt{|\Phi(x)|^2}\; e^{i\theta(x)}
+\end{equation*}
+
+\paragraph{The wavefunction is an infinite array of components.} The wavefunction can be viewed as an infinite array with one complex number for each position $x$. The array works like the list of components of an ordinary vector, with the position $x$ in the role of the index $i$. A three-dimensional vector is rebuilt from the components as
+\begin{equation*}
+    |v\rangle = \sum_i v_i\, |e_i\rangle, \qquad v_i = \langle e_i | v \rangle
+\end{equation*}
+The state vector is rebuilt in the same way. The \textcolor{blue}{completeness relation} of the position eigenbasis is
+\begin{equation*}
+    \int dx'\, |x'\rangle\langle x'| = \mathbb{I}
+\end{equation*}
+Inserting the completeness relation in front of $|\Phi\rangle$ gives
+\begin{equation*}
+    |\Phi\rangle = \int dx'\, |x'\rangle\langle x' | \Phi \rangle
+\end{equation*}
+\begin{equation}
+    \boxed{|\Phi\rangle = \int dx'\, \Phi(x')\, |x'\rangle}
+\end{equation}
+The position eigenstates satisfy $\langle x | x' \rangle = \delta(x - x')$. The projection of the expansion back onto $\langle x|$, therefore, recovers one entry of the array:
+\begin{align*}
+    \langle x | \Phi \rangle &= \int dx'\, \Phi(x')\, \langle x | x' \rangle \\
+    &= \int dx'\, \Phi(x')\, \delta(x - x') \\
+    &= \Phi(x)
+\end{align*}
+The delta function selects the entry at $x' = x$ in the same way that $\langle e_i | v \rangle$ selects the component $v_i$.
+
+\end{document}
