@@ -220,4 +220,28 @@ The unitary change of basis keeps the inner product unchanged, so the overlap of
 \end{align*}
 Every momentum eigenstate overlaps every position eigenstate with the same magnitude, $|\langle x | p \rangle| = 1/\sqrt{2\pi\hbar}$. The two bases are, therefore, as far from aligned as possible, and a state that is sharp in one representation is spread over the whole of the other.
 
+\paragraph{The inner product is defined without a basis, and only the formula of the inner product depends on the basis.} The inner product is a rule that takes two vectors and returns one complex number, $\langle \Psi | \Phi \rangle$. The rule needs no basis, in the same way that the length of a stick needs no coordinate system. A formula of the inner product in terms of components follows from inserting the completeness relation of a basis between the bra and the ket, because the identity operator changes nothing:
+\begin{equation*}
+    \langle \Psi | \Phi \rangle = \langle \Psi |\, \mathbb{I}\, | \Phi \rangle
+\end{equation*}
+Table~\ref{tab:inner} lists the formulas for the position eigenbasis, the momentum eigenbasis and a discrete orthonormal basis $\{|n\rangle\}$, with the components $c_n = \langle n | \Psi \rangle$ and $d_n = \langle n | \Phi \rangle$. Every formula starts from the same $\langle \Psi | \Phi \rangle$, so every formula gives the same number. The integral $\int dx\, \Psi^{*}(x)\, \Phi(x)$ is, therefore, the formula of the inner product in the position basis rather than the definition of the inner product. The squared length $\langle \Phi | \Phi \rangle = \int dx\, |\Phi(x)|^2$ is the special case of a state with itself.
+
+\begin{table}[h]
+    \centering
+    \caption{Formulas of the inner product $\langle \Psi | \Phi \rangle$ in three orthonormal bases.}
+    \label{tab:inner}
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{lll}
+        \toprule
+        Basis & Completeness relation & Inner product $\langle \Psi | \Phi \rangle$ \\
+        \midrule
+        Position $\{|x\rangle\}$ & $\int dx\, |x\rangle\langle x| = \mathbb{I}$ & $\int dx\, \Psi^{*}(x)\, \Phi(x)$ \\
+        Momentum $\{|p\rangle\}$ & $\int dp\, |p\rangle\langle p| = \mathbb{I}$ & $\int dp\, \tilde{\Psi}^{*}(p)\, \tilde{\Phi}(p)$ \\
+        Discrete $\{|n\rangle\}$ & $\sum_n |n\rangle\langle n| = \mathbb{I}$ & $\sum_n c_n^{*}\, d_n$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\paragraph{The simple formula holds only in a basis that is orthonormal under the same inner product.} Each formula in Table~\ref{tab:inner} conjugates the components, multiplies them pairwise and sums them. This simple form holds only because the basis is orthonormal under the same inner product, so the completeness relation takes the form $\int dx\, |x\rangle\langle x| = \mathbb{I}$ without extra factors. The orthonormality is not automatic and has to be checked. The normalization $C = 1/\sqrt{2\pi\hbar}$ of $\langle x | p \rangle$ made the momentum eigenbasis orthonormal under the inner product of the position basis. A momentum formula without this factor would be off by $2\pi\hbar$ and would describe a different inner product. The direct comparison of the position and momentum formulas in the paragraph on the unitary transformation confirms the agreement. Written in its own coordinates, every basis looks like a set of unit columns, so $|g_1\rangle$ and $|g_2\rangle$ of the skewed basis become $(1, 0)$ and $(0, 1)$. The sum of products of these columns is zero, but the sum-of-products formula assumes the orthonormality that is being tested, so the argument is circular. Under the Euclidean inner product, $\langle g_1 | g_2 \rangle = -\tfrac{1}{2}$ in every coordinate system, and the skewed basis is not orthonormal. The inner product of quantum mechanics is fixed by the measured probability $|\langle \Psi | \Phi \rangle|^2$. A formula that gave a different number in a different basis would, therefore, predict a different experimental result.
+
 \end{document}
