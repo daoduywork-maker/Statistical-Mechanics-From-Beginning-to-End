@@ -26,6 +26,7 @@
 
 % ---------- Chemistry ----------
 \usepackage{chemfig}               % Bond-line and Lewis structures: \chemfig{H-C(-[2]H)(-[6]H)-H}
+\input{chemfig-lewis.tex}          % Loads \lewis and \Lewis (split from chemfig since v1.6; needed for electron pairs)
                                    % Electron pairs and dots: \lewis{0:2:4:6:,O} puts a lone pair at 0, 90, 180, 270 deg
                                    % Curved electron-pushing arrows: mark atoms with @{name}, then \chemmove{\draw ...}
 \setchemfig{atom sep=2em}          % Bond length; increase for larger structures
