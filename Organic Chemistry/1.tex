@@ -1,0 +1,15 @@
+\section{}
+
+%% ------------------------------------------------------------
+%%  chemfig quick reference (delete when no longer needed)
+%% ------------------------------------------------------------
+%  Bonds:        -  single,  =  double,  ~  triple;  -[n] points the bond at n*45 deg (0 = right, 2 = up, 6 = down)
+%  Branches:     \chemfig{H-C(-[2]H)(-[6]H)-H}                     % methane
+%  Lone pairs:   \lewis{<angle>:,<atom>}, angles in 45-deg steps (0 right, 2 up, 4 left, 6 down)
+%                \chemfig{H-\lewis{2:6:,O}-H}                      % water, two lone pairs
+%                \chemfig{\lewis{0:2:4:6:,O}-H}                    % hydroxide oxygen, three lone pairs + bond
+%  Single electron (radical):  use "." instead of ":"   e.g. \lewis{0.,C}
+%  Charges:      \chemfig{\lewis{2:4:6:,O}^{-}-H}  or  \chemabove{N}{\scriptstyle\oplus}
+%  Electron-pushing arrow: name atoms/bonds with @{name}, then
+%                \chemmove{\draw[-{Stealth}](a) .. controls +(90:8mm) and +(90:8mm) .. (b);}
+%  Inline formula/reaction (mhchem):  \ce{CH3COOH + H2O <=> CH3COO- + H3O+}
