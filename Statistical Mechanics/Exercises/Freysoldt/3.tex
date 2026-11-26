@@ -124,34 +124,41 @@ entropy of the defect and the bulk system. The entropy has three
 contributions, the electronic, the vibrational and the configurational
 entropy. Only the configurational entropy is considered here.
 \textcolor{red}{Here, $G(N_X)$ denotes the Gibbs free energy of the crystal
-with $N_X$ defects, and $\Delta G(N_X)$ the change of the Gibbs free energy
-without the reservoir terms,}
+with $N_X$ defects.} The crystal exchanges atoms and electrons with the
+reservoirs. When $N_X$ defects form, the reservoir of species $i$ supplies
+$N_Xn_i$ atoms, and the electron reservoir receives $N_Xq$ electrons. At
+fixed $T$ and $P$, the Gibbs free energy of a reservoir changes by its
+chemical potential per particle,
 \begin{equation*}
-    \Delta G(N_X)=G(N_X)-G_{\text{bulk}}
-    -N_X\Big(\sum_i\mu_in_i-qE_F\Big).
+    dG_{\text{res}}=\sum_i\mu_i\,dN_i^{\text{res}}+E_F\,dN_e^{\text{res}},
 \end{equation*}
-Each defect adds $E^f[X^q]$, and the arrangement of all $N_X$ defects adds
-the configurational entropy, so
+so the reservoirs change by
+\begin{equation*}
+    \Delta G_{\text{res}}=-N_X\Big(\sum_i\mu_in_i-qE_F\Big).
+\end{equation*}
+The crystal and the reservoirs together form a closed system at fixed $T$
+and $P$, so the total Gibbs free energy is minimized at equilibrium.
+\textcolor{red}{Here, $\Delta G(N_X)$ denotes the change of the total Gibbs
+free energy of the crystal and the reservoirs,}
+\begin{align*}
+    \Delta G(N_X)&=G(N_X)-G_{\text{bulk}}+\Delta G_{\text{res}}\\
+    &=G(N_X)-G_{\text{bulk}}-N_X\Big(\sum_i\mu_in_i-qE_F\Big).
+\end{align*}
+The defects are far apart and do not interact, so every arrangement of the
+$N_X$ defects has the same Gibbs free energy, which is $N_X$ times the change
+of Section~1,
+\begin{equation*}
+    G_{\text{arr}}=G_{\text{bulk}}
+    +N_X\Big(E^f[X^q]+\sum_i\mu_in_i-qE_F\Big).
+\end{equation*}
+The partition function sums over the $W$ equally probable arrangements,
+\begin{align*}
+    G(N_X)&=-k_BT\ln\sum_{\text{arr}}e^{-G_{\text{arr}}/k_BT}
+    =-k_BT\ln\big(W\,e^{-G_{\text{arr}}/k_BT}\big)\\
+    &=G_{\text{arr}}-k_BT\ln W
+    =G_{\text{arr}}-T\,S_{\text{conf}}.
+\end{align*}
+Substituting $G(N_X)$ into $\Delta G(N_X)$ cancels the reservoir terms, and
 \begin{equation}
     \boxed{\Delta G(N_X)=N_X\,E^f[X^q]-T\,S_{\text{conf}}.}
-\end{equation}
-
-\paragraph{Equilibrium defect concentration.}
-\textcolor{red}{Here, $\Delta g$ denotes the change of the Gibbs free energy
-per site,}
-\begin{equation*}
-    \Delta g(c)=\frac{\Delta G(N_X)}{N}=c\,E^f[X^q]-T\,s_{\text{conf}}(c).
-\end{equation*}
-Defects form and disappear freely, so the concentration $c$ adjusts until
-$\Delta g$ is a minimum. With the dilute $s_{\text{conf}}$, the condition
-for the minimum is
-\begin{align*}
-    \frac{\partial\Delta g}{\partial c}
-    &=E^f[X^q]-T\,\frac{\partial s_{\text{conf}}}{\partial c}\\
-    &=E^f[X^q]-k_BT\big[\ln g_X-\ln c-1+1\big]\\
-    &=E^f[X^q]-k_BT\big[\ln g_X-\ln c\big]=0,
-\end{align*}
-which gives the \textcolor{blue}{equilibrium concentration}
-\begin{equation}
-    \boxed{c_{\text{eq}}=g_X\,e^{-E^f[X^q]/k_BT}.}
 \end{equation}
